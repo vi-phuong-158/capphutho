@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Người Nước Ngoài | CA Phường Phú Thọ</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #C41E3A;
+            --secondary: #1F2937;
+            --bg-body: #F3F4F6;
+            --surface: white;
+            --radius-xl: 24px;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: var(--bg-body);
+            color: var(--secondary);
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            color: var(--secondary);
+            margin-right: 16px;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 20px;
+            padding: 30px 20px;
+            color: white;
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+        }
+
+        .hero-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 100px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-container {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .step-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #DBEAFE;
+            color: #2563EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .step-content strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .step-content span {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="module-header">
+        <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="page-title">Người Nước Ngoài</h1>
+    </div>
+
+    <!-- Hero Access -->
+    <div class="hero-card">
+        <i class="fa-solid fa-earth-americas hero-icon"></i>
+        <h2 style="margin: 0; font-size: 1.5rem;">Khai Báo Tạm Trú</h2>
+        <p style="opacity: 0.9; margin-top: 8px;">Dành cho cơ sở lưu trú có người nước ngoài</p>
+        <a href="https://xuatnhapcanh.gov.vn" class="hero-btn">Truy cập Hệ thống XNC <i
+                class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 6px;"></i></a>
+    </div>
+
+    <!-- Hướng dẫn -->
+    <div class="step-container">
+        <h3 style="margin-top: 0; margin-bottom: 20px;">Quy Trình 3 Bước</h3>
+        <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <strong>Đăng ký tài khoản</strong>
+                <span>Tạo tài khoản cho cơ sở lưu trú trên trang XNC</span>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <strong>Nhập thông tin khách</strong>
+                <span>Điền số hộ chiếu, quốc tịch, thời hạn visa</span>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <strong>Gửi hồ sơ</strong>
+                <span>Hoàn thành khai báo trong vòng 12 giờ</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

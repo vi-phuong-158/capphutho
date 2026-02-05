@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Cổng thông tin số hỗ trợ công dân - Công an phường Phú Thọ">
+    <meta name="theme-color" content="#FFFFFF">
+    <title>Cổng Thông Tin Số | Công An Phường Phú Thọ</title>
+
+    <!-- Fonts: Be Vietnam Pro (Modern Vietnamese Font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons: FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===== MODERN DESIGN SYSTEM 2026 ===== */
+        :root {
+            /* Palette: Modern Police Red & Yellow */
+            --primary: #C41E3A;
+            /* Đỏ Công an */
+            --primary-dark: #8B0000;
+            /* Đỏ đậm */
+            --accent: #FFD700;
+            /* Vàng Công an */
+            --primary-light: #FFF0F2;
+            /* Nền đỏ rất nhạt */
+            --secondary: #1F2937;
+            /* Xám đậm (Text chính) */
+            --text-gray: #6B7280;
+            /* Xám vừa (Text phụ) */
+            --bg-body: #F9FAFB;
+            /* Nền tổng thể sáng */
+            --surface: #FFFFFF;
+            /* Nền thẻ */
+
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(196, 30, 58, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(196, 30, 58, 0.05);
+
+            /* Spacing & Shapes */
+            --radius-xl: 24px;
+            /* Bo góc lớn kiểu iOS */
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --container-width: 800px;
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--secondary);
+            line-height: 1.5;
+            min-height: 100vh;
+            /* Background decoration (Subtle gradient mesh) */
+            background-image:
+                radial-gradient(at 0% 0%, rgba(196, 30, 58, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(255, 215, 0, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== LAYOUT CONTAINER ===== */
+        .app-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px 100px 20px;
+            /* Padding bottom for footer space */
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            padding-top: 30px;
+            padding-bottom: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease-out;
+            border-bottom: 3px solid var(--accent);
+            /* Viền vàng điểm nhấn */
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(196, 30, 58, 0.03) 100%);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--surface);
+            padding: 6px 16px;
+            border-radius: 100px;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.15);
+            margin-bottom: 12px;
+            border: 1px solid var(--primary-light);
+        }
+
+        .brand-logo {
+            width: 28px;
+            height: 28px;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .header-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* ===== SEARCH BAR (New Feature) ===== */
+        .search-container {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.1);
+            border-color: rgba(196, 30, 58, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .search-icon {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-right: 12px;
+        }
+
+        .search-input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            padding: 8px 0;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--secondary);
+            outline: none;
+        }
+
+        /* ===== BENTO GRID ===== */
+        .grid-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* Mobile: 1 cột xếp chồng */
+            gap: 12px;
+        }
+
+        /* CARD STYLE */
+        .card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: auto;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        /* Hover Effect */
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 25px -5px rgba(196, 30, 58, 0.3);
+            /* filter: brightness(1.1); -- Tăng sáng nhẹ khi hover */
+        }
+
+        .card:active {
+            transform: scale(0.97);
+        }
+
+        /* Icon styling */
+        .card-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            /* Cách lề phải thay vì dưới */
+            margin-bottom: 0;
+            flex-shrink: 0;
+            /* Không bị co lại */
+            transition: all 0.3s ease;
+        }
+
+        .card-icon {
+            font-size: 1.3rem;
+            color: var(--accent);
+            /* Icon màu vàng */
+            transition: color 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            color: white;
+            /* Hover icon chuyển trắng */
+        }
+
+        .card:hover .card-icon-wrapper {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(-5deg);
+        }
+
+        /* Text styling */
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            /* Chữ trắng */
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            /* Chữ trắng mờ */
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        /* Removed specific featured styles as all cards are now uniform */
+
+        /* ===== FLOATING ACTION BUTTON (FAB) ===== */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .fab {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        .fab:active {
+            transform: scale(0.9);
+        }
+
+        /* Specific Colors */
+        .fab-phone {
+            background: var(--primary);
+        }
+
+        .fab-fb {
+            background: #1877F2;
+        }
+
+        .fab::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 70px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .fab:hover::after {
+            opacity: 1;
+        }
+
+        /* Animation */
+        .fab-phone::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            animation: ripple 2s infinite;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        .footer strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+                /* 3 cột trên máy tính */
+            }
+
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .card.featured {
+                grid-column: span 1;
+            }
+
+            /* Reset span on desktop if wanted, or keep it */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="brand-badge">
+                <!-- Fallback icon nếu không có logo.png -->
+                <img src="logo.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/921/921079.png'"
+                    alt="Logo" class="brand-logo">
+                <span class="brand-text">Công An Phường Phú Thọ</span>
+            </div>
+
+            <h1 class="header-title">Cổng Thông Tin Số</h1>
+            <p class="header-subtitle">Hỗ trợ Thủ tục hành chính & Dịch vụ công</p>
+        </header>
+
+        <!-- SEARCH -->
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" class="search-input"
+                placeholder="Bạn cần tìm thủ tục gì? (Ví dụ: Định danh, Hộ khẩu...)">
+        </div>
+
+        <!-- GRID CONTENT -->
+        <div class="grid-label">
+            <span>Dịch Vụ Trực Tuyến</span>
+            <span style="font-size: 0.7rem; background: #E5E7EB; padding: 2px 8px; border-radius: 10px;">24/7</span>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Module 1 -->
+            <a href="modules/cu-tru.html" class="card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-address-card card-icon"></i>
+                </div>
+                <div>
+                    <h3 class="card-title">Cư Trú & Định Danh</h3>
+                    <p class="card-desc">CCCD, VNeID, CT07, CT08</p>
+                </div>
+            </a>
+
+            <!-- Module 2 -->
+            <a href="modules/dang-ky-xe.html" class="card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-motorcycle card-icon"></i>
+                </div>
+                <div>
+                    <h3 class="card-title">Đăng Ký Xe</h3>
+                    <p class="card-desc">Cấp biển số, sang tên đổi chủ</p>
+                </div>
+            </a>
+
+            <!-- Module 3 -->
+            <a href="modules/vu-khi.html" class="card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-person-military-rifle card-icon"></i>
+                </div>
+                <div>
+                    <h3 class="card-title">Vũ Khí & Pháo</h3>
+                    <p class="card-desc">Vận động giao nộp, tố giác</p>
+                </div>
+            </a>
+
+            <!-- Module 4 -->
+            <a href="modules/an-ninh.html" class="card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-building-shield card-icon"></i>
+                </div>
+                <div>
+                    <h3 class="card-title">An Ninh Trật Tự</h3>
+                    <p class="card-desc">Ngành nghề kinh doanh, lưu trú</p>
+                </div>
+            </a>
+
+            <!-- Module 5 -->
+            <a href="modules/khieu-nai.html" class="card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-file-pen card-icon"></i>
+                </div>
+                <div>
+                    <h3 class="card-title">Khiếu Nại & Tố Cáo</h3>
+                    <p class="card-desc">Gửi đơn thư, phản ánh</p>
+                </div>
+            </a>
+
+            <!-- Module 6 -->
+            <a href="modules/nguoi-nuoc-ngoai.html" class="card featured">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-passport card-icon"></i>
+                </div>
+                <div>
+                    <h3 class="card-title">Người Nước Ngoài</h3>
+                    <p class="card-desc">Khai báo tạm trú, Visa, XNC</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- FOOTER INFO -->
+        <footer class="footer">
+            <p><strong>Công An Phường Phú Thọ</strong></p>
+            <p style="margin-top: 8px; font-size: 0.75rem; opacity: 0.6">© 2026 Bản quyền thuộc về Công an phường Phú
+                Thọ, tỉnh Phú Thọ</p>
+        </footer>
+    </div>
+
+    <!-- FLOATING BUTTONS -->
+    <div class="fab-container">
+        <a href="https://www.facebook.com/p/C%C3%B4ng-an-Ph%C6%B0%E1%BB%9Dng-Ph%C3%BA-Th%E1%BB%8D-61577893688093/"
+            target="_blank" class="fab fab-fb" data-tooltip="Fanpage">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="tel:02106288588" class="fab fab-phone" data-tooltip="Gọi Trực ban">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hiệu ứng khi scroll: Ẩn/Hiện thanh search để tiết kiệm diện tích
+            const searchBar = document.querySelector('.search-container');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.scrollY;
+                if (currentScroll > 50 && currentScroll > lastScroll) {
+                    // Kéo xuống -> Mờ đi chút
+                    searchBar.style.opacity = '0.6';
+                    searchBar.style.transform = 'scale(0.98)';
+                } else {
+                    // Kéo lên -> Hiện rõ
+                    searchBar.style.opacity = '1';
+                    searchBar.style.transform = 'scale(1)';
+                }
+                lastScroll = currentScroll;
+            });
+
+            // Touch effect cho mobile (Feedback khi chạm)
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('touchstart', function () {
+                    this.style.transform = 'scale(0.96)';
+                    this.style.background = '#F0F0F0';
+                }, { passive: true });
+
+                card.addEventListener('touchend', function () {
+                    this.style.transform = '';
+                    this.style.background = '';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

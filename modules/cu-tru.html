@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cư Trú & Định Danh | CA Phường Phú Thọ</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Shared Styles (Copied from Main Index) */
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #C41E3A;
+            --primary-dark: #8B0000;
+            --accent: #FFD700;
+            --secondary: #1F2937;
+            --text-gray: #6B7280;
+            --bg-body: #F9FAFB;
+            --surface: #FFFFFF;
+            --radius-xl: 20px;
+            --radius-lg: 14px;
+            --container-width: 800px;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: var(--bg-body);
+            color: var(--secondary);
+            margin: 0;
+            padding: 16px;
+            line-height: 1.5;
+        }
+
+        .app-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Module Header */
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .back-btn {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            color: var(--primary);
+            margin-right: 12px;
+        }
+
+        .page-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        /* Sections */
+        .section-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(196, 30, 58, 0.05);
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            opacity: 0.8;
+        }
+
+        /* Components */
+        .download-box {
+            background: #EEF2FF;
+            border: 1px solid #C7D2FE;
+            padding: 16px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .download-btn {
+            background: #4F46E5;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .sample-image {
+            background: #F9FAFB;
+            border: 2px dashed #D1D5DB;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px 0;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist input {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            margin-top: 3px;
+            accent-color: var(--primary);
+        }
+
+        .deep-link-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.2);
+            transition: transform 0.2s;
+            border: 1px solid var(--primary);
+        }
+
+        .deep-link-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="module-header">
+            <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+            <h1 class="page-title">Cư Trú & Định Danh</h1>
+        </div>
+
+        <!-- Content -->
+
+        <!-- Tải mẫu DC01 -->
+        <div class="section-card">
+            <h2 class="section-title"><i class="fa-solid fa-file-arrow-down"></i> Tải Biểu Mẫu</h2>
+            <div class="download-box">
+                <div>
+                    <strong>Mẫu DC01</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-gray);">Phiếu thu thập thông tin dân cư</div>
+                </div>
+                <a href="../mau-dc01.docx" download class="download-btn">Tải về</a>
+            </div>
+        </div>
+
+        <!-- Mẫu CT01 -->
+        <div class="section-card">
+            <h2 class="section-title"><i class="fa-solid fa-image"></i> Mẫu Tờ Khai CT01</h2>
+            <p style="margin-bottom: 12px; font-size: 0.9rem;">Mẫu điền sẵn cho trường hợp: <strong>Vợ về ở với
+                    chồng</strong></p>
+            <div class="sample-image">
+                <i class="fa-regular fa-image" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
+                [Ảnh mẫu CT01 thực tế sẽ hiển thị ở đây]
+            </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="section-card">
+            <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Danh Mục Hồ Sơ Thường Trú</h2>
+            <ul class="checklist">
+                <li><input type="checkbox"> <label>CCCD / CMND (Bản chính)</label></li>
+                <li><input type="checkbox"> <label>Tờ khai CT01 (Đã có ý kiến chủ hộ)</label></li>
+                <li><input type="checkbox"> <label>Giấy tờ chứng minh chỗ ở hợp pháp (Sổ đỏ)</label></li>
+                <li><input type="checkbox"> <label>Giấy tờ chứng minh quan hệ (Đăng ký kết hôn)</label></li>
+            </ul>
+        </div>
+
+        <!-- Deep Link -->
+        <a href="https://dichvucong.gov.vn" target="_blank" class="deep-link-btn">
+            Nộp Hồ Sơ Trực Tuyến <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 8px;"></i>
+        </a>
+    </div>
+</body>
+
+</html>

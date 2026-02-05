@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>An Ninh Trật Tự | CA Phường Phú Thọ</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #C41E3A;
+            --primary-dark: #8B0000;
+            --accent: #FFD700;
+            --secondary: #1F2937;
+            --bg-body: #F9FAFB;
+            --surface: white;
+            --radius-xl: 20px;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: var(--bg-body);
+            color: var(--secondary);
+            margin: 0;
+            padding: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .back-btn {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            color: var(--primary);
+            margin-right: 12px;
+        }
+
+        .page-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        .menu-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.15);
+            transition: transform 0.2s;
+            border: none;
+        }
+
+        .menu-card:active {
+            transform: scale(0.98);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .card-icon {
+            font-size: 1.4rem;
+            color: var(--accent);
+            /* Icon vàng */
+            width: 36px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: white;
+            /* Text trắng */
+        }
+
+        .action-link {
+            display: block;
+            background: #F3F4F6;
+            padding: 12px 14px;
+            border-radius: 12px;
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        .action-link.primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.2);
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #E5E7EB;
+            color: var(--secondary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="module-header">
+        <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="page-title">An Ninh Trật Tự</h1>
+    </div>
+
+    <!-- Thông Báo Lưu Trú -->
+    <div class="menu-card">
+        <div class="card-header">
+            <i class="fa-solid fa-bed card-icon"></i>
+            <div class="card-title">Thông Báo Lưu Trú ASM</div>
+        </div>
+        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 16px;">Dành cho cơ sở kinh doanh lưu
+            trú, khách sạn,
+            nhà nghỉ.</p>
+        <a href="https://asm.canhsat.vn" class="action-link primary">Truy cập Cổng ASM <i
+                class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+    </div>
+
+    <!-- Giấy phép ANTT -->
+    <div class="menu-card">
+        <div class="card-header">
+            <i class="fa-solid fa-file-contract card-icon"></i>
+            <div class="card-title">Hồ Sơ An Ninh Trật Tự</div>
+        </div>
+        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">Thủ tục cấp Giấy chứng nhận đủ điều kiện về ANTT cho
+            các ngành
+            nghề:</p>
+        <div class="tag-list">
+            <span class="tag">Karaoke</span>
+            <span class="tag">Cầm đồ</span>
+            <span class="tag">Massage</span>
+            <span class="tag">Gas</span>
+            <span class="tag">In ấn</span>
+        </div>
+        <a href="https://dichvucong.gov.vn" class="action-link">Xem hướng dẫn trên Cổng DVC</a>
+    </div>
+</body>
+
+</html>
