@@ -7,226 +7,196 @@
     <title>Cư Trú & Định Danh | CA Phường Phú Thọ</title>
 
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        /* Shared Styles (Copied from Main Index) */
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        :root {
-            --primary: #C41E3A;
-            --primary-dark: #8B0000;
-            --accent: #FFD700;
-            --secondary: #1F2937;
-            --text-gray: #6B7280;
-            --bg-body: #F9FAFB;
-            --surface: #FFFFFF;
-            --radius-xl: 20px;
-            --radius-lg: 14px;
-            --container-width: 800px;
-        }
-
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background: var(--bg-body);
-            color: var(--secondary);
-            margin: 0;
-            padding: 16px;
-            line-height: 1.5;
-        }
-
-        .app-container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding-bottom: 80px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Module Header */
-        .module-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--accent);
-        }
-
-        .back-btn {
-            width: 36px;
-            height: 36px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            color: var(--primary);
-            margin-right: 12px;
-        }
-
-        .page-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin: 0;
-        }
-
-        /* Sections */
-        .section-card {
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: 20px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(196, 30, 58, 0.05);
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            color: var(--primary);
-        }
-
-        .section-title i {
-            margin-right: 10px;
-            opacity: 0.8;
-        }
-
-        /* Components */
-        .download-box {
-            background: #EEF2FF;
-            border: 1px solid #C7D2FE;
-            padding: 16px;
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .download-btn {
-            background: #4F46E5;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .sample-image {
-            background: #F9FAFB;
-            border: 2px dashed #D1D5DB;
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            text-align: center;
-            color: var(--text-gray);
-        }
-
-        .checklist {
-            list-style: none;
-            padding: 0;
-        }
-
-        .checklist li {
-            padding: 12px 0;
-            border-bottom: 1px solid #E5E7EB;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .checklist li:last-child {
-            border-bottom: none;
-        }
-
-        .checklist input {
-            width: 20px;
-            height: 20px;
-            margin-right: 12px;
-            margin-top: 3px;
-            accent-color: var(--primary);
-        }
-
-        .deep-link-btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            text-align: center;
-            border-radius: var(--radius-lg);
-            font-weight: 700;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.2);
-            transition: transform 0.2s;
-            border: 1px solid var(--primary);
-        }
-
-        .deep-link-btn:active {
-            transform: scale(0.98);
-        }
-    </style>
+    <!-- DVC Style -->
+    <link rel="stylesheet" href="../styles/dvc-style.css">
 </head>
 
-<body>
-    <div class="app-container">
-        <!-- Header -->
-        <div class="module-header">
-            <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
-            <h1 class="page-title">Cư Trú & Định Danh</h1>
-        </div>
+<body class="dvc-page">
 
-        <!-- Content -->
-
-        <!-- Tải mẫu DC01 -->
-        <div class="section-card">
-            <h2 class="section-title"><i class="fa-solid fa-file-arrow-down"></i> Tải Biểu Mẫu</h2>
-            <div class="download-box">
-                <div>
-                    <strong>Mẫu DC01</strong>
-                    <div style="font-size: 0.8rem; color: var(--text-gray);">Phiếu thu thập thông tin dân cư</div>
-                </div>
-                <a href="../mau-dc01.docx" download class="download-btn">Tải về</a>
-            </div>
-        </div>
-
-        <!-- Mẫu CT01 -->
-        <div class="section-card">
-            <h2 class="section-title"><i class="fa-solid fa-image"></i> Mẫu Tờ Khai CT01</h2>
-            <p style="margin-bottom: 12px; font-size: 0.9rem;">Mẫu điền sẵn cho trường hợp: <strong>Vợ về ở với
-                    chồng</strong></p>
-            <div class="sample-image">
-                <i class="fa-regular fa-image" style="font-size: 2rem; margin-bottom: 10px;"></i><br>
-                [Ảnh mẫu CT01 thực tế sẽ hiển thị ở đây]
-            </div>
-        </div>
-
-        <!-- Checklist -->
-        <div class="section-card">
-            <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Danh Mục Hồ Sơ Thường Trú</h2>
-            <ul class="checklist">
-                <li><input type="checkbox"> <label>CCCD / CMND (Bản chính)</label></li>
-                <li><input type="checkbox"> <label>Tờ khai CT01 (Đã có ý kiến chủ hộ)</label></li>
-                <li><input type="checkbox"> <label>Giấy tờ chứng minh chỗ ở hợp pháp (Sổ đỏ)</label></li>
-                <li><input type="checkbox"> <label>Giấy tờ chứng minh quan hệ (Đăng ký kết hôn)</label></li>
-            </ul>
-        </div>
-
-        <!-- Deep Link -->
-        <a href="https://dichvucong.gov.vn" target="_blank" class="deep-link-btn">
-            Nộp Hồ Sơ Trực Tuyến <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 8px;"></i>
-        </a>
+    <!-- Header -->
+    <div class="dvc-header">
+        <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="header-title">Thủ Tục Cư Trú</div>
+        <i class="fa-solid fa-user-shield"></i>
     </div>
+
+    <div class="dvc-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <i class="fa-solid fa-house"></i> / Dịch vụ công / Đăng ký cư trú
+        </div>
+
+        <!-- MỚI: KHU VỰC TẢI MẪU & NỘP ONLINE CHUNG -->
+        <div class="section-block" style="background: #EFF6FF; border: 1px solid #BFDBFE; margin-bottom: 20px;">
+            <div class="block-title" style="color: #1E40AF;"><i class="fa-solid fa-star"></i> Tải Biểu Mẫu & Nộp Hồ Sơ
+            </div>
+
+            <div class="btn-group">
+                <a href="https://dichvucong.dancuquocgia.gov.vn" target="_blank" class="btn btn-primary"
+                    style="grid-column: span 2;">
+                    <i class="fa-solid fa-globe"></i> Nộp Hồ Sơ Trực Tuyến
+                </a>
+                <a href="../mau-ct01.doc" download class="btn btn-outline" style="background: white;">
+                    <i class="fa-solid fa-download"></i> Tải Mẫu CT01
+                </a>
+                <a href="../mau-dc01.docx" download class="btn btn-outline" style="background: white;">
+                    <i class="fa-solid fa-download"></i> Tải Mẫu DC01
+                </a>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 1: NHẬP KHẨU -->
+        <div class="proc-card active">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-house-user"></i></div>
+                    1. Đăng Ký Thường Trú
+                    <span class="badge badge-new">Phổ biến</span>
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div>
+                        <strong>Mẹo:</strong> Nếu công dân đã có tài khoản <strong>VNeID Mức 2</strong>, công dân nên
+                        làm Online
+                        tại nhà (Chọn nút Nộp Hồ Sơ bên trên).
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clipboard-check"></i> Giấy tờ cần chuẩn bị</div>
+                    <ul class="checklist">
+                        <li><strong>Thẻ CCCD gắn chip</strong> (Của tất cả người chuyển đến).</li>
+                        <li><strong>Tờ khai CT01</strong> (Tải mẫu ở mục trên cùng).
+                            <br><em style="font-size: 0.8rem; color: #666;">(Lưu ý: Nếu về ở với bố mẹ/vợ chồng, cần chữ
+                                ký chủ hộ vào mục "Ý kiến chủ hộ")</em>
+                        </li>
+                        <li><strong>Giấy tờ nhà ở</strong>:
+                            <br>- Có sổ đỏ: Mang bản chính đối chiếu.
+                            <br>- Về ở với người thân: Không cần sổ, chỉ cần chủ hộ ký CT01.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-money-bill-wave"></i> Lệ phí & Thời gian</div>
+                    <div style="font-size: 0.9rem;">
+                        <span class="badge badge-fee">Mới: 20.000đ</span>
+                        <span class="badge badge-fee">Sửa đổi: 10.000đ</span>
+                        <div style="margin-top: 6px;">Thời gian: <strong>07 ngày làm việc</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 2: TẠM TRÚ -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-suitcase"></i></div>
+                    2. Đăng Ký Tạm Trú
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clipboard-check"></i> Dành cho Sinh viên, Công nhân
+                    </div>
+                    <ul class="checklist">
+                        <li><strong>Thẻ CCCD</strong></li>
+                        <li><strong>Tờ khai CT01</strong> (Có ý kiến chủ trọ - Tải mẫu ở trên).</li>
+                        <li><strong>Hợp đồng thuê nhà</strong> (Bản photo).</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clock"></i> Thông tin xử lý</div>
+                    <ul class="checklist">
+                        <li>Thời gian: <strong>03 ngày làm việc</strong></li>
+                        <li>Lệ phí: <strong>15.000đ</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 3: LƯU TRÚ -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-bell"></i></div>
+                    3. Thông Báo Lưu Trú
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box tip-green">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <div>Thủ tục này <strong>không cần ra phường</strong>. Hãy chọn cách nhanh nhất bên dưới.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-list-ol"></i> 3 Cách thực hiện</div>
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text"><strong>Qua App VNeID:</strong> Mở app → Chọn "Thông báo lưu trú" →
+                                Quét QR hoặc nhập thông tin khách.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text"><strong>Qua Zalo CSKV:</strong> Chụp ảnh CCCD khách gửi cho Cảnh sát
+                                khu vực.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">3</div>
+                            <div class="step-text"><strong>Trực tiếp:</strong> Đến trụ sở Công an phường (24/7).</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 4: CT07 -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-file-invoice"></i></div>
+                    4. Xin Xác Nhận Cư Trú (CT07)
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-question-circle"></i> Mục đích sử dụng</div>
+                    <p style="font-size: 0.9rem; color: #4B5563; margin: 0 0 10px 0;">Thay thế cho Sổ hộ khẩu giấy cũ
+                        để: Xin việc, đi học, vay vốn ngân hàng, mua bán đất...</p>
+                    <ul class="checklist">
+                        <li><strong>Cách 1:</strong> Đăng nhập Cổng Dịch vụ công (Nút ở trên cùng) → Yêu cầu xác nhận →
+                            Nhận file PDF.
+                        </li>
+                        <li><strong>Cách 2:</strong> Ra Công an phường → Đọc số CCCD → Cán bộ in và đóng dấu.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Dữ liệu được cập nhật mới nhất theo Luật Cư trú 2020 & Luật Căn cước 2023.
+        </div>
+    </div>
+
+    <script>
+        function toggleCard(header) {
+            const card = header.parentElement;
+            card.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>

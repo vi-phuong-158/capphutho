@@ -6,176 +6,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>An Ninh Trật Tự | CA Phường Phú Thọ</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        :root {
-            --primary: #C41E3A;
-            --primary-dark: #8B0000;
-            --accent: #FFD700;
-            --secondary: #1F2937;
-            --bg-body: #F9FAFB;
-            --surface: white;
-            --radius-xl: 20px;
-        }
-
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background: var(--bg-body);
-            color: var(--secondary);
-            margin: 0;
-            padding: 16px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .module-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--accent);
-        }
-
-        .back-btn {
-            width: 36px;
-            height: 36px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            color: var(--primary);
-            margin-right: 12px;
-        }
-
-        .page-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin: 0;
-        }
-
-        .menu-card {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.15);
-            transition: transform 0.2s;
-            border: none;
-        }
-
-        .menu-card:active {
-            transform: scale(0.98);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .card-icon {
-            font-size: 1.4rem;
-            color: var(--accent);
-            /* Icon vàng */
-            width: 36px;
-        }
-
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: white;
-            /* Text trắng */
-        }
-
-        .action-link {
-            display: block;
-            background: #F3F4F6;
-            padding: 12px 14px;
-            border-radius: 12px;
-            margin-top: 10px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--secondary);
-            text-align: center;
-        }
-
-        .action-link.primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.2);
-        }
-
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .tag {
-            background: #E5E7EB;
-            color: var(--secondary);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-    </style>
+    <!-- DVC Style -->
+    <link rel="stylesheet" href="../styles/dvc-style.css">
 </head>
 
-<body>
-    <div class="module-header">
+<body class="dvc-page">
+
+    <!-- Header -->
+    <div class="dvc-header">
         <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
-        <h1 class="page-title">An Ninh Trật Tự</h1>
+        <div class="header-title">An Ninh Trật Tự</div>
+        <i class="fa-solid fa-building-shield"></i>
     </div>
 
-    <!-- Thông Báo Lưu Trú -->
-    <div class="menu-card">
-        <div class="card-header">
-            <i class="fa-solid fa-bed card-icon"></i>
-            <div class="card-title">Thông Báo Lưu Trú ASM</div>
+    <div class="dvc-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <i class="fa-solid fa-house"></i> / Dịch vụ công / Ngành nghề kinh doanh
         </div>
-        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 16px;">Dành cho cơ sở kinh doanh lưu
-            trú, khách sạn,
-            nhà nghỉ.</p>
-        <a href="https://asm.canhsat.vn" class="action-link primary">Truy cập Cổng ASM <i
-                class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i></a>
+
+        <!-- THỦ TỤC 1: TRA CỨU NGÀNH NGHỀ -->
+        <div class="proc-card active">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    1. Cửa Hàng Tôi Có Cần Xin Giấy?
+                    <span class="badge badge-new">Quan trọng</span>
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <div>
+                        <strong>Quy định:</strong> Các ngành nghề sau đây <strong>BẮT BUỘC</strong> phải có Giấy chứng
+                        nhận đủ điều kiện về ANTT mới được hoạt động.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-store"></i> Danh sách phổ biến tại Phường</div>
+                    <ul class="checklist">
+                        <li><strong>Lưu trú:</strong> Nhà nghỉ, Khách sạn, Homestay, Nhà cho người nước ngoài thuê.</li>
+                        <li><strong>Dịch vụ in ấn:</strong> Photocopy màu, in xuất bản phẩm.</li>
+                        <li><strong>Dịch vụ cầm đồ:</strong> Cầm cố tài sản, cho vay.</li>
+                        <li><strong>Gas, Khí đốt:</strong> Cửa hàng bán lẻ gas.</li>
+                        <li><strong>Karaoke, Vũ trường:</strong> Kinh doanh dịch vụ hát.</li>
+                        <li><strong>Xoa bóp (Massage):</strong> (Trừ cơ sở của người mù/y học cổ truyền).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 2: CẤP MỚI GIẤY CHỨNG NHẬN -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    2. Thủ Tục Xin Cấp Mới
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box" style="background: #FEF3C7; border-color: #F59E0B; color: #92400E;">
+                    <i class="fa-solid fa-fire-extinguisher"></i>
+                    <div>
+                        <strong>Mẹo:</strong> Bác phải làm xong thủ tục <strong>Phòng cháy chữa cháy (PCCC)</strong>
+                        trước thì mới xin được giấy An ninh trật tự này nhé!
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clipboard-check"></i> Hồ sơ cần chuẩn bị</div>
+                    <ul class="checklist">
+                        <li><strong>Đơn đề nghị cấp giấy</strong> (Mẫu số 03).</li>
+                        <li><strong>Giấy phép kinh doanh</strong> (Bản sao công chứng).</li>
+                        <li><strong>Giấy tờ PCCC:</strong> Biên bản kiểm tra an toàn PCCC hoặc Văn bản nghiệm thu.</li>
+                        <li><strong>Lý lịch tư pháp</strong> của người đứng đầu (Bản khai Mẫu 02).</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clock"></i> Thời gian & Nơi nộp</div>
+                    <ul class="checklist">
+                        <li><strong>Nơi nộp:</strong> Công an Phường (Đối với hộ kinh doanh cá thể, nhà nghỉ nhỏ...).
+                        </li>
+                        <li><strong>Thời gian:</strong> 05 ngày làm việc.</li>
+                        <li><strong>Lệ phí:</strong> 300.000đ.</li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <a href="#" class="btn btn-outline"><i class="fa-solid fa-download"></i> Tải Mẫu Đơn 03</a>
+                    <a href="https://dichvucong.bocongan.gov.vn" target="_blank" class="btn btn-primary"><i
+                            class="fa-solid fa-globe"></i> Nộp Trực Tuyến</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 3: MẤT GIẤY / ĐỔI GIẤY -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-rotate"></i></div>
+                    3. Bị Mất hoặc Thay Đổi Thông Tin
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="section-block">
+                    <div class="block-title">Các trường hợp cần làm lại</div>
+                    <ul class="checklist">
+                        <li>Bị mất, bị hư hỏng, rách nát.</li>
+                        <li>Thay đổi tên cơ sở, người đứng đầu.</li>
+                        <li>Thay đổi địa điểm kinh doanh.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>Thời hạn giải quyết cấp đổi/cấp lại rất nhanh: Chỉ <strong>03 ngày làm việc</strong>.</div>
+                </div>
+
+                <div class="btn-group" style="grid-template-columns: 1fr;">
+                    <a href="tel:02106288588" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Gọi Hỏi Cán
+                        Bộ</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Cập nhật theo Nghị định 96/2016/NĐ-CP và Nghị định 56/2023/NĐ-CP.
+        </div>
     </div>
 
-    <!-- Giấy phép ANTT -->
-    <div class="menu-card">
-        <div class="card-header">
-            <i class="fa-solid fa-file-contract card-icon"></i>
-            <div class="card-title">Hồ Sơ An Ninh Trật Tự</div>
-        </div>
-        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">Thủ tục cấp Giấy chứng nhận đủ điều kiện về ANTT cho
-            các ngành
-            nghề:</p>
-        <div class="tag-list">
-            <span class="tag">Karaoke</span>
-            <span class="tag">Cầm đồ</span>
-            <span class="tag">Massage</span>
-            <span class="tag">Gas</span>
-            <span class="tag">In ấn</span>
-        </div>
-        <a href="https://dichvucong.gov.vn" class="action-link">Xem hướng dẫn trên Cổng DVC</a>
-    </div>
+    <script>
+        function toggleCard(header) {
+            const card = header.parentElement;
+            card.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>

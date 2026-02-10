@@ -17,6 +17,9 @@
     <!-- Icons: FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- PDF.js Library for PDF Preview -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
     <style>
         /* ===== MODERN DESIGN SYSTEM 2026 ===== */
         :root {
@@ -333,6 +336,7 @@
             padding: 4px 12px;
             border-radius: 6px;
             font-size: 0.75rem;
+            font-family: 'Be Vietnam Pro', sans-serif;
             white-space: nowrap;
             opacity: 0;
             pointer-events: none;
@@ -410,6 +414,442 @@
 
             /* Reset span on desktop if wanted, or keep it */
         }
+
+        /* ===== ELDER MODE (Chế độ Người cao tuổi) ===== */
+        .elder-mode-toggle {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 200;
+            background: var(--surface);
+            border: 2px solid var(--primary);
+            border-radius: 100px;
+            padding: 6px 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 10px rgba(196, 30, 58, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .elder-mode-toggle:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .elder-mode-toggle i {
+            font-size: 0.9rem;
+        }
+
+        /* Hide text on very small screens, show only icon */
+        @media (max-width: 400px) {
+            .elder-mode-toggle span {
+                display: none;
+            }
+
+            .elder-mode-toggle {
+                padding: 8px;
+                border-radius: 50%;
+            }
+        }
+
+        /* Elder Mode Active Styles */
+        html.elder-mode {
+            font-size: 24px !important;
+        }
+
+        html.elder-mode body {
+            background: #FFFFFF !important;
+            background-image: none !important;
+            color: #000000 !important;
+        }
+
+        html.elder-mode .header {
+            background: #FFFFFF !important;
+            border-bottom: 4px solid #C41E3A !important;
+        }
+
+        html.elder-mode .header-title {
+            color: #000000 !important;
+            font-size: 2rem !important;
+        }
+
+        html.elder-mode .header-subtitle {
+            color: #333333 !important;
+        }
+
+        html.elder-mode .card {
+            background: #000000 !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 0 #333 !important;
+        }
+
+        html.elder-mode .card-title,
+        html.elder-mode .card-desc {
+            color: #FFFFFF !important;
+        }
+
+        html.elder-mode .search-container {
+            background: #FFFFFF !important;
+            border: 3px solid #000000 !important;
+            box-shadow: none !important;
+        }
+
+        html.elder-mode .search-input::placeholder {
+            color: #333333 !important;
+        }
+
+        html.elder-mode .elder-mode-toggle {
+            background: #000000 !important;
+            color: #FFFFFF !important;
+            border-color: #000000 !important;
+        }
+
+        /* ===== THONG BAO GIO LAM VIEC ===== */
+        .status-widget {
+            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 4px 20px rgba(196, 30, 58, 0.3);
+            border: 2px solid #FFD700;
+        }
+
+        .status-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .status-icon i {
+            font-size: 1.3rem;
+            color: #FFD700;
+        }
+
+        .status-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .status-text small {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        /* ===== GOOGLE MAPS WIDGET ===== */
+        .maps-widget {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .maps-widget-header {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .maps-widget-header i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .maps-widget-header span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .maps-widget iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        /* ===== PDF PREVIEW MODAL ===== */
+        .preview-card {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
+        }
+
+        .preview-card .card-icon {
+            color: #8B0000 !important;
+        }
+
+        .preview-card .card-title,
+        .preview-card .card-desc {
+            color: #1A1A1A !important;
+        }
+
+
+
+        /* ===== SOS BUTTON ===== */
+        .fab-sos {
+            background: #DC2626 !important;
+            animation: sosGlow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sosGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 5px #DC2626, 0 0 20px rgba(220, 38, 38, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 10px #DC2626, 0 0 40px rgba(220, 38, 38, 0.6);
+            }
+        }
+
+        .fab-sos::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #DC2626;
+            animation: sosRipple 1.5s infinite;
+        }
+
+        @keyframes sosRipple {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        /* ===== CHAT CSKV BUTTON ===== */
+        .fab-zalo {
+            background: #0068FF !important;
+        }
+
+        .fab-zalo::after {
+            content: 'Chat CSKV';
+            position: absolute;
+            right: 70px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .fab-zalo:hover::after {
+            opacity: 1;
+        }
+
+        /* ===== FAB TOGGLE BUTTON ===== */
+        .fab-toggle {
+            background: #6B7280 !important;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .fab-toggle:hover {
+            background: #4B5563 !important;
+        }
+
+        .fab-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .fab-container.collapsed .fab-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Collapse animation for fab items */
+        .fab-item {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .fab-container.collapsed .fab-item {
+            opacity: 0;
+            transform: scale(0);
+            pointer-events: none;
+            height: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== GUIDE STEPS SECTION ===== */
+        .guide-section {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .guide-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-title i {
+            color: var(--primary);
+        }
+
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .guide-steps {
+                flex-direction: row;
+                gap: 16px;
+            }
+        }
+
+        .guide-step {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #FFF 100%);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .step-info h4 {
+            margin: 0 0 4px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .step-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-title i {
+            color: var(--accent);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 14px 0;
+            text-align: left;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-question i {
+            color: var(--primary);
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding-bottom: 14px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
     </style>
 </head>
 
@@ -428,6 +868,35 @@
             <h1 class="header-title">Cổng Thông Tin Số</h1>
             <p class="header-subtitle">Hỗ trợ Thủ tục hành chính & Dịch vụ công</p>
         </header>
+
+        <!-- ELDER MODE TOGGLE -->
+        <button class="elder-mode-toggle" id="elderModeToggle" onclick="toggleElderMode()">
+            <i class="fa-solid fa-eye"></i>
+            <span>Chữ to / Dễ đọc</span>
+        </button>
+
+        <!-- THÔNG BÁO GIỜ GIẢI QUYẾT TTHC -->
+        <div class="status-widget">
+            <div class="status-icon">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="status-text">
+                <span>Thông báo giờ giải quyết TTHC</span>
+                <small>Thứ 2 - Thứ 7 | Sáng: 7h30-11h30 | Chiều: 13h00-16h30</small>
+            </div>
+        </div>
+
+        <!-- GOOGLE MAPS WIDGET -->
+        <div class="maps-widget">
+            <div class="maps-widget-header">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Vị trí Công an Phường Phú Thọ</span>
+            </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d236.4!2d105.2285!3d21.3932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313524d4e0e9d0f1%3A0x1234567890abcdef!2zQ8O0bmcgYW4gUGjGsOG7nW5nIFBow7ogVGjhu40!5e0!3m2!1svi!2s!4v1234567890"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
 
         <!-- SEARCH -->
         <div class="search-container">
@@ -508,6 +977,67 @@
                     <p class="card-desc">Khai báo tạm trú, Visa, XNC</p>
                 </div>
             </a>
+
+
+        </div>
+
+        <!-- FAQ SECTION -->
+        <div class="faq-section">
+            <h3 class="faq-title"><i class="fa-solid fa-circle-question"></i> Câu Hỏi Thường Gặp</h3>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Thời gian làm việc của Công an Phường?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Thứ 2 đến Thứ 7. Buổi sáng: 7h30 - 11h30. Buổi chiều: 13h00 - 16h30. Chủ nhật nghỉ.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Cần mang theo gì khi đến làm thủ tục?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>CCCD/CMND gốc, bản photo hồ sơ liên quan (nếu có), mẫu đơn đã điền sẵn để tiết kiệm thời gian.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Có thể nộp hồ sơ online được không?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Một số thủ tục hỗ trợ nộp online qua Cổng Dịch vụ công Quốc gia (dichvucong.gov.vn) hoặc qua app
+                        VNeID.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Làm CCCD mất bao lâu?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Cấp mới: 7-10 ngày làm việc. Cấp lại do mất/hỏng: 7-10 ngày. Trường hợp cấp khẩn có thể nhanh
+                        hơn.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Khai báo tạm trú người nước ngoài như thế nào?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Cơ sở lưu trú khai báo qua website <strong>phutho.xuatnhapcanh.gov.vn</strong> trong vòng 12 giờ
+                        kể từ khi khách nhận phòng.</p>
+                </div>
+            </div>
         </div>
 
         <!-- FOOTER INFO -->
@@ -518,52 +1048,109 @@
         </footer>
     </div>
 
+
+
     <!-- FLOATING BUTTONS -->
-    <div class="fab-container">
+    <div class="fab-container" id="fabContainer">
+        <!-- Toggle Button -->
+        <button class="fab fab-toggle" id="fabToggle" onclick="toggleFabMenu()" data-tooltip="Thu gọn">
+            <i class="fa-solid fa-chevron-down" id="fabToggleIcon"></i>
+        </button>
+        <!-- Chat CSKV (Zalo) -->
+        <a href="#" class="fab fab-zalo fab-item" data-tooltip="Chat với CSKV"
+            onclick="alert('Đang cập nhật link Zalo OA. Vui lòng liên hệ số hotline!'); return false;">
+            <i class="fa-solid fa-comments"></i>
+        </a>
+        <!-- Facebook -->
         <a href="https://www.facebook.com/p/C%C3%B4ng-an-Ph%C6%B0%E1%BB%9Dng-Ph%C3%BA-Th%E1%BB%8D-61577893688093/"
-            target="_blank" class="fab fab-fb" data-tooltip="Fanpage">
+            target="_blank" class="fab fab-fb fab-item" data-tooltip="Fanpage">
             <i class="fa-brands fa-facebook-f"></i>
         </a>
-        <a href="tel:02106288588" class="fab fab-phone" data-tooltip="Gọi Trực ban">
+        <!-- Phone -->
+        <a href="tel:02106288588" class="fab fab-phone fab-item" data-tooltip="Gọi Trực ban">
             <i class="fa-solid fa-phone"></i>
         </a>
     </div>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Hiệu ứng khi scroll: Ẩn/Hiện thanh search để tiết kiệm diện tích
-            const searchBar = document.querySelector('.search-container');
-            let lastScroll = 0;
+        // ===== ELDER MODE (Chế độ Người cao tuổi) =====
+        function toggleElderMode() {
+            const html = document.documentElement;
+            const isElderMode = html.classList.toggle('elder-mode');
+            localStorage.setItem('elderMode', isElderMode);
 
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.scrollY;
-                if (currentScroll > 50 && currentScroll > lastScroll) {
-                    // Kéo xuống -> Mờ đi chút
-                    searchBar.style.opacity = '0.6';
-                    searchBar.style.transform = 'scale(0.98)';
-                } else {
-                    // Kéo lên -> Hiện rõ
-                    searchBar.style.opacity = '1';
-                    searchBar.style.transform = 'scale(1)';
+            const toggleBtn = document.getElementById('elderModeToggle');
+            if (isElderMode) {
+                toggleBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i><span>Chế độ thường</span>';
+            } else {
+                toggleBtn.innerHTML = '<i class="fa-solid fa-eye"></i><span>Chữ to / Dễ đọc</span>';
+            }
+        }
+
+        // ===== FAB TOGGLE =====
+        function toggleFabMenu() {
+            const container = document.getElementById('fabContainer');
+            const toggle = document.getElementById('fabToggle');
+            container.classList.toggle('collapsed');
+
+            if (container.classList.contains('collapsed')) {
+                toggle.setAttribute('data-tooltip', 'Mở rộng');
+            } else {
+                toggle.setAttribute('data-tooltip', 'Thu gọn');
+            }
+        }
+
+        // ===== FAQ TOGGLE =====
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            faqItem.classList.toggle('open');
+        }
+
+        // Restore Elder Mode on page load
+        if (localStorage.getItem('elderMode') === 'true') {
+            document.documentElement.classList.add('elder-mode');
+            document.addEventListener('DOMContentLoaded', () => {
+                const toggleBtn = document.getElementById('elderModeToggle');
+                if (toggleBtn) {
+                    toggleBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i><span>Chế độ thường</span>';
                 }
-                lastScroll = currentScroll;
             });
+        }
 
-            // Touch effect cho mobile (Feedback khi chạm)
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                card.addEventListener('touchstart', function () {
-                    this.style.transform = 'scale(0.96)';
-                    this.style.background = '#F0F0F0';
-                }, { passive: true });
+        // ===== STATUS WIDGET =====
+        function updateOfficeStatus() {
+            const now = new Date();
+            const day = now.getDay(); // 0 = Sunday
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const timeInMinutes = hour * 60 + minute;
 
-                card.addEventListener('touchend', function () {
-                    this.style.transform = '';
-                    this.style.background = '';
-                });
-            });
-        });
+            const indicator = document.getElementById('statusIndicator');
+            const message = document.getElementById('statusMessage');
+
+            // Monday = 1, Saturday = 6 (Working days)
+            const isWorkingDay = day >= 1 && day <= 6;
+
+            // Morning: 7:30 (450min) - 11:30 (690min)
+            const isMorningHours = timeInMinutes >= 450 && timeInMinutes <= 690;
+            // Afternoon: 13:00 (780min) - 16:30 (990min)
+            const isAfternoonHours = timeInMinutes >= 780 && timeInMinutes <= 990;
+
+            if (isWorkingDay && (isMorningHours || isAfternoonHours)) {
+                indicator.className = 'status-indicator open';
+                message.textContent = 'Đang làm việc - Mời bà con đến!';
+            } else {
+                indicator.className = 'status-indicator closed';
+                if (!isWorkingDay) {
+                    message.textContent = 'Chủ nhật nghỉ - Vui lòng quay lại thứ 2';
+                } else {
+                    message.textContent = 'Hết giờ hành chính - Vui lòng quay lại sau';
+                }
+            }
+        }
+
+
     </script>
 </body>
 

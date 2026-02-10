@@ -6,170 +6,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Người Nước Ngoài | CA Phường Phú Thọ</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        :root {
-            --primary: #C41E3A;
-            --secondary: #1F2937;
-            --bg-body: #F3F4F6;
-            --surface: white;
-            --radius-xl: 24px;
-        }
-
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background: var(--bg-body);
-            color: var(--secondary);
-            margin: 0;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .module-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .back-btn {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            color: var(--secondary);
-            margin-right: 16px;
-        }
-
-        .page-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin: 0;
-        }
-
-        .hero-card {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 20px;
-            padding: 30px 20px;
-            color: white;
-            text-align: center;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
-        }
-
-        .hero-icon {
-            font-size: 3rem;
-            margin-bottom: 16px;
-            display: block;
-            opacity: 0.9;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            font-weight: 700;
-            padding: 12px 24px;
-            border-radius: 100px;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .step-container {
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-        }
-
-        .step-item {
-            display: flex;
-            margin-bottom: 20px;
-        }
-
-        .step-number {
-            width: 32px;
-            height: 32px;
-            background: #DBEAFE;
-            color: #2563EB;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin-right: 16px;
-            flex-shrink: 0;
-        }
-
-        .step-content strong {
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .step-content span {
-            font-size: 0.9rem;
-            color: #6B7280;
-        }
-    </style>
+    <!-- DVC Style -->
+    <link rel="stylesheet" href="../styles/dvc-style.css">
 </head>
 
-<body>
-    <div class="module-header">
+<body class="dvc-page">
+
+    <!-- Header -->
+    <div class="dvc-header">
         <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
-        <h1 class="page-title">Người Nước Ngoài</h1>
+        <div class="header-title">Người Nước Ngoài & XNC</div>
+        <i class="fa-solid fa-passport"></i>
     </div>
 
-    <!-- Hero Access -->
-    <div class="hero-card">
-        <i class="fa-solid fa-earth-americas hero-icon"></i>
-        <h2 style="margin: 0; font-size: 1.5rem;">Khai Báo Tạm Trú</h2>
-        <p style="opacity: 0.9; margin-top: 8px;">Dành cho cơ sở lưu trú có người nước ngoài</p>
-        <a href="https://xuatnhapcanh.gov.vn" class="hero-btn">Truy cập Hệ thống XNC <i
-                class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 6px;"></i></a>
+    <div class="dvc-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <i class="fa-solid fa-house"></i> / Dịch vụ công / Xuất nhập cảnh
+        </div>
+
+        <!-- THỦ TỤC 1: KHAI BÁO TẠM TRÚ -->
+        <div class="proc-card active">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    1. Khai Báo Tạm Trú (Bắt Buộc)
+                    <span class="badge badge-new">Ưu tiên</span>
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box" style="background: #FEF2F2; border-color: #DC2626; color: #991B1B;">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div>
+                        <strong>Quy định:</strong> Phải khai báo <strong>trong 12 giờ</strong> khi khách đến. Chậm trễ
+                        có thể bị phạt 5-10 triệu đồng.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-laptop-file"></i> Thực hiện Online (Không cần ra
+                        Phường)</div>
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text">Truy cập trang Khai báo tạm trú Công an Tỉnh Phú Thọ.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text">Đăng nhập (hoặc tạo tài khoản mới).</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">3</div>
+                            <div class="step-text">Nhập thông tin Hộ chiếu khách -> Lưu lại.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group" style="grid-template-columns: 1fr;">
+                    <a href="https://phutho.xuatnhapcanh.gov.vn" target="_blank" class="btn btn-primary"><i
+                            class="fa-solid fa-globe"></i> Khai Báo Ngay</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 2: MẤT HỘ CHIẾU -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-id-card"></i></div>
+                    2. Trình Báo Mất Hộ Chiếu
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        Áp dụng cho cả Công dân Việt Nam và Người nước ngoài bị mất hộ chiếu tại địa phương.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clipboard-list"></i> Quy trình tại Công an Phường
+                    </div>
+                    <ul class="checklist">
+                        <li><strong>Bước 1:</strong> Đến trụ sở Công an Phường trình báo ngay khi phát hiện mất.</li>
+                        <li><strong>Bước 2:</strong> Điền "Đơn trình báo mất tài sản/hộ chiếu" (Mẫu TK05).</li>
+                        <li><strong>Bước 3:</strong> Cán bộ xác nhận, đóng dấu vào đơn.</li>
+                        <li><strong>Bước 4:</strong> Dùng đơn này để xin cấp lại hộ chiếu mới (Tại Phòng XNC Tỉnh hoặc
+                            Đại sứ quán).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 3: MẤT THẺ ABTC -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    3. Trình Báo Mất Thẻ Doanh Nhân APEC (ABTC)
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box" style="background: #FFFBEB; border-color: #F59E0B; color: #92400E;">
+                    <i class="fa-solid fa-bell"></i>
+                    <div>
+                        Việc trình báo giúp hủy giá trị sử dụng của thẻ bị mất, tránh bị kẻ xấu lợi dụng danh nghĩa
+                        doanh nhân.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-list-ol"></i> Các bước thực hiện</div>
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text"><strong>Chuẩn bị:</strong> Tờ khai trình báo mất thẻ ABTC (Mẫu X08) +
+                                CCCD/Hộ chiếu.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text"><strong>Nộp hồ sơ:</strong> Tại Công an Phường hoặc Cục Quản lý XNC.
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">3</div>
+                            <div class="step-text"><strong>Nhận kết quả:</strong> Thông báo về việc đã tiếp nhận đơn
+                                trình báo.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="#" class="btn btn-outline">Tải mẫu đơn X08</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 4: GIẤY THÔNG HÀNH -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-ticket"></i></div>
+                    4. Trình Báo Mất Giấy Thông Hành
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="section-block">
+                    <div class="block-title">Quy định</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">
+                        Người dân biên giới hoặc người du lịch sử dụng Giấy thông hành nếu bị mất phải trình báo ngay để
+                        cơ quan chức năng hủy giá trị.
+                    </p>
+                    <ul class="checklist">
+                        <li><strong>Thẩm quyền:</strong> Công an xã/phường nơi bị mất giấy.</li>
+                        <li><strong>Thời hạn:</strong> Trong vòng 48 giờ kể từ khi phát hiện mất.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 5: HƯỚNG DẪN CẤP THẺ TẠM TRÚ -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-address-card"></i></div>
+                    5. Hướng Dẫn Xin Cấp Thẻ Tạm Trú
+                    <span class="badge badge-info">Làm tại Tỉnh</span>
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        <strong>Lưu ý:</strong> Công an Phường <strong>KHÔNG</strong> cấp thẻ này. Đây là hướng dẫn để
+                        công dân chuẩn bị hồ sơ trước khi lên <strong>Phòng Quản lý XNC Công an Tỉnh Phú Thọ</strong>.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-folder-open"></i> Hồ sơ cơ bản cần có</div>
+                    <ul class="checklist">
+                        <li><strong>Văn bản đề nghị:</strong> Mẫu NA6 (Cơ quan/Doanh nghiệp bảo lãnh) hoặc NA7 (Cá nhân
+                            bảo lãnh).</li>
+                        <li><strong>Tờ khai thông tin:</strong> Mẫu NA8 (Có dán ảnh).</li>
+                        <li><strong>Hộ chiếu:</strong> Bản gốc và còn thời hạn.</li>
+                        <li><strong>Giấy tờ chứng minh:</strong> Giấy phép lao động, Giấy Đăng ký kết hôn, Giấy khai
+                            sinh... (Tùy trường hợp).</li>
+                        <li><strong>Xác nhận tạm trú:</strong> (Đã khai báo online ở Mục 1).</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-location-dot"></i> Nơi nộp hồ sơ</div>
+                    <p style="font-size: 0.9rem; margin: 0;">
+                        <strong>Phòng Quản lý Xuất nhập cảnh - Công an tỉnh Phú Thọ</strong><br>
+                        (Địa chỉ: Trụ sở Công an thành phố Việt Trì (cũ))
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Căn cứ Luật Nhập cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam.
+        </div>
     </div>
 
-    <!-- Hướng dẫn -->
-    <div class="step-container">
-        <h3 style="margin-top: 0; margin-bottom: 20px;">Quy Trình 3 Bước</h3>
-        <div class="step-item">
-            <div class="step-number">1</div>
-            <div class="step-content">
-                <strong>Đăng ký tài khoản</strong>
-                <span>Tạo tài khoản cho cơ sở lưu trú trên trang XNC</span>
-            </div>
-        </div>
-        <div class="step-item">
-            <div class="step-number">2</div>
-            <div class="step-content">
-                <strong>Nhập thông tin khách</strong>
-                <span>Điền số hộ chiếu, quốc tịch, thời hạn visa</span>
-            </div>
-        </div>
-        <div class="step-item">
-            <div class="step-number">3</div>
-            <div class="step-content">
-                <strong>Gửi hồ sơ</strong>
-                <span>Hoàn thành khai báo trong vòng 12 giờ</span>
-            </div>
-        </div>
-    </div>
+    <script>
+        function toggleCard(header) {
+            const card = header.parentElement;
+            card.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>

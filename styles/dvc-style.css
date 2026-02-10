@@ -1,0 +1,368 @@
+/* ===== DVC NATIONAL PORTAL STYLE ===== */
+/* Phong cách Cổng Dịch vụ công Quốc gia */
+
+:root {
+    --dvc-red: #B91C1C;
+    --dvc-red-light: #FEF2F2;
+    --dvc-yellow: #F59E0B;
+    --dvc-blue: #1D4ED8;
+    --dvc-green: #059669;
+    --text-main: #374151;
+    --text-light: #6B7280;
+    --bg-body: #F3F4F6;
+    --white: #FFFFFF;
+    --radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.dvc-page {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.5;
+    padding-bottom: 40px;
+}
+
+/* ===== HEADER ===== */
+.dvc-header {
+    background: var(--dvc-red);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    color: white;
+    font-size: 1.2rem;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.header-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex: 1;
+}
+
+/* ===== CONTAINER ===== */
+.dvc-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    background: white;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    display: inline-block;
+    border: 1px solid #E5E7EB;
+}
+
+/* ===== ACCORDION CARDS ===== */
+.proc-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.proc-header {
+    padding: 16px;
+    background: var(--white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+}
+
+.proc-card.active .proc-header {
+    border-bottom: 1px solid #E5E7EB;
+    background: var(--dvc-red-light);
+}
+
+.proc-title {
+    font-weight: 700;
+    color: var(--dvc-red);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.proc-icon {
+    width: 32px;
+    height: 32px;
+    background: #FEE2E2;
+    color: var(--dvc-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.chevron {
+    color: var(--text-light);
+    transition: transform 0.3s;
+}
+
+.proc-card.active .chevron {
+    transform: rotate(180deg);
+}
+
+/* ===== CARD CONTENT ===== */
+.proc-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background: #FAFAFA;
+}
+
+.proc-card.active .proc-content {
+    padding: 16px;
+    max-height: 2000px;
+    transition: max-height 0.5s ease-in;
+}
+
+/* ===== SECTION BLOCKS ===== */
+.section-block {
+    margin-bottom: 20px;
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #F3F4F6;
+}
+
+.block-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.block-title i {
+    color: var(--dvc-yellow);
+}
+
+/* ===== CHECKLIST ===== */
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checklist li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #4B5563;
+}
+
+.checklist li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--dvc-red);
+    font-size: 0.8rem;
+}
+
+/* ===== TIP BOXES ===== */
+.tip-box {
+    background: #EFF6FF;
+    border-left: 4px solid var(--dvc-blue);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: #1E40AF;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+}
+
+.tip-box.tip-green {
+    background: #ECFDF5;
+    border-color: var(--dvc-green);
+    color: #065F46;
+}
+
+.tip-box.tip-yellow {
+    background: #FFFBEB;
+    border-color: var(--dvc-yellow);
+    color: #92400E;
+}
+
+/* ===== STEPS TIMELINE ===== */
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 10px;
+}
+
+.step-item {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 16px;
+    position: relative;
+}
+
+.step-item:last-child {
+    padding-bottom: 0;
+}
+
+.step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 24px;
+    bottom: 0;
+    width: 2px;
+    background: #E5E7EB;
+}
+
+.step-num {
+    width: 24px;
+    height: 24px;
+    background: var(--dvc-red);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.step-text {
+    font-size: 0.9rem;
+}
+
+/* ===== BUTTONS ===== */
+.btn-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.btn {
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: var(--dvc-red);
+    color: white;
+    border: 1px solid var(--dvc-red);
+    box-shadow: 0 2px 5px rgba(185, 28, 28, 0.3);
+}
+
+.btn-primary:hover {
+    background: #991B1B;
+}
+
+.btn-outline {
+    background: white;
+    color: var(--dvc-red);
+    border: 1px solid var(--dvc-red);
+}
+
+.btn-outline:hover {
+    background: var(--dvc-red-light);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ===== BADGES ===== */
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-left: 8px;
+}
+
+.badge-new {
+    background: #DC2626;
+    color: white;
+}
+
+.badge-fee {
+    background: #FEF3C7;
+    color: #D97706;
+    border: 1px solid #FCD34D;
+}
+
+.badge-info {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+/* ===== FOOTER NOTE ===== */
+.footer-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .btn-group {
+        grid-template-columns: 1fr;
+    }
+
+    .proc-title {
+        font-size: 0.9rem;
+    }
+
+    .badge {
+        display: block;
+        margin: 6px 0 0 42px;
+    }
+}

@@ -6,189 +6,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Khiếu Nại & Tố Cáo | CA Phường Phú Thọ</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        :root {
-            --primary: #C41E3A;
-            --primary-dark: #8B0000;
-            --accent: #FFD700;
-            --secondary: #1F2937;
-            --text-gray: #6B7280;
-            --bg-body: #F9FAFB;
-            --surface: white;
-            --radius-xl: 20px;
-        }
-
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background: var(--bg-body);
-            color: var(--secondary);
-            margin: 0;
-            padding: 16px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .module-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .back-btn {
-            width: 36px;
-            height: 36px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            color: var(--primary);
-            margin-right: 12px;
-        }
-
-        .page-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin: 0;
-        }
-
-        .hotline-card {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 24px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(196, 30, 58, 0.25);
-            margin-bottom: 20px;
-            animation: pulse-shadow 2s infinite;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hotline-number {
-            font-size: 2rem;
-            font-weight: 900;
-            display: block;
-            margin: 8px 0;
-            letter-spacing: 1px;
-            color: var(--accent);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .hotline-label {
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
-
-        .form-grid {
-            display: grid;
-            gap: 16px;
-        }
-
-        .form-item {
-            background: white;
-            padding: 20px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-        }
-
-        .form-icon {
-            width: 48px;
-            height: 48px;
-            background: #F3F4F6;
-            color: var(--secondary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-right: 16px;
-        }
-
-        .form-text strong {
-            display: block;
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-
-        .form-text span {
-            font-size: 0.85rem;
-            color: #6B7280;
-        }
-
-        @keyframes pulse-shadow {
-            0% {
-                box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
-            }
-
-            50% {
-                box-shadow: 0 10px 40px rgba(196, 30, 58, 0.5);
-            }
-
-            100% {
-                box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
-            }
-        }
-    </style>
+    <!-- DVC Style -->
+    <link rel="stylesheet" href="../styles/dvc-style.css">
 </head>
 
-<body>
-    <div class="module-header">
+<body class="dvc-page">
+
+    <!-- Header -->
+    <div class="dvc-header">
         <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
-        <h1 class="page-title">Khiếu Nại & Tố Cáo</h1>
+        <div class="header-title">Khiếu Nại & Tố Cáo</div>
+        <i class="fa-solid fa-scale-balanced"></i>
     </div>
 
-    <div class="hotline-card">
-        <div class="hotline-label">Trực Ban Công An Phường</div>
-        <a href="tel:02106288588" class="hotline-number">0210 6288588</a>
-        <div style="font-size: 0.85rem; opacity: 0.8;">Tiếp nhận tin báo tội phạm 24/7</div>
+    <div class="dvc-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <i class="fa-solid fa-house"></i> / Dịch vụ công / Khiếu nại - Tố cáo
+        </div>
+
+        <!-- THỦ TỤC 1: KHIẾU NẠI -->
+        <div class="proc-card active">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-file-circle-question"></i></div>
+                    1. Khiếu Nại Quyết Định Hành Chính
+                    <span class="badge badge-new">Phổ biến</span>
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        <strong>Khi nào dùng?</strong> Khi công dân <strong>không đồng ý</strong> với quyết định xử phạt
+                        (VD:
+                        Phạt giao thông, phạt hành chính...) hoặc hành vi của cán bộ Công an đối với <strong>bản thân
+                            mình</strong>.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clipboard-list"></i> Hồ sơ cần gửi</div>
+                    <ul class="checklist">
+                        <li><strong>Đơn khiếu nại:</strong> Ghi rõ ngày tháng, họ tên, địa chỉ và lý do không đồng ý.
+                        </li>
+                        <li><strong>Bằng chứng:</strong> Hình ảnh, video, giấy tờ chứng minh quyết định đó là sai.</li>
+                        <li><strong>Giấy tờ tùy thân:</strong> Bản sao CCCD của người khiếu nại.</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-user-shield"></i> Gửi cho ai?</div>
+                    <p style="font-size: 0.9rem; margin: 0;">Gửi cho <strong>Trưởng Công an Phường</strong> (Nếu quyết
+                        định do Công an Phường ra).<br>Trong vòng 10 ngày sẽ có thông báo thụ lý.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 2: TỐ CÁO -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-gavel"></i></div>
+                    2. Tố Cáo Hành Vi Vi Phạm
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box" style="background: #FEF2F2; border-color: #DC2626; color: #991B1B;">
+                    <i class="fa-solid fa-lock"></i>
+                    <div>
+                        <strong>Bảo mật danh tính:</strong> Thông tin người tố cáo được giữ <strong>bí mật tuyệt
+                            đối</strong> theo Luật Tố cáo. Người dân yên tâm không bị lộ danh tính.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title">Khi nào dùng?</div>
+                    <p style="font-size: 0.9rem; margin: 0 0 10px 0;">Khi công dân phát hiện cán bộ, chiến sĩ có hành
+                        vi:
+                        Nhận hối lộ, sách nhiễu, gây phiền hà, vi phạm pháp luật...</p>
+
+                    <div class="block-title"><i class="fa-solid fa-paper-plane"></i> Cách thức tố cáo</div>
+                    <ul class="checklist">
+                        <li><strong>Gửi đơn:</strong> Bỏ vào Hòm thư góp ý tại trụ sở hoặc gửi bưu điện.</li>
+                        <li><strong>Trực tiếp:</strong> Đến phòng Tiếp dân gặp Lãnh đạo Công an phường.</li>
+                        <li><strong>Nội dung:</strong> Phải ghi rõ họ tên người tố cáo (Đơn nặc danh thường khó được
+                            giải quyết trừ khi có bằng chứng rất rõ ràng).</li>
+                    </ul>
+                </div>
+
+                <div class="btn-group" style="grid-template-columns: 1fr;">
+                    <a href="tel:02106288588" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Gọi Đường Dây
+                        Nóng</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 3: PHẢN ÁNH / GÓP Ý -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-comments"></i></div>
+                    3. Góp Ý (Thái độ phục vụ)
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box" style="background: #ECFDF5; border-color: #059669; color: #065F46;">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <div>
+                        Dành cho các vấn đề nhẹ nhàng hơn như: Thủ tục chậm, cán bộ hướng dẫn chưa kỹ, thái độ chưa niềm
+                        nở...
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title">Kênh tiếp nhận nhanh</div>
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text"><strong>Trực tiếp:</strong> Góp ý ngay với trực ban.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text"><strong>Qua Zalo:</strong> Nhắn tin cho trang Zalo OA của Công an
+                                Phường.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group" style="grid-template-columns: 1fr;">
+                    <a href="https://www.facebook.com/488282367711287" target="_blank" class="btn btn-outline"><i
+                            class="fa-brands fa-facebook"></i> Góp ý qua Fanpage</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Căn cứ Luật Khiếu nại 2011, Luật Tố cáo 2018 và Thông tư 85/2020/TT-BCA.
+        </div>
     </div>
 
-    <h2 style="font-size: 1.1rem; margin-bottom: 16px; color: var(--secondary);">Mẫu Đơn Thông Dụng</h2>
-    <div class="form-grid">
-        <div class="form-item">
-            <div class="form-icon"><i class="fa-solid fa-file-shield"></i></div>
-            <div class="form-text">
-                <strong>Đơn Tố Giác Tội Phạm</strong>
-                <span>Dùng khi phát hiện hành vi vi phạm</span>
-            </div>
-        </div>
-        <div class="form-item">
-            <div class="form-icon"><i class="fa-solid fa-file-contract"></i></div>
-            <div class="form-text">
-                <strong>Đơn Khiếu Nại</strong>
-                <span>Khiếu nại quyết định hành chính</span>
-            </div>
-        </div>
-        <div class="form-item">
-            <div class="form-icon"><i class="fa-solid fa-user-shield"></i></div>
-            <div class="form-text">
-                <strong>Phản Ánh Dân Nguyện</strong>
-                <span>Góp ý về thái độ phục vụ</span>
-            </div>
-        </div>
-    </div>
+    <script>
+        function toggleCard(header) {
+            const card = header.parentElement;
+            card.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>

@@ -6,219 +6,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Vũ Khí & Pháo | CA Phường Phú Thọ</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        :root {
-            --primary: #C41E3A;
-            --primary-dark: #8B0000;
-            --accent: #FFD700;
-            --secondary: #1F2937;
-            --bg-body: #F9FAFB;
-            --surface: white;
-            --radius-xl: 20px;
-        }
-
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background: var(--bg-body);
-            color: var(--secondary);
-            margin: 0;
-            padding: 16px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .module-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--accent);
-        }
-
-        .back-btn {
-            width: 36px;
-            height: 36px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            color: var(--primary);
-            margin-right: 12px;
-        }
-
-        .page-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin: 0;
-        }
-
-        .alert-card {
-            background: #FEF2F2;
-            border: 1px solid #FECACA;
-            color: #991B1B;
-            padding: 16px;
-            border-radius: var(--radius-xl);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-            box-shadow: 0 2px 8px rgba(153, 27, 27, 0.05);
-        }
-
-        .alert-icon {
-            font-size: 1.5rem;
-            margin-right: 16px;
-            margin-top: 2px;
-        }
-
-        .report-btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            background: #0068FF;
-            color: white;
-            text-align: center;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 104, 255, 0.2);
-            margin-bottom: 12px;
-        }
-
-        .hotline-btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            background: white;
-            color: var(--primary);
-            text-align: center;
-            border-radius: 14px;
-            font-weight: 700;
-            border: 2px solid var(--primary);
-        }
-
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .gallery-item {
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            border: 2px solid transparent;
-        }
-
-        .gallery-item.danger {
-            border-color: #EF4444;
-            background: #FEF2F2;
-        }
-
-        .gallery-item.safe {
-            border-color: #10B981;
-            background: #ECFDF5;
-        }
-
-        .item-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .item-name {
-            font-weight: 700;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .item-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-weight: 700;
-        }
-
-        .tag-danger {
-            background: #EF4444;
-            color: white;
-        }
-
-        .tag-safe {
-            background: #10B981;
-            color: white;
-        }
-    </style>
+    <!-- DVC Style -->
+    <link rel="stylesheet" href="../styles/dvc-style.css">
 </head>
 
-<body>
-    <div class="module-header">
+<body class="dvc-page">
+
+    <!-- Header -->
+    <div class="dvc-header">
         <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
-        <h1 class="page-title">Vũ Khí & Pháo</h1>
+        <div class="header-title">Vũ Khí & Pháo</div>
+        <i class="fa-solid fa-person-military-rifle"></i>
     </div>
 
-    <div class="alert-card">
-        <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
-        <div>
-            <strong>Cảnh báo an toàn</strong><br>
-            <span style="font-size: 0.9rem;">Tuyệt đối không tự ý vận chuyển vũ khí, vật liệu nổ nhặt được. Hãy báo tin
-                ngay cho cơ quan công an.</span>
+    <div class="dvc-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <i class="fa-solid fa-house"></i> / Dịch vụ công / Vũ khí & Pháo
+        </div>
+
+        <!-- THỦ TỤC 1: GIAO NỘP -->
+        <div class="proc-card active">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    1. Giao Nộp Vũ Khí (Tự Nguyện)
+                    <span class="badge badge-new">Ưu tiên</span>
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box" style="background: #ECFDF5; border-color: #059669; color: #065F46;">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <strong>Chính sách khoan hồng:</strong> Công dân tự giác giao nộp vũ khí, vật liệu nổ sẽ
+                        <strong>không bị xử lý trách nhiệm</strong> và được hoan nghênh.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-triangle-exclamation"></i> Các loại cần giao nộp ngay
+                    </div>
+                    <ul class="checklist">
+                        <li><strong>Vũ khí thô sơ:</strong> Dao, kiếm, mã tấu, giáo, mác... (tự chế hoặc có sẵn).</li>
+                        <li><strong>Vũ khí tự chế:</strong> Súng cồn, súng bắn bi, súng hơi...</li>
+                        <li><strong>Công cụ hỗ trợ:</strong> Gậy cao su, bình xịt hơi cay, dùi cui điện... (nhặt được
+                            hoặc mua trôi nổi).</li>
+                        <li><strong>Pháo:</strong> Các loại pháo nổ, pháo bi (trừ pháo hoa Bộ Quốc phòng).</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-person-walking-arrow-right"></i> Cách thức giao nộp
+                    </div>
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text"><strong>Mang đến trụ sở:</strong> Đem trực tiếp đến Công an phường
+                                (24/7). Sẽ có cán bộ tiếp nhận kín đáo.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text"><strong>Gọi điện (Nếu nguy hiểm):</strong> Nếu là bom, mìn, đạn dược
+                                cũ → <strong>Tuyệt đối không tự ý di chuyển</strong>. Hãy gọi ngay cho Công an phường để
+                                cán bộ xuống thu gom.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group" style="grid-template-columns: 1fr;">
+                    <a href="tel:02106288588" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Gọi Trực Ban Thu
+                        Gom</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 2: KHAI BÁO -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-scroll"></i></div>
+                    2. Khai Báo Vũ Khí (Đồ Gia Bảo)
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="tip-box">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        <strong>Ai cần làm?</strong> Cá nhân sở hữu gươm, giáo, mác... là hiện vật trưng bày, đồ gia bảo
+                        (đồ thờ cúng, di vật ông cha để lại) phải khai báo để được pháp luật bảo vệ.
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clipboard-list"></i> Hồ sơ & Thủ tục</div>
+                    <ul class="checklist">
+                        <li><strong>Bản kê khai:</strong> Kê khai số lượng, chủng loại, nguồn gốc (VD: Đồ ông nội để
+                            lại).</li>
+                        <li><strong>Ảnh chụp:</strong> Chụp ảnh rõ nét hiện vật.</li>
+                        <li><strong>Nơi nộp:</strong> Nộp hồ sơ trực tiếp tại Công an phường hoặc qua Cổng dịch vụ công.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-check-to-slot"></i> Kết quả</div>
+                    <p style="font-size: 0.9rem; margin: 0;">Sau khi kiểm tra, Công an sẽ cấp <strong>Giấy xác nhận đăng
+                            ký</strong>. Việc sở hữu này là hợp pháp.</p>
+                </div>
+
+                <div class="btn-group" style="grid-template-columns: 1fr;">
+                    <a href="https://dichvucong.bocongan.gov.vn" target="_blank" class="btn btn-primary"><i
+                            class="fa-solid fa-globe"></i> Khai Báo Online</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 3: TỐ GIÁC -->
+        <div class="proc-card">
+            <div class="proc-header" onclick="toggleCard(this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-user-secret"></i></div>
+                    3. Tố Giác Vi Phạm (Bảo Mật)
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="section-block">
+                    <div class="block-title">Hành vi cần tố giác</div>
+                    <ul class="checklist">
+                        <li>Đốt pháo nổ trái phép trong khu dân cư.</li>
+                        <li>Tàng trữ, buôn bán pháo lậu.</li>
+                        <li>Chế tạo súng cồn, vũ khí tự chế.</li>
+                        <li>Mang dao kiếm tụ tập gây rối.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box" style="background: #FEF2F2; border-color: #DC2626; color: #991B1B;">
+                    <i class="fa-solid fa-lock"></i>
+                    <div>Thông tin người tố giác được <strong>bảo mật tuyệt đối</strong>.</div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://www.facebook.com/488282367711287" target="_blank" class="btn btn-outline"><i
+                            class="fa-brands fa-facebook"></i> Nhắn tin Fanpage</a>
+                    <a href="tel:02106288588" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Gọi Ngay</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Căn cứ Luật Quản lý, sử dụng vũ khí, vật liệu nổ và công cụ hỗ trợ 2024.
         </div>
     </div>
 
-    <a href="https://zalo.me/0123456789" class="report-btn">
-        <i class="fa-solid fa-comment-dots"></i> Báo Tin Qua Zalo
-    </a>
-    <a href="tel:02106288588" class="hotline-btn">
-        <i class="fa-solid fa-phone"></i> Gọi Trực Ban: 0210 6288588
-    </a>
-
-    <h3 style="margin-top: 30px; margin-bottom: 0;">Phân Biệt Các Loại Pháo</h3>
-    <div class="gallery-grid">
-        <div class="gallery-item danger">
-            <span class="item-icon">💣</span>
-            <span class="item-name">Pháo Nổ</span>
-            <span class="item-tag tag-danger">Cấm</span>
-        </div>
-        <div class="gallery-item safe">
-            <span class="item-icon">🎆</span>
-            <span class="item-name">Pháo Hoa</span>
-            <span class="item-tag tag-safe">Được phép*</span>
-        </div>
-        <div class="gallery-item danger">
-            <span class="item-icon">🧨</span>
-            <span class="item-name">Pháo Đùng</span>
-            <span class="item-tag tag-danger">Cấm</span>
-        </div>
-        <div class="gallery-item danger">
-            <span class="item-icon">🔇</span>
-            <span class="item-name">Pháo Chế</span>
-            <span class="item-tag tag-danger">Cấm</span>
-        </div>
-    </div>
-    <p style="font-size: 0.8rem; color: var(--text-gray); margin-top: 10px; text-align: center;">* Pháo hoa không tiếng
-        nổ (Bộ Quốc phòng sản xuất)</p>
+    <script>
+        function toggleCard(header) {
+            const card = header.parentElement;
+            card.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>
