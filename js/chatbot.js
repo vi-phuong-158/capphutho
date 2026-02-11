@@ -179,4 +179,38 @@ class ChatbotController {
 // Init Chatbot when DOM Loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.chatbot = new ChatbotController();
+
+    // CONNECT HERO SEARCH TO CHATBOT
+    const heroInput = document.getElementById('heroSearchInput');
+    if (heroInput) {
+        heroInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = heroInput.value;
+                if (query && query.trim() !== '') {
+                    // 1. Open Chat if not open
+                    const chatWindow = document.getElementById('chatWindow');
+                    if (chatWindow && chatWindow.style.display !== 'flex') {
+                        if (typeof window.toggleChat === 'function') {
+                            window.toggleChat();
+                        } else {
+                            // Fallback if toggleChat not global yet (though it should be)
+                            chatWindow.style.display = 'flex';
+                            const launcher = document.querySelector('.chat-launcher');
+                            if (launcher) launcher.classList.add('active');
+                        }
+                    }
+
+                    // 2. Set Value & Trigger Search
+                    const chatInput = document.getElementById('chatSearchInput');
+                    if (chatInput) {
+                        chatInput.value = query;
+                        // Dispatch input event to trigger ChatbotController's listener
+                        chatInput.dispatchEvent(new Event('input'));
+                        // Focus for UX
+                        chatInput.focus();
+                    }
+                }
+            }
+        });
+    }
 });
