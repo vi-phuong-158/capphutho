@@ -58,7 +58,11 @@ class ChatbotController {
     addMessage(htmlContent, type = 'bot') {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${type}-message`;
-        msgDiv.innerHTML = htmlContent;
+        if (type === 'user') {
+            msgDiv.textContent = htmlContent;
+        } else {
+            msgDiv.innerHTML = htmlContent;
+        }
         this.elements.body.insertBefore(msgDiv, this.elements.optionContainer); // Chèn TRƯỚC options
         this.scrollToBottom();
     }
@@ -70,10 +74,22 @@ class ChatbotController {
     renderButton(text, iconClass, onClick, isBack = false) {
         const btn = document.createElement('button');
         btn.className = `option-btn ${isBack ? 'back-btn' : ''}`;
-        btn.innerHTML = `<i class="${iconClass}"></i> ${text}`;
+
+        const icon = document.createElement('i');
+        icon.className = iconClass;
+
+        btn.appendChild(icon);
+        btn.appendChild(document.createTextNode(' ' + text));
+
         btn.onclick = onClick;
         this.elements.optionContainer.appendChild(btn);
         this.scrollToBottom();
+    }
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     renderMainMenu() {
@@ -104,7 +120,8 @@ class ChatbotController {
     handleCategorySelect(category) {
         this.addMessage(category.text, 'user');
         this.showLoading(() => {
-            this.addMessage(`Đây là các câu hỏi về <b>${category.text}</b>:`, 'bot');
+            const safeText = this.escapeHtml(category.text);
+            this.addMessage(`Đây là các câu hỏi về <b>${safeText}</b>:`, 'bot');
             this.renderSubMenu(category.id);
         });
     }
