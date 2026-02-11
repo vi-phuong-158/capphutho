@@ -70,7 +70,9 @@ window.FaqSearchEngine = class FaqSearchEngine {
         const queryTokens = normalizedQuery.split(' ');
 
         // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        const results = [];
+
+        for (const item of this.index) {
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -78,17 +80,18 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (const token of queryTokens) {
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            if (score > 0) {
+                results.push({ ...item, score });
+            }
+        }
 
         // Lọc và sắp xếp
         return results
-            .filter(item => item.score > 0)
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
     }
