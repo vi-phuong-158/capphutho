@@ -1,0 +1,84 @@
+Dựa trên tài liệu mới **"H.-DINH-DANH-VA-XAC-THUC-DIEN-TU-2025.pdf"** về lĩnh vực **Định danh và Xác thực điện tử** (VNeID), dưới đây là 5 câu hỏi thường gặp chi tiết:
+
+### 1. Tôi muốn đăng ký tài khoản định danh điện tử mức độ 2 (VNeID mức 2) thì phải đến đâu? Tôi có tự làm ở nhà được không và cần mang theo giấy tờ gì?
+
+**Trả lời:**
+Để đăng ký tài khoản định danh điện tử mức độ 2, bạn **bắt buộc phải đến trực tiếp** cơ quan Công an, không thể tự làm trọn vẹn tại nhà.
+*   **Nơi thực hiện:** Công an xã, phường, thị trấn,.
+*   **Hồ sơ cần mang:**
+    1.  Thẻ Căn cước công dân gắn chip điện tử hoặc thẻ căn cước còn hiệu lực,.
+    2.  Cung cấp thông tin: Số thuê bao di động chính chủ, địa chỉ thư điện tử (email) và các thông tin khác nếu muốn tích hợp (giấy phép lái xe, bảo hiểm...),.
+*   **Quy trình:** Cán bộ sẽ thu nhận ảnh khuôn mặt, vân tay để xác thực với Cơ sở dữ liệu căn cước.
+
+### 2. Con tôi dưới 14 tuổi thì có được cấp tài khoản định danh điện tử mức độ 2 không? Thủ tục thực hiện như thế nào?
+
+**Trả lời:**
+**Được.** Công dân dưới 14 tuổi vẫn được cấp tài khoản định danh điện tử mức độ 2 nhưng phải thực hiện thông qua người đại diện/người giám hộ.
+*   **Cách thức:** Người đại diện (bố/mẹ) đưa trẻ cùng đến Công an xã, phường, thị trấn để làm thủ tục.
+*   **Lưu ý quan trọng về số điện thoại:** Người đại diện sử dụng **số thuê bao di động chính chủ của mình** để kê khai và đăng ký cấp tài khoản cho trẻ (người được đại diện),.
+
+### 3. Thời gian để được cấp tài khoản định danh điện tử mức độ 2 là bao lâu?
+
+**Trả lời:**
+Thời hạn giải quyết thủ tục này phụ thuộc vào tình trạng thẻ căn cước của bạn:
+*   **Trường hợp 1:** Nếu bạn đã có thẻ Căn cước công dân gắn chip hoặc thẻ căn cước còn hiệu lực: Thời gian không quá **03 ngày làm việc**.
+*   **Trường hợp 2:** Nếu bạn chưa có thẻ Căn cước gắn chip (CMND cũ) hoặc thẻ đã hết hạn: Thời gian không quá **07 ngày làm việc** (do phải thực hiện quy trình cấp thẻ căn cước song song).
+Kết quả sẽ được thông báo qua ứng dụng VNeID, tin nhắn SMS hoặc email,.
+
+### 4. Nếu tôi bị mất điện thoại và sợ lộ thông tin, tôi muốn "Khóa căn cước điện tử" thì phải làm sao? Có cần đợi công an duyệt không?
+
+**Trả lời:**
+Bạn có thể chủ động khóa căn cước điện tử ngay lập tức để bảo vệ thông tin:
+*   **Cách thức:** Bạn có thể yêu cầu khóa trực tiếp tại Công an xã, phường hoặc thực hiện ngay trên **Ứng dụng định danh quốc gia (VNeID)**,.
+*   **Thời gian xử lý:** Hệ thống sẽ ghi nhận, kiểm tra và thực hiện **khóa ngay lập tức** sau khi nhận được yêu cầu của công dân trên hệ thống (không phải chờ đợi xét duyệt lâu như trường hợp cơ quan tố tụng đề nghị),.
+
+### 5. Tôi chưa đổi sang Căn cước công dân gắn chip (đang dùng CMND 9 số hoặc 12 số cũ), vậy tôi có làm được tài khoản định danh mức 2 không?
+
+**Trả lời:**
+**Được.**
+Tuy nhiên, vì bạn chưa có dữ liệu trong hệ thống chip, bạn sẽ thực hiện thủ tục **cấp tài khoản định danh điện tử mức độ 2 cùng lúc với thủ tục cấp thẻ căn cước**.
+Cơ quan Công an sẽ tiến hành thu nhận hồ sơ cấp thẻ căn cước và hồ sơ định danh điện tử đồng thời cho bạn,.
+Tiếp tục với tài liệu về **Định danh và Xác thực điện tử**, dưới đây là 5 câu hỏi thường gặp tiếp theo, tập trung vào các thủ tục mở khóa, đăng ký cho tổ chức và các quy định về thời gian, chi phí:
+
+### 6. Tôi đã khóa "Căn cước điện tử" (trên ứng dụng VNeID), nay tôi muốn mở lại thì phải làm sao? Có cần đợi xét duyệt không?
+
+**Trả lời:**
+Để mở khóa căn cước điện tử, bạn có hai cách thực hiện:
+1.  **Cách thức:**
+    *   Đến trực tiếp Công an xã, phường, thị trấn.
+    *   Thực hiện ngay trên **Ứng dụng định danh quốc gia (VNeID)**,.
+2.  **Thời gian:** Khác với việc đăng ký tài khoản, việc mở khóa do công dân tự yêu cầu được xử lý **ngay lập tức**. Cơ quan quản lý có trách nhiệm ghi nhận, kiểm tra, xác thực và mở khóa ngay sau khi nhận được yêu cầu trên hệ thống,.
+
+### 7. Công ty/Tổ chức của tôi muốn đăng ký tài khoản định danh điện tử thì ai là người đi làm? Có thể làm online được không?
+
+**Trả lời:**
+Tổ chức, doanh nghiệp hoàn toàn có thể đăng ký tài khoản định danh điện tử.
+*   **Người thực hiện:** Phải là **người đại diện theo pháp luật**, người đứng đầu cơ quan/tổ chức hoặc người được ủy quyền,.
+*   **Cách thức:**
+    *   *Cách 1 (Online):* Người đại diện sử dụng tài khoản định danh mức độ 2 **của cá nhân mình** đăng nhập vào VNeID để gửi yêu cầu (sau khi được sự đồng ý của các đại diện khác nếu có),.
+    *   *Cách 2 (Trực tiếp):* Nộp hồ sơ tại Trung tâm dữ liệu quốc gia về dân cư (thuộc Cục Cảnh sát QLHC về TTXH).
+
+### 8. Thời gian để cấp tài khoản định danh điện tử cho một Tổ chức/Doanh nghiệp là bao lâu?
+
+**Trả lời:**
+Thời hạn giải quyết phụ thuộc vào việc thông tin của tổ chức đã có trong hệ thống dữ liệu quốc gia hay chưa:
+*   **Không quá 03 ngày làm việc:** Nếu thông tin cần xác thực về tổ chức **đã có** trong cơ sở dữ liệu quốc gia hoặc cơ sở dữ liệu chuyên ngành.
+*   **Không quá 15 ngày:** Nếu thông tin về tổ chức **chưa có** và cần phải tiến hành xác minh.
+
+### 9. Cơ quan chức năng (Tòa án, Viện kiểm sát...) có quyền yêu cầu khóa/mở khóa tài khoản định danh của công dân không? Quy trình công an xử lý việc này mất bao lâu?
+
+**Trả lời:**
+Cơ quan tiến hành tố tụng và các cơ quan có thẩm quyền khác **có quyền** gửi văn bản đề nghị khóa/mở khóa. Quy trình xử lý tại Công an xã như sau:
+1.  **Bước 1:** Công an xã nhận đề nghị. Trong vòng **01 ngày làm việc**, phải xem xét và chuyển đề nghị lên Cục Cảnh sát quản lý hành chính về trật tự xã hội (Bộ Công an),.
+2.  **Bước 2:** Trong vòng **02 ngày làm việc** tiếp theo, Thủ trưởng cơ quan cấp Bộ sẽ xem xét phê duyệt và thông báo kết quả,.
+Như vậy, tổng thời hạn giải quyết thủ tục này là **03 ngày làm việc**,.
+
+### 10. Tôi có phải mất phí khi thực hiện các thủ tục khóa, mở khóa hoặc đăng ký tài khoản định danh điện tử cho tổ chức không?
+
+**Trả lời:**
+**Không.**
+Theo quy định tại tài liệu này, tất cả các thủ tục sau đây đều **không thu phí, lệ phí**:
+*   Cấp tài khoản định danh điện tử mức 2 cho công dân.
+*   Khóa/Mở khóa tài khoản định danh điện tử,.
+*   Khóa/Mở khóa căn cước điện tử,.
+*   Cấp tài khoản định danh điện tử cho cơ quan, tổ chức.

@@ -1,0 +1,85 @@
+Dựa trên tài liệu mới **"G.-CCCD-xa-2025.pdf"** về lĩnh vực **Cấp, quản lý Căn cước** tại Công an cấp xã, tôi xin tổng hợp 10 câu hỏi thường gặp (FAQ) chi tiết và cập nhật nhất như sau:
+
+### 1. Tôi muốn làm Thẻ căn cước cho con tôi (dưới 14 tuổi) thì thủ tục như thế nào? Có bắt buộc phải đưa cháu đến công an xã không?
+
+**Trả lời:**
+Thủ tục cấp thẻ căn cước cho người dưới 14 tuổi được chia làm 2 trường hợp:
+*   **Trẻ dưới 06 tuổi:** Người đại diện hợp pháp thực hiện thủ tục hoàn toàn trên Cổng dịch vụ công hoặc Ứng dụng định danh quốc gia. **Không cần đưa trẻ đến** cơ quan công an và **không thu nhận** thông tin sinh trắc học (vân tay, mống mắt, ảnh khuôn mặt),,.
+*   **Trẻ từ 06 tuổi đến dưới 14 tuổi:** Người đại diện hợp pháp phải đưa trẻ đến trực tiếp cơ quan công an để thu nhận vân tay, chụp ảnh khuôn mặt và thu nhận ảnh mống mắt,,.
+*   **Thời hạn giải quyết:** Không quá 07 ngày làm việc,.
+
+### 2. Tôi bị mất Thẻ căn cước và muốn làm lại. Tôi có thể sử dụng lại ảnh và vân tay cũ để đỡ phải chụp lại không?
+
+**Trả lời:**
+**Được.**
+Theo quy định về thủ tục cấp lại thẻ căn cước (do bị mất hoặc hư hỏng):
+*   Cán bộ sẽ sử dụng thông tin về ảnh khuôn mặt, vân tay, mống mắt **đã được thu nhận lần gần nhất** và các thông tin hiện có trong Cơ sở dữ liệu quốc gia để cấp lại thẻ.
+*   Bạn có thể thực hiện thủ tục này trực tuyến trên Cổng dịch vụ công hoặc Ứng dụng định danh quốc gia mà không cần đến trực tiếp (trừ trường hợp muốn thay đổi ảnh hoặc thông tin khác),,.
+*   **Lệ phí cấp lại:** 70.000 đồng/thẻ,.
+
+### 3. Tôi phát hiện thông tin của mình trong Cơ sở dữ liệu quốc gia về dân cư bị sai (ví dụ: sai năm sinh, nơi sinh). Tôi muốn điều chỉnh thì mất bao lâu?
+
+**Trả lời:**
+*   **Nơi nộp:** Bạn có thể nộp hồ sơ trực tiếp tại Công an xã nơi cư trú hoặc nộp trực tuyến qua Cổng dịch vụ công/VNeID,,.
+*   **Thời hạn giải quyết:** Rất nhanh, chỉ trong **02 ngày làm việc** kể từ khi tiếp nhận hồ sơ đầy đủ (không tính thời gian chuyển hồ sơ nếu nộp khác tuyến),.
+*   **Lệ phí:** Thủ tục này chưa quy định thu lệ phí (miễn phí),.
+
+### 4. Tôi cần giấy xác nhận số Chứng minh nhân dân cũ (9 số) để giao dịch ngân hàng vì hiện tại tôi đã dùng Căn cước mới. Thủ tục này làm ở đâu và mất bao lâu?
+
+**Trả lời:**
+*   **Nơi làm:** Công an cấp xã nơi bạn cư trú hoặc nộp trực tuyến,.
+*   **Thời hạn:**
+    *   **03 ngày làm việc:** Nếu thông tin số CMND 9 số của bạn **đã có** trong Cơ sở dữ liệu quốc gia về dân cư,.
+    *   **07 ngày làm việc:** Nếu thông tin số CMND 9 số **chưa có** trong cơ sở dữ liệu (cần thời gian tra cứu, xác minh),.
+*   **Kết quả:** Giấy xác nhận số chứng minh nhân dân 09 số, số định danh cá nhân (Mẫu CC04),.
+
+### 5. Tôi muốn tích hợp Giấy phép lái xe và Bảo hiểm y tế vào Thẻ căn cước thì phải làm sao?
+
+**Trả lời:**
+Bạn có thể yêu cầu tích hợp thông tin vào Thẻ căn cước theo 2 cách:
+1.  **Thực hiện riêng:** Nộp hồ sơ tại Công an cấp xã hoặc qua Cổng dịch vụ công/VNeID để đề nghị tích hợp, cập nhật thông tin,,.
+2.  **Thực hiện cùng lúc cấp thẻ:** Khi đi làm thủ tục cấp/đổi/cấp lại thẻ căn cước, bạn yêu cầu tích hợp luôn thông tin,.
+*   **Điều kiện:** Thông tin đề nghị tích hợp phải được xác thực thành công qua các Cơ sở dữ liệu chuyên ngành (ví dụ: dữ liệu của ngành Giao thông, Bảo hiểm),,.
+*   **Thời hạn:** 07 ngày làm việc,.
+
+### 6. Tôi nghe nói hiện nay có thể thu thập ADN và giọng nói vào Cơ sở dữ liệu căn cước. Điều này có đúng không và thủ tục thế nào?
+
+**Trả lời:**
+**Đúng.** Người dân có nhu cầu có thể đề nghị thu thập thông tin sinh trắc học ADN và giọng nói:
+*   **Đối với ADN:** Bạn phải cung cấp giấy tờ, tài liệu có giá trị pháp lý xác thực kết quả xét nghiệm, phân tích, lưu trữ ADN của các cơ quan, tổ chức y tế/giám định hợp pháp. Công an không tự xét nghiệm ADN mà chỉ tiếp nhận kết quả để tích hợp,,.
+*   **Đối với Giọng nói:** Cán bộ công an sẽ thực hiện thu thập trực tiếp. Bạn phải cam kết sức khỏe bình thường, giọng nói không bị ảnh hưởng tại thời điểm thu,,,.
+*   **Thời hạn giải quyết:** 07 ngày làm việc,,.
+
+### 7. "Giấy chứng nhận căn cước" là gì? Khác gì với "Thẻ căn cước"?
+
+**Trả lời:**
+Tài liệu phân biệt rõ hai loại giấy tờ này:
+*   **Thẻ căn cước:** Cấp cho công dân Việt Nam,.
+*   **Giấy chứng nhận căn cước:** Cấp cho **người gốc Việt Nam chưa xác định được quốc tịch** đang sinh sống tại Việt Nam (từ 06 tháng trở lên),,.
+    *   Thủ tục cấp Giấy chứng nhận căn cước cho đối tượng này được thực hiện tại Công an cấp xã, không thu lệ phí và thời hạn giải quyết không quá 15 ngày,,,.
+
+### 8. Những độ tuổi nào bắt buộc phải đi đổi Thẻ căn cước?
+
+**Trả lời:**
+Công dân Việt Nam đã được cấp thẻ căn cước phải thực hiện thủ tục cấp đổi khi đủ các độ tuổi:
+*   Đủ 14 tuổi.
+*   Đủ 25 tuổi.
+*   Đủ 40 tuổi.
+*   Đủ 60 tuổi.
+Ngoài ra, cần đổi khi thay đổi thông tin nhân thân, thay đổi nhân dạng, hoặc khi có yêu cầu của công dân,.
+
+### 9. Trường hợp nào thì được Hủy và Xác lập lại số định danh cá nhân?
+
+**Trả lời:**
+Không phải ai cũng được đổi số định danh. Thủ tục này chỉ áp dụng cho các trường hợp đặc biệt sau:
+1.  Được xác định lại giới tính hoặc cải chính hộ tịch do có sai sót về **năm sinh**.
+2.  Có sai sót về thông tin **nơi đăng ký khai sinh, năm sinh, giới tính** của công dân khi thu thập vào Cơ sở dữ liệu quốc gia về dân cư.
+*   **Thời hạn giải quyết:** 15 ngày làm việc (do phải qua quy trình kiểm tra từ xã -> huyện -> tỉnh -> Bộ Công an),,,,.
+
+### 10. Tôi muốn kiểm tra (khai thác) thông tin của người khác trong Cơ sở dữ liệu quốc gia về dân cư thì có được không?
+
+**Trả lời:**
+**Được, nhưng có điều kiện chặt chẽ.**
+*   Nếu bạn là cá nhân muốn khai thác thông tin của người khác (không phải bản thân), bạn phải **được công dân đó đồng ý**,.
+*   Đối với người mất năng lực hành vi dân sự, người dưới 14 tuổi, người đã chết... phải được sự đồng ý của cơ quan quản lý căn cước và người đại diện hợp pháp/người thừa kế,,.
+*   **Thủ tục:** Nộp "Phiếu đề nghị giải quyết thủ tục về căn cước" (Mẫu DC02) tại Công an xã. Phí khai thác thông tin sẽ áp dụng theo quy định của Bộ Tài chính,,.

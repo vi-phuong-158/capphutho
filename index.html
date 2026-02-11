@@ -850,6 +850,293 @@
             color: var(--text-gray);
             line-height: 1.6;
         }
+
+        /* ===== CHATBOT STYLES ===== */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-label {
+            background: white;
+            color: #d84315;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            white-space: nowrap;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .chat-label::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px 6px 0;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .chat-launcher {
+            /* Remove Fixed Position (Handled by Widget) */
+            background: none;
+            /* REMOVED BACKGROUND */
+            width: 130px;
+            /* DOUBLED SIZE */
+            height: 130px;
+            /* DOUBLED SIZE */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .chat-launcher img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-launcher:hover {
+            transform: scale(1.1);
+        }
+
+        /* Active State (When Chat Open) */
+        .chat-launcher.active {
+            transform: scale(0.6) translateY(55px);
+            /* Shrink and move down */
+            filter: grayscale(0.5);
+            /* Optional: Dim it to focus on chat */
+        }
+
+        @keyframes pulse-red {
+            0% {
+                box-shadow: 0 0 0 0 rgba(206, 25, 8, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(206, 25, 8, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(206, 25, 8, 0);
+            }
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            /* Aligned with Launcher */
+            /* left: 30px; REMOVED */
+            width: 360px;
+            height: 520px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #eee;
+            font-size: 14px;
+            animation: popUp 0.3s ease-out;
+            transform-origin: bottom right;
+            /* Changed Origin */
+        }
+
+        @keyframes popUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #ce1908 0%, #a50f00 100%);
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-avatar {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ce1908;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .bot-message {
+            background: #fff;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            align-self: flex-start;
+            border-top-left-radius: 2px;
+        }
+
+        .user-message {
+            background: #ce1908;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        /* Chat Options & Buttons */
+        .option-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .option-btn {
+            background: white;
+            border: 1px solid #ce1908;
+            color: #ce1908;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .option-btn:hover {
+            background: #ce1908;
+            color: white;
+            transform: translateX(3px);
+        }
+
+        .option-btn i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .back-btn {
+            border-color: #666;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .back-btn:hover {
+            background: #666;
+            color: white;
+        }
+
+        /* Real Search Input */
+        .chat-footer {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            background: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 15px;
+            background: #f0f2f5;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            color: #333;
+            font-size: 13px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: #ce1908;
+            background: white;
+        }
+
+        .send-btn {
+            color: #ce1908;
+            font-size: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -1050,27 +1337,7 @@
 
 
 
-    <!-- FLOATING BUTTONS -->
-    <div class="fab-container" id="fabContainer">
-        <!-- Toggle Button -->
-        <button class="fab fab-toggle" id="fabToggle" onclick="toggleFabMenu()" data-tooltip="Thu gọn">
-            <i class="fa-solid fa-chevron-down" id="fabToggleIcon"></i>
-        </button>
-        <!-- Chat CSKV (Zalo) -->
-        <a href="#" class="fab fab-zalo fab-item" data-tooltip="Chat với CSKV"
-            onclick="alert('Đang cập nhật link Zalo OA. Vui lòng liên hệ số hotline!'); return false;">
-            <i class="fa-solid fa-comments"></i>
-        </a>
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/p/C%C3%B4ng-an-Ph%C6%B0%E1%BB%9Dng-Ph%C3%BA-Th%E1%BB%8D-61577893688093/"
-            target="_blank" class="fab fab-fb fab-item" data-tooltip="Fanpage">
-            <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <!-- Phone -->
-        <a href="tel:02106288588" class="fab fab-phone fab-item" data-tooltip="Gọi Trực ban">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-    </div>
+    <!-- FLOATING BUTTONS REMOVED AS REQUESTED -->
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
@@ -1088,18 +1355,7 @@
             }
         }
 
-        // ===== FAB TOGGLE =====
-        function toggleFabMenu() {
-            const container = document.getElementById('fabContainer');
-            const toggle = document.getElementById('fabToggle');
-            container.classList.toggle('collapsed');
-
-            if (container.classList.contains('collapsed')) {
-                toggle.setAttribute('data-tooltip', 'Mở rộng');
-            } else {
-                toggle.setAttribute('data-tooltip', 'Thu gọn');
-            }
-        }
+        // ===== FAB TOGGLE REMOVED =====
 
         // ===== FAQ TOGGLE =====
         function toggleFaq(button) {
@@ -1152,6 +1408,61 @@
 
 
     </script>
+    <!-- CHATBOT LAUNCHER WIDGET -->
+    <div class="chat-widget">
+        <div class="chat-label">Trợ lý ảo 24/7</div>
+        <div class="chat-launcher" onclick="toggleChat()">
+            <img src="Icon.png" alt="Chatbot Icon">
+        </div>
+    </div>
+
+    <!-- CHAT WINDOW -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-info">
+                <div class="chat-avatar">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div>
+                    <span style="font-weight: 700; font-size: 1.05rem;">Trợ lý Ảo Công an Phường</span>
+                    <div style="font-size: 0.75rem; opacity: 0.9;">
+                        <span class="status-dot"></span> Luôn sẵn sàng hỗ trợ
+                    </div>
+                </div>
+            </div>
+            <button class="close-chat" onclick="toggleChat()">&times;</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <!-- Tin nhắn chào mừng -->
+            <div class="message bot-message">
+                Xin chào bà con! Tôi là <b>Trợ lý ảo</b> của Công an phường Phú Thọ.<br>
+                Tôi có thể giúp gì cho bà con hôm nay?
+            </div>
+
+            <!-- Khu vực hiển thị các lựa chọn (Options) -->
+            <div class="option-container" id="chatOptions">
+                <!-- Nội dung sẽ được render bởi JS -->
+            </div>
+        </div>
+
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="chatSearchInput"
+                placeholder="Nhập câu hỏi hoặc thủ tục cần tìm...">
+            <button class="send-btn" id="chatSendBtn">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Import Chatbot Logic (SEQUENTIAL LOADING for Local File Support) -->
+    <!-- 1. Load Data -->
+    <script src="js/data/faq_db.js"></script>
+    <!-- 2. Load Utils -->
+    <script src="js/utils/search_engine.js"></script>
+    <!-- 3. Load Main Logic -->
+    <script src="js/chatbot.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,124 @@
+Lĩnh vực Đăng ký, quản lý cư trú
+
+### Câu hỏi 1: Tôi muốn đăng ký thường trú vào nhà thuê, mượn hoặc ở nhờ thì cần chuẩn bị hồ sơ gồm những giấy tờ gì?
+
+**Trả lời:**
+Để đăng ký thường trú vào chỗ ở hợp pháp do thuê, mượn, hoặc ở nhờ, công dân cần chuẩn bị 01 bộ hồ sơ bao gồm các thành phần sau:
+
+1.  **Tờ khai thay đổi thông tin cư trú (Mẫu CT01):** Trong đó phải ghi rõ ý kiến đồng ý cho đăng ký thường trú của chủ hộ, chủ sở hữu chỗ ở hợp pháp được cho thuê, cho mượn, cho ở nhờ hoặc người được ủy quyền (trừ trường hợp đã có ý kiến đồng ý bằng văn bản),.
+2.  **Hợp đồng, văn bản về việc cho thuê, cho mượn, cho ở nhờ:** Các văn bản này phải được công chứng hoặc chứng thực theo quy định của pháp luật.
+3.  **Giấy tờ chứng minh diện tích nhà ở:** Giấy tờ, tài liệu chứng minh bảo đảm diện tích nhà ở tối thiểu để đăng ký thường trú. Cụ thể có thể là Giấy tờ chứng minh quyền sở hữu có thể hiện diện tích hoặc Xác nhận của UBND cấp xã về điều kiện diện tích bình quân,.
+
+**Lưu ý:** Nếu cơ quan đăng ký cư trú có thể khai thác thông tin về diện tích hoặc quyền sở hữu trong Cơ sở dữ liệu quốc gia về dân cư, định danh điện tử... thì công dân không cần nộp giấy tờ chứng minh diện tích,.
+
+---
+
+### Câu hỏi 2: Mức thu lệ phí khi thực hiện đăng ký thường trú và đăng ký tạm trú hiện nay là bao nhiêu? Có sự khác biệt nào giữa nộp trực tiếp và trực tuyến không?
+
+**Trả lời:**
+Có sự khác biệt về mức phí giữa hình thức nộp hồ sơ trực tiếp và trực tuyến nhằm khuyến khích công dân sử dụng dịch vụ công. Cụ thể:
+
+*   **Đối với Đăng ký thường trú:**
+    *   Nộp hồ sơ trực tiếp hoặc qua bưu chính: **20.000 đồng/lần đăng ký**,.
+    *   Nộp hồ sơ qua cổng dịch vụ công trực tuyến: **10.000 đồng/lần đăng ký**.
+
+*   **Đối với Đăng ký tạm trú:**
+    *   Nộp hồ sơ trực tiếp: **15.000 đồng/lần đăng ký**.
+    *   Nộp hồ sơ qua cổng dịch vụ công trực tuyến: **7.000 đồng/lần đăng ký**,.
+    *   *Lưu ý riêng với đăng ký tạm trú theo danh sách:* Trực tiếp thu 10.000 đồng/người/lần; Trực tuyến thu 5.000 đồng/người/lần.
+
+Ngoài ra, công dân thuộc diện miễn phí theo quy định (Thông tư 75/2022/TT-BTC) sẽ không phải đóng phí nếu xuất trình được giấy tờ chứng minh hoặc dữ liệu đã có trên hệ thống,,.
+
+---
+
+### Câu hỏi 3: Thời hạn giải quyết thủ tục đăng ký thường trú và tạm trú là bao lâu kể từ khi nộp đủ hồ sơ?
+
+**Trả lời:**
+Thời hạn giải quyết được quy định khác nhau tùy theo loại thủ tục:
+
+1.  **Đăng ký thường trú:** Trong thời hạn **07 ngày làm việc** kể từ ngày nhận được hồ sơ đầy đủ và hợp lệ. Cơ quan đăng ký sẽ cập nhật thông tin và thông báo kết quả; nếu từ chối phải trả lời bằng văn bản nêu rõ lý do.
+2.  **Đăng ký tạm trú:** Trong thời hạn **03 ngày làm việc** kể từ ngày nhận được hồ sơ đầy đủ và hợp lệ.
+3.  **Gia hạn tạm trú:** Trong thời hạn **03 ngày làm việc** kể từ ngày nhận được hồ sơ đầy đủ và hợp lệ.
+4.  **Tách hộ:** Trong thời hạn **05 ngày làm việc** kể từ ngày nhận được hồ sơ đầy đủ và hợp lệ.
+
+---
+
+### Câu hỏi 4: Khi thực hiện đăng ký cư trú trực tuyến (online), tôi có cần phải nộp bản sao công chứng các giấy tờ hay không?
+
+**Trả lời:**
+Khi thực hiện đăng ký cư trú trực tuyến, quy định về giấy tờ như sau:
+
+1.  **Hình thức nộp:** Công dân khai báo trên biểu mẫu điện tử và đăng tải **bản quét hoặc bản chụp** giấy tờ, tài liệu hợp lệ. **Không bắt buộc** phải công chứng, chứng thực, ký số hoặc xác thực bằng hình thức khác,,,,,.
+2.  **Quy trình kiểm tra:**
+    *   Nếu bản quét/chụp **không được ký số/xác thực**: Khi cơ quan đăng ký tiến hành kiểm tra xác minh, công dân có trách nhiệm **xuất trình giấy tờ gốc** để cán bộ đối chiếu và ghi nhận tính chính xác vào biên bản. Cơ quan công an sẽ không yêu cầu nộp lại giấy tờ đó để lưu giữ,,,,.
+    *   Bản quét/chụp phải đảm bảo rõ nét, đầy đủ, toàn vẹn về nội dung,.
+3.  **Lợi ích:** Nếu thông tin giấy tờ đã được chia sẻ và khai thác từ cơ sở dữ liệu quốc gia/chuyên ngành thì công dân **không cần nộp hoặc xuất trình** giấy tờ đó,,.
+
+---
+
+### Câu hỏi 5: Điều kiện và thủ tục để thực hiện "Tách hộ" là gì?
+
+**Trả lời:**
+Thủ tục tách hộ được áp dụng cho thành viên hộ gia đình muốn tách ra để đăng ký thường trú tại cùng một chỗ ở hợp pháp.
+
+*   **Điều kiện về năng lực hành vi:** Thành viên được tách hộ phải có **năng lực hành vi dân sự đầy đủ**. Trường hợp nhiều thành viên cùng tách hộ để lập hộ mới thì ít nhất một người trong số đó phải có năng lực hành vi dân sự đầy đủ.
+*   **Thành phần hồ sơ gồm:**
+    1.  **Tờ khai thay đổi thông tin cư trú (Mẫu CT01):** Phải ghi rõ ý kiến đồng ý cho tách hộ của chủ hộ và chủ sở hữu chỗ ở hợp pháp (trừ khi đã có văn bản đồng ý riêng).
+    2.  **Trường hợp vợ chồng đã ly hôn nhưng vẫn ở cùng:** Cần thêm giấy tờ, tài liệu chứng minh việc ly hôn và việc tiếp tục được sử dụng chỗ ở hợp pháp đó,.
+*   **Nơi nộp:** Công an cấp xã.
+*   **Lệ phí:** Nộp trực tiếp 10.000 đồng/lần; Nộp trực tuyến 5.000 đồng/lần.
+### Câu hỏi 6: Khi gia đình có người thân qua đời hoặc thuộc diện phải xóa đăng ký thường trú thì thời hạn để làm thủ tục này là bao lâu? Nếu gia đình không làm thì cơ quan công an xử lý thế nào?
+
+**Trả lời:**
+Theo quy định về thủ tục xóa đăng ký thường trú:
+1.  **Thời hạn thực hiện:** Trong thời hạn **07 ngày** kể từ ngày hộ gia đình có người thuộc diện xóa đăng ký thường trú (ví dụ: người đã chết, người ra nước ngoài định cư...), người thuộc diện xóa đăng ký thường trú hoặc đại diện hộ gia đình có trách nhiệm nộp hồ sơ đến cơ quan đăng ký cư trú.
+2.  **Trường hợp không tự giác thực hiện:** Nếu người thuộc diện xóa đăng ký hoặc đại diện hộ gia đình không thực hiện thủ tục này, cơ quan đăng ký cư trú sẽ tiến hành kiểm tra, xác minh. Sau đó, cơ quan chức năng sẽ **lập biên bản** về việc không thực hiện thủ tục và tiến hành **xóa đăng ký thường trú** đối với công dân đó,.
+
+---
+
+### Câu hỏi 7: Người thân (ông bà, cha mẹ, anh chị em) đến nhà tôi chơi và ngủ lại thì có cần thông báo lưu trú không? Thời gian thông báo quy định như thế nào?
+
+**Trả lời:**
+Khi có người đến lưu trú, đại diện hộ gia đình phải thực hiện thông báo lưu trú với cơ quan công an. Quy định cụ thể như sau:
+1.  **Thời gian thông báo:**
+    *   Việc thông báo phải thực hiện **trước 23 giờ** của ngày bắt đầu lưu trú.
+    *   Trường hợp người đến lưu trú **sau 23 giờ**, thì phải thông báo **trước 08 giờ sáng ngày hôm sau**.
+2.  **Lưu ý đối với người thân:** Nếu người đến lưu trú là ông, bà, cha, mẹ, vợ, chồng, con, cháu, anh, chị, em ruột và đến lưu trú **nhiều lần**, thì chỉ cần **thông báo lưu trú một lần**.
+3.  **Hình thức thông báo:** Có thể thông báo trực tiếp, qua điện thoại/email, qua cổng dịch vụ công (VNeID, cổng DVC quốc gia/Bộ Công an) hoặc ứng dụng trên thiết bị điện tử.
+
+---
+
+### Câu hỏi 8: Tôi cần xin giấy "Xác nhận thông tin về cư trú" (thường gọi là mẫu CT07) để bổ sung hồ sơ xin việc/đi học thì thời gian cấp là bao lâu và tôi có thể làm ở đâu?
+
+**Trả lời:**
+Thủ tục xác nhận thông tin về cư trú được quy định rất linh hoạt để thuận tiện cho công dân:
+1.  **Nơi nộp hồ sơ:** Bạn có thể nộp hồ sơ tại Công an cấp xã **nơi thuận lợi nhất**, không bắt buộc phải là nơi bạn đang đăng ký thường trú hay tạm trú. Bạn cũng có thể nộp trực tuyến qua cổng dịch vụ công hoặc VNeID.
+2.  **Thời hạn giải quyết:**
+    *   **Trong vòng 1/2 (nửa) ngày làm việc:** Nếu thông tin của bạn đã có đầy đủ trong Cơ sở dữ liệu quốc gia về dân cư.
+    *   **Trong vòng 03 ngày làm việc:** Nếu thông tin chưa có trong cơ sở dữ liệu và cần phải xác minh thêm.
+3.  **Lệ phí:** Thủ tục này **không thu lệ phí**.
+
+---
+
+### Câu hỏi 9: Sổ tạm trú (hoặc xác nhận tạm trú) của tôi sắp hết hạn. Tôi phải đi gia hạn vào thời điểm nào để đúng quy định?
+
+**Trả lời:**
+Để đảm bảo cư trú hợp pháp liên tục, bạn cần lưu ý thời điểm gia hạn tạm trú như sau:
+*   **Thời hạn nộp hồ sơ:** Trong thời hạn **15 ngày trước ngày kết thúc thời hạn tạm trú** đã đăng ký, công dân phải làm thủ tục gia hạn tạm trú.
+*   **Thủ tục:** Hồ sơ và trình tự thực hiện tương tự như đăng ký tạm trú lần đầu. Đặc biệt, khi gia hạn, nếu được chủ sở hữu chỗ ở hợp pháp đồng ý (đại diện thành viên hộ gia đình kê khai), bạn **không phải xuất trình giấy tờ chứng minh chỗ ở hợp pháp** lại nữa.
+*   **Kết quả:** Thời hạn tạm trú mới sẽ được cập nhật vào Cơ sở dữ liệu về cư trú và thông báo cho công dân (không cấp sổ giấy mà thông báo qua mẫu CT08),.
+
+---
+
+### Câu hỏi 10: Những trường hợp nào bắt buộc phải thực hiện "Khai báo tạm vắng"? Có phải ai đi vắng khỏi nơi cư trú cũng cần khai báo không?
+
+**Trả lời:**
+Không phải tất cả mọi người đi vắng đều phải khai báo. Thủ tục **Khai báo tạm vắng** bắt buộc đối với các nhóm đối tượng đặc biệt quy định tại khoản 1 Điều 31 Luật Cư trú (được dẫn chiếu trong tài liệu hướng dẫn thực hiện thủ tục). Cụ thể hồ sơ và cách thức khác nhau tùy đối tượng:
+
+1.  **Nhóm đối tượng bị hạn chế quyền đi lại (bị can, bị cáo, người bị kết án phạt tù nhưng chưa có quyết định thi hành án, người đang bị quản chế...):**
+    *   Phải nộp hồ sơ **trực tiếp** tại cơ quan đăng ký cư trú.
+    *   Hồ sơ cần có: Đề nghị khai báo tạm vắng và **Văn bản đồng ý** của cơ quan có thẩm quyền giám sát, quản lý người đó.
+2.  **Nhóm công dân khác (trong các trường hợp đi khỏi nơi cư trú theo quy định chung tại điểm c, d khoản 1 Điều 31 Luật Cư trú):**
+    *   Có thể khai báo qua nhiều hình thức: Trực tiếp, điện thoại, email, Cổng dịch vụ công, VNeID,.
+    *   Nội dung khai báo gồm: Họ tên, số định danh, lý do, thời gian tạm vắng và địa chỉ nơi đến.
+    *   Thời hạn giải quyết: Trong **01 ngày làm việc** (hoặc tối đa 02 ngày nếu phức tạp).
