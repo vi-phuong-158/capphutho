@@ -45,20 +45,59 @@ class ChatbotController {
             this.handleSearch(e.target.value);
         });
 
-        // Enter to search (nếu cần xử lý submit)
+        // Enter to send message
         this.elements.input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                // Có thể xử lý gửi tin nhắn "custom" nếu muốn
+                this.sendMessage();
+            }
+        });
+
+        // Click send button
+        if (this.elements.sendBtn) {
+            this.elements.sendBtn.addEventListener('click', () => {
+                this.sendMessage();
+            });
+        }
+    }
+
+    // === USER INPUT HANDLING ===
+
+    sendMessage() {
+        const text = this.elements.input.value.trim();
+        if (!text) return;
+
+        // 1. Add User Message (Safe via textContent)
+        this.addMessage(text, 'user');
+
+        // 2. Clear Input
+        this.elements.input.value = '';
+
+        // 3. Process Search/Response
+        this.showLoading(() => {
+            const results = this.searchEngine.search(text);
+            if (results.length === 0) {
+                this.addMessage('Xin lỗi, tôi không tìm thấy thông tin phù hợp. Bà con vui lòng thử từ khóa khác.', 'bot');
+                this.renderMainMenu();
+            } else {
+                this.addMessage(`Tìm thấy ${results.length} kết quả liên quan:`, 'bot');
+                this.handleSearch(text);
             }
         });
     }
 
     // === RENDERING UI ===
 
-    addMessage(htmlContent, type = 'bot') {
+    addMessage(content, type = 'bot') {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${type}-message`;
-        msgDiv.innerHTML = htmlContent;
+
+        // Prevent XSS: Only use innerHTML for trusted 'bot' messages
+        if (type === 'user') {
+            msgDiv.textContent = content;
+        } else {
+            msgDiv.innerHTML = content;
+        }
+
         this.elements.body.insertBefore(msgDiv, this.elements.optionContainer); // Chèn TRƯỚC options
         this.scrollToBottom();
     }
@@ -70,8 +109,18 @@ class ChatbotController {
     renderButton(text, iconClass, onClick, isBack = false) {
         const btn = document.createElement('button');
         btn.className = `option-btn ${isBack ? 'back-btn' : ''}`;
-        btn.innerHTML = `<i class="${iconClass}"></i> ${text}`;
+
+        // Create icon
+        const icon = document.createElement('i');
+        icon.className = iconClass;
+
+        // Create text (safely)
+        const textNode = document.createTextNode(' ' + text);
+
+        btn.appendChild(icon);
+        btn.appendChild(textNode);
         btn.onclick = onClick;
+
         this.elements.optionContainer.appendChild(btn);
         this.scrollToBottom();
     }
