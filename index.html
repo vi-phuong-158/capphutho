@@ -1188,7 +1188,7 @@
         <!-- SEARCH -->
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" class="search-input"
+            <input type="text" class="search-input" id="heroSearchInput" aria-label="Tìm kiếm thủ tục hành chính"
                 placeholder="Bạn cần tìm thủ tục gì? (Ví dụ: Định danh, Hộ khẩu...)">
         </div>
 
@@ -1411,9 +1411,9 @@
     <!-- CHATBOT LAUNCHER WIDGET -->
     <div class="chat-widget">
         <div class="chat-label">Trợ lý ảo 24/7</div>
-        <div class="chat-launcher" onclick="toggleChat()">
+        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở chat hỗ trợ" style="border: none; background: none; padding: 0;">
             <img src="Icon.png" alt="Chatbot Icon">
-        </div>
+        </button>
     </div>
 
     <!-- CHAT WINDOW -->

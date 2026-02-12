@@ -15,7 +15,8 @@ class ChatbotController {
             body: document.getElementById('chatBody'),
             input: document.getElementById('chatSearchInput'),
             sendBtn: document.getElementById('chatSendBtn'),
-            optionContainer: document.getElementById('chatOptions')
+            optionContainer: document.getElementById('chatOptions'),
+            heroInput: document.getElementById('heroSearchInput')
         };
 
         // Use Global Search Engine
@@ -51,6 +52,25 @@ class ChatbotController {
                 // Có thể xử lý gửi tin nhắn "custom" nếu muốn
             }
         });
+
+        // Hero Search Input Sync
+        if (this.elements.heroInput) {
+            this.elements.heroInput.addEventListener('input', (e) => {
+                const query = e.target.value;
+
+                // Sync to chat input
+                if (this.elements.input) {
+                    this.elements.input.value = query;
+                }
+
+                // Open Chat if not open and query is not empty
+                if (query.trim().length > 0 && this.elements.window.style.display !== 'flex') {
+                    window.toggleChat();
+                }
+
+                this.handleSearch(query);
+            });
+        }
     }
 
     // === RENDERING UI ===
