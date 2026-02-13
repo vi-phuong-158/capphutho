@@ -55,10 +55,17 @@ class ChatbotController {
 
     // === RENDERING UI ===
 
-    addMessage(htmlContent, type = 'bot') {
+    addMessage(content, type = 'bot') {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${type}-message`;
-        msgDiv.innerHTML = htmlContent;
+
+        // Security: Use textContent for user messages to prevent XSS
+        if (type === 'user') {
+            msgDiv.textContent = content;
+        } else {
+            msgDiv.innerHTML = content;
+        }
+
         this.elements.body.insertBefore(msgDiv, this.elements.optionContainer); // Chèn TRƯỚC options
         this.scrollToBottom();
     }
@@ -70,10 +77,21 @@ class ChatbotController {
     renderButton(text, iconClass, onClick, isBack = false) {
         const btn = document.createElement('button');
         btn.className = `option-btn ${isBack ? 'back-btn' : ''}`;
-        btn.innerHTML = `<i class="${iconClass}"></i> ${text}`;
+        // Security: Escape text to prevent XSS
+        btn.innerHTML = `<i class="${iconClass}"></i> ${this.escapeHtml(text)}`;
         btn.onclick = onClick;
         this.elements.optionContainer.appendChild(btn);
         this.scrollToBottom();
+    }
+
+    escapeHtml(unsafe) {
+        if (typeof unsafe !== 'string') return unsafe;
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
     }
 
     renderMainMenu() {
