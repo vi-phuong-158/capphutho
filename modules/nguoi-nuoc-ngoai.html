@@ -13,6 +13,238 @@
 
     <!-- DVC Style -->
     <link rel="stylesheet" href="../styles/dvc-style.css">
+
+    <style>
+        /* ===== KBTT GUIDE SECTION ===== */
+        .kbtt-banner {
+            background: linear-gradient(135deg, #B91C1C 0%, #7F1D1D 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 4px 15px rgba(185, 28, 28, 0.3);
+            border: 2px solid #F59E0B;
+        }
+
+        .kbtt-banner-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            color: #FFD700;
+        }
+
+        .kbtt-banner h3 {
+            margin: 0 0 4px 0;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .kbtt-banner p {
+            margin: 0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Detail expand/collapse */
+        .kbtt-detail-toggle {
+            width: 100%;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border: 2px solid #F59E0B;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #92400E;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .kbtt-detail-toggle:hover {
+            background: linear-gradient(135deg, #FDE68A 0%, #FCD34D 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .kbtt-detail-toggle i {
+            transition: transform 0.3s ease;
+        }
+
+        .kbtt-detail-toggle.open i {
+            transform: rotate(180deg);
+        }
+
+        .kbtt-detail-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .kbtt-detail-content.open {
+            max-height: 3000px;
+        }
+
+        /* GA Explanation Box */
+        .ga-explain {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            border: 2px solid #22C55E;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+
+        .ga-explain-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #15803D;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ga-explain p {
+            font-size: 0.88rem;
+            color: #166534;
+            margin: 0 0 10px 0;
+            line-height: 1.6;
+        }
+
+        .ga-explain p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Substep styling */
+        .substep {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            background: white;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #22C55E;
+        }
+
+        .substep:last-child {
+            margin-bottom: 0;
+        }
+
+        .substep-icon {
+            width: 28px;
+            height: 28px;
+            background: #22C55E;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .substep-text {
+            font-size: 0.88rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .substep-text strong {
+            color: #15803D;
+        }
+
+        /* Warning highlight */
+        .kbtt-warning {
+            background: #FEF2F2;
+            border: 2px solid #EF4444;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .kbtt-warning i {
+            color: #EF4444;
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .kbtt-warning-text {
+            font-size: 0.85rem;
+            color: #991B1B;
+            line-height: 1.5;
+        }
+
+        /* PDF links section */
+        .pdf-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .pdf-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pdf-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: white;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #374151;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            border-color: #B91C1C;
+            background: #FEF2F2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(185, 28, 28, 0.15);
+        }
+
+        .pdf-link i {
+            font-size: 1.3rem;
+            color: #DC2626;
+        }
+
+        /* Highlight step */
+        .step-highlight {
+            background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+            border: 2px solid #F59E0B;
+            border-radius: 8px;
+            padding: 14px;
+            margin-top: 8px;
+        }
+
+        .step-highlight .step-num {
+            background: #F59E0B;
+        }
+    </style>
 </head>
 
 <body class="dvc-page">
@@ -30,7 +262,18 @@
             <i class="fa-solid fa-house"></i> / Dịch vụ công / Xuất nhập cảnh
         </div>
 
-        <!-- THỦ TỤC 1: KHAI BÁO TẠM TRÚ -->
+        <!-- BANNER HƯỚNG DẪN -->
+        <div class="kbtt-banner">
+            <div class="kbtt-banner-icon">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+            <div>
+                <h3>Hướng Dẫn Khai Báo Tạm Trú Người Nước Ngoài</h3>
+                <p>Dành cho Cơ sở lưu trú — Thực hiện online, không cần ra Phường</p>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 1: KHAI BÁO TẠM TRÚ CHI TIẾT -->
         <div class="proc-card active">
             <div class="proc-header" onclick="toggleCard(this)">
                 <div class="proc-title">
@@ -44,33 +287,285 @@
                 <div class="tip-box" style="background: #FEF2F2; border-color: #DC2626; color: #991B1B;">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <div>
-                        <strong>Quy định:</strong> Phải khai báo <strong>trong 12 giờ</strong> khi khách đến. Chậm trễ
-                        có thể bị phạt 5-10 triệu đồng.
+                        <strong>Quy định bắt buộc:</strong> Phải khai báo <strong>trong 12 giờ</strong> kể từ khi khách
+                        nhận phòng.
+                        Chậm trễ có thể bị phạt <strong>5 — 10 triệu đồng</strong> (Thông tư 53/2016/TT-BCA).
                     </div>
                 </div>
 
+                <!-- BƯỚC 1 -->
                 <div class="section-block">
-                    <div class="block-title"><i class="fa-solid fa-laptop-file"></i> Thực hiện Online (Không cần ra
-                        Phường)</div>
+                    <div class="block-title"><i class="fa-solid fa-globe"></i> Bước 1: Truy cập hệ thống</div>
                     <div class="steps">
                         <div class="step-item">
                             <div class="step-num">1</div>
-                            <div class="step-text">Truy cập trang Khai báo tạm trú Công an Tỉnh Phú Thọ.</div>
+                            <div class="step-text">
+                                Mở trình duyệt (Chrome, Safari, Cốc Cốc...) trên <strong>điện thoại hoặc máy
+                                    tính</strong>.
+                            </div>
                         </div>
                         <div class="step-item">
                             <div class="step-num">2</div>
-                            <div class="step-text">Đăng nhập (hoặc tạo tài khoản mới).</div>
-                        </div>
-                        <div class="step-item">
-                            <div class="step-num">3</div>
-                            <div class="step-text">Nhập thông tin Hộ chiếu khách -> Lưu lại.</div>
+                            <div class="step-text">
+                                Gõ vào thanh địa chỉ: <strong style="color: #1D4ED8;">kbtt.xuatnhapcanh.gov.vn</strong>
+                                <br><span style="font-size: 0.82rem; color: #6B7280;">💡 Hoặc quét mã QR trong tờ rơi
+                                    hướng dẫn.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- BƯỚC 2 -->
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-right-to-bracket"></i> Bước 2: Đăng nhập tài khoản
+                    </div>
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text">Nhấn nút <strong>"Đăng nhập"</strong> trên trang web.</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text">
+                                Nhập <strong>Tên đăng nhập</strong> + <strong>Mật khẩu</strong> đã đăng ký.
+                                <br><span style="font-size: 0.82rem; color: #6B7280;">Nếu chưa có tài khoản → Nhấn "Đăng
+                                    ký" để tạo mới.</span>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">3</div>
+                            <div class="step-text">Nhập <strong>mã captcha</strong> (dãy ký tự trên hình) rồi nhấn
+                                <strong>"Đăng nhập"</strong>.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BƯỚC 3 + 4: GOOGLE AUTHENTICATOR -->
+                <div class="section-block step-highlight">
+                    <div class="block-title" style="color: #92400E;"><i class="fa-solid fa-shield-halved"
+                            style="color: #F59E0B;"></i> Bước 3 & 4: Xác thực bảo mật bằng Google Authenticator</div>
+                    <div class="tip-box"
+                        style="background: #FFFBEB; border-color: #F59E0B; color: #92400E; margin-bottom: 12px;">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <div>
+                            <strong>Đây là bước BẮT BUỘC khi đăng nhập lần đầu.</strong> Hệ thống mới yêu cầu xác thực 2
+                            lớp để bảo vệ
+                            tài khoản của cơ sở lưu trú. Hãy đọc kỹ hướng dẫn bên dưới!
+                        </div>
+                    </div>
+
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num" style="background: #F59E0B;">3</div>
+                            <div class="step-text">
+                                <strong>Tải ứng dụng "Google Authenticator"</strong> về điện thoại:
+                                <br>• Điện thoại <strong>iPhone</strong>: Mở <strong>App Store</strong> → tìm "Google
+                                Authenticator" → Tải về
+                                <br>• Điện thoại <strong>Android</strong>: Mở <strong>CH Play</strong> → tìm "Google
+                                Authenticator" → Cài đặt
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num" style="background: #F59E0B;">4</div>
+                            <div class="step-text">
+                                <strong>Quét mã QR để xác thực:</strong>
+                                <br>• Mở ứng dụng Google Authenticator trên điện thoại
+                                <br>• Nhấn dấu <strong>+</strong> (góc dưới phải) → chọn <strong>"Quét mã QR"</strong>
+                                <br>• Đưa camera điện thoại lên quét <strong>mã QR trên màn hình website</strong>
+                                <br>• Ứng dụng sẽ hiện <strong>dãy 6 chữ số</strong> → Nhập dãy số này vào ô trên
+                                website → Nhấn <strong>"Xác nhận"</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kbtt-warning">
+                        <i class="fa-solid fa-camera"></i>
+                        <div class="kbtt-warning-text">
+                            <strong>⚠️ RẤT QUAN TRỌNG:</strong> Hãy <strong>CHỤP ẢNH LẠI MÃ QR</strong> trên màn hình
+                            website trước khi xác nhận!
+                            Nếu đổi điện thoại hoặc xóa ứng dụng, bạn cần mã QR này để đăng nhập lại.
+                        </div>
+                    </div>
+
+                    <!-- Nút xem chi tiết Google Authenticator -->
+                    <button class="kbtt-detail-toggle" id="gaDetailToggle" onclick="toggleGADetail()">
+                        <span><i class="fa-solid fa-circle-question"></i> &nbsp;Google Authenticator là gì? Ấn xem chi
+                            tiết</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="kbtt-detail-content" id="gaDetailContent">
+                        <div class="ga-explain">
+                            <div class="ga-explain-title">
+                                <i class="fa-solid fa-lock"></i> Google Authenticator là gì?
+                            </div>
+                            <p>
+                                Đây là <strong>ứng dụng BẢO MẬT MIỄN PHÍ</strong> của Google, giống như "ổ khóa thêm"
+                                cho tài khoản của bạn.
+                                Khi đăng nhập, ngoài mật khẩu, bạn cần nhập thêm <strong>mã số 6 chữ số</strong> từ ứng
+                                dụng này.
+                                Điều này giúp <strong>ngăn chặn người lạ</strong> đăng nhập vào tài khoản dù có biết mật
+                                khẩu.
+                            </p>
+                            <p style="font-weight: 600; color: #15803D;">🔑 Nói đơn giản: Mật khẩu là chìa khóa thứ 1,
+                                mã từ Google Authenticator là chìa khóa thứ 2.</p>
+
+                            <div class="ga-explain-title" style="margin-top: 16px;">
+                                <i class="fa-solid fa-mobile-screen-button"></i> Cách tải về điện thoại
+                            </div>
+                            <div class="substep">
+                                <div class="substep-icon">1</div>
+                                <div class="substep-text">
+                                    Mở <strong>CH Play</strong> (Android) hoặc <strong>App Store</strong> (iPhone) trên
+                                    điện thoại.
+                                </div>
+                            </div>
+                            <div class="substep">
+                                <div class="substep-icon">2</div>
+                                <div class="substep-text">
+                                    Gõ vào ô tìm kiếm: <strong>"Google Authenticator"</strong>
+                                </div>
+                            </div>
+                            <div class="substep">
+                                <div class="substep-icon">3</div>
+                                <div class="substep-text">
+                                    Nhấn <strong>"Cài đặt"</strong> (hoặc "Tải về") → đợi tải xong → mở ứng dụng.
+                                </div>
+                            </div>
+
+                            <div class="ga-explain-title" style="margin-top: 16px;">
+                                <i class="fa-solid fa-qrcode"></i> Cách sử dụng (Quét mã QR)
+                            </div>
+                            <div class="substep">
+                                <div class="substep-icon">1</div>
+                                <div class="substep-text">
+                                    Mở ứng dụng <strong>Google Authenticator</strong> đã cài trên điện thoại.
+                                </div>
+                            </div>
+                            <div class="substep">
+                                <div class="substep-icon">2</div>
+                                <div class="substep-text">
+                                    Nhấn vào dấu <strong>+ (dấu cộng)</strong> ở góc dưới bên phải màn hình.
+                                </div>
+                            </div>
+                            <div class="substep">
+                                <div class="substep-icon">3</div>
+                                <div class="substep-text">
+                                    Chọn <strong>"Quét mã QR"</strong> → Camera mở lên → <strong>Đưa camera vào mã
+                                        QR</strong> trên màn hình website.
+                                </div>
+                            </div>
+                            <div class="substep">
+                                <div class="substep-icon">4</div>
+                                <div class="substep-text">
+                                    Sau khi quét xong, ứng dụng sẽ hiện lên <strong>dãy 6 chữ số</strong> (ví dụ:
+                                    <strong style="color: #B91C1C;">482 195</strong>).
+                                    Dãy số này sẽ <strong>tự đổi mỗi 30 giây</strong>.
+                                </div>
+                            </div>
+                            <div class="substep">
+                                <div class="substep-icon">5</div>
+                                <div class="substep-text">
+                                    Quay lại website → <strong>Gõ 6 số</strong> vào ô yêu cầu → Nhấn <strong>"Xác
+                                        nhận"</strong>. Hoàn tất!
+                                </div>
+                            </div>
+
+                            <div class="ga-explain-title" style="margin-top: 16px;">
+                                <i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i>
+                                <span style="color: #B91C1C;">Lưu ý CỰC KỲ QUAN TRỌNG</span>
+                            </div>
+                            <p style="color: #991B1B; font-weight: 500;">
+                                ❶ Mã 6 số thay đổi <strong>mỗi 30 giây</strong>. Nếu nhập chậm, hãy đợi mã mới rồi nhập
+                                lại.
+                            </p>
+                            <p style="color: #991B1B; font-weight: 500;">
+                                ❷ <strong>PHẢI CHỤP LẠI MÃ QR</strong> và lưu vào ảnh điện thoại. Nếu mất điện thoại
+                                hoặc xóa ứng dụng, bạn cần mã QR này để khôi phục.
+                            </p>
+                            <p style="color: #991B1B; font-weight: 500;">
+                                ❸ Mỗi tài khoản chỉ cần quét mã QR <strong>MỘT LẦN DUY NHẤT</strong> (lần đăng nhập đầu
+                                tiên). Các lần sau chỉ cần mở ứng dụng và nhập 6 số.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BƯỚC 5 -->
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-pen-to-square"></i> Bước 5: Cập nhật thông tin Cơ sở
+                        lưu trú</div>
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text">
+                                Sau khi đăng nhập thành công, hệ thống yêu cầu <strong>cập nhật thông tin</strong> còn
+                                thiếu (nếu tài khoản đã có từ hệ thống cũ).
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text">
+                                Bổ sung đầy đủ thông tin và <strong>tải lên ảnh Căn cước công dân (CCCD)</strong> còn
+                                thời hạn → Nhấn <strong>"Lưu thông tin"</strong>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BƯỚC 6 -->
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-passport"></i> Bước 6: Nhập hồ sơ khai báo tạm trú
+                    </div>
+                    <div class="steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text">
+                                Tại trang quản lý, chọn chức năng <strong>"Khai báo tạm trú"</strong>.
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text">
+                                <strong>Chụp ảnh trang hộ chiếu</strong> của khách nước ngoài rồi tải lên (upload).
+                                <br><span style="font-size: 0.82rem; color: #059669;">✨ Hệ thống tự động đọc và điền
+                                    thông tin từ ảnh hộ chiếu!</span>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">3</div>
+                            <div class="step-text">
+                                <strong>Kiểm tra lại</strong> các thông tin đã được tự động điền. Bổ sung các ô có dấu
+                                <strong>*</strong> (bắt buộc).
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">4</div>
+                            <div class="step-text">
+                                Nhấn <strong>"Lưu thông tin"</strong> → Hoàn tất khai báo!
+                                <br><span style="font-size: 0.82rem; color: #6B7280;">💡 Nếu có nhiều khách, nhấn "Thêm
+                                    hồ sơ khác" để nhập tiếp.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NÚT HÀNH ĐỘNG -->
                 <div class="btn-group" style="grid-template-columns: 1fr;">
-                    <a href="https://phutho.xuatnhapcanh.gov.vn" target="_blank" class="btn btn-primary"><i
-                            class="fa-solid fa-globe"></i> Khai Báo Ngay</a>
+                    <a href="https://kbtt.xuatnhapcanh.gov.vn" target="_blank" class="btn btn-primary"><i
+                            class="fa-solid fa-globe"></i> Vào Trang Khai Báo Ngay</a>
+                </div>
+
+                <!-- LINK XEM PDF CHI TIẾT -->
+                <div class="pdf-links">
+                    <a href="../TOROI_HD_KBTT.pdf" target="_blank" class="pdf-link">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Xem Tờ rơi<br>hướng dẫn nhanh</span>
+                    </a>
+                    <a href="../KBTT_HD_Trang_CSLT_v2.0.pdf" target="_blank" class="pdf-link">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Xem Hướng dẫn<br>chi tiết đầy đủ</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -226,6 +721,21 @@
         function toggleCard(header) {
             const card = header.parentElement;
             card.classList.toggle('active');
+        }
+
+        function toggleGADetail() {
+            const btn = document.getElementById('gaDetailToggle');
+            const content = document.getElementById('gaDetailContent');
+            btn.classList.toggle('open');
+            content.classList.toggle('open');
+
+            // Update button text
+            const span = btn.querySelector('span');
+            if (content.classList.contains('open')) {
+                span.innerHTML = '<i class="fa-solid fa-circle-check"></i> &nbsp;Thu gọn hướng dẫn Google Authenticator';
+            } else {
+                span.innerHTML = '<i class="fa-solid fa-circle-question"></i> &nbsp;Google Authenticator là gì? Ấn xem chi tiết';
+            }
         }
     </script>
 </body>
