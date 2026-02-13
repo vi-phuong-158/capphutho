@@ -902,6 +902,8 @@
         .chat-launcher {
             /* Remove Fixed Position (Handled by Widget) */
             background: none;
+            border: none;
+            padding: 0;
             /* REMOVED BACKGROUND */
             width: 130px;
             /* DOUBLED SIZE */
@@ -1411,9 +1413,9 @@
     <!-- CHATBOT LAUNCHER WIDGET -->
     <div class="chat-widget">
         <div class="chat-label">Trợ lý ảo 24/7</div>
-        <div class="chat-launcher" onclick="toggleChat()">
+        <button class="chat-launcher" type="button" onclick="toggleChat()" aria-label="Mở hộp thoại chat">
             <img src="Icon.png" alt="Chatbot Icon">
-        </div>
+        </button>
     </div>
 
     <!-- CHAT WINDOW -->
