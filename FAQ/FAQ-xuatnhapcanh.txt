@@ -26,14 +26,6 @@ Thời hạn khai báo tạm trú cho người nước ngoài được quy đị
 *   **Trường hợp thông thường:** Phải nộp Phiếu khai báo tạm trú trong thời hạn **12 giờ** kể từ khi người nước ngoài đến đăng ký tạm trú.
 *   **Khu vực vùng sâu, vùng xa:** Thời hạn là **24 giờ** kể từ khi người nước ngoài đến.
 
-### 5. Thủ tục khai báo tạm trú cho người nước ngoài tại Công an xã thực hiện như thế nào? Có cần mang người nước ngoài đến trụ sở công an không?
-
-**Trả lời:**
-Bạn không cần đưa người nước ngoài đến trụ sở, thủ tục như sau:
-*   **Bước 1:** Tiếp nhận thông tin từ khách.
-*   **Bước 2:** Khai và nộp **Phiếu khai báo tạm trú (Mẫu NA17)** cho trực ban Công an cấp xã. Bạn có thể gửi trước qua Fax hoặc thông báo qua điện thoại đến trực ban trước khi nộp phiếu.
-*   **Kết quả:** Bạn sẽ nhận lại ngay Phiếu khai báo tạm trú đã có xác nhận của trực ban Công an xã.
-
 ### 6. Tôi là doanh nhân có thẻ APEC (thẻ ABTC), nếu bị mất thẻ thì thời hạn báo mất có giống với mất hộ chiếu không?
 
 **Trả lời:**
@@ -73,3 +65,63 @@ Khi đến nộp hồ sơ trực tiếp, bạn cần xuất trình một trong c
 *   Căn cước công dân.
 *   Căn cước điện tử.
 Quy định này áp dụng cho việc trình báo mất hộ chiếu và các giấy tờ xuất nhập cảnh khác.
+Dựa trên tài liệu hướng dẫn sử dụng hệ thống Khai báo tạm trú (KBTT) mới nhất, dưới đây là 3 câu hỏi thường gặp bổ sung về quy trình đăng ký tài khoản, cách nhập liệu và xử lý khách đoàn:
+
+### 4. Tôi là chủ cơ sở lưu trú mới, muốn đăng ký tài khoản để sử dụng hệ thống này thì quy trình thực hiện như thế nào?
+
+**Trả lời:**
+Để đăng ký tài khoản mới, bạn thực hiện theo các bước sau trên trang https://kbtt.xuatnhapcanh.gov.vn:
+1.  **Truy cập và chọn Đăng ký:** Tại màn hình chính, bạn nhấn nút **"Đăng ký"**.
+2.  **Xác nhận quy định:** Hệ thống sẽ hiển thị các quy định về khai báo tạm trú (theo Thông tư số 53/2016/TT-BCA). Bạn cần tích chọn vào ô *"Xác nhận đã đọc kỹ quy định và tuân thủ pháp luật Việt Nam..."* rồi nhấn **"Tiếp tục"**,.
+3.  **Điền thông tin:** Bạn phải điền đầy đủ các thông tin vào Form đăng ký, bao gồm 3 nhóm thông tin chính:
+    *   **Thông tin người đại diện:** Họ tên, Ngày sinh, Giới tính, Số điện thoại, Số CCCD/CMND...
+    *   **Thông tin cơ sở lưu trú:** Tên cơ sở, Loại cơ sở, Mã số thuế, Email, Địa chỉ chi tiết (Tỉnh/Thành, Phường/Xã).
+    *   **Thông tin tài khoản:** Tên tài khoản, Mật khẩu, Cơ quan nhận khai báo (Công an cấp quản lý).
+4.  **Hoàn tất:** Nhập mã xác nhận (Captcha) và nhấn nút **"Xác nhận"** để hệ thống kiểm tra và lưu thông tin.
+
+### 5. Khi thực hiện khai báo, ngoài việc tải ảnh hộ chiếu, tôi cần lưu ý điền những trường thông tin bắt buộc nào để có thể "Lưu thông tin" thành công?
+
+**Trả lời:**
+Sau khi tải ảnh hộ chiếu lên để hệ thống tự trích xuất dữ liệu, bạn cần kiểm tra lại và đảm bảo điền đủ **các trường thông tin có dấu sao đỏ (*)**. Cụ thể các trường bắt buộc bao gồm:
+*   Số hộ chiếu
+*   Quốc tịch
+*   Họ và tên
+*   Ngày sinh
+*   Giới tính
+*   Ngày đến cơ sở lưu trú
+*   Ngày đi dự kiến
+*   Số phòng
+Sau khi điền đầy đủ, bạn ấn nút **"Lưu thông tin"** ở góc phải màn hình để hoàn tất hồ sơ.
+
+### 6. Tôi có đoàn khách du lịch đông người vào nhận phòng cùng lúc. Hệ thống có chức năng nào hỗ trợ nhập liên tục mà không phải thao tác lại từ đầu không?
+
+**Trả lời:**
+**Có.** Hệ thống có hỗ trợ chức năng nhập liệu cho khách đoàn.
+Thay vì ấn "Lưu thông tin" rồi quay lại màn hình danh sách, sau khi nhập xong thông tin cho người khách thứ nhất, bạn hãy ấn vào nút **"Thêm hồ sơ khác"**,.
+Chức năng này cho phép cơ sở lưu trú nhập liên tục nhiều hồ sơ tạm trú tiếp theo mà không bị gián đoạn, giúp tiết kiệm thời gian khi làm thủ tục cho đoàn đông người.
+Dựa trên tài liệu hướng dẫn sử dụng hệ thống **Khai báo tạm trú cho người nước ngoài (KBTT)** dành cho cơ sở lưu trú, dưới đây là 3 câu hỏi thường gặp chi tiết:
+
+### 1. Tôi thấy quy trình đăng nhập yêu cầu "Mã xác thực". Tôi phải lấy mã này ở đâu và cài đặt như thế nào để đăng nhập được vào hệ thống?
+
+**Trả lời:**
+Để bảo mật tài khoản, hệ thống yêu cầu xác thực 2 lớp. Bạn cần sử dụng ứng dụng **Google Authenticator** trên điện thoại. Quy trình cụ thể như sau:
+*   **Cài đặt lần đầu:** Khi đăng nhập lần đầu, sau khi nhập tên và mật khẩu, hệ thống sẽ hiển thị mã QR. Bạn cần tải ứng dụng Google Authenticator trên điện thoại (App Store hoặc CH Play), mở ứng dụng và quét mã QR này để lấy mã xác thực (token).
+*   **Đăng nhập các lần sau:**
+    1.  Nhập tên đăng nhập, mật khẩu và mã captcha như bình thường,.
+    2.  Hệ thống sẽ chuyển sang màn hình yêu cầu "Mã Authenticator".
+    3.  Bạn mở ứng dụng Google Authenticator trên điện thoại, lấy mã số (6 chữ số) hiện ra và nhập vào ô trống, sau đó nhấn "Xác nhận" để vào hệ thống,.
+
+### 2. Khi khai báo cho khách, tôi có phải gõ tay từng thông tin (Họ tên, ngày sinh, số hộ chiếu...) không? Hệ thống có hỗ trợ nhập liệu nhanh không?
+
+**Trả lời:**
+Bạn **không nhất thiết phải gõ tay** toàn bộ thông tin. Hệ thống có tính năng hỗ trợ trích xuất thông tin tự động từ ảnh chụp hộ chiếu:
+*   **Cách thực hiện:** Tại chức năng nhập khai báo, bạn ấn nút **"Tải lên"** và chọn ảnh chụp trang nhân thân hộ chiếu của người nước ngoài.
+*   **Kết quả:** Hệ thống sẽ tự động nhận diện và điền các thông tin (Số hộ chiếu, Họ và tên, Ngày sinh, Giới tính, Quốc tịch...) vào các ô tương ứng.
+*   **Lưu ý:** Sau khi hệ thống điền tự động, bạn **cần kiểm tra lại** các trường thông tin để đảm bảo chính xác trước khi ấn "Lưu thông tin".
+
+### 3. Tôi muốn xem báo cáo thống kê về lượng khách nước ngoài theo quốc tịch hoặc theo dõi tình trạng hồ sơ đã khai báo thì vào mục nào?
+
+**Trả lời:**
+Hệ thống cung cấp chức năng **"Báo cáo thống kê"** giúp bạn quản lý dữ liệu dễ dàng:
+1.  **Thống kê theo quốc tịch:** Bạn vào mục "Thống kê theo quốc tịch". Hệ thống sẽ hiển thị bảng dữ liệu và biểu đồ Top 10 quốc tịch có số lượng khách tạm trú nhiều nhất. Bạn có thể lọc theo thời gian (khách đang tạm trú, ngày nhập máy...) và tải xuống file Excel,.
+2.  **Thống kê theo tình trạng xử lý:** Bạn vào mục "Thống kê theo tình trạng xử lý hồ sơ" để xem số lượng hồ sơ theo các trạng thái: Mới, Xác nhận, Không xác nhận, Từ chối, hoặc Xác minh lại. Chức năng này cũng hỗ trợ biểu đồ trực quan và xuất file Excel để lưu trữ.
