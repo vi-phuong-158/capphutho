@@ -382,54 +382,79 @@ window.FAQ_DATA = {
     ],
     'xuat_nhap_canh': [
         {
-            text: "Mất hộ chiếu phổ thông báo trong bao lâu?",
-            answer: "Trong vòng <b>02 ngày làm việc</b>. Nếu quá hạn (do ốm đau, thiên tai) phải giải thích rõ trong đơn.",
-            keywords: ["mat ho chieu", "trinh bao", "thoi han"]
+            text: "Thời hạn phải báo mất hộ chiếu phổ thông?",
+            answer: "Trong thời hạn <b>02 ngày làm việc</b> kể từ ngày phát hiện hộ chiếu phổ thông bị mất, bạn phải thực hiện thủ tục trình báo mất hộ chiếu.<br><br><b>Trường hợp bất khả kháng:</b> Nếu vì lý do bất khả kháng (như ốm đau, thiên tai, tai nạn...), thời hạn nộp hoặc gửi đơn báo mất có thể dài hơn 02 ngày. Tuy nhiên, trong đơn trình báo, bạn phải <b>giải thích cụ thể</b> về lý do bất khả kháng đó.",
+            keywords: ["mat ho chieu", "trinh bao", "thoi han", "bao lau"]
         },
         {
             text: "Báo mất hộ chiếu ở đâu?",
-            answer: "Tại Công an xã gần nhất (không cần về nơi thường trú), hoặc báo Online trên DVC Bộ Công an.",
-            keywords: ["o dau", "online", "dia diem"]
+            answer: "<b>Nơi nộp:</b> Bạn <b>không bắt buộc</b> phải về nơi thường trú. Bạn có thể nộp hồ sơ tại <b>Công an cấp xã nơi gần nhất</b> hoặc nơi thuận lợi nhất.<br><br><b>Hình thức nộp:</b> Ngoài việc đến trực tiếp, bạn hoàn toàn có thể nộp trực tuyến qua <b>Cổng Dịch vụ công quốc gia</b> hoặc <b>Cổng dịch vụ công Bộ Công an</b>, hoặc gửi qua dịch vụ bưu chính công ích.",
+            keywords: ["o dau", "online", "dia diem", "nop ho so"]
         },
         {
-            text: "Bao lâu hộ chiếu bị hủy giá trị?",
-            answer: "Sau khi báo mất 01 ngày, Công an xã chuyển tin. Sau 01 ngày tiếp theo, Cục QLXNC sẽ hủy hộ chiếu.",
+            text: "Sau bao lâu hộ chiếu bị hủy giá trị?",
+            answer: "Quy trình xử lý diễn ra trong vòng 02 ngày làm việc:<br>1. Trong thời hạn <b>01 ngày làm việc</b> kể từ khi nhận đơn, Công an cấp xã thông báo cho Cục Quản lý xuất nhập cảnh.<br>2. Trong thời hạn <b>01 ngày làm việc</b> tiếp theo kể từ khi nhận được thông báo từ Công an xã, Cục Quản lý xuất nhập cảnh sẽ thực hiện <b>hủy giá trị sử dụng</b> của hộ chiếu và thông báo kết quả cho người dân.",
             keywords: ["huy ho chieu", "gia tri"]
         },
         {
-            text: "Khai báo tạm trú cho người nước ngoài?",
-            answer: "Trong vòng <b>12 giờ</b> (với vùng sâu xa là 24 giờ) kể từ khi khách đến.",
-            keywords: ["nguoi nuoc ngoai", "khach tay", "tam tru"]
+            text: "Thời hạn khai báo tạm trú cho người nước ngoài?",
+            answer: "Thời hạn khai báo tạm trú cho người nước ngoài được quy định khá gấp rút:<br><ul><li><b>Trường hợp thông thường:</b> Phải nộp Phiếu khai báo tạm trú trong thời hạn <b>12 giờ</b> kể từ khi người nước ngoài đến đăng ký tạm trú.</li><li><b>Khu vực vùng sâu, vùng xa:</b> Thời hạn là <b>24 giờ</b> kể từ khi người nước ngoài đến.</li></ul>",
+            keywords: ["thoi han", "khai bao", "bao lau", "nguoi nuoc ngoai"]
         },
         {
-            text: "Thủ tục khai báo tạm trú cho khách nước ngoài?",
-            answer: "Khai và nộp phiếu NA17 cho Công an xã. Không cần đưa khách đến trụ sở.",
-            keywords: ["thu tuc", "na17", "khai bao"]
+            text: "Đăng ký tài khoản khai báo tạm trú mới?",
+            answer: "Để đăng ký tài khoản mới, bạn thực hiện theo các bước sau trên trang https://kbtt.xuatnhapcanh.gov.vn:<br>1. <b>Truy cập và chọn Đăng ký:</b> Tại màn hình chính, bạn nhấn nút <b>'Đăng ký'</b>.<br>2. <b>Xác nhận quy định:</b> Hệ thống sẽ hiển thị các quy định. Bạn tích chọn vào ô <i>'Xác nhận đã đọc kỹ quy định...'</i> rồi nhấn <b>'Tiếp tục'</b>.<br>3. <b>Điền thông tin:</b> Điền đầy đủ 3 nhóm thông tin: Thông tin người đại diện, Thông tin cơ sở lưu trú và Thông tin tài khoản.<br>4. <b>Hoàn tất:</b> Nhập mã xác nhận (Captcha) và nhấn nút <b>'Xác nhận'</b>.",
+            keywords: ["tai khoan", "dang ky", "moi", "account"]
         },
         {
-            text: "Mất thẻ APEC (ABTC)?",
-            answer: "Phải báo mất trong vòng <b>48 giờ</b>.",
-            keywords: ["the apec", "abtc", "doanh nhan"]
+            text: "Lấy mã xác thực (Google Authenticator) để đăng nhập?",
+            answer: "Để bảo mật, hệ thống yêu cầu xác thực 2 lớp qua ứng dụng <b>Google Authenticator</b>:<br><ul><li><b>Cài đặt lần đầu:</b> Khi đăng nhập lần đầu, hệ thống hiện mã QR. Bạn tải app Google Authenticator, quét mã QR này để lấy mã xác thực (token).</li><li><b>Đăng nhập các lần sau:</b><br>1. Nhập tên đăng nhập, mật khẩu, captcha.<br>2. Hệ thống yêu cầu 'Mã Authenticator'.<br>3. Mở app lấy mã 6 số nhập vào và nhấn 'Xác nhận'.</li></ul>",
+            keywords: ["google authenticator", "ma xac thuc", "token", "otp"]
+        },
+        {
+            text: "Hệ thống có tự động lấy thông tin từ ảnh hộ chiếu không?",
+            answer: "Bạn <b>không nhất thiết phải gõ tay</b> toàn bộ thông tin.<br><b>Cách thực hiện:</b> Ấn nút <b>'Tải lên'</b> và chọn ảnh chụp trang nhân thân hộ chiếu.<br><b>Kết quả:</b> Hệ thống tự động nhận diện và điền thông tin (Số hộ chiếu, Họ tên, Ngày sinh, Giới tính, Quốc tịch...).<br><b>Lưu ý:</b> Sau khi điền tự động, bạn <b>cần kiểm tra lại</b> để đảm bảo chính xác trước khi Lưu.",
+            keywords: ["tu dong", "trich xuat", "quét ảnh", "scan"]
+        },
+        {
+            text: "Các thông tin bắt buộc khi khai báo tạm trú?",
+            answer: "Sau khi tải ảnh hộ chiếu, bạn cần kiểm tra và điền đủ <b>các trường thông tin có dấu sao đỏ (*)</b> bắt buộc bao gồm:<br><ul><li>Số hộ chiếu</li><li>Quốc tịch</li><li>Họ và tên</li><li>Ngày sinh</li><li>Giới tính</li><li>Ngày đến cơ sở lưu trú</li><li>Ngày đi dự kiến</li><li>Số phòng</li></ul>Sau khi điền đủ, ấn nút <b>'Lưu thông tin'</b> để hoàn tất.",
+            keywords: ["bat buoc", "thong tin", "truong nao"]
+        },
+        {
+            text: "Cách nhập liệu nhanh cho đoàn khách đông người?",
+            answer: "<b>Có.</b> Hệ thống hỗ trợ nhập liệu cho khách đoàn.<br>Thay vì ấn 'Lưu thông tin' rồi quay lại danh sách, sau khi nhập xong khách thứ nhất, bạn hãy ấn vào nút <b>'Thêm hồ sơ khác'</b>.<br>Chức năng này cho phép nhập liên tục nhiều hồ sơ tiếp theo mà không bị gián đoạn, tiết kiệm thời gian.",
+            keywords: ["khach doan", "nhap nhanh", "dong nguoi"]
+        },
+        {
+            text: "Xem báo cáo thống kê khách lưu trú?",
+            answer: "Hệ thống cung cấp chức năng <b>'Báo cáo thống kê'</b>:<br>1. <b>Thống kê theo quốc tịch:</b> Xem biểu đồ Top 10 quốc tịch, lọc theo thời gian và tải file Excel.<br>2. <b>Thống kê theo tình trạng xử lý:</b> Xem số lượng hồ sơ theo trạng thái (Mới, Xác nhận, Từ chối...) và xuất file Excel lưu trữ.",
+            keywords: ["bao cao", "thong ke", "excel"]
+        },
+        {
+            text: "Thời hạn báo mất thẻ APEC (ABTC)?",
+            answer: "Thời hạn báo mất thẻ ABTC <b>gấp hơn</b> so với hộ chiếu.<br>Trong thời hạn <b>48 giờ</b> (tính theo giờ, không phải ngày làm việc) kể từ khi phát hiện thẻ ABTC bị mất, doanh nhân phải thực hiện việc trình báo. Nếu có lý do bất khả kháng thì được kéo dài nhưng phải giải thích rõ.",
+            keywords: ["the apec", "abtc", "doanh nhan", "mat the"]
         },
         {
             text: "Kết quả báo mất thẻ ABTC?",
-            answer: "Nhận 2 thông báo: Của CA xã (đã chuyển đơn) và của Cục QLXNC (giải quyết đơn - sau 3 ngày).",
+            answer: "Bạn sẽ nhận được 02 thông báo theo trình tự:<br>1. Thông báo của Công an cấp xã về việc đã chuyển đơn trình báo lên Cục Quản lý xuất nhập cảnh (Mẫu CV04).<br>2. Sau khoảng <b>03 ngày làm việc</b> tiếp theo, Cục Quản lý xuất nhập cảnh sẽ gửi thông báo về việc giải quyết đơn trình báo mất thẻ (Mẫu CV05).",
             keywords: ["ket qua", "apec"]
         },
         {
             text: "Mất giấy thông hành biên giới?",
-            answer: "Báo mất trong 02 ngày làm việc. Nộp tại Công an xã hoặc Online.",
+            answer: "Về cơ bản thủ tục tương tự như báo mất hộ chiếu:<br><ul><li><b>Thời hạn báo:</b> Trong vòng <b>02 ngày làm việc</b> kể từ khi phát hiện mất.</li><li><b>Nơi nộp:</b> Công an cấp xã nơi thuận lợi, Cổng dịch vụ công hoặc qua bưu chính.</li><li><b>Hồ sơ:</b> Sử dụng đơn trình báo mất giấy thông hành (Mẫu M02a).</li><li><b>Kết quả:</b> Giấy thông hành sẽ bị hủy giá trị sử dụng trong vòng 01 ngày làm việc sau khi cơ quan cấp nhận thông báo.</li></ul>",
             keywords: ["thong hanh", "bien gioi", "lao", "trung quoc"]
         },
         {
-            text: "Lệ phí trình báo mất giấy tờ XNC?",
-            answer: "<b>Miễn phí.</b>",
-            keywords: ["le phi", "tien"]
+            text: "Lệ phí trình báo mất giấy tờ, khai báo tạm trú?",
+            answer: "<b>Không.</b> Theo quy định hiện hành, tất cả các thủ tục thực hiện tại Công an cấp xã đều <b>không thu lệ phí</b>, cụ thể:<br><ul><li>Trình báo mất hộ chiếu: Không thu phí.</li><li>Khai báo tạm trú cho người nước ngoài: Không thu phí.</li><li>Trình báo mất thẻ ABTC: Không thu phí.</li><li>Trình báo mất giấy thông hành: Không thu phí.</li></ul>",
+            keywords: ["le phi", "tien", "chi phi"]
         },
         {
-            text: "Giấy tờ cần mang khi đi báo mất?",
-            answer: "Thẻ Căn cước/CCCD còn hiệu lực.",
-            keywords: ["giay to", "mang theo"]
+            text: "Giấy tờ cần mang khi đi báo mất trực tiếp?",
+            answer: "Khi đến nộp hồ sơ trực tiếp, bạn cần xuất trình một trong số các giấy tờ sau còn giá trị sử dụng để kiểm tra:<br><ul><li>Thẻ căn cước.</li><li>Căn cước công dân.</li><li>Căn cước điện tử.</li></ul>Quy định này áp dụng cho việc trình báo mất hộ chiếu và các giấy tờ xuất nhập cảnh khác.",
+            keywords: ["giay to", "mang theo", "cccd"]
         }
     ],
     'khieu_nai': [
