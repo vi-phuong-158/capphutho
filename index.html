@@ -903,6 +903,8 @@
             /* Remove Fixed Position (Handled by Widget) */
             background: none;
             /* REMOVED BACKGROUND */
+            border: none;
+            padding: 0;
             width: 130px;
             /* DOUBLED SIZE */
             height: 130px;
@@ -1189,7 +1191,8 @@
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
             <input type="text" class="search-input"
-                placeholder="Bạn cần tìm thủ tục gì? (Ví dụ: Định danh, Hộ khẩu...)">
+                placeholder="Bạn cần tìm thủ tục gì? (Ví dụ: Định danh, Hộ khẩu...)"
+                aria-label="Tìm kiếm thủ tục">
         </div>
 
         <!-- GRID CONTENT -->
@@ -1411,9 +1414,9 @@
     <!-- CHATBOT LAUNCHER WIDGET -->
     <div class="chat-widget">
         <div class="chat-label">Trợ lý ảo 24/7</div>
-        <div class="chat-launcher" onclick="toggleChat()">
+        <button class="chat-launcher" onclick="toggleChat()" type="button" aria-label="Mở trợ lý ảo">
             <img src="Icon.png" alt="Chatbot Icon">
-        </div>
+        </button>
     </div>
 
     <!-- CHAT WINDOW -->
@@ -1430,7 +1433,7 @@
                     </div>
                 </div>
             </div>
-            <button class="close-chat" onclick="toggleChat()">&times;</button>
+            <button class="close-chat" onclick="toggleChat()" aria-label="Đóng chat">&times;</button>
         </div>
 
         <div class="chat-body" id="chatBody">
@@ -1448,8 +1451,8 @@
 
         <div class="chat-footer">
             <input type="text" class="chat-input" id="chatSearchInput"
-                placeholder="Nhập câu hỏi hoặc thủ tục cần tìm...">
-            <button class="send-btn" id="chatSendBtn">
+                placeholder="Nhập câu hỏi hoặc thủ tục cần tìm..." aria-label="Nhập câu hỏi">
+            <button class="send-btn" id="chatSendBtn" aria-label="Gửi tin nhắn">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
         </div>
