@@ -41,8 +41,13 @@ class ChatbotController {
         };
 
         // Search Input
+        // ⚡ OPTIMIZATION: Debounce search to prevent excessive DOM updates and calculations while typing
+        const debouncedSearch = this.debounce((query) => {
+            this.handleSearch(query);
+        }, 300);
+
         this.elements.input.addEventListener('input', (e) => {
-            this.handleSearch(e.target.value);
+            debouncedSearch(e.target.value);
         });
 
         // Enter to search (nếu cần xử lý submit)
@@ -154,6 +159,16 @@ class ChatbotController {
     }
 
     // === UTILS ===
+
+    // Debounce function to limit rate of execution
+    debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    }
 
     showLoading(callback) {
         const loadingId = 'loading-' + Date.now();
