@@ -20,8 +20,27 @@ class ChatbotController {
 
         // Use Global Search Engine
         this.searchEngine = new window.FaqSearchEngine();
+
+        // Initialize Debounced Search
+        // Bind performSearch to preserve 'this' context
+        this.performSearch = this.performSearch.bind(this);
+        // Create a debounced version with 300ms delay
+        this.debouncedSearch = this.debounce(this.performSearch, 300);
+
         this.setupEventListeners();
         this.renderMainMenu(); // Init sẵn menu
+    }
+
+    // Utility: Debounce function
+    debounce(func, wait) {
+        let timeout;
+        const debounced = function(...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+        debounced.cancel = () => clearTimeout(timeout);
+        return debounced;
     }
 
     setupEventListeners() {
@@ -127,13 +146,19 @@ class ChatbotController {
     }
 
     handleSearch(query) {
-        // 1. Nếu query rỗng -> Hiện lại Main Menu
+        // 1. Nếu query rỗng -> Hiện lại Main Menu NGAY LẬP TỨC
         if (!query || query.trim() === '') {
+            this.debouncedSearch.cancel(); // Hủy search đang chờ để tránh race condition
             this.renderMainMenu();
             return;
         }
 
-        // 2. Tìm kiếm
+        // 2. Nếu có query -> Gọi hàm search đã được debounce
+        this.debouncedSearch(query);
+    }
+
+    performSearch(query) {
+        // 2. Tìm kiếm (Logic thực sự)
         const results = this.searchEngine.search(query);
 
         // 3. Hiển thị kết quả dưới dạng Options
