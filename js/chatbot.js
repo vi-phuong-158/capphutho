@@ -33,10 +33,15 @@ class ChatbotController {
             if (el.style.display === 'flex') {
                 el.style.display = 'none';
                 launcher.classList.remove('active'); // Remove active class
+                launcher.setAttribute('aria-expanded', 'false');
+                launcher.setAttribute('aria-label', 'Mở hộp thoại chat');
             } else {
                 el.style.display = 'flex';
                 launcher.classList.add('active'); // Add active class to shrink
+                launcher.setAttribute('aria-expanded', 'true');
+                launcher.setAttribute('aria-label', 'Đóng hộp thoại chat');
                 this.scrollToBottom();
+                this.elements.input.focus();
             }
         };
 
