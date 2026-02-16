@@ -55,10 +55,30 @@ class ChatbotController {
 
     // === RENDERING UI ===
 
+    /**
+     * Sanitize user input to prevent XSS.
+     * @param {string} unsafe - The string to escape.
+     */
+    escapeHtml(unsafe) {
+        if (typeof unsafe !== 'string') return unsafe;
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
     addMessage(htmlContent, type = 'bot') {
+        // Sanitize user input to prevent XSS
+        let safeContent = htmlContent;
+        if (type === 'user') {
+            safeContent = this.escapeHtml(htmlContent);
+        }
+
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${type}-message`;
-        msgDiv.innerHTML = htmlContent;
+        msgDiv.innerHTML = safeContent;
         this.elements.body.insertBefore(msgDiv, this.elements.optionContainer); // Chèn TRƯỚC options
         this.scrollToBottom();
     }
@@ -68,9 +88,12 @@ class ChatbotController {
     }
 
     renderButton(text, iconClass, onClick, isBack = false) {
+        // Sanitize button text
+        const safeText = this.escapeHtml(text);
+
         const btn = document.createElement('button');
         btn.className = `option-btn ${isBack ? 'back-btn' : ''}`;
-        btn.innerHTML = `<i class="${iconClass}"></i> ${text}`;
+        btn.innerHTML = `<i class="${iconClass}"></i> ${safeText}`;
         btn.onclick = onClick;
         this.elements.optionContainer.appendChild(btn);
         this.scrollToBottom();
