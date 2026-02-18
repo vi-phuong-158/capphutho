@@ -40,9 +40,13 @@ class ChatbotController {
             }
         };
 
-        // Search Input
+        // Search Input (Debounced)
+        const debouncedSearch = this.debounce((query) => {
+            this.handleSearch(query);
+        }, 300);
+
         this.elements.input.addEventListener('input', (e) => {
-            this.handleSearch(e.target.value);
+            debouncedSearch(e.target.value);
         });
 
         // Enter to search (nếu cần xử lý submit)
@@ -154,6 +158,18 @@ class ChatbotController {
     }
 
     // === UTILS ===
+
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
 
     showLoading(callback) {
         const loadingId = 'loading-' + Date.now();
