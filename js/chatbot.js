@@ -40,10 +40,10 @@ class ChatbotController {
             }
         };
 
-        // Search Input
-        this.elements.input.addEventListener('input', (e) => {
+        // Search Input with Debounce to reduce performance cost of frequent search executions
+        this.elements.input.addEventListener('input', this.debounce((e) => {
             this.handleSearch(e.target.value);
-        });
+        }, 300));
 
         // Enter to search (nếu cần xử lý submit)
         this.elements.input.addEventListener('keypress', (e) => {
@@ -173,6 +173,14 @@ class ChatbotController {
 
     scrollToBottom() {
         this.elements.body.scrollTop = this.elements.body.scrollHeight;
+    }
+
+    debounce(func, wait) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
     }
 }
 
