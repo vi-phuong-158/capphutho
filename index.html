@@ -392,27 +392,97 @@
             font-size: 0.85rem;
         }
 
-        .footer strong {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
         /* ===== RESPONSIVE ===== */
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
+            :root {
+                --container-width: 1200px;
+                /* Tăng chiều rộng lên 1200px cho máy tính */
+            }
+
             .bento-grid {
                 grid-template-columns: repeat(3, 1fr);
-                /* 3 cột trên máy tính */
+                gap: 24px;
+                /* Tăng khoảng cách giữa các thẻ */
             }
 
             .header-title {
-                font-size: 2.5rem;
+                font-size: 3rem;
+                /* Tăng kích thước tiêu đề chính */
+            }
+
+            .header-subtitle {
+                font-size: 1.2rem;
+                /* Tăng kích thước tiêu đề phụ */
+            }
+
+            .card {
+                padding: 24px;
+                /* Tăng padding cho thẻ */
+                min-height: 140px;
+                /* Tăng chiều cao tối thiểu */
+            }
+
+            .card-icon-wrapper {
+                width: 64px;
+                /* Tăng kích thước icon wrapper */
+                height: 64px;
+                margin-right: 20px;
+            }
+
+            .card-icon {
+                font-size: 1.8rem;
+                /* Tăng kích thước icon */
+            }
+
+            .card-title {
+                font-size: 1.25rem;
+                /* Tăng font tiêu đề thẻ */
+                margin-bottom: 8px;
+            }
+
+            .card-desc {
+                font-size: 1rem;
+                /* Tăng font mô tả thẻ */
+            }
+
+            .search-input {
+                font-size: 1.2rem;
+                /* Tăng font ô tìm kiếm */
+                padding: 12px 0;
+            }
+
+            .search-icon {
+                font-size: 1.4rem;
             }
 
             .card.featured {
                 grid-column: span 1;
             }
 
-            /* Reset span on desktop if wanted, or keep it */
+            /* ===== CHATBOT ICON (DESKTOP) ===== */
+            .chat-launcher {
+                width: 180px;
+                /* Tăng kích thước icon lên 180px */
+                height: 180px;
+                filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+                /* Tăng bóng đổ cho nổi bật */
+                transition: transform 0.3s ease, filter 0.3s ease;
+            }
+
+            .chat-launcher:hover {
+                transform: scale(1.15);
+                /* Hiệu ứng hover mạnh hơn */
+                filter: drop-shadow(0 12px 24px rgba(196, 30, 58, 0.5));
+                /* Bóng đổ màu đỏ khi hover */
+            }
+
+            .chat-label {
+                font-size: 1.1rem;
+                /* Tăng chữ "Trợ lý ảo 24/7" */
+                padding: 8px 16px;
+                bottom: 10px;
+                /* Điều chỉnh vị trí label */
+            }
         }
 
         /* ===== ELDER MODE (Chế độ Người cao tuổi) ===== */
@@ -1268,64 +1338,7 @@
 
         </div>
 
-        <!-- FAQ SECTION -->
-        <div class="faq-section">
-            <h3 class="faq-title"><i class="fa-solid fa-circle-question"></i> Câu Hỏi Thường Gặp</h3>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Thời gian làm việc của Công an Phường?</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Thứ 2 đến Thứ 7. Buổi sáng: 7h30 - 11h30. Buổi chiều: 13h00 - 16h30. Chủ nhật nghỉ.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Cần mang theo gì khi đến làm thủ tục?</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>CCCD/CMND gốc, bản photo hồ sơ liên quan (nếu có), mẫu đơn đã điền sẵn để tiết kiệm thời gian.
-                    </p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Có thể nộp hồ sơ online được không?</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Một số thủ tục hỗ trợ nộp online qua Cổng Dịch vụ công Quốc gia (dichvucong.gov.vn) hoặc qua app
-                        VNeID.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Làm CCCD mất bao lâu?</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Cấp mới: 7-10 ngày làm việc. Cấp lại do mất/hỏng: 7-10 ngày. Trường hợp cấp khẩn có thể nhanh
-                        hơn.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Khai báo tạm trú người nước ngoài như thế nào?</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Cơ sở lưu trú khai báo qua website <strong>phutho.xuatnhapcanh.gov.vn</strong> trong vòng 12 giờ
-                        kể từ khi khách nhận phòng.</p>
-                </div>
-            </div>
-        </div>
+        <!-- FAQ SECTION REMOVED AS REQUESTED (Replaced by Chatbot) -->
 
         <!-- FOOTER INFO -->
         <footer class="footer">
