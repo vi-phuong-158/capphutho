@@ -33,12 +33,24 @@ class ChatbotController {
             if (el.style.display === 'flex') {
                 el.style.display = 'none';
                 launcher.classList.remove('active'); // Remove active class
+                launcher.setAttribute('aria-expanded', 'false');
+                launcher.focus(); // Return focus to launcher
             } else {
                 el.style.display = 'flex';
                 launcher.classList.add('active'); // Add active class to shrink
+                launcher.setAttribute('aria-expanded', 'true');
                 this.scrollToBottom();
+                // Focus input for accessibility
+                setTimeout(() => this.elements.input.focus(), 50);
             }
         };
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.elements.window.style.display === 'flex') {
+                window.toggleChat();
+            }
+        });
 
         // Search Input with Debounce to reduce performance cost of frequent search executions
         this.elements.input.addEventListener('input', this.debounce((e) => {
