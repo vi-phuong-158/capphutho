@@ -83,7 +83,7 @@ class ChatbotController {
         this.elements.optionContainer.innerHTML = '';
     }
 
-    renderButton(text, iconClass, onClick, isBack = false) {
+    renderButton(text, iconClass, onClick, isBack = false, container = null) {
         const btn = document.createElement('button');
         btn.className = `option-btn ${isBack ? 'back-btn' : ''}`;
 
@@ -95,31 +95,43 @@ class ChatbotController {
         btn.appendChild(document.createTextNode(' ' + text));
 
         btn.onclick = onClick;
-        this.elements.optionContainer.appendChild(btn);
-        this.scrollToBottom();
+
+        if (container) {
+            container.appendChild(btn);
+        } else {
+            this.elements.optionContainer.appendChild(btn);
+            this.scrollToBottom();
+        }
     }
 
     renderMainMenu() {
         this.clearOptions();
         const categories = window.MAIN_CATEGORIES || [];
+        const fragment = document.createDocumentFragment();
         categories.forEach(cat => {
-            this.renderButton(cat.text, cat.icon, () => this.handleCategorySelect(cat));
+            this.renderButton(cat.text, cat.icon, () => this.handleCategorySelect(cat), false, fragment);
         });
+        this.elements.optionContainer.appendChild(fragment);
+        this.scrollToBottom();
     }
 
     renderSubMenu(catId) {
         this.clearOptions();
         const faqData = window.FAQ_DATA || {};
         const questions = faqData[catId];
+        const fragment = document.createDocumentFragment();
 
         if (questions) {
             questions.forEach(q => {
-                this.renderButton(q.text, 'far fa-question-circle', () => this.handleQuestionSelect(q, catId));
+                this.renderButton(q.text, 'far fa-question-circle', () => this.handleQuestionSelect(q, catId), false, fragment);
             });
         }
 
         // Nút quay lại
-        this.renderButton('Quay lại danh mục', 'fas fa-undo', () => this.renderMainMenu(), true);
+        this.renderButton('Quay lại danh mục', 'fas fa-undo', () => this.renderMainMenu(), true, fragment);
+
+        this.elements.optionContainer.appendChild(fragment);
+        this.scrollToBottom();
     }
 
     // === LOGIC HANDLERS ===
@@ -134,10 +146,14 @@ class ChatbotController {
 
     renderNavigationOptions(catId) {
         this.clearOptions();
+        const fragment = document.createDocumentFragment();
         // 1. Nút xem thêm câu hỏi cùng chủ đề
-        this.renderButton('Xem câu hỏi khác', 'far fa-question-circle', () => this.renderSubMenu(catId));
+        this.renderButton('Xem câu hỏi khác', 'far fa-question-circle', () => this.renderSubMenu(catId), false, fragment);
         // 2. Nút về danh mục chính
-        this.renderButton('Về danh mục chính', 'fas fa-home', () => this.renderMainMenu(), true);
+        this.renderButton('Về danh mục chính', 'fas fa-home', () => this.renderMainMenu(), true, fragment);
+
+        this.elements.optionContainer.appendChild(fragment);
+        this.scrollToBottom();
     }
 
     handleQuestionSelect(question, catId) {
@@ -166,13 +182,16 @@ class ChatbotController {
             // Không tìm thấy
             // this.renderButton('Không tìm thấy kết quả', 'fas fa-exclamation-circle', () => {});
         } else {
+            const fragment = document.createDocumentFragment();
             results.forEach(res => {
                 if (res.type === 'category') {
-                    this.renderButton(`[Mục] ${res.text}`, res.original.icon, () => this.handleCategorySelect(res.original));
+                    this.renderButton(`[Mục] ${res.text}`, res.original.icon, () => this.handleCategorySelect(res.original), false, fragment);
                 } else {
-                    this.renderButton(res.text, 'fas fa-search', () => this.handleQuestionSelect(res.original, res.catId));
+                    this.renderButton(res.text, 'fas fa-search', () => this.handleQuestionSelect(res.original, res.catId), false, fragment);
                 }
             });
+            this.elements.optionContainer.appendChild(fragment);
+            this.scrollToBottom();
         }
     }
 
