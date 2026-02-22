@@ -28,17 +28,34 @@ class ChatbotController {
         // Toggle Chat
         window.toggleChat = () => {
             const el = this.elements.window;
-            const launcher = document.querySelector('.chat-launcher'); // Get launcher
+            const launcher = document.querySelector('.chat-launcher');
+            const input = this.elements.input;
 
-            if (el.style.display === 'flex') {
-                el.style.display = 'none';
-                launcher.classList.remove('active'); // Remove active class
-            } else {
+            const isHidden = el.style.display === 'none' || el.style.display === '';
+
+            if (isHidden) {
+                // Open
                 el.style.display = 'flex';
-                launcher.classList.add('active'); // Add active class to shrink
+                launcher.classList.add('active');
+                launcher.setAttribute('aria-expanded', 'true');
                 this.scrollToBottom();
+                // Focus on input after transition (small delay to ensure visibility)
+                setTimeout(() => input.focus(), 50);
+            } else {
+                // Close
+                el.style.display = 'none';
+                launcher.classList.remove('active');
+                launcher.setAttribute('aria-expanded', 'false');
+                launcher.focus(); // Return focus to launcher
             }
         };
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.elements.window.style.display === 'flex') {
+                window.toggleChat();
+            }
+        });
 
         // Search Input with Debounce to reduce performance cost of frequent search executions
         this.elements.input.addEventListener('input', this.debounce((e) => {
