@@ -191,6 +191,11 @@ class ChatbotController {
             return;
         }
 
+        // Security: Limit input length to prevent DoS
+        if (query.length > 200) {
+            query = query.substring(0, 200);
+        }
+
         // 2. Tìm kiếm
         const results = this.searchEngine.search(query);
 
@@ -218,6 +223,11 @@ class ChatbotController {
             this.elements.globalDropdown.classList.remove('active');
             this.elements.globalDropdown.innerHTML = '';
             return;
+        }
+
+        // Security: Limit input length to prevent DoS
+        if (query.length > 100) {
+            query = query.substring(0, 100);
         }
 
         const results = this.searchEngine.search(query);
