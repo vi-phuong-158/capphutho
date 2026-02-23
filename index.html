@@ -142,6 +142,10 @@
 
         /* ===== SEARCH BAR (New Feature) ===== */
         .search-container {
+            position: relative;
+            /* Thêm để định vị dropdown */
+            z-index: 500;
+            /* Đưa dropdown lên trên content */
             background: var(--surface);
             border-radius: var(--radius-lg);
             padding: 8px 16px;
@@ -174,6 +178,114 @@
             font-size: 1rem;
             color: var(--secondary);
             outline: none;
+        }
+
+        /* ===== SEARCH RESULTS DROPDOWN ===== */
+        .search-results-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(196, 30, 58, 0.1);
+            z-index: 1000;
+            max-height: 350px;
+            overflow-y: auto;
+            display: none;
+            /* Ẩn mặc định */
+            flex-direction: column;
+            padding: 8px 0;
+            animation: fadeInDown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .search-results-dropdown.active {
+            display: flex;
+        }
+
+        .search-result-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            text-align: left;
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background-color: rgba(196, 30, 58, 0.05);
+        }
+
+        .search-result-icon {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 2px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .search-result-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .search-result-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--secondary);
+            line-height: 1.3;
+        }
+
+        .search-result-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .search-no-results {
+            padding: 20px;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-no-results i {
+            font-size: 1.5rem;
+            color: rgba(196, 30, 58, 0.3);
+        }
+
+        /* Tùy chỉnh thanh cuộn cho dropdown */
+        .search-results-dropdown::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .search-results-dropdown::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .search-results-dropdown::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         /* ===== BENTO GRID ===== */
@@ -1255,10 +1367,15 @@
         </div>
 
         <!-- SEARCH -->
-        <div class="search-container">
+        <div class="search-container" id="globalSearchContainer">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" class="search-input"
+            <input type="text" class="search-input" id="globalSearchInput"
                 placeholder="Bạn cần tìm thủ tục gì? (Ví dụ: Định danh, Hộ khẩu...)">
+
+            <!-- Bảng kết quả thả xuống -->
+            <div class="search-results-dropdown" id="globalSearchResults">
+                <!-- Dropdown items will be injected here by JS -->
+            </div>
         </div>
 
         <!-- GRID CONTENT -->

@@ -15,7 +15,12 @@ class ChatbotController {
             body: document.getElementById('chatBody'),
             input: document.getElementById('chatSearchInput'),
             sendBtn: document.getElementById('chatSendBtn'),
-            optionContainer: document.getElementById('chatOptions')
+            optionContainer: document.getElementById('chatOptions'),
+            
+            // Global Search Elements
+            globalInput: document.getElementById('globalSearchInput'),
+            globalDropdown: document.getElementById('globalSearchResults'),
+            globalContainer: document.getElementById('globalSearchContainer')
         };
 
         // Use Global Search Engine
@@ -51,6 +56,36 @@ class ChatbotController {
                 // Có thể xử lý gửi tin nhắn "custom" nếu muốn
             }
         });
+
+        // ================= GLOBAL SEARCH =================
+        if (this.elements.globalInput && this.elements.globalDropdown) {
+            // Xử lý khi gõ vào ô tìm kiếm chính
+            this.elements.globalInput.addEventListener('input', this.debounce((e) => {
+                this.handleGlobalSearch(e.target.value);
+            }, 300));
+
+            // Hiển thị lại dropdown khi focus (nếu có nội dung)
+            this.elements.globalInput.addEventListener('focus', () => {
+                if (this.elements.globalInput.value.trim() !== '') {
+                    this.elements.globalDropdown.classList.add('active');
+                }
+            });
+
+            // Ẩn dropdown khi click ra ngoài
+            document.addEventListener('click', (e) => {
+                if (!this.elements.globalContainer.contains(e.target)) {
+                    this.elements.globalDropdown.classList.remove('active');
+                }
+            });
+            
+            // Đóng bằng phím Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    this.elements.globalDropdown.classList.remove('active');
+                    this.elements.globalInput.blur();
+                }
+            });
+        }
     }
 
     // === RENDERING UI ===
@@ -174,6 +209,121 @@ class ChatbotController {
                 }
             });
         }
+    }
+
+    // ================= GLOBAL SEARCH HANDLERS =================
+    
+    handleGlobalSearch(query) {
+        if (!query || query.trim() === '') {
+            this.elements.globalDropdown.classList.remove('active');
+            this.elements.globalDropdown.innerHTML = '';
+            return;
+        }
+
+        const results = this.searchEngine.search(query);
+        this.renderGlobalSearchResults(results, query);
+    }
+    
+    renderGlobalSearchResults(results, query) {
+        this.elements.globalDropdown.innerHTML = '';
+        this.elements.globalDropdown.classList.add('active');
+
+        if (results.length === 0) {
+            this.elements.globalDropdown.innerHTML = `
+                <div class="search-no-results">
+                    <i class="fas fa-search-minus"></i>
+                    Không tìm thấy kết quả cho "${this.escapeHtml(query)}"
+                </div>
+            `;
+            return;
+        }
+
+        results.forEach(res => {
+            const btn = document.createElement('button');
+            btn.className = 'search-result-item';
+            
+            const iconWrap = document.createElement('div');
+            iconWrap.className = 'search-result-icon';
+            const icon = document.createElement('i');
+            
+            const contentWrap = document.createElement('div');
+            contentWrap.className = 'search-result-content';
+            
+            const title = document.createElement('div');
+            title.className = 'search-result-title';
+            
+            const subtitle = document.createElement('div');
+            subtitle.className = 'search-result-subtitle';
+
+            if (res.type === 'category') {
+                icon.className = res.original.icon;
+                title.textContent = res.text;
+                subtitle.textContent = 'Danh mục thủ tục';
+                
+                btn.onclick = () => {
+                    this.elements.globalDropdown.classList.remove('active');
+                    this.elements.globalInput.value = ''; // Xóa chữ
+                    this.openChatAndSelectCategory(res.original);
+                };
+            } else {
+                icon.className = 'fas fa-file-contract';
+                title.textContent = res.text;
+                
+                // Lấy tên danh mục làm phụ đề
+                const categories = window.MAIN_CATEGORIES || [];
+                const parentCat = categories.find(c => c.id === res.catId);
+                subtitle.textContent = parentCat ? parentCat.text : 'Câu hỏi thường gặp';
+                
+                btn.onclick = () => {
+                    this.elements.globalDropdown.classList.remove('active');
+                    this.elements.globalInput.value = ''; // Xóa chữ
+                    this.openChatAndSelectQuestion(res.original, res.catId);
+                };
+            }
+            
+            iconWrap.appendChild(icon);
+            contentWrap.appendChild(title);
+            contentWrap.appendChild(subtitle);
+            
+            btn.appendChild(iconWrap);
+            btn.appendChild(contentWrap);
+            
+            this.elements.globalDropdown.appendChild(btn);
+        });
+    }
+
+    openChatAndSelectCategory(category) {
+        // 1. Mở widget chat nếu chưa mở
+        const chatWindow = this.elements.window;
+        const launcher = document.querySelector('.chat-launcher');
+        
+        if (chatWindow.style.display !== 'flex') {
+            chatWindow.style.display = 'flex';
+            launcher.classList.add('active');
+        }
+        
+        // 2. Clear input
+        this.elements.input.value = '';
+        
+        // 3. Trigger category select
+        this.handleCategorySelect(category);
+    }
+    
+    openChatAndSelectQuestion(question, catId) {
+        // 1. Mở widget chat nếu chưa mở
+        const chatWindow = this.elements.window;
+        const launcher = document.querySelector('.chat-launcher');
+        
+        if (chatWindow.style.display !== 'flex') {
+            chatWindow.style.display = 'flex';
+            launcher.classList.add('active');
+        }
+        
+        // 2. Clear input
+        this.elements.input.value = '';
+        
+        // 3. Trigger question select
+        this.handleQuestionSelect(question, catId);
     }
 
     // === UTILS ===
