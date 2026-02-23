@@ -25,6 +25,7 @@ class ChatbotController {
 
         // Use Global Search Engine
         this.searchEngine = new window.FaqSearchEngine();
+        this.lastSubmitTime = 0; // Initialize last submit timestamp
         this.setupEventListeners();
         this.renderMainMenu(); // Init sẵn menu
     }
@@ -50,11 +51,16 @@ class ChatbotController {
             this.handleSearch(e.target.value);
         }, 300));
 
-        // Enter to search (nếu cần xử lý submit)
+        // Enter to search (Submit)
         this.elements.input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                // Có thể xử lý gửi tin nhắn "custom" nếu muốn
+                this.handleSubmit();
             }
+        });
+
+        // Click to search (Submit)
+        this.elements.sendBtn.addEventListener('click', () => {
+            this.handleSubmit();
         });
 
         // ================= GLOBAL SEARCH =================
@@ -178,13 +184,41 @@ class ChatbotController {
     handleQuestionSelect(question, catId) {
         this.addMessage(question.text, 'user');
         this.showLoading(() => {
-            this.addMessage(question.answer, 'bot');
+            this.addMessage(question.answer || 'Hiện tại chưa có câu trả lời cho vấn đề này.', 'bot');
             // Thay vì hiện lại toàn bộ list câu hỏi (gây trôi tin nhắn), chỉ hiện nút điều hướng
             this.renderNavigationOptions(catId);
         });
     }
 
+    handleSubmit() {
+        const query = this.elements.input.value.trim();
+        if (!query) return;
+
+        this.lastSubmitTime = Date.now(); // Record submit time to prevent race condition
+        this.addMessage(this.escapeHtml(query), 'user');
+        this.elements.input.value = '';
+
+        const results = this.searchEngine.search(query);
+        this.clearOptions();
+
+        if (results.length === 0) {
+            this.addMessage(`Xin lỗi, tôi chưa tìm thấy thông tin cho từ khóa "${this.escapeHtml(query)}".`, 'bot');
+            this.renderButton('Quay lại danh mục', 'fas fa-undo', () => this.renderMainMenu(), true);
+        } else {
+            results.forEach(res => {
+                if (res.type === 'category') {
+                    this.renderButton(`[Mục] ${res.text}`, res.original.icon, () => this.handleCategorySelect(res.original));
+                } else {
+                    this.renderButton(res.text, 'fas fa-search', () => this.handleQuestionSelect(res.original, res.catId));
+                }
+            });
+        }
+    }
+
     handleSearch(query) {
+        // Prevent race condition: if submit happened recently (< 500ms), ignore this search
+        if (Date.now() - this.lastSubmitTime < 500) return;
+
         // 1. Nếu query rỗng -> Hiện lại Main Menu
         if (!query || query.trim() === '') {
             this.renderMainMenu();
