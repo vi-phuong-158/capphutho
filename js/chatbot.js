@@ -34,16 +34,35 @@ class ChatbotController {
         window.toggleChat = () => {
             const el = this.elements.window;
             const launcher = document.querySelector('.chat-launcher'); // Get launcher
+            const isOpened = el.style.display === 'flex';
 
-            if (el.style.display === 'flex') {
+            if (isOpened) {
+                // Closing
                 el.style.display = 'none';
-                launcher.classList.remove('active'); // Remove active class
+                launcher.classList.remove('active');
+                launcher.setAttribute('aria-expanded', 'false');
+                launcher.focus(); // Return focus to launcher
             } else {
+                // Opening
                 el.style.display = 'flex';
-                launcher.classList.add('active'); // Add active class to shrink
+                launcher.classList.add('active');
+                launcher.setAttribute('aria-expanded', 'true');
                 this.scrollToBottom();
+
+                // Focus on input for accessibility
+                // Use setTimeout to ensure the element is visible/rendered before focus
+                setTimeout(() => {
+                    this.elements.input.focus();
+                }, 50);
             }
         };
+
+        // Close Chat on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.elements.window.style.display === 'flex') {
+                window.toggleChat();
+            }
+        });
 
         // Search Input with Debounce to reduce performance cost of frequent search executions
         this.elements.input.addEventListener('input', this.debounce((e) => {
