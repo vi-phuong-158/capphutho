@@ -66,6 +66,9 @@ window.FaqSearchEngine = class FaqSearchEngine {
     search(query) {
         if (!query || query.trim().length < 2) return [];
 
+        // Security: Truncate query to prevent DoS
+        if (query.length > 200) query = query.substring(0, 200);
+
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
