@@ -72,8 +72,11 @@ window.FaqSearchEngine = class FaqSearchEngine {
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
+        // ⚡ Bolt: Refactored to single loop to avoid intermediate array allocation
         // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        const results = [];
+        for (let i = 0; i < this.index.length; i++) {
+            const item = this.index[i];
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,17 +84,21 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (let j = 0; j < queryTokens.length; j++) {
+                const token = queryTokens[j];
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            // Chỉ push nếu có điểm > 0, thay thế cho .filter()
+            if (score > 0) {
+                // ⚡ Bolt: Return a shallow copy of the item merging the score
+                results.push({ ...item, score });
+            }
+        }
 
         // Lọc và sắp xếp
         return results
-            .filter(item => item.score > 0)
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
     }
