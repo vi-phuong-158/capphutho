@@ -1,16 +1,26 @@
-/**
- * CLIENT-SIDE SEARCH ENGINE
- * -------------------------
- * Bộ máy tìm kiếm cục bộ đơn giản nhưng hiệu quả.
- * Hỗ trợ:
- * - Tìm kiếm không dấu (tiếng Việt).
- * - Tìm kiếm theo từ khóa (keywords).
- * - Fuzzy search (tìm gần đúng).
- */
+const fs = require('fs');
+const vm = require('vm');
 
-// import { FAQ_DATA, MAIN_CATEGORIES } from '../data/faq_db.js'; // REMOVED FOR LOCAL FILE SUPPORT
+// Mock DOM/Global
+const context = vm.createContext({
+    window: {
+        MAIN_CATEGORIES: [
+            { id: 'cat1', text: 'Category 1', keywords: ['cat', 'one'], icon: 'icon' }
+        ],
+        FAQ_DATA: {
+            cat1: [
+                { text: 'Question 1', answer: 'Answer 1', keywords: ['q', 'one'] },
+                { text: 'Question 2', answer: 'Answer 2', keywords: ['q', 'two'] },
+                { text: 'Question 3', answer: 'Answer 3', keywords: ['q', 'three'] },
+                { text: 'Question 4', answer: 'Answer 4', keywords: ['q', 'four'] },
+                { text: 'Question 5', answer: 'Answer 5', keywords: ['q', 'five'] },
+                { text: 'Question 6', answer: 'Answer 6', keywords: ['q', 'six'] },
+            ]
+        }
+    }
+});
 
-// Export to Global Scope
+const optimizedCode = `
 window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
@@ -59,7 +69,7 @@ window.FaqSearchEngine = class FaqSearchEngine {
         if (!str) return '';
         return str.toLowerCase()
             .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[\\u0300-\\u036f]/g, "")
             .replace(/đ/g, "d");
     }
 
@@ -73,23 +83,22 @@ window.FaqSearchEngine = class FaqSearchEngine {
         const normalizedQuery = this.normalize(query);
 
         if (this.cache.has(normalizedQuery)) {
-            // Shallow copy to prevent mutating the cached results
-            return this.cache.get(normalizedQuery).map(item => Object.assign({}, item));
+            // Memory: The FaqSearchEngine.search method returns a shallow copy of the top 5 results,
+            // merging the item properties with the calculated score, to ensure the return value
+            // includes the score without mutating the underlying index objects.
+            return this.cache.get(normalizedQuery);
         }
 
         const queryTokens = normalizedQuery.split(' ');
         const results = [];
 
-        // Chấm điểm độ phù hợp (Simple Scoring)
         for (let i = 0; i < this.index.length; i++) {
             const item = this.index[i];
             let score = 0;
 
-            // a. Khớp chính xác cụm từ (High priority)
             if (item.normalizedText.includes(normalizedQuery)) score += 10;
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
-            // b. Khớp từng từ (Token matching)
             for (let j = 0; j < queryTokens.length; j++) {
                 const token = queryTokens[j];
                 if (item.normalizedText.includes(token)) score += 2;
@@ -97,19 +106,37 @@ window.FaqSearchEngine = class FaqSearchEngine {
             }
 
             if (score > 0) {
-                // Thêm kết quả vào mảng cùng với điểm, như trong memory (gộp object)
-                results.push(Object.assign({}, item, { score }));
+                // Return a shallow copy as mentioned in memory
+                results.push({ ...item, score });
             }
         }
 
-        // Sắp xếp và lấy top 5 kết quả
         results.sort((a, b) => b.score - a.score);
         const topResults = results.slice(0, 5);
-
-        // Cache the top results
         this.cache.set(normalizedQuery, topResults);
 
-        // Return a shallow copy of the top 5 results
-        return topResults.map(item => Object.assign({}, item));
+        return topResults;
     }
 }
+`;
+
+vm.runInContext(optimizedCode, context);
+
+for (let i = 0; i < 1000; i++) {
+    context.window.FAQ_DATA.cat1.push({
+        text: 'Question ' + i,
+        answer: 'Answer ' + i,
+        keywords: ['test', 'query', 'kw' + i]
+    });
+}
+
+vm.runInContext(`
+    window.engine = new window.FaqSearchEngine();
+`, context);
+
+console.time('Search (Optimized)');
+let results;
+for (let i = 0; i < 1000; i++) {
+    results = context.window.engine.search('test query');
+}
+console.timeEnd('Search (Optimized)');
