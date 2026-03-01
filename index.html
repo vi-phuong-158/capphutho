@@ -1114,6 +1114,12 @@
             /* Optional: Dim it to focus on chat */
         }
 
+        .chat-launcher:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
+            border-radius: 50%;
+        }
+
         @keyframes pulse-red {
             0% {
                 box-shadow: 0 0 0 0 rgba(206, 25, 8, 0.7);
@@ -1540,13 +1546,13 @@
     <!-- CHATBOT LAUNCHER WIDGET -->
     <div class="chat-widget">
         <div class="chat-label">Trợ lý ảo 24/7</div>
-        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat">
-            <img src="Icon.png" alt="Chatbot Icon">
+        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat" aria-expanded="false" aria-controls="chatWindow">
+            <img src="Icon.png" alt="Chatbot Icon" aria-hidden="true">
         </button>
     </div>
 
     <!-- CHAT WINDOW -->
-    <div class="chat-window" id="chatWindow">
+    <div class="chat-window" id="chatWindow" role="dialog" aria-modal="true" aria-label="Hộp thoại Trợ lý ảo">
         <div class="chat-header">
             <div class="chat-info">
                 <div class="chat-avatar">
