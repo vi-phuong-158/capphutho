@@ -15,6 +15,7 @@ window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
         this.buildIndex();
+        this.cache = new Map();
     }
 
     // 1. Xây dựng chỉ mục tìm kiếm (Flat Index)
@@ -69,11 +70,18 @@ window.FaqSearchEngine = class FaqSearchEngine {
         // Security: Truncate query to prevent DoS
         if (query.length > 200) query = query.substring(0, 200);
 
+        // Check cache (Memoization)
+        if (this.cache.has(query)) return this.cache.get(query);
+
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
         // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        // Optimization: Replaced map/filter chain with a single for loop
+        // to minimize object allocation overhead and improve execution speed.
+        const results = [];
+        for (let i = 0; i < this.index.length; i++) {
+            const item = this.index[i];
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,18 +89,29 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (let j = 0; j < queryTokens.length; j++) {
+                const token = queryTokens[j];
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            if (score > 0) {
+                // shallow copy item and add score
+                results.push({ ...item, score });
+            }
+        }
 
         // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
+        const finalResults = results
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
+
+        // Prevent memory leaks from unbounded cache growth
+        if (this.cache.size > 1000) {
+            this.cache.clear();
+        }
+
+        this.cache.set(query, finalResults);
+        return finalResults;
     }
 }
