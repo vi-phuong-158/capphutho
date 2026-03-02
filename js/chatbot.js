@@ -38,10 +38,16 @@ class ChatbotController {
             if (el.style.display === 'flex') {
                 el.style.display = 'none';
                 launcher.classList.remove('active'); // Remove active class
+                launcher.setAttribute('aria-expanded', 'false');
+                launcher.focus(); // Shift focus back to launcher when closing
             } else {
                 el.style.display = 'flex';
                 launcher.classList.add('active'); // Add active class to shrink
+                launcher.setAttribute('aria-expanded', 'true');
                 this.scrollToBottom();
+                setTimeout(() => {
+                    this.elements.input.focus(); // Shift focus to input with 50ms delay
+                }, 50);
             }
         };
 

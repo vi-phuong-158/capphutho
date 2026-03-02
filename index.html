@@ -1106,6 +1106,12 @@
             transform: scale(1.1);
         }
 
+        .chat-launcher:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
+            border-radius: 50%;
+        }
+
         /* Active State (When Chat Open) */
         .chat-launcher.active {
             transform: scale(0.6) translateY(55px);
@@ -1540,8 +1546,8 @@
     <!-- CHATBOT LAUNCHER WIDGET -->
     <div class="chat-widget">
         <div class="chat-label">Trợ lý ảo 24/7</div>
-        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat">
-            <img src="Icon.png" alt="Chatbot Icon">
+        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat" aria-expanded="false">
+            <img src="Icon.png" alt="" aria-hidden="true">
         </button>
     </div>
 
@@ -1579,7 +1585,7 @@
             <input type="text" class="chat-input" id="chatSearchInput" aria-label="Nhập câu hỏi" maxlength="200"
                 placeholder="Nhập câu hỏi hoặc thủ tục cần tìm...">
             <button class="send-btn" id="chatSendBtn" aria-label="Gửi tin nhắn">
-                <i class="fa-solid fa-paper-plane"></i>
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
             </button>
         </div>
     </div>
