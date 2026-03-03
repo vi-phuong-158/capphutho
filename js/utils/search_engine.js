@@ -14,6 +14,7 @@
 window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
+        this.cache = new Map();
         this.buildIndex();
     }
 
@@ -70,10 +71,22 @@ window.FaqSearchEngine = class FaqSearchEngine {
         if (query.length > 200) query = query.substring(0, 200);
 
         const normalizedQuery = this.normalize(query);
+
+        // ⚡ Bolt Optimization: Check cache first (O(1))
+        if (this.cache.has(normalizedQuery)) {
+            return this.cache.get(normalizedQuery);
+        }
+
         const queryTokens = normalizedQuery.split(' ');
 
-        // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        const results = [];
+
+        // ⚡ Bolt Optimization: Single loop optimization
+        // Instead of mapping the whole array and then filtering,
+        // we use a single loop and only push matches.
+        // This significantly reduces memory allocation and GC overhead.
+        for (let i = 0; i < this.index.length; i++) {
+            const item = this.index[i];
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,18 +94,31 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (let j = 0; j < queryTokens.length; j++) {
+                const token = queryTokens[j];
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            if (score > 0) {
+                // Object spread has a cost, only do it for matches
+                results.push({ ...item, score });
+            }
+        }
 
         // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
+        const finalResults = results
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
+
+        // ⚡ Bolt Optimization: Cache the result to prevent recalculation
+        // Limit cache size to prevent unbounded memory growth for unique queries
+        if (this.cache.size >= 100) {
+            const firstKey = this.cache.keys().next().value;
+            this.cache.delete(firstKey);
+        }
+        this.cache.set(normalizedQuery, finalResults);
+
+        return finalResults;
     }
 }
