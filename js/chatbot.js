@@ -125,6 +125,7 @@ class ChatbotController {
         // Securely create elements to prevent XSS
         const icon = document.createElement('i');
         icon.className = iconClass;
+        icon.setAttribute('aria-hidden', 'true');
 
         btn.appendChild(icon);
         btn.appendChild(document.createTextNode(' ' + text));
@@ -265,6 +266,7 @@ class ChatbotController {
             const iconWrap = document.createElement('div');
             iconWrap.className = 'search-result-icon';
             const icon = document.createElement('i');
+            icon.setAttribute('aria-hidden', 'true');
             
             const contentWrap = document.createElement('div');
             contentWrap.className = 'search-result-content';

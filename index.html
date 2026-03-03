@@ -1318,6 +1318,58 @@
             border: none;
             cursor: pointer;
         }
+
+        /* ===== ACCESSIBILITY ===== */
+        :focus-visible {
+            outline: 3px solid var(--accent, #FFD700);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .card:focus-visible,
+        .search-input:focus-visible,
+        .chat-input:focus-visible,
+        .option-btn:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .chat-launcher:focus-visible {
+            border-radius: 50%;
+            outline-offset: 10px;
+        }
+
+        .elder-mode-toggle:focus-visible {
+            outline: 3px solid var(--primary-dark);
+            outline-offset: 4px;
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        :focus-visible {
+            outline: 3px solid var(--accent, #FFD700);
+            outline-offset: 2px;
+            border-radius: 4px; /* Basic border radius for focus outlines */
+        }
+
+        .card:focus-visible,
+        .search-input:focus-visible,
+        .chat-input:focus-visible,
+        .option-btn:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .chat-launcher:focus-visible {
+            border-radius: 50%; /* Make outline circular for the circular chat widget button */
+            outline-offset: 10px;
+        }
+
+        .elder-mode-toggle:focus-visible {
+            outline: 3px solid var(--primary-dark);
+            outline-offset: 4px;
+        }
     </style>
 </head>
 
@@ -1541,7 +1593,7 @@
     <div class="chat-widget">
         <div class="chat-label">Trợ lý ảo 24/7</div>
         <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat">
-            <img src="Icon.png" alt="Chatbot Icon">
+            <img src="Icon.png" alt="" aria-hidden="true">
         </button>
     </div>
 
@@ -1559,7 +1611,7 @@
                     </div>
                 </div>
             </div>
-            <button class="close-chat" onclick="toggleChat()" aria-label="Đóng hộp thoại chat">&times;</button>
+            <button class="close-chat" onclick="toggleChat()" aria-label="Đóng hộp thoại chat"><span aria-hidden="true">&times;</span></button>
         </div>
 
         <div class="chat-body" id="chatBody">
@@ -1579,7 +1631,7 @@
             <input type="text" class="chat-input" id="chatSearchInput" aria-label="Nhập câu hỏi" maxlength="200"
                 placeholder="Nhập câu hỏi hoặc thủ tục cần tìm...">
             <button class="send-btn" id="chatSendBtn" aria-label="Gửi tin nhắn">
-                <i class="fa-solid fa-paper-plane"></i>
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
             </button>
         </div>
     </div>
