@@ -38,10 +38,14 @@ class ChatbotController {
             if (el.style.display === 'flex') {
                 el.style.display = 'none';
                 launcher.classList.remove('active'); // Remove active class
+                launcher.setAttribute('aria-expanded', 'false');
+                launcher.focus();
             } else {
                 el.style.display = 'flex';
                 launcher.classList.add('active'); // Add active class to shrink
+                launcher.setAttribute('aria-expanded', 'true');
                 this.scrollToBottom();
+                setTimeout(() => this.elements.input.focus(), 50);
             }
         };
 
@@ -50,12 +54,27 @@ class ChatbotController {
             this.handleSearch(e.target.value);
         }, 300));
 
-        // Enter to search (nếu cần xử lý submit)
+        // Enter to search
         this.elements.input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                // Có thể xử lý gửi tin nhắn "custom" nếu muốn
+                const query = this.elements.input.value.trim();
+                if (query) {
+                    this.elements.input.value = '';
+                    this.handleSearch(query);
+                }
             }
         });
+
+        // Send button click
+        if (this.elements.sendBtn) {
+            this.elements.sendBtn.addEventListener('click', () => {
+                const query = this.elements.input.value.trim();
+                if (query) {
+                    this.elements.input.value = '';
+                    this.handleSearch(query);
+                }
+            });
+        }
 
         // ================= GLOBAL SEARCH =================
         if (this.elements.globalInput && this.elements.globalDropdown) {
@@ -83,6 +102,11 @@ class ChatbotController {
                 if (e.key === 'Escape') {
                     this.elements.globalDropdown.classList.remove('active');
                     this.elements.globalInput.blur();
+
+                    // Close chat window on ESC if open
+                    if (this.elements.window.style.display === 'flex') {
+                        window.toggleChat();
+                    }
                 }
             });
         }
@@ -315,12 +339,8 @@ class ChatbotController {
 
     openChatAndSelectCategory(category) {
         // 1. Mở widget chat nếu chưa mở
-        const chatWindow = this.elements.window;
-        const launcher = document.querySelector('.chat-launcher');
-        
-        if (chatWindow.style.display !== 'flex') {
-            chatWindow.style.display = 'flex';
-            launcher.classList.add('active');
+        if (this.elements.window.style.display !== 'flex') {
+            window.toggleChat();
         }
         
         // 2. Clear input
@@ -332,12 +352,8 @@ class ChatbotController {
     
     openChatAndSelectQuestion(question, catId) {
         // 1. Mở widget chat nếu chưa mở
-        const chatWindow = this.elements.window;
-        const launcher = document.querySelector('.chat-launcher');
-        
-        if (chatWindow.style.display !== 'flex') {
-            chatWindow.style.display = 'flex';
-            launcher.classList.add('active');
+        if (this.elements.window.style.display !== 'flex') {
+            window.toggleChat();
         }
         
         // 2. Clear input
