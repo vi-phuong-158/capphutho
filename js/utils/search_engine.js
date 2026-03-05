@@ -14,6 +14,7 @@
 window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
+        this.cache = new Map(); // Add cache for memoization
         this.buildIndex();
     }
 
@@ -69,11 +70,19 @@ window.FaqSearchEngine = class FaqSearchEngine {
         // Security: Truncate query to prevent DoS
         if (query.length > 200) query = query.substring(0, 200);
 
+        // Check cache first for instant results
+        if (this.cache.has(query)) {
+            return this.cache.get(query);
+        }
+
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
+        const results = [];
+
         // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        for (let i = 0; i < this.index.length; i++) {
+            const item = this.index[i];
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,18 +90,36 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (let j = 0; j < queryTokens.length; j++) {
+                const token = queryTokens[j];
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            if (score > 0) {
+                // Return a lightweight reference wrapper to avoid recreating the object
+                results.push({ item, score });
+            }
+        }
 
         // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
-            .sort((a, b) => b.score - a.score)
-            .slice(0, 5); // Lấy top 5 kết quả
+        results.sort((a, b) => b.score - a.score);
+
+        const finalResults = [];
+        const limit = Math.min(results.length, 5); // Lấy top 5 kết quả
+        for (let i = 0; i < limit; i++) {
+            const res = results[i];
+            // Use spread operator only for the top 5 results to avoid brittleness
+            finalResults.push({ ...res.item, score: res.score });
+        }
+
+        // Cache management (Max 1000 items)
+        if (this.cache.size > 1000) {
+            const firstKey = this.cache.keys().next().value;
+            this.cache.delete(firstKey);
+        }
+        this.cache.set(query, finalResults);
+
+        return finalResults;
     }
 }
