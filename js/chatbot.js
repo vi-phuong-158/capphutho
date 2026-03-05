@@ -248,12 +248,18 @@ class ChatbotController {
         this.elements.globalDropdown.classList.add('active');
 
         if (results.length === 0) {
-            this.elements.globalDropdown.innerHTML = `
-                <div class="search-no-results">
-                    <i class="fas fa-search-minus"></i>
-                    Không tìm thấy kết quả cho "${this.escapeHtml(query)}"
-                </div>
-            `;
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'search-no-results';
+
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-search-minus';
+
+            const textNode = document.createTextNode(` Không tìm thấy kết quả cho "${query}"`);
+
+            noResultsDiv.appendChild(icon);
+            noResultsDiv.appendChild(textNode);
+
+            this.elements.globalDropdown.replaceChildren(noResultsDiv);
             return;
         }
 
