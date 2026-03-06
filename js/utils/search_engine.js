@@ -14,6 +14,7 @@
 window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
+        this._cache = new Map(); // Initialize bounded search cache
         this.buildIndex();
     }
 
@@ -70,10 +71,21 @@ window.FaqSearchEngine = class FaqSearchEngine {
         if (query.length > 200) query = query.substring(0, 200);
 
         const normalizedQuery = this.normalize(query);
+
+        // Optimize: Use bounded cache to instantly return repeated queries
+        if (this._cache.has(normalizedQuery)) {
+            return this._cache.get(normalizedQuery);
+        }
+
         const queryTokens = normalizedQuery.split(' ');
 
-        // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        const results = [];
+        const len = this.index.length;
+
+        // Optimize: Use a single loop instead of map/filter chain to avoid
+        // creating intermediate arrays and excessive object spreading
+        for (let i = 0; i < len; i++) {
+            const item = this.index[i];
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,18 +93,42 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (let j = 0; j < queryTokens.length; j++) {
+                const token = queryTokens[j];
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            // Only push matching items to avoid memory overhead
+            if (score > 0) {
+                // Manually copy object properties to avoid expensive object spread (...)
+                // Note: If new properties are added to index items, they must be added here.
+                results.push({
+                    type: item.type,
+                    id: item.id,
+                    catId: item.catId,
+                    text: item.text,
+                    answer: item.answer,
+                    keywords: item.keywords,
+                    normalizedText: item.normalizedText,
+                    original: item.original,
+                    score: score
+                });
+            }
+        }
 
-        // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
+        // Sắp xếp
+        const finalResults = results
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
+
+        // Maintain bounded cache size
+        if (this._cache.size >= 100) {
+            // simple clear instead of proper LRU for performance/simplicity
+            this._cache.clear();
+        }
+        this._cache.set(normalizedQuery, finalResults);
+
+        return finalResults;
     }
 }
