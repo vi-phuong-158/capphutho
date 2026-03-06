@@ -1094,6 +1094,13 @@
             cursor: pointer;
             transition: transform 0.3s;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            border-radius: 50%;
+            animation: pulse-red 2s infinite;
+        }
+
+        .chat-launcher:focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 4px;
         }
 
         .chat-launcher img {
@@ -1104,6 +1111,7 @@
 
         .chat-launcher:hover {
             transform: scale(1.1);
+            animation: none;
         }
 
         /* Active State (When Chat Open) */
@@ -1112,6 +1120,7 @@
             /* Shrink and move down */
             filter: grayscale(0.5);
             /* Optional: Dim it to focus on chat */
+            animation: none;
         }
 
         @keyframes pulse-red {
@@ -1541,7 +1550,7 @@
     <div class="chat-widget">
         <div class="chat-label">Trợ lý ảo 24/7</div>
         <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat">
-            <img src="Icon.png" alt="Chatbot Icon">
+            <img src="Icon.png" alt="" aria-hidden="true">
         </button>
     </div>
 
