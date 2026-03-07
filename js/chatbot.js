@@ -38,10 +38,16 @@ class ChatbotController {
             if (el.style.display === 'flex') {
                 el.style.display = 'none';
                 launcher.classList.remove('active'); // Remove active class
+                launcher.setAttribute('aria-expanded', 'false');
+                launcher.focus(); // Return focus to launcher when closed
             } else {
                 el.style.display = 'flex';
                 launcher.classList.add('active'); // Add active class to shrink
+                launcher.setAttribute('aria-expanded', 'true');
                 this.scrollToBottom();
+                setTimeout(() => {
+                    this.elements.input.focus(); // Shift focus to input
+                }, 50);
             }
         };
 
@@ -316,11 +322,9 @@ class ChatbotController {
     openChatAndSelectCategory(category) {
         // 1. Mở widget chat nếu chưa mở
         const chatWindow = this.elements.window;
-        const launcher = document.querySelector('.chat-launcher');
         
         if (chatWindow.style.display !== 'flex') {
-            chatWindow.style.display = 'flex';
-            launcher.classList.add('active');
+            window.toggleChat();
         }
         
         // 2. Clear input
@@ -333,11 +337,9 @@ class ChatbotController {
     openChatAndSelectQuestion(question, catId) {
         // 1. Mở widget chat nếu chưa mở
         const chatWindow = this.elements.window;
-        const launcher = document.querySelector('.chat-launcher');
         
         if (chatWindow.style.display !== 'flex') {
-            chatWindow.style.display = 'flex';
-            launcher.classList.add('active');
+            window.toggleChat();
         }
         
         // 2. Clear input

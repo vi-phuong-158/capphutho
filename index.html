@@ -1096,6 +1096,12 @@
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
+        .chat-launcher:focus-visible {
+            outline: 3px solid #ce1908;
+            outline-offset: 4px;
+            border-radius: 50%;
+        }
+
         .chat-launcher img {
             width: 100%;
             height: 100%;
@@ -1540,8 +1546,8 @@
     <!-- CHATBOT LAUNCHER WIDGET -->
     <div class="chat-widget">
         <div class="chat-label">Trợ lý ảo 24/7</div>
-        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat">
-            <img src="Icon.png" alt="Chatbot Icon">
+        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat" aria-expanded="false">
+            <img src="Icon.png" alt="" aria-hidden="true">
         </button>
     </div>
 
