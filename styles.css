@@ -352,3 +352,19 @@ img {
         height: 90px;
     }
 }
+/* ===== ACCESSIBILITY: KEYBOARD FOCUS ===== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px; /* Default border radius to ensure outline looks nice on elements without border-radius */
+}
+
+/* Ensure circular buttons maintain a circular focus outline */
+.float-btn:focus-visible,
+.module-icon:focus-visible,
+.chat-launcher:focus-visible,
+.close-chat:focus-visible {
+    border-radius: var(--radius-full);
+}
