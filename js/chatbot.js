@@ -115,7 +115,7 @@ class ChatbotController {
     }
 
     clearOptions() {
-        this.elements.optionContainer.innerHTML = '';
+        this.elements.optionContainer.replaceChildren();
     }
 
     renderButton(text, iconClass, onClick, isBack = false, container = null) {
@@ -235,7 +235,7 @@ class ChatbotController {
     handleGlobalSearch(query) {
         if (!query || query.trim() === '') {
             this.elements.globalDropdown.classList.remove('active');
-            this.elements.globalDropdown.innerHTML = '';
+            this.elements.globalDropdown.replaceChildren();
             return;
         }
 
@@ -244,16 +244,20 @@ class ChatbotController {
     }
     
     renderGlobalSearchResults(results, query) {
-        this.elements.globalDropdown.innerHTML = '';
+        this.elements.globalDropdown.replaceChildren();
         this.elements.globalDropdown.classList.add('active');
 
         if (results.length === 0) {
-            this.elements.globalDropdown.innerHTML = `
-                <div class="search-no-results">
-                    <i class="fas fa-search-minus"></i>
-                    Không tìm thấy kết quả cho "${this.escapeHtml(query)}"
-                </div>
-            `;
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'search-no-results';
+
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-search-minus';
+
+            noResultsDiv.appendChild(icon);
+            noResultsDiv.appendChild(document.createTextNode(` Không tìm thấy kết quả cho "${query}"`));
+
+            this.elements.globalDropdown.appendChild(noResultsDiv);
             return;
         }
 
