@@ -1,0 +1,3 @@
+## 2024-05-18 - Centralized Accessibility States for Overlay Widgets
+**Learning:** Programmatically opening overlay widgets (like Chatbots) by directly modifying `style.display` causes accessibility state desynchronization. If the logic that manages `aria-expanded` and shifts keyboard focus is encapsulated in a toggle function (e.g., `toggleChat()`), bypassing it means screen readers won't announce the state change, and keyboard users won't be focused onto the newly opened panel.
+**Action:** Always centralize visibility, ARIA state updates, and focus management into a single handler (like `toggleChat()`). When other parts of the application need to programmatically open the widget, call this central handler instead of manually toggling CSS properties.
