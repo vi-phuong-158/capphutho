@@ -115,7 +115,7 @@ class ChatbotController {
     }
 
     clearOptions() {
-        this.elements.optionContainer.innerHTML = '';
+        this.elements.optionContainer.replaceChildren();
     }
 
     renderButton(text, iconClass, onClick, isBack = false, container = null) {
@@ -235,7 +235,7 @@ class ChatbotController {
     handleGlobalSearch(query) {
         if (!query || query.trim() === '') {
             this.elements.globalDropdown.classList.remove('active');
-            this.elements.globalDropdown.innerHTML = '';
+            this.elements.globalDropdown.replaceChildren();
             return;
         }
 
@@ -244,16 +244,22 @@ class ChatbotController {
     }
     
     renderGlobalSearchResults(results, query) {
-        this.elements.globalDropdown.innerHTML = '';
+        this.elements.globalDropdown.replaceChildren();
         this.elements.globalDropdown.classList.add('active');
 
         if (results.length === 0) {
-            this.elements.globalDropdown.innerHTML = `
-                <div class="search-no-results">
-                    <i class="fas fa-search-minus"></i>
-                    Không tìm thấy kết quả cho "${this.escapeHtml(query)}"
-                </div>
-            `;
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'search-no-results';
+
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-search-minus';
+
+            const textNode = document.createTextNode(` Không tìm thấy kết quả cho "${query}"`); // escapeHtml is no longer needed since we use createTextNode
+
+            noResultsDiv.appendChild(icon);
+            noResultsDiv.appendChild(textNode);
+
+            this.elements.globalDropdown.replaceChildren(noResultsDiv);
             return;
         }
 
@@ -354,7 +360,9 @@ class ChatbotController {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message bot-message`;
         msgDiv.id = loadingId;
-        msgDiv.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
+        const loadingIcon = document.createElement('i');
+        loadingIcon.className = 'fas fa-ellipsis-h';
+        msgDiv.replaceChildren(loadingIcon);
         this.elements.body.insertBefore(msgDiv, this.elements.optionContainer);
         this.scrollToBottom();
 
