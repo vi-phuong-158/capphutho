@@ -14,6 +14,9 @@
 window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
+        // ⚡ Bolt: Cache to memoize frequent searches. Bounded to prevent memory leaks.
+        this.searchCache = new Map();
+        this.MAX_CACHE_SIZE = 100;
         this.buildIndex();
     }
 
@@ -66,14 +69,22 @@ window.FaqSearchEngine = class FaqSearchEngine {
     search(query) {
         if (!query || query.trim().length < 2) return [];
 
-        // Security: Truncate query to prevent DoS
+        // Security: Truncate query to prevent DoS (must happen before cache check)
         if (query.length > 200) query = query.substring(0, 200);
+
+        // ⚡ Bolt: Check memoization cache to return instantly for repeated searches
+        if (this.searchCache.has(query)) {
+            return this.searchCache.get(query);
+        }
 
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
-        // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        // ⚡ Bolt: Single loop optimization - avoid intermediate arrays from map() and filter()
+        // Reduces memory allocation and object spread overhead for non-matching items.
+        const results = [];
+        for (let i = 0; i < this.index.length; i++) {
+            const item = this.index[i];
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,18 +92,30 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (let j = 0; j < queryTokens.length; j++) {
+                const token = queryTokens[j];
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            if (score > 0) {
+                // Return spread object to ensure robustness against future schema changes
+                results.push({ ...item, score });
+            }
+        }
 
         // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
+        const sortedResults = results
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
+
+        // ⚡ Bolt: Update bounded cache (LRU-ish removal of first entry if full)
+        if (this.searchCache.size >= this.MAX_CACHE_SIZE) {
+            const firstKey = this.searchCache.keys().next().value;
+            this.searchCache.delete(firstKey);
+        }
+        this.searchCache.set(query, sortedResults);
+
+        return sortedResults;
     }
 }
