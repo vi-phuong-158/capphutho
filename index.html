@@ -51,6 +51,23 @@
             --container-width: 800px;
         }
 
+
+        /* ===== ACCESSIBILITY ===== */
+        :focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .chat-launcher:focus-visible,
+        .close-chat:focus-visible,
+        #chatSendBtn:focus-visible {
+            border-radius: 50%;
+        }
+
+        .elder-mode-toggle:focus-visible {
+            border-radius: 100px;
+        }
+
         /* ===== RESET & BASE ===== */
         * {
             box-sizing: border-box;
