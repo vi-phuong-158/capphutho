@@ -352,3 +352,17 @@ img {
         height: 90px;
     }
 }
+
+/* ===== ACCESSIBILITY: FOCUS STATES ===== */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.float-btn:focus-visible {
+    border-radius: var(--radius-full);
+}
+
+.module-card:focus-visible {
+    border-radius: var(--radius-md);
+}

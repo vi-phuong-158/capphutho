@@ -1318,6 +1318,24 @@
             border: none;
             cursor: pointer;
         }
+
+        /* ===== ACCESSIBILITY: FOCUS STATES ===== */
+        :focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .chat-launcher:focus-visible,
+        .close-chat:focus-visible,
+        #chatSendBtn:focus-visible,
+        .elder-mode-toggle:focus-visible {
+            border-radius: var(--radius-full, 50%);
+        }
+
+        .card:focus-visible {
+            border-radius: var(--radius-lg);
+        }
+
     </style>
 </head>
 
