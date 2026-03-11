@@ -90,24 +90,16 @@ class ChatbotController {
 
     // === RENDERING UI ===
 
-    escapeHtml(text) {
-        if (!text) return '';
-        return text
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    }
-
-    addMessage(htmlContent, type = 'bot') {
+    addMessage(content, type = 'bot') {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${type}-message`;
 
-        if (type === 'user') {
-            msgDiv.textContent = htmlContent; // Secure: Treat user input as plain text
+        if (content instanceof Node) {
+            msgDiv.appendChild(content);
+        } else if (type === 'user') {
+            msgDiv.textContent = content; // Secure: Treat user input as plain text
         } else {
-            msgDiv.innerHTML = htmlContent; // Bot messages may contain trusted HTML
+            msgDiv.innerHTML = content; // Bot messages may contain trusted HTML (like initial welcome message)
         }
 
         this.elements.body.insertBefore(msgDiv, this.elements.optionContainer); // Chèn TRƯỚC options
@@ -115,7 +107,7 @@ class ChatbotController {
     }
 
     clearOptions() {
-        this.elements.optionContainer.innerHTML = '';
+        this.elements.optionContainer.replaceChildren();
     }
 
     renderButton(text, iconClass, onClick, isBack = false, container = null) {
@@ -174,7 +166,13 @@ class ChatbotController {
     handleCategorySelect(category) {
         this.addMessage(category.text, 'user');
         this.showLoading(() => {
-            this.addMessage(`Đây là các câu hỏi về <b>${this.escapeHtml(category.text)}</b>:`, 'bot');
+            const docFrag = document.createDocumentFragment();
+            docFrag.appendChild(document.createTextNode('Đây là các câu hỏi về '));
+            const b = document.createElement('b');
+            b.textContent = category.text;
+            docFrag.appendChild(b);
+            docFrag.appendChild(document.createTextNode(':'));
+            this.addMessage(docFrag, 'bot');
             this.renderSubMenu(category.id);
         });
     }
@@ -235,7 +233,7 @@ class ChatbotController {
     handleGlobalSearch(query) {
         if (!query || query.trim() === '') {
             this.elements.globalDropdown.classList.remove('active');
-            this.elements.globalDropdown.innerHTML = '';
+            this.elements.globalDropdown.replaceChildren();
             return;
         }
 
@@ -244,16 +242,20 @@ class ChatbotController {
     }
     
     renderGlobalSearchResults(results, query) {
-        this.elements.globalDropdown.innerHTML = '';
+        this.elements.globalDropdown.replaceChildren();
         this.elements.globalDropdown.classList.add('active');
 
         if (results.length === 0) {
-            this.elements.globalDropdown.innerHTML = `
-                <div class="search-no-results">
-                    <i class="fas fa-search-minus"></i>
-                    Không tìm thấy kết quả cho "${this.escapeHtml(query)}"
-                </div>
-            `;
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'search-no-results';
+
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-search-minus';
+
+            noResultsDiv.appendChild(icon);
+            noResultsDiv.appendChild(document.createTextNode(` Không tìm thấy kết quả cho "${query}"`));
+
+            this.elements.globalDropdown.replaceChildren(noResultsDiv);
             return;
         }
 
