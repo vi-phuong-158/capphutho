@@ -366,3 +366,16 @@ body.dvc-page {
         margin: 6px 0 0 42px;
     }
 }
+
+/* ===== ACCESSIBILITY FOCUS STATES ===== */
+:focus-visible {
+    outline: 2px solid var(--dvc-red);
+    outline-offset: 2px;
+}
+
+.proc-header:focus-visible,
+.btn:focus-visible,
+.back-btn:focus-visible {
+    outline: 2px solid var(--dvc-red);
+    outline-offset: 2px;
+}

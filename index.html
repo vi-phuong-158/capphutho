@@ -1318,6 +1318,29 @@
             border: none;
             cursor: pointer;
         }
+
+        /* ===== ACCESSIBILITY FOCUS STATES ===== */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .chat-launcher:focus-visible,
+        .close-chat:focus-visible,
+        #chatSendBtn:focus-visible,
+        .elder-mode-toggle:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+
+        }
+
+        .search-input:focus-visible,
+        .chat-input:focus-visible,
+        .option-btn:focus-visible,
+        .search-result-item:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: -2px;
+        }
     </style>
 </head>
 
