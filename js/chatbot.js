@@ -107,7 +107,11 @@ class ChatbotController {
         if (type === 'user') {
             msgDiv.textContent = htmlContent; // Secure: Treat user input as plain text
         } else {
-            msgDiv.innerHTML = htmlContent; // Bot messages may contain trusted HTML
+            if (htmlContent instanceof Node) {
+                msgDiv.replaceChildren(htmlContent);
+            } else {
+                msgDiv.innerHTML = htmlContent; // Fallback for strings
+            }
         }
 
         this.elements.body.insertBefore(msgDiv, this.elements.optionContainer); // Chèn TRƯỚC options
@@ -174,7 +178,13 @@ class ChatbotController {
     handleCategorySelect(category) {
         this.addMessage(category.text, 'user');
         this.showLoading(() => {
-            this.addMessage(`Đây là các câu hỏi về <b>${this.escapeHtml(category.text)}</b>:`, 'bot');
+            const docFrag = document.createDocumentFragment();
+            docFrag.appendChild(document.createTextNode('Đây là các câu hỏi về '));
+            const bTag = document.createElement('b');
+            bTag.textContent = category.text;
+            docFrag.appendChild(bTag);
+            docFrag.appendChild(document.createTextNode(':'));
+            this.addMessage(docFrag, 'bot');
             this.renderSubMenu(category.id);
         });
     }
@@ -248,12 +258,13 @@ class ChatbotController {
         this.elements.globalDropdown.classList.add('active');
 
         if (results.length === 0) {
-            this.elements.globalDropdown.innerHTML = `
-                <div class="search-no-results">
-                    <i class="fas fa-search-minus"></i>
-                    Không tìm thấy kết quả cho "${this.escapeHtml(query)}"
-                </div>
-            `;
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'search-no-results';
+            const searchIcon = document.createElement('i');
+            searchIcon.className = 'fas fa-search-minus';
+            noResultsDiv.appendChild(searchIcon);
+            noResultsDiv.appendChild(document.createTextNode(` Không tìm thấy kết quả cho "${query}"`));
+            this.elements.globalDropdown.replaceChildren(noResultsDiv);
             return;
         }
 
