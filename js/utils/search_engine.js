@@ -15,6 +15,8 @@ window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
         this.buildIndex();
+        this.cache = new Map();
+        this.cacheLimit = 100;
     }
 
     // 1. Xây dựng chỉ mục tìm kiếm (Flat Index)
@@ -69,11 +71,18 @@ window.FaqSearchEngine = class FaqSearchEngine {
         // Security: Truncate query to prevent DoS
         if (query.length > 200) query = query.substring(0, 200);
 
+        // ⚡ Cache lookup (O(1) memoization)
+        if (this.cache.has(query)) {
+            return this.cache.get(query);
+        }
+
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
-        // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        // ⚡ Optimize: Replace .map().filter() with a single loop to avoid intermediate allocations
+        const results = [];
+
+        for (const item of this.index) {
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,18 +90,28 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (const token of queryTokens) {
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            // Only push matched items and avoid spreading non-matched items
+            if (score > 0) {
+                results.push({ ...item, score });
+            }
+        }
 
         // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
+        const finalResults = results
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
+
+        // Manage cache size (FIFO)
+        if (this.cache.size >= this.cacheLimit) {
+            this.cache.delete(this.cache.keys().next().value);
+        }
+        this.cache.set(query, finalResults);
+
+        return finalResults;
     }
 }
