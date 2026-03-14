@@ -14,6 +14,7 @@
 window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
+        this.cache = new Map(); // Thêm bộ nhớ cache cho search
         this.buildIndex();
     }
 
@@ -69,11 +70,19 @@ window.FaqSearchEngine = class FaqSearchEngine {
         // Security: Truncate query to prevent DoS
         if (query.length > 200) query = query.substring(0, 200);
 
+        // Trả về kết quả từ cache nếu đã tìm kiếm trước đó
+        if (this.cache.has(query)) {
+            return this.cache.get(query);
+        }
+
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
+        const results = [];
 
-        // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        // Chấm điểm độ phù hợp (Simple Scoring) sử dụng vòng lặp for đơn giản
+        // để tránh overhead của .map(), .filter() và object spread
+        for (let i = 0; i < this.index.length; i++) {
+            const item = this.index[i];
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,18 +90,27 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            for (let token of queryTokens) {
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            if (score > 0) {
+                results.push({ ...item, score });
+            }
+        }
 
         // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
+        const finalResults = results
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
+
+        // Lưu vào cache để tối ưu lần tìm kiếm sau (giới hạn 100 cache entries để tránh rò rỉ bộ nhớ)
+        if (this.cache.size >= 100) {
+            this.cache.delete(this.cache.keys().next().value); // Xóa phần tử cũ nhất (FIFO)
+        }
+        this.cache.set(query, finalResults);
+
+        return finalResults;
     }
 }
