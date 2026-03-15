@@ -95,6 +95,12 @@ body.dvc-page {
     border-bottom: 1px solid transparent;
 }
 
+.proc-header:focus-visible {
+    outline: 2px solid var(--dvc-red);
+    outline-offset: -2px;
+    border-radius: var(--radius);
+}
+
 .proc-card.active .proc-header {
     border-bottom: 1px solid #E5E7EB;
     background: var(--dvc-red-light);

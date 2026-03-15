@@ -32,7 +32,7 @@
 
         <!-- THỦ TỤC 1: GIAO NỘP -->
         <div class="proc-card active">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" onclick="toggleCard(this)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleCard(this); }">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
                     1. Giao Nộp Vũ Khí (Tự Nguyện)
@@ -88,7 +88,7 @@
 
         <!-- THỦ TỤC 2: KHAI BÁO -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" onclick="toggleCard(this)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleCard(this); }">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-scroll"></i></div>
                     2. Khai Báo Vũ Khí (Đồ Gia Bảo)
@@ -130,7 +130,7 @@
 
         <!-- THỦ TỤC 3: TỐ GIÁC -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" onclick="toggleCard(this)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleCard(this); }">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-user-secret"></i></div>
                     3. Tố Giác Vi Phạm (Bảo Mật)
