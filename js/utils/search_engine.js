@@ -14,6 +14,7 @@
 window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
+        this.cache = new Map(); // Bounded cache for query results
         this.buildIndex();
     }
 
@@ -69,30 +70,48 @@ window.FaqSearchEngine = class FaqSearchEngine {
         // Security: Truncate query to prevent DoS
         if (query.length > 200) query = query.substring(0, 200);
 
+        // Memoization: Return cached results for identical queries
+        if (this.cache.has(query)) {
+            return this.cache.get(query);
+        }
+
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
-        // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        // ⚡ Bolt Optimization: Replace map/filter chains with a single for...of loop
+        // to avoid allocating intermediate arrays and excessive garbage collection.
+        const results = [];
+
+        for (const item of this.index) {
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
             if (item.normalizedText.includes(normalizedQuery)) score += 10;
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
-            // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            // b. Khớp từng từ (Token matching) - for...of is faster than .forEach()
+            for (const token of queryTokens) {
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            // Push directly to final array only if it has a score
+            if (score > 0) {
+                results.push({ ...item, score });
+            }
+        }
 
-        // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
+        // Sắp xếp
+        const finalResults = results
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
+
+        // Bounded Cache (FIFO eviction)
+        this.cache.set(query, finalResults);
+        if (this.cache.size > 100) {
+            this.cache.delete(this.cache.keys().next().value);
+        }
+
+        return finalResults;
     }
 }
