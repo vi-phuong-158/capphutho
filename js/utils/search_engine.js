@@ -14,6 +14,7 @@
 window.FaqSearchEngine = class FaqSearchEngine {
     constructor() {
         this.index = [];
+        this.cache = new Map();
         this.buildIndex();
     }
 
@@ -69,11 +70,19 @@ window.FaqSearchEngine = class FaqSearchEngine {
         // Security: Truncate query to prevent DoS
         if (query.length > 200) query = query.substring(0, 200);
 
+        const cacheKey = query.trim().toLowerCase();
+        if (this.cache.has(cacheKey)) {
+            return this.cache.get(cacheKey);
+        }
+
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
         // Chấm điểm độ phù hợp (Simple Scoring)
-        const results = this.index.map(item => {
+        const results = [];
+
+        // ⚡ Bolt: Replaced map().filter() chain with a single loop
+        for (const item of this.index) {
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -81,18 +90,28 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            queryTokens.forEach(token => {
+            // ⚡ Bolt: Replaced forEach with for...of to avoid function call overhead
+            for (const token of queryTokens) {
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            });
+            }
 
-            return { ...item, score };
-        });
+            if (score > 0) {
+                results.push({ ...item, score });
+            }
+        }
 
         // Lọc và sắp xếp
-        return results
-            .filter(item => item.score > 0)
+        const finalResults = results
             .sort((a, b) => b.score - a.score)
             .slice(0, 5); // Lấy top 5 kết quả
+
+        // ⚡ Bolt: Cache result (max 100 entries, FIFO)
+        if (this.cache.size >= 100) {
+            this.cache.delete(this.cache.keys().next().value);
+        }
+        this.cache.set(cacheKey, finalResults);
+
+        return finalResults;
     }
 }
