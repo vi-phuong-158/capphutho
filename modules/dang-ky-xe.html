@@ -32,7 +32,7 @@
 
         <!-- THỦ TỤC 1: ĐĂNG KÝ MỚI -->
         <div class="proc-card active">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" onclick="toggleCard(this)" onkeydown="if(event.key === \'Enter\' || event.key === \' \') { event.preventDefault(); toggleCard(this); }">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-file-circle-plus"></i></div>
                     1. Đăng Ký Xe Máy Mới
@@ -92,7 +92,7 @@
 
         <!-- THỦ TỤC 2: SANG TÊN (THU HỒI) -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" onclick="toggleCard(this)" onkeydown="if(event.key === \'Enter\' || event.key === \' \') { event.preventDefault(); toggleCard(this); }">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-file-contract"></i></div>
                     2. Bán Xe (Thu Hồi Biển)

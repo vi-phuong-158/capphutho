@@ -32,7 +32,7 @@
 
         <!-- THỦ TỤC 1: KHIẾU NẠI -->
         <div class="proc-card active">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" onclick="toggleCard(this)" onkeydown="if(event.key === \'Enter\' || event.key === \' \') { event.preventDefault(); toggleCard(this); }">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-file-circle-question"></i></div>
                     1. Khiếu Nại Quyết Định Hành Chính
@@ -71,7 +71,7 @@
 
         <!-- THỦ TỤC 2: TỐ CÁO -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" onclick="toggleCard(this)" onkeydown="if(event.key === \'Enter\' || event.key === \' \') { event.preventDefault(); toggleCard(this); }">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-gavel"></i></div>
                     2. Tố Cáo Hành Vi Vi Phạm
@@ -111,7 +111,7 @@
 
         <!-- THỦ TỤC 3: PHẢN ÁNH / GÓP Ý -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" onclick="toggleCard(this)" onkeydown="if(event.key === \'Enter\' || event.key === \' \') { event.preventDefault(); toggleCard(this); }">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-comments"></i></div>
                     3. Góp Ý (Thái độ phục vụ)
