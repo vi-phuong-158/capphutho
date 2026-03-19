@@ -69,18 +69,11 @@ window.FaqSearchEngine = class FaqSearchEngine {
         // Security: Truncate query to prevent DoS
         if (query.length > 200) query = query.substring(0, 200);
 
-        // Memoization cache for search results
-        if (!this.cache) this.cache = new Map();
-        if (this.cache.has(query)) return this.cache.get(query);
-        if (this.cache.size > 1000) this.cache.clear();
-
         const normalizedQuery = this.normalize(query);
         const queryTokens = normalizedQuery.split(' ');
 
-        // Single for loop to calculate scores and conditionally push results
-        const results = [];
-        for (let i = 0; i < this.index.length; i++) {
-            const item = this.index[i];
+        // Chấm điểm độ phù hợp (Simple Scoring)
+        const results = this.index.map(item => {
             let score = 0;
 
             // a. Khớp chính xác cụm từ (High priority)
@@ -88,20 +81,18 @@ window.FaqSearchEngine = class FaqSearchEngine {
             if (item.keywords.includes(normalizedQuery)) score += 8;
 
             // b. Khớp từng từ (Token matching)
-            for (let j = 0; j < queryTokens.length; j++) {
-                const token = queryTokens[j];
+            queryTokens.forEach(token => {
                 if (item.normalizedText.includes(token)) score += 2;
                 if (item.keywords.includes(token)) score += 1;
-            }
+            });
 
-            if (score > 0) {
-                results.push({ ...item, score });
-            }
-        }
+            return { ...item, score };
+        });
 
-        // Sắp xếp
-        const sortedResults = results.sort((a, b) => b.score - a.score).slice(0, 5);
-        this.cache.set(query, sortedResults);
-        return sortedResults;
+        // Lọc và sắp xếp
+        return results
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 5); // Lấy top 5 kết quả
     }
 }
