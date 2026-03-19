@@ -51,7 +51,7 @@
 
         <!-- THỦ TỤC 1: NHẬP KHẨU -->
         <div class="proc-card active">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-house-user"></i></div>
                     1. Đăng Ký Thường Trú
@@ -97,7 +97,7 @@
 
         <!-- THỦ TỤC 2: TẠM TRÚ -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-suitcase"></i></div>
                     2. Đăng Ký Tạm Trú
@@ -127,7 +127,7 @@
 
         <!-- THỦ TỤC 3: LƯU TRÚ -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-bell"></i></div>
                     3. Thông Báo Lưu Trú
@@ -164,7 +164,7 @@
 
         <!-- THỦ TỤC 4: CT07 -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-file-invoice"></i></div>
                     4. Xin Xác Nhận Cư Trú (CT07)
@@ -194,7 +194,15 @@
     <script>
         function toggleCard(header) {
             const card = header.parentElement;
-            card.classList.toggle('active');
+            const isActive = card.classList.toggle('active');
+            header.setAttribute('aria-expanded', isActive);
+        }
+
+        function handleCardKeydown(event, header) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault(); // Prevent page scroll on Space
+                toggleCard(header);
+            }
         }
     </script>
 </body>

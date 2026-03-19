@@ -32,7 +32,7 @@
 
         <!-- THỦ TỤC 1: TRA CỨU NGÀNH NGHỀ -->
         <div class="proc-card active">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     1. Cửa Hàng Tôi Có Cần Xin Giấy?
@@ -65,7 +65,7 @@
 
         <!-- THỦ TỤC 2: CẤP MỚI GIẤY CHỨNG NHẬN -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-file-signature"></i></div>
                     2. Thủ Tục Xin Cấp Mới
@@ -111,7 +111,7 @@
 
         <!-- THỦ TỤC 3: MẤT GIẤY / ĐỔI GIẤY -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-rotate"></i></div>
                     3. Bị Mất hoặc Thay Đổi Thông Tin
@@ -148,7 +148,15 @@
     <script>
         function toggleCard(header) {
             const card = header.parentElement;
-            card.classList.toggle('active');
+            const isActive = card.classList.toggle('active');
+            header.setAttribute('aria-expanded', isActive);
+        }
+
+        function handleCardKeydown(event, header) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault(); // Prevent page scroll on Space
+                toggleCard(header);
+            }
         }
     </script>
 </body>

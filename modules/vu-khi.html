@@ -32,7 +32,7 @@
 
         <!-- THỦ TỤC 1: GIAO NỘP -->
         <div class="proc-card active">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
                     1. Giao Nộp Vũ Khí (Tự Nguyện)
@@ -88,7 +88,7 @@
 
         <!-- THỦ TỤC 2: KHAI BÁO -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-scroll"></i></div>
                     2. Khai Báo Vũ Khí (Đồ Gia Bảo)
@@ -130,7 +130,7 @@
 
         <!-- THỦ TỤC 3: TỐ GIÁC -->
         <div class="proc-card">
-            <div class="proc-header" onclick="toggleCard(this)">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
                 <div class="proc-title">
                     <div class="proc-icon"><i class="fa-solid fa-user-secret"></i></div>
                     3. Tố Giác Vi Phạm (Bảo Mật)
@@ -169,7 +169,15 @@
     <script>
         function toggleCard(header) {
             const card = header.parentElement;
-            card.classList.toggle('active');
+            const isActive = card.classList.toggle('active');
+            header.setAttribute('aria-expanded', isActive);
+        }
+
+        function handleCardKeydown(event, header) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault(); // Prevent page scroll on Space
+                toggleCard(header);
+            }
         }
     </script>
 </body>
