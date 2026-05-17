@@ -70,7 +70,7 @@ Dựa trên tài liệu hướng dẫn sử dụng hệ thống Khai báo tạm 
 ### 4. Tôi là chủ cơ sở lưu trú mới, muốn đăng ký tài khoản để sử dụng hệ thống này thì quy trình thực hiện như thế nào?
 
 **Trả lời:**
-Để đăng ký tài khoản mới, bạn thực hiện theo các bước sau trên trang https://kbtt.xuatnhapcanh.gov.vn:
+Để đăng ký tài khoản mới, bạn thực hiện theo các bước sau trên trang https://tbltkbtt.bocongan.gov.vn/:
 1.  **Truy cập và chọn Đăng ký:** Tại màn hình chính, bạn nhấn nút **"Đăng ký"**.
 2.  **Xác nhận quy định:** Hệ thống sẽ hiển thị các quy định về khai báo tạm trú (theo Thông tư số 53/2016/TT-BCA). Bạn cần tích chọn vào ô *"Xác nhận đã đọc kỹ quy định và tuân thủ pháp luật Việt Nam..."* rồi nhấn **"Tiếp tục"**,.
 3.  **Điền thông tin:** Bạn phải điền đầy đủ các thông tin vào Form đăng ký, bao gồm 3 nhóm thông tin chính:

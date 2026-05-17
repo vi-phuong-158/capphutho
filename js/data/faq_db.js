@@ -267,7 +267,7 @@ window.FAQ_DATA = {
         },
         {
             text: "Đăng ký tài khoản khai báo tạm trú cho người nước ngoài ở đâu?",
-            answer: "Truy cập trang <b>https://kbtt.xuatnhapcanh.gov.vn</b> -> Chọn Đăng ký -> Điền thông tin -> Xác nhận.",
+            answer: "Truy cập trang <b>https://tbltkbtt.bocongan.gov.vn/</b> -> Chọn Đăng ký -> Điền thông tin -> Xác nhận.",
             keywords: ["tai khoan", "dang ky", "kbtt", "trang web"]
         },
         {

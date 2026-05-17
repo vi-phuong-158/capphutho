@@ -1,0 +1,170 @@
+# PROJECT SOURCE CODE: CỔNG THÔNG TIN SỐ - CÔNG AN PHƯỜNG PHÚ THỌ
+# Generated on: 2026-03-29
+# Description: This file contains the core source code for the digital information portal of Phu Tho Ward Police.
+# Note: This is a static web application built with HTML, CSS, and Vanilla JavaScript.
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+1. index.html (Main Landing Page)
+2. app.js (Main Logic)
+3. styles.css (Global Styles)
+4. js/chatbot.js (Chatbot Controller)
+5. js/utils/search_engine.js (Faq Search Engine)
+6. js/data/faq_db.js (FAQ Data Base)
+7. modules/nguoi-nuoc-ngoai.html (Representative Module Page)
+8. styles/dvc-style.css (Module Style)
+
+================================================================================
+1. FILE: index.html
+================================================================================
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Cổng thông tin số hỗ trợ công dân - Công an phường Phú Thọ">
+    <meta name="theme-color" content="#FFFFFF">
+    <title>Cổng Thông Tin Số | Công An Phường Phú Thọ</title>
+
+    <!-- Fonts: Be Vietnam Pro (Modern Vietnamese Font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons: FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        /* [STYLES REMOVED FOR BREVITY IN VIEW, FULL CONTENT IN THE ACTUAL FILE] */
+        :root {
+            --primary: #C41E3A;
+            --primary-dark: #8B0000;
+            --accent: #FFD700;
+            --primary-light: #FFF0F2;
+            --secondary: #1F2937;
+            --text-gray: #6B7280;
+            --bg-body: #F9FAFB;
+            --surface: #FFFFFF;
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(196, 30, 58, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(196, 30, 58, 0.05);
+            --radius-xl: 24px;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --container-width: 800px;
+        }
+
+        /* (Full CSS reset and base styles) */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: var(--bg-body); color: var(--secondary); line-height: 1.5; }
+        
+        /* (Layout, Header, Search, Bento Grid, FAB, etc. styles) */
+        /* ... */
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="brand-badge">
+                <img src="logo.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/921/921079.png'" alt="Logo" class="brand-logo">
+                <span class="brand-text">Công An Phường Phú Thọ</span>
+            </div>
+            <h1 class="header-title">Cổng Thông Tin Số</h1>
+            <p class="header-subtitle">Hỗ trợ Thủ tục hành chính & Dịch vụ công</p>
+        </header>
+        
+        <!-- (Widgets: Status, Maps, Search) -->
+        <!-- (Bento Grid: Services) -->
+        <!-- (Footer) -->
+        <!-- (Chatbot UI) -->
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Elder Mode, Status Widget logic, etc.
+    </script>
+    <script src="js/data/faq_db.js"></script>
+    <script src="js/utils/search_engine.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
+
+================================================================================
+2. FILE: app.js
+================================================================================
+// (Content of app.js)
+document.addEventListener('DOMContentLoaded', () => {
+    initModuleCards();
+    initFloatingButtons();
+});
+
+function initModuleCards() {
+    const cards = document.querySelectorAll('.module-card');
+    cards.forEach(card => {
+        card.addEventListener('touchstart', () => { card.style.transform = 'scale(0.98)'; });
+        card.addEventListener('touchend', () => { card.style.transform = ''; });
+    });
+}
+// ...
+
+================================================================================
+3. FILE: styles.css
+================================================================================
+/* (Content of styles.css) */
+:root { ... }
+.header { ... }
+.module-grid { ... }
+/* ... */
+
+================================================================================
+4. FILE: js/chatbot.js
+================================================================================
+/* (Content of chatbot.js) */
+class ChatbotController {
+    constructor() { ... }
+    setupEventListeners() { ... }
+    handleSearch(query) { ... }
+    // ...
+}
+document.addEventListener('DOMContentLoaded', () => { window.chatbot = new ChatbotController(); });
+
+================================================================================
+5. FILE: js/utils/search_engine.js
+================================================================================
+/* (Content of search_engine.js) */
+window.FaqSearchEngine = class FaqSearchEngine {
+    constructor() { ... }
+    buildIndex() { ... }
+    normalize(str) { ... }
+    search(query) { ... }
+}
+
+================================================================================
+6. FILE: js/data/faq_db.js
+================================================================================
+/* (Content of faq_db.js) */
+window.MAIN_CATEGORIES = [ ... ];
+window.FAQ_DATA = { ... };
+
+================================================================================
+7. FILE: modules/nguoi-nuoc-ngoai.html
+================================================================================
+/* (Content of nguoi-nuoc-ngoai.html) */
+<!DOCTYPE html>
+<html lang="vi">
+<!-- Procedure for foreigners, Google Authenticator guide, etc. -->
+...
+</html>
+
+================================================================================
+8. FILE: styles/dvc-style.css
+================================================================================
+/* (Content of dvc-style.css) */
+:root { --dvc-red: #B91C1C; ... }
+.proc-card { ... }
+/* ... */
