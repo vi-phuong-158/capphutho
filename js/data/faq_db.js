@@ -11,6 +11,7 @@ window.MAIN_CATEGORIES = [
     { id: 'cu_tru', icon: 'fa-solid fa-house-user', text: 'Cư trú', keywords: ['thuong tru', 'tam tru', 'tach ho', 'ct01', 'ct07', 'luu tru'] },
     { id: 'cccd', icon: 'fa-solid fa-id-card', text: 'Căn cước (CCCD)', keywords: ['cccd', 'can cuoc', 'gan chip', 'cap lai', 'cmnd'] },
     { id: 'dinh_danh', icon: 'fa-solid fa-passport', text: 'Định danh (VNeID)', keywords: ['vneid', 'dinh danh', 'muc 2', 'tai khoan', 'khoa can cuoc'] },
+    { id: 'lien_thong', icon: 'fa-solid fa-link', text: 'Thủ tục liên thông', keywords: ['lien thong', 'khai sinh', 'khai tu', 'xoa thuong tru', 'bhyt', 'mai tang phi', 'tu tuat'] },
     { id: 'xe', icon: 'fa-solid fa-motorcycle', text: 'Đăng ký xe', keywords: ['dang ky xe', 'bien so', 'sang ten', 'xe may', 'o to', 'cap lai'] },
     { id: 'xuat_nhap_canh', icon: 'fa-solid fa-plane-departure', text: 'Xuất nhập cảnh', keywords: ['ho chieu', 'visa', 'nguoi nuoc ngoai', 'tam tru', 'apec'] },
     { id: 'vu_khi', icon: 'fa-solid fa-person-military-rifle', text: 'Vũ khí & CCHT', keywords: ['vu khi', 'dao', 'kiem', 'phao', 'cong cu ho tro', 'khai bao'] },
@@ -71,6 +72,28 @@ window.FAQ_DATA = {
             text: "Những trường hợp nào bắt buộc phải \"Khai báo tạm vắng\"?",
             answer: "Bắt buộc đối với: Bị can, bị cáo, người bị quản chế, người bị kết án phạt tù... hoặc người đi khỏi nơi cư trú theo quy định đặc biệt.<br>Công dân bình thường đi vắng không bắt buộc phải làm thủ tục này.",
             keywords: ["tam vang", "khai bao", "bat buoc"]
+        }
+    ],
+    'lien_thong': [
+        {
+            text: "Thủ tục liên thông khai sinh, thường trú và cấp thẻ BHYT cho trẻ dưới 06 tuổi gồm những gì?",
+            answer: "<b>Gồm 03 thủ tục:</b><br>1. Đăng ký khai sinh.<br>2. Đăng ký thường trú.<br>3. Cấp thẻ bảo hiểm y tế cho trẻ em dưới 06 tuổi.<br><br>Người dân nộp <b>01 bộ hồ sơ trực tuyến</b> trên Cổng DVC Quốc gia hoặc ứng dụng VNeID. Hồ sơ được chuyển xử lý giữa UBND cấp xã, cơ quan Công an và cơ quan Bảo hiểm xã hội.",
+            keywords: ["lien thong", "khai sinh", "thuong tru", "bhyt", "tre em", "duoi 6 tuoi"]
+        },
+        {
+            text: "Thủ tục liên thông khai tử, xóa thường trú, mai táng phí và tử tuất thực hiện ra sao?",
+            answer: "<b>Gồm các thủ tục có thể chọn liên thông:</b><br>1. Đăng ký khai tử.<br>2. Xóa đăng ký thường trú.<br>3. Giải quyết mai táng phí.<br>4. Giải quyết chế độ tử tuất nếu đủ điều kiện.<br><br>Sau khi có Trích lục khai tử điện tử, hệ thống chuyển hồ sơ đến quản lý cư trú để xóa thường trú và đến BHXH hoặc ngành Lao động - Thương binh và Xã hội để giải quyết chế độ.",
+            keywords: ["lien thong", "khai tu", "xoa thuong tru", "mai tang phi", "tu tuat", "nguoi mat"]
+        },
+        {
+            text: "Nộp hồ sơ liên thông khai sinh, khai tử ở đâu?",
+            answer: "Người dân có thể thực hiện trên <b>Cổng Dịch vụ công Quốc gia</b> hoặc trên <b>ứng dụng VNeID</b>, chọn mục dịch vụ công liên thông khai sinh, khai tử. Có thể tra cứu thêm danh mục, thành phần hồ sơ tại <b>Cổng Dịch vụ công Bộ Công an</b>.",
+            keywords: ["nop o dau", "dich vu cong quoc gia", "vneid", "bo cong an", "online"]
+        },
+        {
+            text: "Thời hạn giải quyết các thủ tục liên thông là bao lâu?",
+            answer: "<b>Khai sinh - thường trú - BHYT:</b> Thông thường 03 ngày làm việc, trường hợp cần xác minh không quá 05 ngày làm việc.<br><br><b>Khai tử - xóa thường trú - mai táng phí, tử tuất:</b> Tùy nhóm đối tượng, khoảng 06-18 ngày làm việc theo hồ sơ và chế độ được lựa chọn.",
+            keywords: ["thoi han", "bao lau", "ngay lam viec", "giai quyet", "lien thong"]
         }
     ],
     'cccd': [

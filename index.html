@@ -338,6 +338,23 @@
             transform: scale(0.97);
         }
 
+        .card[href^="#"] {
+            background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%);
+        }
+
+        .card[href^="#"] .card-title,
+        .card[href^="#"] .card-desc {
+            color: #1F2937;
+        }
+
+        .card[href^="#"] .card-icon-wrapper {
+            background: rgba(139, 0, 0, 0.12);
+        }
+
+        .card[href^="#"] .card-icon {
+            color: var(--primary-dark);
+        }
+
         /* Icon styling */
         .card-icon-wrapper {
             width: 48px;
@@ -791,6 +808,243 @@
             width: 100%;
             height: 200px;
             border: none;
+        }
+
+        /* ===== VIDEO GIOI THIEU ===== */
+        .intro-video-section {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(196, 30, 58, 0.08);
+        }
+
+        .intro-video-header {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .intro-video-header i {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .intro-video-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .intro-video-subtitle {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.78rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .intro-video {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            max-height: 520px;
+            background: #111827;
+            object-fit: contain;
+        }
+
+        /* ===== THU TUC LIEN THONG ===== */
+        .interlinked-section {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-top: 28px;
+            margin-bottom: 24px;
+            scroll-margin-top: 72px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(196, 30, 58, 0.08);
+        }
+
+        .interlinked-header {
+            margin-bottom: 18px;
+        }
+
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            background: var(--primary-light);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .interlinked-header h2 {
+            margin: 12px 0 8px 0;
+            font-size: 1.25rem;
+            line-height: 1.25;
+            color: var(--primary-dark);
+        }
+
+        .interlinked-header p {
+            margin: 0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .interlinked-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .interlinked-card {
+            border: 1px solid rgba(196, 30, 58, 0.12);
+            border-radius: 14px;
+            padding: 16px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF7F8 100%);
+        }
+
+        .interlinked-card-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .interlinked-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--primary);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 6px 14px rgba(196, 30, 58, 0.18);
+        }
+
+        .interlinked-card h3 {
+            margin: 0 0 4px 0;
+            color: var(--secondary);
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        .interlinked-card small {
+            color: var(--text-gray);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .interlinked-list {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--secondary);
+            font-size: 0.86rem;
+            line-height: 1.65;
+        }
+
+        .interlinked-list li + li {
+            margin-top: 6px;
+        }
+
+        .timeline-strip {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin: 14px 0;
+        }
+
+        .timeline-strip span {
+            background: #F3F4F6;
+            color: var(--secondary);
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .timeline-strip i {
+            color: var(--primary);
+            font-size: 0.72rem;
+        }
+
+        .interlinked-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .interlinked-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(196, 30, 58, 0.18);
+            color: var(--primary-dark);
+            background: #FFFFFF;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
+        .platform-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .platform-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 12px;
+            padding: 10px 12px;
+            background: #F9FAFB;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            color: var(--secondary);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .platform-link i {
+            color: var(--primary);
+        }
+
+        .platform-link:hover {
+            border-color: rgba(196, 30, 58, 0.25);
+            background: var(--primary-light);
+        }
+
+        @media (min-width: 768px) {
+            .interlinked-section {
+                padding: 24px;
+            }
+
+            .interlinked-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 18px;
+            }
         }
 
         /* ===== PDF PREVIEW MODAL ===== */
@@ -1388,6 +1642,21 @@
             </div>
         </div>
 
+        <!-- VIDEO GIỚI THIỆU -->
+        <section class="intro-video-section" aria-labelledby="introVideoTitle">
+            <div class="intro-video-header">
+                <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+                <div>
+                    <h2 class="intro-video-title" id="introVideoTitle">Video giới thiệu</h2>
+                    <span class="intro-video-subtitle">Tổng quan dịch vụ công và hỗ trợ người dân tại Công an phường Phú Thọ</span>
+                </div>
+            </div>
+            <video class="intro-video" controls preload="metadata" playsinline aria-label="Video giới thiệu Công an phường Phú Thọ">
+                <source src="videogioithieu.mp4" type="video/mp4">
+                Trình duyệt của bạn không hỗ trợ phát video. Vui lòng tải tệp videogioithieu.mp4 để xem.
+            </video>
+        </section>
+
         <!-- GOOGLE MAPS WIDGET -->
         <div class="maps-widget">
             <div class="maps-widget-header">
@@ -1488,8 +1757,103 @@
                 </div>
             </a>
 
+            <!-- Module 7 -->
+            <a href="#thu-tuc-lien-thong" class="card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-link card-icon"></i>
+                </div>
+                <div>
+                    <h3 class="card-title">Thủ Tục Liên Thông</h3>
+                    <p class="card-desc">Khai sinh, khai tử, cư trú, BHYT</p>
+                </div>
+            </a>
 
         </div>
+
+        <!-- THỦ TỤC LIÊN THÔNG -->
+        <section class="interlinked-section" id="thu-tuc-lien-thong" aria-labelledby="interlinkedTitle">
+            <div class="interlinked-header">
+                <span class="section-eyebrow"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> TTHC liên thông điện tử</span>
+                <h2 id="interlinkedTitle">Thủ tục liên thông trọng điểm</h2>
+                <p>
+                    Căn cứ Nghị định 63/2024/NĐ-CP, người dân có thể nộp một hồ sơ trực tuyến để hệ thống chuyển xử lý đồng thời giữa hộ tịch,
+                    cư trú, bảo hiểm xã hội và cơ quan chính sách có liên quan.
+                </p>
+            </div>
+
+            <div class="interlinked-grid">
+                <article class="interlinked-card">
+                    <div class="interlinked-card-head">
+                        <div class="interlinked-icon">
+                            <i class="fa-solid fa-baby" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3>Khai sinh - thường trú - cấp thẻ BHYT</h3>
+                            <small>Áp dụng cho trẻ em dưới 06 tuổi</small>
+                        </div>
+                    </div>
+                    <ul class="interlinked-list">
+                        <li><strong>Thủ tục:</strong> Đăng ký khai sinh, đăng ký thường trú và cấp thẻ bảo hiểm y tế.</li>
+                        <li><strong>Cách làm:</strong> Nộp 01 bộ hồ sơ trực tuyến; hệ thống chuyển dữ liệu giữa UBND cấp xã, Công an và Bảo hiểm xã hội.</li>
+                        <li><strong>Thời hạn:</strong> Thông thường 03 ngày làm việc; trường hợp cần xác minh không quá 05 ngày làm việc.</li>
+                    </ul>
+                    <div class="timeline-strip" aria-label="Luồng xử lý khai sinh liên thông">
+                        <span>UBND cấp xã</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        <span>Công an</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        <span>BHXH</span>
+                    </div>
+                    <div class="interlinked-badges">
+                        <span class="interlinked-badge"><i class="fa-solid fa-file-circle-check"></i> 01 hồ sơ</span>
+                        <span class="interlinked-badge"><i class="fa-solid fa-globe"></i> Trực tuyến</span>
+                    </div>
+                </article>
+
+                <article class="interlinked-card">
+                    <div class="interlinked-card-head">
+                        <div class="interlinked-icon">
+                            <i class="fa-solid fa-ribbon" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3>Khai tử - xóa thường trú - mai táng phí, tử tuất</h3>
+                            <small>Hỗ trợ gia đình thực hiện nhiều thủ tục sau khi có người thân qua đời</small>
+                        </div>
+                    </div>
+                    <ul class="interlinked-list">
+                        <li><strong>Thủ tục:</strong> Đăng ký khai tử, xóa đăng ký thường trú, giải quyết mai táng phí và chế độ tử tuất nếu đủ điều kiện.</li>
+                        <li><strong>Cách làm:</strong> Có thể chọn liên thông 02, 03 hoặc 04 thủ tục; phần mềm tự điều chỉnh tờ khai và hồ sơ đính kèm.</li>
+                        <li><strong>Thời hạn:</strong> Khoảng 06-18 ngày làm việc tùy nhóm đối tượng và chế độ do BHXH hoặc ngành Lao động - Thương binh và Xã hội giải quyết.</li>
+                    </ul>
+                    <div class="timeline-strip" aria-label="Luồng xử lý khai tử liên thông">
+                        <span>UBND cấp xã</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        <span>Công an</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        <span>BHXH/LĐ-TB&XH</span>
+                    </div>
+                    <div class="interlinked-badges">
+                        <span class="interlinked-badge"><i class="fa-solid fa-layer-group"></i> 02-04 thủ tục</span>
+                        <span class="interlinked-badge"><i class="fa-solid fa-clock"></i> Giảm đi lại</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="platform-links" aria-label="Nền tảng thực hiện thủ tục liên thông">
+                <a class="platform-link" href="https://dichvucong.gov.vn/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                    Cổng DVC Quốc gia
+                </a>
+                <span class="platform-link">
+                    <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+                    Ứng dụng VNeID
+                </span>
+                <a class="platform-link" href="https://dichvucong.bocongan.gov.vn/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+                    Cổng DVC Bộ Công an
+                </a>
+            </div>
+        </section>
 
         <!-- FAQ SECTION REMOVED AS REQUESTED (Replaced by Chatbot) -->
 
