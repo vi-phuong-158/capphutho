@@ -11,7 +11,7 @@
     <!-- Fonts: Be Vietnam Pro (Modern Vietnamese Font) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Icons: FontAwesome 6 -->
@@ -60,7 +60,7 @@
         }
 
         body {
-            font-family: 'Be Vietnam Pro', sans-serif;
+            font-family: 'Be Vietnam Pro', 'Noto Sans SC', sans-serif;
             background-color: var(--bg-body);
             color: var(--secondary);
             line-height: 1.5;
@@ -138,6 +138,34 @@
             font-size: 0.95rem;
             color: var(--text-gray);
             font-weight: 500;
+        }
+
+        .language-switcher {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 6px 10px;
+            border: 1px solid rgba(196, 30, 58, 0.16);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 16px rgba(196, 30, 58, 0.08);
+            color: var(--secondary);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .language-switcher i {
+            color: var(--primary);
+        }
+
+        .language-switcher select {
+            border: none;
+            background: transparent;
+            color: var(--secondary);
+            font: inherit;
+            outline: none;
+            cursor: pointer;
         }
 
         /* ===== SEARCH BAR (New Feature) ===== */
@@ -1618,17 +1646,26 @@
                 <!-- Fallback icon nếu không có logo.png -->
                 <img src="logo.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/921/921079.png'"
                     alt="Logo" class="brand-logo">
-                <span class="brand-text">Công An Phường Phú Thọ</span>
+                <span class="brand-text" data-i18n="brand.name">Công An Phường Phú Thọ</span>
             </div>
 
-            <h1 class="header-title">Cổng Thông Tin Số</h1>
-            <p class="header-subtitle">Hỗ trợ Thủ tục hành chính & Dịch vụ công</p>
+            <h1 class="header-title" data-i18n="home.title">Cổng Thông Tin Số</h1>
+            <p class="header-subtitle" data-i18n="home.subtitle">Hỗ trợ Thủ tục hành chính & Dịch vụ công</p>
+            <label class="language-switcher" for="languageSelect">
+                <i class="fa-solid fa-language" aria-hidden="true"></i>
+                <span data-i18n="language.label">Ngôn ngữ</span>
+                <select id="languageSelect" aria-label="Ngôn ngữ">
+                    <option value="vi">VI</option>
+                    <option value="en">EN</option>
+                    <option value="zh-CN">中文</option>
+                </select>
+            </label>
         </header>
 
         <!-- ELDER MODE TOGGLE -->
         <button class="elder-mode-toggle" id="elderModeToggle" onclick="toggleElderMode()">
             <i class="fa-solid fa-eye"></i>
-            <span>Chữ to / Dễ đọc</span>
+            <span data-i18n="elder.on">Chữ to / Dễ đọc</span>
         </button>
 
         <!-- THÔNG BÁO GIỜ GIẢI QUYẾT TTHC -->
@@ -1637,8 +1674,8 @@
                 <i class="fa-solid fa-clock"></i>
             </div>
             <div class="status-text">
-                <span>Thông báo giờ giải quyết TTHC</span>
-                <small>Thứ 2 - Thứ 7 | Sáng: 7h30-11h30 | Chiều: 13h00-16h30</small>
+                <span data-i18n="status.title">Thông báo giờ giải quyết TTHC</span>
+                <small data-i18n="status.hours">Thứ 2 - Thứ 7 | Sáng: 7h30-11h30 | Chiều: 13h00-16h30</small>
             </div>
         </div>
 
@@ -1647,13 +1684,13 @@
             <div class="intro-video-header">
                 <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
                 <div>
-                    <h2 class="intro-video-title" id="introVideoTitle">Video giới thiệu</h2>
-                    <span class="intro-video-subtitle">Tổng quan dịch vụ công và hỗ trợ người dân tại Công an phường Phú Thọ</span>
+                    <h2 class="intro-video-title" id="introVideoTitle" data-i18n="video.title">Video giới thiệu</h2>
+                    <span class="intro-video-subtitle" data-i18n="video.subtitle">Tổng quan dịch vụ công và hỗ trợ người dân tại Công an phường Phú Thọ</span>
                 </div>
             </div>
-            <video class="intro-video" controls preload="metadata" playsinline aria-label="Video giới thiệu Công an phường Phú Thọ">
+            <video class="intro-video" controls preload="metadata" playsinline aria-label="Video giới thiệu Công an phường Phú Thọ" data-i18n-aria-label="video.aria">
                 <source src="videogioithieu.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ phát video. Vui lòng tải tệp videogioithieu.mp4 để xem.
+                <span data-i18n="video.fallback">Trình duyệt của bạn không hỗ trợ phát video. Vui lòng tải tệp videogioithieu.mp4 để xem.</span>
             </video>
         </section>
 
@@ -1661,9 +1698,9 @@
         <div class="maps-widget">
             <div class="maps-widget-header">
                 <i class="fa-solid fa-location-dot"></i>
-                <span>Vị trí Công an Phường Phú Thọ</span>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=21.4217052,105.2162247" target="_blank" rel="noopener noreferrer" class="btn-directions" aria-label="Chỉ đường tới Công an phường Phú Thọ">
-                    <i class="fa-solid fa-directions"></i> Chỉ đường
+                <span data-i18n="maps.title">Vị trí Công an Phường Phú Thọ</span>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=21.4217052,105.2162247" target="_blank" rel="noopener noreferrer" class="btn-directions" aria-label="Chỉ đường tới Công an phường Phú Thọ" data-i18n-aria-label="maps.directionsAria">
+                    <i class="fa-solid fa-directions"></i> <span data-i18n="maps.directions">Chỉ đường</span>
                 </a>
             </div>
             <iframe
@@ -1676,7 +1713,8 @@
         <div class="search-container" id="globalSearchContainer">
             <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
             <input type="text" class="search-input" id="globalSearchInput" aria-label="Tìm kiếm thủ tục hành chính"
-                maxlength="100" placeholder="Bạn cần tìm thủ tục gì? (Ví dụ: Định danh, Hộ khẩu...)">
+                data-i18n-aria-label="search.aria" maxlength="100" placeholder="Bạn cần tìm thủ tục gì? (Ví dụ: Định danh, Hộ khẩu...)"
+                data-i18n-placeholder="search.placeholder">
 
             <!-- Bảng kết quả thả xuống -->
             <div class="search-results-dropdown" id="globalSearchResults">
@@ -1686,8 +1724,8 @@
 
         <!-- GRID CONTENT -->
         <div class="grid-label">
-            <span>Dịch Vụ Trực Tuyến</span>
-            <span style="font-size: 0.7rem; background: #E5E7EB; padding: 2px 8px; border-radius: 10px;">24/7</span>
+            <span data-i18n="grid.title">Dịch Vụ Trực Tuyến</span>
+            <span style="font-size: 0.7rem; background: #E5E7EB; padding: 2px 8px; border-radius: 10px;" data-i18n="grid.badge">24/7</span>
         </div>
 
         <div class="bento-grid">
@@ -1697,8 +1735,8 @@
                     <i class="fa-solid fa-address-card card-icon"></i>
                 </div>
                 <div>
-                    <h3 class="card-title">Cư Trú & Định Danh</h3>
-                    <p class="card-desc">CCCD, VNeID, CT07, CT08</p>
+                    <h3 class="card-title" data-i18n="card.residence.title">Cư Trú & Định Danh</h3>
+                    <p class="card-desc" data-i18n="card.residence.desc">CCCD, VNeID, CT07, CT08</p>
                 </div>
             </a>
 
@@ -1708,8 +1746,8 @@
                     <i class="fa-solid fa-motorcycle card-icon"></i>
                 </div>
                 <div>
-                    <h3 class="card-title">Đăng Ký Xe</h3>
-                    <p class="card-desc">Cấp biển số, sang tên đổi chủ</p>
+                    <h3 class="card-title" data-i18n="card.vehicle.title">Đăng Ký Xe</h3>
+                    <p class="card-desc" data-i18n="card.vehicle.desc">Cấp biển số, sang tên đổi chủ</p>
                 </div>
             </a>
 
@@ -1719,8 +1757,8 @@
                     <i class="fa-solid fa-person-military-rifle card-icon"></i>
                 </div>
                 <div>
-                    <h3 class="card-title">Vũ Khí & Pháo</h3>
-                    <p class="card-desc">Vận động giao nộp, tố giác</p>
+                    <h3 class="card-title" data-i18n="card.weapon.title">Vũ Khí & Pháo</h3>
+                    <p class="card-desc" data-i18n="card.weapon.desc">Vận động giao nộp, tố giác</p>
                 </div>
             </a>
 
@@ -1730,8 +1768,8 @@
                     <i class="fa-solid fa-building-shield card-icon"></i>
                 </div>
                 <div>
-                    <h3 class="card-title">An Ninh Trật Tự</h3>
-                    <p class="card-desc">Ngành nghề kinh doanh, lưu trú</p>
+                    <h3 class="card-title" data-i18n="card.security.title">An Ninh Trật Tự</h3>
+                    <p class="card-desc" data-i18n="card.security.desc">Ngành nghề kinh doanh, lưu trú</p>
                 </div>
             </a>
 
@@ -1741,8 +1779,8 @@
                     <i class="fa-solid fa-file-pen card-icon"></i>
                 </div>
                 <div>
-                    <h3 class="card-title">Khiếu Nại & Tố Cáo</h3>
-                    <p class="card-desc">Gửi đơn thư, phản ánh</p>
+                    <h3 class="card-title" data-i18n="card.complaint.title">Khiếu Nại & Tố Cáo</h3>
+                    <p class="card-desc" data-i18n="card.complaint.desc">Gửi đơn thư, phản ánh</p>
                 </div>
             </a>
 
@@ -1752,8 +1790,8 @@
                     <i class="fa-solid fa-passport card-icon"></i>
                 </div>
                 <div>
-                    <h3 class="card-title">Người Nước Ngoài</h3>
-                    <p class="card-desc">Khai báo tạm trú, Visa, XNC</p>
+                    <h3 class="card-title" data-i18n="card.foreigner.title">Người Nước Ngoài</h3>
+                    <p class="card-desc" data-i18n="card.foreigner.desc">Khai báo tạm trú, Visa, XNC</p>
                 </div>
             </a>
 
@@ -1763,8 +1801,8 @@
                     <i class="fa-solid fa-link card-icon"></i>
                 </div>
                 <div>
-                    <h3 class="card-title">Thủ Tục Liên Thông</h3>
-                    <p class="card-desc">Khai sinh, khai tử, cư trú, BHYT</p>
+                    <h3 class="card-title" data-i18n="card.interlinked.title">Thủ Tục Liên Thông</h3>
+                    <p class="card-desc" data-i18n="card.interlinked.desc">Khai sinh, khai tử, cư trú, BHYT</p>
                 </div>
             </a>
 
@@ -1773,9 +1811,9 @@
         <!-- THỦ TỤC LIÊN THÔNG -->
         <section class="interlinked-section" id="thu-tuc-lien-thong" aria-labelledby="interlinkedTitle">
             <div class="interlinked-header">
-                <span class="section-eyebrow"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> TTHC liên thông điện tử</span>
-                <h2 id="interlinkedTitle">Thủ tục liên thông trọng điểm</h2>
-                <p>
+                <span class="section-eyebrow"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> <span data-i18n="interlinked.eyebrow">TTHC liên thông điện tử</span></span>
+                <h2 id="interlinkedTitle" data-i18n="interlinked.title">Thủ tục liên thông trọng điểm</h2>
+                <p data-i18n="interlinked.desc">
                     Căn cứ Nghị định 63/2024/NĐ-CP, người dân có thể nộp một hồ sơ trực tuyến để hệ thống chuyển xử lý đồng thời giữa hộ tịch,
                     cư trú, bảo hiểm xã hội và cơ quan chính sách có liên quan.
                 </p>
@@ -1788,25 +1826,25 @@
                             <i class="fa-solid fa-baby" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3>Khai sinh - thường trú - cấp thẻ BHYT</h3>
-                            <small>Áp dụng cho trẻ em dưới 06 tuổi</small>
+                            <h3 data-i18n="interlinked.birth.title">Khai sinh - thường trú - cấp thẻ BHYT</h3>
+                            <small data-i18n="interlinked.birth.subtitle">Áp dụng cho trẻ em dưới 06 tuổi</small>
                         </div>
                     </div>
                     <ul class="interlinked-list">
-                        <li><strong>Thủ tục:</strong> Đăng ký khai sinh, đăng ký thường trú và cấp thẻ bảo hiểm y tế.</li>
-                        <li><strong>Cách làm:</strong> Nộp 01 bộ hồ sơ trực tuyến; hệ thống chuyển dữ liệu giữa UBND cấp xã, Công an và Bảo hiểm xã hội.</li>
-                        <li><strong>Thời hạn:</strong> Thông thường 03 ngày làm việc; trường hợp cần xác minh không quá 05 ngày làm việc.</li>
+                        <li data-i18n-html="interlinked.birth.item1"><strong>Thủ tục:</strong> Đăng ký khai sinh, đăng ký thường trú và cấp thẻ bảo hiểm y tế.</li>
+                        <li data-i18n-html="interlinked.birth.item2"><strong>Cách làm:</strong> Nộp 01 bộ hồ sơ trực tuyến; hệ thống chuyển dữ liệu giữa UBND cấp xã, Công an và Bảo hiểm xã hội.</li>
+                        <li data-i18n-html="interlinked.birth.item3"><strong>Thời hạn:</strong> Thông thường 03 ngày làm việc; trường hợp cần xác minh không quá 05 ngày làm việc.</li>
                     </ul>
                     <div class="timeline-strip" aria-label="Luồng xử lý khai sinh liên thông">
-                        <span>UBND cấp xã</span>
+                        <span data-i18n="interlinked.flow.commune">UBND cấp xã</span>
                         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span>Công an</span>
+                        <span data-i18n="interlinked.flow.police">Công an</span>
                         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span>BHXH</span>
+                        <span data-i18n="interlinked.flow.insurance">BHXH</span>
                     </div>
                     <div class="interlinked-badges">
-                        <span class="interlinked-badge"><i class="fa-solid fa-file-circle-check"></i> 01 hồ sơ</span>
-                        <span class="interlinked-badge"><i class="fa-solid fa-globe"></i> Trực tuyến</span>
+                        <span class="interlinked-badge"><i class="fa-solid fa-file-circle-check"></i> <span data-i18n="interlinked.badge.oneFile">01 hồ sơ</span></span>
+                        <span class="interlinked-badge"><i class="fa-solid fa-globe"></i> <span data-i18n="interlinked.badge.online">Trực tuyến</span></span>
                     </div>
                 </article>
 
@@ -1816,25 +1854,25 @@
                             <i class="fa-solid fa-ribbon" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h3>Khai tử - xóa thường trú - mai táng phí, tử tuất</h3>
-                            <small>Hỗ trợ gia đình thực hiện nhiều thủ tục sau khi có người thân qua đời</small>
+                            <h3 data-i18n="interlinked.death.title">Khai tử - xóa thường trú - mai táng phí, tử tuất</h3>
+                            <small data-i18n="interlinked.death.subtitle">Hỗ trợ gia đình thực hiện nhiều thủ tục sau khi có người thân qua đời</small>
                         </div>
                     </div>
                     <ul class="interlinked-list">
-                        <li><strong>Thủ tục:</strong> Đăng ký khai tử, xóa đăng ký thường trú, giải quyết mai táng phí và chế độ tử tuất nếu đủ điều kiện.</li>
-                        <li><strong>Cách làm:</strong> Có thể chọn liên thông 02, 03 hoặc 04 thủ tục; phần mềm tự điều chỉnh tờ khai và hồ sơ đính kèm.</li>
-                        <li><strong>Thời hạn:</strong> Khoảng 06-18 ngày làm việc tùy nhóm đối tượng và chế độ do BHXH hoặc ngành Lao động - Thương binh và Xã hội giải quyết.</li>
+                        <li data-i18n-html="interlinked.death.item1"><strong>Thủ tục:</strong> Đăng ký khai tử, xóa đăng ký thường trú, giải quyết mai táng phí và chế độ tử tuất nếu đủ điều kiện.</li>
+                        <li data-i18n-html="interlinked.death.item2"><strong>Cách làm:</strong> Có thể chọn liên thông 02, 03 hoặc 04 thủ tục; phần mềm tự điều chỉnh tờ khai và hồ sơ đính kèm.</li>
+                        <li data-i18n-html="interlinked.death.item3"><strong>Thời hạn:</strong> Khoảng 06-18 ngày làm việc tùy nhóm đối tượng và chế độ do BHXH hoặc ngành Lao động - Thương binh và Xã hội giải quyết.</li>
                     </ul>
                     <div class="timeline-strip" aria-label="Luồng xử lý khai tử liên thông">
-                        <span>UBND cấp xã</span>
+                        <span data-i18n="interlinked.flow.commune">UBND cấp xã</span>
                         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span>Công an</span>
+                        <span data-i18n="interlinked.flow.police">Công an</span>
                         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span>BHXH/LĐ-TB&XH</span>
+                        <span data-i18n="interlinked.flow.policy">BHXH/LĐ-TB&XH</span>
                     </div>
                     <div class="interlinked-badges">
-                        <span class="interlinked-badge"><i class="fa-solid fa-layer-group"></i> 02-04 thủ tục</span>
-                        <span class="interlinked-badge"><i class="fa-solid fa-clock"></i> Giảm đi lại</span>
+                        <span class="interlinked-badge"><i class="fa-solid fa-layer-group"></i> <span data-i18n="interlinked.badge.multiple">02-04 thủ tục</span></span>
+                        <span class="interlinked-badge"><i class="fa-solid fa-clock"></i> <span data-i18n="interlinked.badge.travel">Giảm đi lại</span></span>
                     </div>
                 </article>
             </div>
@@ -1842,15 +1880,15 @@
             <div class="platform-links" aria-label="Nền tảng thực hiện thủ tục liên thông">
                 <a class="platform-link" href="https://dichvucong.gov.vn/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
-                    Cổng DVC Quốc gia
+                    <span data-i18n="platform.national">Cổng DVC Quốc gia</span>
                 </a>
                 <span class="platform-link">
                     <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-                    Ứng dụng VNeID
+                    <span data-i18n="platform.vneid">Ứng dụng VNeID</span>
                 </span>
                 <a class="platform-link" href="https://dichvucong.bocongan.gov.vn/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
-                    Cổng DVC Bộ Công an
+                    <span data-i18n="platform.police">Cổng DVC Bộ Công an</span>
                 </a>
             </div>
         </section>
@@ -1859,8 +1897,8 @@
 
         <!-- FOOTER INFO -->
         <footer class="footer">
-            <p><strong>Công An Phường Phú Thọ</strong></p>
-            <p style="margin-top: 8px; font-size: 0.75rem; opacity: 0.6">© 2026 Bản quyền thuộc về Công an phường Phú
+            <p><strong data-i18n="footer.name">Công An Phường Phú Thọ</strong></p>
+            <p style="margin-top: 8px; font-size: 0.75rem; opacity: 0.6" data-i18n="footer.copy">© 2026 Bản quyền thuộc về Công an phường Phú
                 Thọ, tỉnh Phú Thọ</p>
         </footer>
     </div>
@@ -1879,9 +1917,9 @@
 
             const toggleBtn = document.getElementById('elderModeToggle');
             if (isElderMode) {
-                toggleBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i><span>Chế độ thường</span>';
+                toggleBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i><span>' + (window.I18N ? window.I18N.t('elder.off') : 'Chế độ thường') + '</span>';
             } else {
-                toggleBtn.innerHTML = '<i class="fa-solid fa-eye"></i><span>Chữ to / Dễ đọc</span>';
+                toggleBtn.innerHTML = '<i class="fa-solid fa-eye"></i><span>' + (window.I18N ? window.I18N.t('elder.on') : 'Chữ to / Dễ đọc') + '</span>';
             }
         }
 
@@ -1899,7 +1937,7 @@
             document.addEventListener('DOMContentLoaded', () => {
                 const toggleBtn = document.getElementById('elderModeToggle');
                 if (toggleBtn) {
-                    toggleBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i><span>Chế độ thường</span>';
+                    toggleBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i><span>' + (window.I18N ? window.I18N.t('elder.off') : 'Chế độ thường') + '</span>';
                 }
             });
         }
@@ -1940,8 +1978,8 @@
     </script>
     <!-- CHATBOT LAUNCHER WIDGET -->
     <div class="chat-widget">
-        <div class="chat-label">Trợ lý ảo 24/7</div>
-        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat">
+        <div class="chat-label" data-i18n="chat.label">Trợ lý ảo 24/7</div>
+        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat" data-i18n-aria-label="chat.openAria">
             <img src="Icon.png" alt="Chatbot Icon">
         </button>
     </div>
@@ -1954,18 +1992,18 @@
                     <i class="fa-solid fa-robot"></i>
                 </div>
                 <div>
-                    <span style="font-weight: 700; font-size: 1.05rem;">Trợ lý Ảo Công an Phường</span>
+                    <span style="font-weight: 700; font-size: 1.05rem;" data-i18n="chat.title">Trợ lý Ảo Công an Phường</span>
                     <div style="font-size: 0.75rem; opacity: 0.9;">
-                        <span class="status-dot"></span> Luôn sẵn sàng hỗ trợ
+                        <span class="status-dot"></span> <span data-i18n="chat.status">Luôn sẵn sàng hỗ trợ</span>
                     </div>
                 </div>
             </div>
-            <button class="close-chat" onclick="toggleChat()" aria-label="Đóng hộp thoại chat">&times;</button>
+            <button class="close-chat" onclick="toggleChat()" aria-label="Đóng hộp thoại chat" data-i18n-aria-label="chat.closeAria">&times;</button>
         </div>
 
         <div class="chat-body" id="chatBody">
             <!-- Tin nhắn chào mừng -->
-            <div class="message bot-message">
+            <div class="message bot-message" data-i18n-html="chat.welcome">
                 Xin chào bà con! Tôi là <b>Trợ lý ảo</b> của Công an phường Phú Thọ.<br>
                 Tôi có thể giúp gì cho bà con hôm nay?
             </div>
@@ -1977,17 +2015,19 @@
         </div>
 
         <div class="chat-footer">
-            <input type="text" class="chat-input" id="chatSearchInput" aria-label="Nhập câu hỏi" maxlength="200"
-                placeholder="Nhập câu hỏi hoặc thủ tục cần tìm...">
-            <button class="send-btn" id="chatSendBtn" aria-label="Gửi tin nhắn">
+            <input type="text" class="chat-input" id="chatSearchInput" aria-label="Nhập câu hỏi" data-i18n-aria-label="chat.inputAria" maxlength="200"
+                placeholder="Nhập câu hỏi hoặc thủ tục cần tìm..." data-i18n-placeholder="chat.placeholder">
+            <button class="send-btn" id="chatSendBtn" aria-label="Gửi tin nhắn" data-i18n-aria-label="chat.sendAria">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
         </div>
     </div>
 
     <!-- Import Chatbot Logic (SEQUENTIAL LOADING for Local File Support) -->
+    <script src="js/i18n.js"></script>
     <!-- 1. Load Data -->
     <script src="js/data/faq_db.js"></script>
+    <script src="js/data/faq_i18n.js"></script>
     <!-- 2. Load Utils -->
     <script src="js/utils/search_engine.js"></script>
     <!-- 3. Load Main Logic -->

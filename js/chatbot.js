@@ -29,6 +29,10 @@ class ChatbotController {
         this.renderMainMenu(); // Init sẵn menu
     }
 
+    t(key, vars = {}) {
+        return window.I18N ? window.I18N.t(key, vars) : key;
+    }
+
     setupEventListeners() {
         // Toggle Chat
         window.toggleChat = () => {
@@ -163,7 +167,7 @@ class ChatbotController {
         }
 
         // Nút quay lại
-        this.renderButton('Quay lại danh mục', 'fas fa-undo', () => this.renderMainMenu(), true, fragment);
+        this.renderButton(this.t('chat.backCategories'), 'fas fa-undo', () => this.renderMainMenu(), true, fragment);
 
         this.elements.optionContainer.appendChild(fragment);
         this.scrollToBottom();
@@ -174,7 +178,7 @@ class ChatbotController {
     handleCategorySelect(category) {
         this.addMessage(category.text, 'user');
         this.showLoading(() => {
-            this.addMessage(`Đây là các câu hỏi về <b>${this.escapeHtml(category.text)}</b>:`, 'bot');
+            this.addMessage(this.t('chat.categoryIntro', { category: this.escapeHtml(category.text) }), 'bot');
             this.renderSubMenu(category.id);
         });
     }
@@ -183,9 +187,9 @@ class ChatbotController {
         this.clearOptions();
         const fragment = document.createDocumentFragment();
         // 1. Nút xem thêm câu hỏi cùng chủ đề
-        this.renderButton('Xem câu hỏi khác', 'far fa-question-circle', () => this.renderSubMenu(catId), false, fragment);
+        this.renderButton(this.t('chat.moreQuestions'), 'far fa-question-circle', () => this.renderSubMenu(catId), false, fragment);
         // 2. Nút về danh mục chính
-        this.renderButton('Về danh mục chính', 'fas fa-home', () => this.renderMainMenu(), true, fragment);
+        this.renderButton(this.t('chat.mainCategories'), 'fas fa-home', () => this.renderMainMenu(), true, fragment);
 
         this.elements.optionContainer.appendChild(fragment);
         this.scrollToBottom();
@@ -220,7 +224,7 @@ class ChatbotController {
             const fragment = document.createDocumentFragment();
             results.forEach(res => {
                 if (res.type === 'category') {
-                    this.renderButton(`[Mục] ${res.text}`, res.original.icon, () => this.handleCategorySelect(res.original), false, fragment);
+                    this.renderButton(this.t('chat.categoryPrefix', { text: res.text }), res.original.icon, () => this.handleCategorySelect(res.original), false, fragment);
                 } else {
                     this.renderButton(res.text, 'fas fa-search', () => this.handleQuestionSelect(res.original, res.catId), false, fragment);
                 }
@@ -251,7 +255,7 @@ class ChatbotController {
             this.elements.globalDropdown.innerHTML = `
                 <div class="search-no-results">
                     <i class="fas fa-search-minus"></i>
-                    Không tìm thấy kết quả cho "${this.escapeHtml(query)}"
+                    ${this.t('search.noResults', { query: this.escapeHtml(query) })}
                 </div>
             `;
             return;
@@ -278,7 +282,7 @@ class ChatbotController {
             if (res.type === 'category') {
                 icon.className = res.original.icon;
                 title.textContent = res.text;
-                subtitle.textContent = 'Danh mục thủ tục';
+                subtitle.textContent = this.t('search.categorySubtitle');
                 
                 btn.onclick = () => {
                     this.elements.globalDropdown.classList.remove('active');
@@ -292,7 +296,7 @@ class ChatbotController {
                 // Lấy tên danh mục làm phụ đề
                 const categories = window.MAIN_CATEGORIES || [];
                 const parentCat = categories.find(c => c.id === res.catId);
-                subtitle.textContent = parentCat ? parentCat.text : 'Câu hỏi thường gặp';
+                subtitle.textContent = parentCat ? parentCat.text : this.t('search.questionSubtitle');
                 
                 btn.onclick = () => {
                     this.elements.globalDropdown.classList.remove('active');
