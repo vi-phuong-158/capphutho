@@ -54,6 +54,38 @@
             opacity: 0.9;
         }
 
+        .kbtt-video-guide {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 16px;
+            padding: 14px;
+        }
+
+        .kbtt-video-guide .block-title {
+            color: #B91C1C;
+            margin-bottom: 12px;
+        }
+
+        .kbtt-video-frame {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #111827;
+        }
+
+        .kbtt-video-actions {
+            margin-top: 12px;
+        }
+
+        .kbtt-video-note {
+            color: #6B7280;
+            font-size: 0.78rem;
+            margin: 8px 0 0;
+        }
+
         /* Detail expand/collapse */
         .kbtt-detail-toggle {
             width: 100%;
@@ -271,6 +303,29 @@
                 <h3>Hướng Dẫn Khai Báo Tạm Trú Người Nước Ngoài</h3>
                 <p>Dành cho Cơ sở lưu trú — Thực hiện online, không cần ra Phường</p>
             </div>
+        </div>
+
+        <!-- VIDEO HƯỚNG DẪN KHAI BÁO TẠM TRÚ -->
+        <div class="kbtt-video-guide" aria-labelledby="kbttVideoGuideTitle">
+            <div class="block-title" id="kbttVideoGuideTitle">
+                <i class="fa-brands fa-facebook"></i> Video hướng dẫn khai báo tạm trú
+            </div>
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous"
+                src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0"></script>
+            <div class="kbtt-video-frame">
+                <div class="fb-video" data-href="https://www.facebook.com/reel/2015017732731012"
+                    data-width="500" data-show-text="false" data-autoplay="true"
+                    data-allowfullscreen="true"></div>
+            </div>
+            <div class="kbtt-video-actions">
+                <a class="pdf-link" href="https://www.facebook.com/reel/2015017732731012" target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Mở video hướng dẫn trên Facebook</span>
+                </a>
+            </div>
+            <p class="kbtt-video-note">Video có thể tự phát ở chế độ tắt tiếng trên máy tính; trên điện thoại Facebook có thể yêu cầu bấm phát.</p>
         </div>
 
         <!-- THỦ TỤC 1: KHAI BÁO TẠM TRÚ CHI TIẾT -->
