@@ -1,3 +1,5 @@
 .gemini/
 node_modules/
 *.log
+
+_preview/
