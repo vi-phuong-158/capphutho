@@ -19,7 +19,7 @@
 - Tác giả: Nguyễn Minh Hiếu
 
 🗣️ **LỜI ĐỌC:**
-Kính thưa các đồng chí trong Hội đồng. Tôi xin trình bày sáng kiến **"Cổng thông tin số và Trợ lý ảo hỗ trợ tra cứu thủ tục hành chính"** tại Công an phường Phú Thọ. Đây là một giải pháp chuyển đổi số **xuất phát trực tiếp từ công tác tiếp dân** hằng ngày: người dân chỉ cần **quét một mã QR**, không phải cài đặt gì, là có ngay một trợ lý hướng dẫn thủ tục **24/7**. Sáng kiến do cán bộ đơn vị tự nghiên cứu, lập trình, **chi phí gần như bằng không** — trên mảnh đất cội nguồn Đất Tổ Hùng Vương.
+Kính thưa các đồng chí trong Hội đồng. Tôi xin trình bày sáng kiến **"Cổng thông tin số và Trợ lý ảo hỗ trợ tra cứu thủ tục hành chính"** tại Công an phường Phú Thọ. Đây là giải pháp chuyển đổi số **xuất phát trực tiếp từ thực tiễn công tác tiếp dân** hằng ngày: người dân chỉ cần **quét một mã QR**, **không cần cài đặt bất kỳ ứng dụng nào**, là đã có ngay một trợ lý hướng dẫn thủ tục phục vụ **24/7**. Toàn bộ sáng kiến do cán bộ đơn vị **tự nghiên cứu và lập trình**, **chi phí gần như bằng không** — một sản phẩm công nghệ của người Công an cơ sở, ngay trên quê hương Đất Tổ Hùng Vương.
 
 ---
 
@@ -77,9 +77,10 @@ Cổng hoạt động dưới dạng một **Web App** — mở bằng trình du
 - **Cư trú & Căn cước** · **Đăng ký xe (xe máy)** · **Ngành nghề ANTT**
 - **Người nước ngoài** · **Vũ khí & Pháo** · **Khiếu nại, tố cáo & Góp ý**
 - Mỗi lĩnh vực: thẻ gập/mở — *giấy tờ gì · thời gian bao lâu · nút nộp online*
+- ➕ Chuyên mục riêng: **Thủ tục liên thông trọng điểm** (khai sinh – thường trú – BHYT; khai tử – xóa thường trú)
 
 🗣️ **LỜI ĐỌC:**
-Cổng phân loại thủ tục thành **06 nhóm lĩnh vực trọng tâm cấp phường**: cư trú và căn cước; đăng ký xe máy; quản lý ngành nghề an ninh trật tự; quản lý người nước ngoài; vũ khí và pháo; cùng khiếu nại, tố cáo và góp ý. Mỗi lĩnh vực trình bày dạng **thẻ gập/mở**, tóm tắt cực ngắn gọn ba điều người dân cần nhất: **cần giấy tờ gì, mất bao lâu**, và có **nút liên kết nộp hồ sơ online** ngay trên Cổng dịch vụ công Bộ Công an.
+Cổng phân loại thủ tục thành **06 nhóm lĩnh vực trọng tâm cấp phường**: cư trú và căn cước; đăng ký xe máy; quản lý ngành nghề an ninh trật tự; quản lý người nước ngoài; vũ khí và pháo; cùng khiếu nại, tố cáo và góp ý. Mỗi lĩnh vực trình bày dạng **thẻ gập/mở**, tóm tắt cực ngắn gọn ba điều người dân cần nhất: **cần giấy tờ gì, mất bao lâu**, và có **nút liên kết nộp hồ sơ online** ngay trên Cổng dịch vụ công Bộ Công an. Ngoài 06 nhóm này, Cổng còn dành riêng một chuyên mục **Thủ tục liên thông trọng điểm** — như **khai sinh – đăng ký thường trú – cấp thẻ bảo hiểm y tế** cho trẻ dưới 6 tuổi, hay **khai tử – xóa thường trú** — vốn là những việc người dân hay vướng mắc nhất.
 
 ---
 
@@ -88,9 +89,10 @@ Cổng phân loại thủ tục thành **06 nhóm lĩnh vực trọng tâm cấp
 **[HIỂN THỊ]**
 - Hình ảnh phần mềm đang vận hành trên điện thoại
 - Trang chủ · Trợ lý ảo · Hướng dẫn lĩnh vực · Thủ tục liên thông
+- Hỗ trợ **đa ngôn ngữ (Việt – Anh – Trung)** & **chế độ Chữ to / Dễ đọc**
 
 🗣️ **LỜI ĐỌC:**
-Đây là giao diện thật của cổng, chụp trực tiếp trên điện thoại. Thiết kế theo phong cách Cổng dịch vụ công — **tối ưu 100% cho điện thoại**, nút bấm lớn, icon trực quan, màu đỏ – vàng nhận diện của lực lượng. Từ trang chủ với các thẻ dịch vụ, đến trợ lý ảo hỏi–đáp, trang hướng dẫn từng lĩnh vực — tất cả gọn trong lòng bàn tay.
+Đây là giao diện thật của Cổng, chụp trực tiếp trên điện thoại. Thiết kế theo phong cách Cổng dịch vụ công — **tối ưu 100% cho điện thoại**, nút bấm lớn, icon trực quan, màu đỏ – vàng nhận diện của lực lượng. Ngay trên đầu trang có **nút đổi ngôn ngữ Việt – Anh – Trung** và **chế độ Chữ to / Dễ đọc** cho người cao tuổi. Từ trang chủ với các thẻ dịch vụ, đến trợ lý ảo hỏi–đáp, trang hướng dẫn từng lĩnh vực — tất cả gọn trong lòng bàn tay.
 
 ---
 
@@ -99,10 +101,11 @@ Cổng phân loại thủ tục thành **06 nhóm lĩnh vực trọng tâm cấp
 **[HIỂN THỊ]**
 - **"Bình dân hóa" pháp lý:** văn bản luật dài → gạch đầu dòng ngắn gọn, dễ hiểu
 - **Trợ lý ảo (Chatbot FAQ):** gõ từ khóa "Làm sổ tạm trú", "Mất cà vẹt xe" → trả lời ngay
+- **Đa ngôn ngữ & dễ tiếp cận:** giao diện Việt – Anh – Trung + chế độ Chữ to cho người cao tuổi
 - **Web tĩnh:** tải nhanh, chi phí gần 0, dễ đóng gói chuyển giao
 
 🗣️ **LỜI ĐỌC:**
-Điểm mới nằm ở ba chỗ. Thứ nhất, thay vì bắt dân đọc cả văn bản luật dài, cổng đã **"bình dân hóa" ngôn ngữ pháp lý** thành những gạch đầu dòng ngắn gọn, dễ hiểu. Thứ hai là **Trợ lý ảo Chatbot**: người dân chỉ cần gõ từ khóa như *"làm sổ tạm trú"* hay *"mất cà vẹt xe"*, hệ thống tự quét dữ liệu và trả lời chính xác, **không cần con người can thiệp**. Thứ ba, nhờ tư duy **web tĩnh**, trang tải cực nhanh, **chi phí vận hành gần bằng 0** và **đóng gói chuyển giao** cho đơn vị khác rất dễ.
+Điểm mới nằm ở **bốn chỗ**. Thứ nhất, thay vì bắt dân đọc cả văn bản luật dài, Cổng đã **"bình dân hóa" ngôn ngữ pháp lý** thành những gạch đầu dòng ngắn gọn, dễ hiểu. Thứ hai là **Trợ lý ảo Chatbot**: người dân chỉ cần gõ từ khóa như *"làm sổ tạm trú"* hay *"mất cà vẹt xe"*, hệ thống tự quét dữ liệu và trả lời chính xác, **không cần con người can thiệp**. Thứ ba, Cổng hỗ trợ **ba thứ tiếng Việt – Anh – Trung** cùng **chế độ Chữ to dễ đọc** — phục vụ cả **người nước ngoài** lẫn **người cao tuổi** tự tra cứu. Thứ tư, nhờ tư duy **web tĩnh**, trang tải cực nhanh, **chi phí vận hành gần bằng 0** và **đóng gói chuyển giao** cho đơn vị khác rất dễ.
 
 ---
 
