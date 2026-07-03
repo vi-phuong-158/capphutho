@@ -1064,14 +1064,95 @@
             background: var(--primary-light);
         }
 
-        @media (min-width: 768px) {
-            .interlinked-section {
-                padding: 24px;
-            }
+        /* ===== CAMPAIGN BANNER (Một phút bốc đồng) ===== */
+        .campaign-container {
+            margin-top: 28px;
+            margin-bottom: 24px;
+        }
 
-            .interlinked-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 18px;
+        .campaign-card {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #7E0E13 0%, #B0141A 100%);
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            color: white;
+            box-shadow: 0 8px 24px rgba(176, 20, 26, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: left;
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(176, 20, 26, 0.25);
+            border-color: var(--accent);
+        }
+
+        .campaign-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-right: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .campaign-card:hover .campaign-icon {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(-5deg);
+        }
+
+        .campaign-info {
+            flex-grow: 1;
+        }
+
+        .campaign-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .campaign-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.3;
+        }
+
+        .campaign-go {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-left: 12px;
+            transition: transform 0.3s;
+        }
+
+        .campaign-card:hover .campaign-go {
+            transform: translateX(4px);
+            color: white;
+        }
+
+        @media (min-width: 768px) {
+            .campaign-card {
+                padding: 20px 24px;
+            }
+            .campaign-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.6rem;
+            }
+            .campaign-title {
+                font-size: 1.15rem;
+            }
+            .campaign-desc {
+                font-size: 0.88rem;
             }
         }
 
@@ -1796,7 +1877,7 @@
             </a>
 
             <!-- Module 7 -->
-            <a href="#thu-tuc-lien-thong" class="card">
+            <a href="modules/thu-tuc-lien-thong.html" class="card">
                 <div class="card-icon-wrapper">
                     <i class="fa-solid fa-link card-icon"></i>
                 </div>
@@ -1808,90 +1889,25 @@
 
         </div>
 
-        <!-- THỦ TỤC LIÊN THÔNG -->
-        <section class="interlinked-section" id="thu-tuc-lien-thong" aria-labelledby="interlinkedTitle">
-            <div class="interlinked-header">
-                <span class="section-eyebrow"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> <span data-i18n="interlinked.eyebrow">TTHC liên thông điện tử</span></span>
-                <h2 id="interlinkedTitle" data-i18n="interlinked.title">Thủ tục liên thông trọng điểm</h2>
-                <p data-i18n="interlinked.desc">
-                    Căn cứ Nghị định 63/2024/NĐ-CP, người dân có thể nộp một hồ sơ trực tuyến để hệ thống chuyển xử lý đồng thời giữa hộ tịch,
-                    cư trú, bảo hiểm xã hội và cơ quan chính sách có liên quan.
-                </p>
+        <!-- BANNER TUYÊN TRUYỀN (Một phút bốc đồng) -->
+        <div class="campaign-container">
+            <div class="grid-label">
+                <span>Chuyên đề tuyên truyền</span>
+                <span style="font-size: 0.7rem; background: #FFF0F2; color: #C41E3A; padding: 2px 8px; border-radius: 10px; font-weight: 700;">Nổi bật</span>
             </div>
-
-            <div class="interlinked-grid">
-                <article class="interlinked-card">
-                    <div class="interlinked-card-head">
-                        <div class="interlinked-icon">
-                            <i class="fa-solid fa-baby" aria-hidden="true"></i>
-                        </div>
-                        <div>
-                            <h3 data-i18n="interlinked.birth.title">Khai sinh - thường trú - cấp thẻ BHYT</h3>
-                            <small data-i18n="interlinked.birth.subtitle">Áp dụng cho trẻ em dưới 06 tuổi</small>
-                        </div>
-                    </div>
-                    <ul class="interlinked-list">
-                        <li data-i18n-html="interlinked.birth.item1"><strong>Thủ tục:</strong> Đăng ký khai sinh, đăng ký thường trú và cấp thẻ bảo hiểm y tế.</li>
-                        <li data-i18n-html="interlinked.birth.item2"><strong>Cách làm:</strong> Nộp 01 bộ hồ sơ trực tuyến; hệ thống chuyển dữ liệu giữa UBND cấp xã, Công an và Bảo hiểm xã hội.</li>
-                        <li data-i18n-html="interlinked.birth.item3"><strong>Thời hạn:</strong> Thông thường 03 ngày làm việc; trường hợp cần xác minh không quá 05 ngày làm việc.</li>
-                    </ul>
-                    <div class="timeline-strip" aria-label="Luồng xử lý khai sinh liên thông">
-                        <span data-i18n="interlinked.flow.commune">UBND cấp xã</span>
-                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span data-i18n="interlinked.flow.police">Công an</span>
-                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span data-i18n="interlinked.flow.insurance">BHXH</span>
-                    </div>
-                    <div class="interlinked-badges">
-                        <span class="interlinked-badge"><i class="fa-solid fa-file-circle-check"></i> <span data-i18n="interlinked.badge.oneFile">01 hồ sơ</span></span>
-                        <span class="interlinked-badge"><i class="fa-solid fa-globe"></i> <span data-i18n="interlinked.badge.online">Trực tuyến</span></span>
-                    </div>
-                </article>
-
-                <article class="interlinked-card">
-                    <div class="interlinked-card-head">
-                        <div class="interlinked-icon">
-                            <i class="fa-solid fa-ribbon" aria-hidden="true"></i>
-                        </div>
-                        <div>
-                            <h3 data-i18n="interlinked.death.title">Khai tử - xóa thường trú - mai táng phí, tử tuất</h3>
-                            <small data-i18n="interlinked.death.subtitle">Hỗ trợ gia đình thực hiện nhiều thủ tục sau khi có người thân qua đời</small>
-                        </div>
-                    </div>
-                    <ul class="interlinked-list">
-                        <li data-i18n-html="interlinked.death.item1"><strong>Thủ tục:</strong> Đăng ký khai tử, xóa đăng ký thường trú, giải quyết mai táng phí và chế độ tử tuất nếu đủ điều kiện.</li>
-                        <li data-i18n-html="interlinked.death.item2"><strong>Cách làm:</strong> Có thể chọn liên thông 02, 03 hoặc 04 thủ tục; phần mềm tự điều chỉnh tờ khai và hồ sơ đính kèm.</li>
-                        <li data-i18n-html="interlinked.death.item3"><strong>Thời hạn:</strong> Khoảng 06-18 ngày làm việc tùy nhóm đối tượng và chế độ do BHXH hoặc ngành Lao động - Thương binh và Xã hội giải quyết.</li>
-                    </ul>
-                    <div class="timeline-strip" aria-label="Luồng xử lý khai tử liên thông">
-                        <span data-i18n="interlinked.flow.commune">UBND cấp xã</span>
-                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span data-i18n="interlinked.flow.police">Công an</span>
-                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                        <span data-i18n="interlinked.flow.policy">BHXH/LĐ-TB&XH</span>
-                    </div>
-                    <div class="interlinked-badges">
-                        <span class="interlinked-badge"><i class="fa-solid fa-layer-group"></i> <span data-i18n="interlinked.badge.multiple">02-04 thủ tục</span></span>
-                        <span class="interlinked-badge"><i class="fa-solid fa-clock"></i> <span data-i18n="interlinked.badge.travel">Giảm đi lại</span></span>
-                    </div>
-                </article>
-            </div>
-
-            <div class="platform-links" aria-label="Nền tảng thực hiện thủ tục liên thông">
-                <a class="platform-link" href="https://dichvucong.gov.vn/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
-                    <span data-i18n="platform.national">Cổng DVC Quốc gia</span>
-                </a>
-                <span class="platform-link">
-                    <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-                    <span data-i18n="platform.vneid">Ứng dụng VNeID</span>
-                </span>
-                <a class="platform-link" href="https://dichvucong.bocongan.gov.vn/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
-                    <span data-i18n="platform.police">Cổng DVC Bộ Công an</span>
-                </a>
-            </div>
-        </section>
+            <a href="mot-phut-boc-dong/index.html" class="campaign-card">
+                <div class="campaign-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="campaign-info">
+                    <h3 class="campaign-title" data-i18n="card.bocdong.title">Một phút bốc đồng</h3>
+                    <p class="campaign-desc" data-i18n="card.bocdong.desc">Tuyên truyền phòng ngừa vi phạm pháp luật</p>
+                </div>
+                <div class="campaign-go">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
+        </div>
 
         <!-- FAQ SECTION REMOVED AS REQUESTED (Replaced by Chatbot) -->
 
@@ -1930,6 +1946,8 @@
             const faqItem = button.parentElement;
             faqItem.classList.toggle('open');
         }
+
+        // ===== INTERLINKED SECTION TOGGLE REMOVED =====
 
         // Restore Elder Mode on page load
         if (localStorage.getItem('elderMode') === 'true') {

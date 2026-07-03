@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bìa Sáng Kiến</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #525659; /* PDF viewer background style */
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 25mm 20mm 20mm 30mm; /* Standard thesis margin: Top 2.5, Bottom 2, Right 2, Left 3 */
+            box-sizing: border-box;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        
+        /* Decorative double border */
+        .border-outer {
+            border: 4px solid #000;
+            width: 100%;
+            height: 100%;
+            padding: 3px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .border-inner {
+            border: 1px solid #000;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Corner decorations */
+        .corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #000;
+        }
+        .top-left { top: -6px; left: -6px; border-right: none; border-bottom: none; }
+        .top-right { top: -6px; right: -6px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: -6px; left: -6px; border-right: none; border-top: none; }
+        .bottom-right { bottom: -6px; right: -6px; border-left: none; border-top: none; }
+
+        .header {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 120px;
+            line-height: 1.3;
+        }
+        .header .sub {
+            text-decoration: underline;
+        }
+        .title-label {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        
+        .title-box {
+            width: 100%;
+            margin-bottom: 120px;
+        }
+        
+        .title-box-label {
+            font-size: 16pt;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 18pt;
+            font-weight: bold;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+        
+        .author-info {
+            font-size: 14pt;
+            text-align: left;
+            align-self: flex-start;
+            margin-left: 60px;
+            line-height: 1.8;
+            margin-bottom: auto;
+        }
+        
+        .author-info table {
+            font-size: 14pt;
+            border-collapse: collapse;
+        }
+        .author-info td {
+            padding: 5px 10px 5px 0;
+            vertical-align: top;
+        }
+        
+        .footer {
+            font-size: 14pt;
+            font-style: italic;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+        
+        /* Hide shadow when printing */
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="border-outer">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+            <div class="border-inner">
+                
+                <div class="header">
+                    CÔNG AN TỈNH PHÚ THỌ<br>
+                    <span class="sub">CÔNG AN PHƯỜNG PHÚ THỌ</span>
+                </div>
+                
+                <div class="title-label">
+                    HỒ SƠ BÁO CÁO SÁNG KIẾN
+                </div>
+                
+                <div class="title-box">
+                    <div class="title-box-label">Tên sáng kiến:</div>
+                    <div class="title">
+                        GIẢI PHÁP XÂY DỰNG "CỔNG THÔNG TIN SỐ VÀ TRỢ LÝ ẢO HỖ TRỢ TRA CỨU THỦ TỤC HÀNH CHÍNH" NHẰM ĐẨY MẠNH CẢI CÁCH HÀNH CHÍNH TẠI CÔNG AN PHƯỜNG PHÚ THỌ
+                    </div>
+                </div>
+                
+                <div class="author-info">
+                    <table>
+                        <tr>
+                            <td><b>Tác giả:</b></td>
+                            <td><b>Thượng úy Nguyễn Minh Hiếu</b></td>
+                        </tr>
+                        <tr>
+                            <td><b>Đơn vị:</b></td>
+                            <td>Tổ An ninh, Công an phường Phú Thọ</td>
+                        </tr>
+                        <tr>
+                            <td><b>Lĩnh vực:</b></td>
+                            <td>Cải cách hành chính, Ứng dụng CNTT</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="footer">
+                    Phú Thọ, năm 2026
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

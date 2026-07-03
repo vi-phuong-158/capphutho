@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Thủ Tục Liên Thông | CA Phường Phú Thọ</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+    <!-- DVC Style -->
+    <link rel="stylesheet" href="../styles/dvc-style.css">
+    
+    <style>
+        .timeline-strip {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin: 14px 0;
+        }
+
+        .timeline-strip span {
+            background: #F3F4F6;
+            color: #1F2937;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .timeline-strip i {
+            color: #C41E3A;
+            font-size: 0.72rem;
+        }
+
+        .interlinked-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .interlinked-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(196, 30, 58, 0.18);
+            color: #8B0000;
+            background: #FFFFFF;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+        
+        .btn-group {
+            margin-top: 16px;
+        }
+    </style>
+</head>
+
+<body class="dvc-page">
+
+    <!-- Header -->
+    <div class="dvc-header">
+        <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="header-title">Thủ Tục Liên Thông</div>
+        <i class="fa-solid fa-link"></i>
+    </div>
+
+    <div class="dvc-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <i class="fa-solid fa-house"></i> / Dịch vụ công / Thủ tục liên thông
+        </div>
+
+        <div class="tip-box">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+                Căn cứ <strong>Nghị định 63/2024/NĐ-CP</strong>, người dân có thể nộp một hồ sơ trực tuyến để hệ thống tự động liên thông giải quyết nhiều thủ tục cùng lúc, giảm tối đa thời gian và công sức đi lại.
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 1: KHAI SINH LIÊN THÔNG -->
+        <div class="proc-card active">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-baby"></i></div>
+                    1. Đăng ký Khai sinh - Thường trú - Cấp thẻ BHYT
+                    <span class="badge badge-new">Trẻ dưới 6 tuổi</span>
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clipboard-check"></i> Thông tin thủ tục</div>
+                    <ul class="checklist">
+                        <li><strong>Thủ tục liên thông:</strong> Đăng ký khai sinh, đăng ký thường trú và cấp thẻ bảo hiểm y tế cho trẻ em dưới 6 tuổi.</li>
+                        <li><strong>Cách thực hiện:</strong> Chỉ cần nộp 01 bộ hồ sơ trực tuyến; hệ thống tự động luân chuyển và xử lý dữ liệu giữa UBND cấp xã, Cơ quan Công an và Bảo hiểm xã hội.</li>
+                        <li><strong>Thời hạn giải quyết:</strong> Thông thường trong 03 ngày làm việc; trường hợp phải xác minh thông tin không quá 05 ngày làm việc.</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-route"></i> Luồng xử lý hồ sơ</div>
+                    <div class="timeline-strip">
+                        <span>UBND cấp xã (Khai sinh)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Cơ quan Công an (Cư trú)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Cơ quan BHXH (Thẻ BHYT)</span>
+                    </div>
+                </div>
+
+                <div class="interlinked-badges">
+                    <span class="interlinked-badge"><i class="fa-solid fa-file-circle-check"></i> 01 Bộ hồ sơ</span>
+                    <span class="interlinked-badge"><i class="fa-solid fa-globe"></i> Nộp trực tuyến 100%</span>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://dichvucong.gov.vn" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fa-solid fa-globe"></i> Nộp hồ sơ liên thông khai sinh</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- THỦ TỤC 2: KHAI TỬ LIÊN THÔNG -->
+        <div class="proc-card">
+            <div class="proc-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
+                <div class="proc-title">
+                    <div class="proc-icon"><i class="fa-solid fa-ribbon"></i></div>
+                    2. Đăng ký Khai tử - Xóa thường trú - Trợ cấp mai táng
+                </div>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="proc-content">
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-clipboard-list"></i> Thông tin thủ tục</div>
+                    <ul class="checklist">
+                        <li><strong>Thủ tục liên thông:</strong> Đăng ký khai tử, xóa đăng ký thường trú, giải quyết mai táng phí và trợ cấp tử tuất (nếu đủ điều kiện).</li>
+                        <li><strong>Lợi ích:</strong> Người dân được lựa chọn liên thông từ 02 đến 04 thủ tục tùy nhu cầu; phần mềm tự động điều chỉnh tờ khai phù hợp.</li>
+                        <li><strong>Thời hạn giải quyết:</strong> Từ 06 đến 18 ngày làm việc (Tùy thuộc vào nhóm đối tượng hưởng chế độ do BHXH hoặc Sở LĐ-TB&XH quản lý).</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="block-title"><i class="fa-solid fa-route"></i> Luồng xử lý hồ sơ</div>
+                    <div class="timeline-strip">
+                        <span>UBND cấp xã (Khai tử)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Cơ quan Công an (Xóa cư trú)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>BHXH / LĐ-TB&XH (Trợ cấp)</span>
+                    </div>
+                </div>
+
+                <div class="interlinked-badges">
+                    <span class="interlinked-badge"><i class="fa-solid fa-layer-group"></i> Liên thông 2-4 thủ tục</span>
+                    <span class="interlinked-badge"><i class="fa-solid fa-clock"></i> Tiết kiệm thời gian đi lại</span>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://dichvucong.gov.vn" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fa-solid fa-globe"></i> Nộp hồ sơ liên thông khai tử</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Cổng thông tin hướng dẫn dịch vụ công trực tuyến liên thông theo Quyết định số 706/QĐ-TTg của Thủ tướng Chính phủ.
+        </div>
+    </div>
+
+    <script>
+        function toggleCard(header) {
+            const card = header.parentElement;
+            const isActive = card.classList.toggle('active');
+            header.setAttribute('aria-expanded', isActive);
+        }
+
+        function handleCardKeydown(event, header) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleCard(header);
+            }
+        }
+    </script>
+</body>
+
+</html>

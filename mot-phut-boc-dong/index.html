@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Tuyên truyền, phổ biến pháp luật về phòng ngừa thanh thiếu niên vi phạm pháp luật - Công an phường Phú Thọ">
+    <meta name="theme-color" content="#7E0E13">
+    <title>Một Phút Bốc Đồng – Hệ Lụy Cả Tương Lai</title>
+
+    <!-- Fonts: Be Vietnam Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons: FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+
+    <style>
+        /* ===== MODERN DESIGN SYSTEM FOR PROPAGANDA ===== */
+        :root {
+            --bg-color: #FBF7F0;          /* Trắng ngà */
+            --primary-color: #B0141A;     /* Đỏ Công an */
+            --primary-dark: #7E0E13;      /* Đỏ thẫm */
+            --gold-color: #E8B23A;        /* Vàng gold nhấn */
+            --text-dark: #1A1A1A;         /* Chữ đen than */
+            --text-light: #666666;        /* Chữ xám */
+            --surface-color: #FFFFFF;     /* Nền trắng */
+            --success-color: #2E7D46;     /* Xanh lá trầm */
+            
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 4px 12px rgba(126, 14, 19, 0.05);
+            --shadow-md: 0 8px 24px rgba(126, 14, 19, 0.08);
+            --shadow-lg: 0 16px 40px rgba(126, 14, 19, 0.15);
+            
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== BACK & TOP NAVIGATION ===== */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: rgba(251, 247, 240, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(126, 14, 19, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(176, 20, 26, 0.05);
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            background: rgba(176, 20, 26, 0.1);
+            transform: translateX(-4px);
+        }
+
+        .nav-logo {
+            height: 36px;
+            width: auto;
+        }
+
+        /* ===== HERO BANNER SECTION ===== */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(126, 14, 19, 0.75), rgba(126, 14, 19, 0.9)), url('hero-banner.png') no-repeat center center;
+            background-size: cover;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 60px;
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-badge img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            color: white;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-slogan {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gold-color);
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: var(--gold-color);
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(232, 178, 58, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #f0bd4f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ===== SECTION HEADER ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--gold-color);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ===== RISK IDENTIFICATION ===== */
+        .risk-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .risk-card {
+            background: var(--surface-color);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .risk-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .risk-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(176, 20, 26, 0.08);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .risk-content h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+            color: var(--text-dark);
+        }
+
+        .risk-content p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        .risk-footer-banner {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            color: white;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: var(--shadow-md);
+        }
+
+        .risk-footer-banner span {
+            color: var(--gold-color);
+        }
+
+        /* ===== RULES / ACCORDION ===== */
+        .accordion {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid rgba(126, 14, 19, 0.05);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .accordion-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .accordion-header-left i {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+
+        .accordion-header-left h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .accordion-arrow {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            transition: transform 0.3s;
+        }
+
+        .accordion-item.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(251, 247, 240, 0.4);
+        }
+
+        .accordion-content-inner {
+            padding: 0 20px 20px 54px;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+        }
+
+        .penalty-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(176, 20, 26, 0.08);
+            border: 1px solid rgba(176, 20, 26, 0.15);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        .penalty-chip i {
+            font-size: 0.85rem;
+        }
+
+        /* ===== CORNERS ===== */
+        .corners {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .corner-card {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .corner-card.success-border {
+            border-top-color: var(--success-color);
+        }
+
+        .corner-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .corner-title.red-text {
+            color: var(--primary-color);
+        }
+
+        .corner-title.green-text {
+            color: var(--success-color);
+        }
+
+        .warning-box {
+            background: rgba(176, 20, 26, 0.06);
+            border: 1px dashed var(--primary-color);
+            padding: 14px;
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            font-size: 0.88rem;
+        }
+
+        .warning-box strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+
+        .corner-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .corner-list li {
+            position: relative;
+            padding-left: 24px;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+        }
+
+        .corner-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.85rem;
+        }
+
+        .corner-card.success-border .corner-list li::before {
+            color: var(--success-color);
+        }
+
+        .corner-card:not(.success-border) .corner-list li::before {
+            color: var(--primary-color);
+        }
+
+        /* ===== VIDEO PRESENTATION ===== */
+        .video-section {
+            background: var(--primary-dark);
+            border-radius: var(--radius-lg);
+            padding: 30px 20px;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-section h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .video-section p {
+            font-size: 0.82rem;
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+
+        /* Phone mockup */
+        .phone-mockup {
+            max-width: 260px;
+            margin: 0 auto 20px;
+            background: #000;
+            padding: 10px;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.2);
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        .phone-screen {
+            background: #222;
+            border-radius: 32px;
+            overflow: hidden;
+            aspect-ratio: 9 / 16;
+            position: relative;
+        }
+
+        .phone-screen video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .phone-screen-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95));
+        }
+
+        .phone-screen-fallback i {
+            font-size: 2.5rem;
+            color: var(--gold-color);
+            margin-bottom: 12px;
+        }
+
+        .phone-screen-fallback span {
+            font-size: 0.8rem;
+            color: #ddd;
+            line-height: 1.4;
+        }
+
+        .fb-btn {
+            background: #1877F2;
+            color: white;
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+            border-radius: var(--radius-md);
+            margin-top: 10px;
+        }
+
+        .fb-btn:hover {
+            background: #166fe5;
+            transform: translateY(-2px);
+        }
+
+        /* ===== COMMITMENT FORM (TABS) ===== */
+        .commitment-box {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+        }
+
+        .tabs-header {
+            display: flex;
+            background: rgba(126, 14, 19, 0.05);
+            padding: 4px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            background: none;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(126, 14, 19, 0.15);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+            background: var(--bg-color);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(176, 20, 26, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+            background: rgba(251, 247, 240, 0.6);
+            padding: 14px;
+            border-radius: var(--radius-md);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-label input {
+            margin-top: 3px;
+            flex-shrink: 0;
+            accent-color: var(--primary-color);
+        }
+
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(176, 20, 26, 0.2);
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FAQ ACCORDION ===== */
+        .faq-accordion {
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            background: var(--surface-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 10px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border-left: 3px solid var(--gold-color);
+        }
+
+        .faq-header {
+            width: 100%;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .faq-header h4 {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            padding-right: 16px;
+        }
+
+        .faq-arrow {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-content-inner {
+            padding: 0 16px 16px 16px;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            border-top: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        /* ===== CONTACT AREA ===== */
+        .contact-box {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid var(--primary-color);
+            margin-bottom: 40px;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .contact-box h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .contact-box p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .btn-call {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(176, 20, 26, 0.2);
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                box-shadow: 0 0 0 0 rgba(176, 20, 26, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(176, 20, 26, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(176, 20, 26, 0);
+            }
+        }
+
+        /* ===== POPUP SUCCESS MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: var(--bg-color);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--gold-color);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--success-color);
+            color: white;
+            font-size: 2rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(46, 125, 70, 0.3);
+        }
+
+        .modal-box h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--success-color);
+            margin-bottom: 10px;
+        }
+
+        .modal-box p {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .btn-close {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(126, 14, 19, 0.08);
+            font-size: 0.75rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* ===== RESPONSIVE MEDIA QUERIES ===== */
+        @media (min-width: 768px) {
+            .hero {
+                min-height: 50vh;
+                padding: 120px 20px 80px;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .hero-slogan {
+                font-size: 1.3rem;
+            }
+            .hero-ctas {
+                flex-direction: row;
+                max-width: 500px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .risk-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .risk-footer-banner {
+                grid-column: span 2;
+            }
+            .corners {
+                flex-direction: row;
+            }
+            .corner-card {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION -->
+    <nav class="top-nav">
+        <a href="../index.html" class="back-btn" aria-label="Quay lại Cổng thông tin số">
+            <i class="fa-solid fa-arrow-left"></i> Quay lại
+        </a>
+        <img src="../logo.png" alt="Logo Công an nhân dân" class="nav-logo">
+    </nav>
+
+    <!-- HERO BANNER -->
+    <header class="hero">
+        <div class="hero-badge">
+            <img src="../logo.png" alt="Logo"> Công An Phường Phú Thọ
+        </div>
+        <h1 class="hero-title">Một Phút Bốc Đồng<br>Hệ Lụy Cả Tương Lai</h1>
+        <p class="hero-slogan">Dừng lại một phút – Nghĩ về hậu quả – Chọn đúng tương lai</p>
+        <div class="hero-ctas">
+            <a href="#nhan-dien" class="btn btn-primary">Nhận diện nguy cơ</a>
+            <a href="#cam-ket" class="btn btn-secondary">Ký cam kết trực tuyến</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- NHẬN DIỆN NGUY CƠ -->
+        <section id="nhan-dien" style="margin-bottom: 40px;">
+            <div class="section-header">
+                <h2 class="section-title">Nhận diện rủi ro</h2>
+                <p class="section-subtitle">Dấu hiệu nhận biết sớm thanh thiếu niên có nguy cơ vi phạm pháp luật</p>
+            </div>
+            
+            <div class="risk-grid">
+                <article class="risk-card">
+                    <div class="risk-icon"><i class="fa-solid fa-school-circle-xmark"></i></div>
+                    <div class="risk-content">
+                        <h4>Bỏ học, trốn học nhiều</h4>
+                        <p>Kết quả học tập sa sút đột ngột, thường xuyên nghỉ học không lý do.</p>
+                    </div>
+                </article>
+
+                <article class="risk-card">
+                    <div class="risk-icon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="risk-content">
+                        <h4>Hay đi chơi đêm</h4>
+                        <p>Thường xuyên vắng mặt ở nhà sau 22h đêm, tụ tập bạn bè lang thang.</p>
+                    </div>
+                </article>
+
+                <article class="risk-card">
+                    <div class="risk-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div class="risk-content">
+                        <h4>Vi phạm giao thông thường xuyên</h4>
+                        <p>Tự ý lái xe máy khi chưa đủ tuổi, không đội mũ bảo hiểm, thích tốc độ.</p>
+                    </div>
+                </article>
+
+                <article class="risk-card">
+                    <div class="risk-icon"><i class="fa-solid fa-users-slash"></i></div>
+                    <div class="risk-content">
+                        <h4>Kết giao với nhóm bạn xấu</h4>
+                        <p>Thân thiết với người bỏ học, chậm tiến hoặc đối tượng có tiền án tiền sự.</p>
+                    </div>
+                </article>
+
+                <article class="risk-card">
+                    <div class="risk-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <div class="risk-content">
+                        <h4>Biểu hiện lệch chuẩn trên mạng</h4>
+                        <p>Khoe khoang hung khí, cổ vũ bạo lực hoặc tham gia các hội nhóm kín độc hại.</p>
+                    </div>
+                </article>
+
+                <div class="risk-footer-banner">
+                    Phương châm hành động: <span>Phát hiện sớm – Giáo dục sớm – Phối hợp sớm</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- BA NHÓM VI PHẠM THƯỜNG GẶP -->
+        <section style="margin-bottom: 40px;">
+            <div class="section-header">
+                <h2 class="section-title">Nhóm vi phạm thường gặp</h2>
+                <p class="section-subtitle">Kiến thức pháp lý cơ bản cần biết để phòng ngừa vi phạm</p>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-header-left">
+                            <i class="fa-solid fa-motorcycle"></i>
+                            <h3>1. Vi phạm trật tự an toàn giao thông</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Nghiêm cấm người chưa thành niên điều khiển xe mô tô, xe gắn máy khi chưa đủ tuổi hoặc không có giấy phép lái xe theo quy định.</p>
+                            <p style="margin-top: 8px;">Nghiêm cấm các hành vi lạng lách, đánh võng, nẹt pô, bốc đầu nguy hiểm cho bản thân và người tham gia giao thông.</p>
+                            <div class="penalty-chip">
+                                <i class="fa-solid fa-scale-balanced"></i> Nghị định 168/2024: Phạt tiền người giao xe từ 8 - 10 triệu đồng
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-header-left">
+                            <i class="fa-solid fa-skull-crossbones"></i>
+                            <h3>2. Tụ tập gây rối, đánh nhau có hung khí</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Tuyệt đối không tụ tập đám đông để giải quyết mâu thuẫn. Nghiêm cấm chế tạo, mua bán, tàng trữ hoặc mang theo vũ khí, vật nguy hiểm (dao, kiếm, tuýp sắt, phóng lợn...).</p>
+                            <p style="margin-top: 8px;">Các hành vi tụ tập đánh nhau, gây rối trật tự công cộng gây ảnh hưởng xấu tới an ninh xã hội đều bị xử lý nghiêm khắc.</p>
+                            <div class="penalty-chip">
+                                <i class="fa-solid fa-scale-balanced"></i> BLHS: Truy cứu trách nhiệm hình sự Tội gây rối trật tự công cộng
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-header-left">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            <h3>3. Vi phạm pháp luật trên không gian mạng</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Không dùng mạng xã hội (Facebook, TikTok, Zalo) để kích động, hẹn nhau giải quyết mâu thuẫn ngoài đời.</p>
+                            <p style="margin-top: 8px;">Nghiêm cấm hành vi quay video clip đánh nhau, vi phạm giao thông rồi phát tán, chia sẻ, cổ vũ các hành vi này trên Internet.</p>
+                            <div class="penalty-chip">
+                                <i class="fa-solid fa-scale-balanced"></i> Nghị định 15/2020: Phạt 5 - 10 triệu đồng đối với hành vi phát tán tin kích động bạo lực
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORNERS -->
+        <section class="corners">
+            <!-- GÓC PHỤ HUYNH -->
+            <article class="corner-card">
+                <h3 class="corner-title red-text">
+                    <i class="fa-solid fa-people-roof"></i> Góc Phụ huynh
+                </h3>
+                <div class="warning-box">
+                    <strong>CẢNH BÁO PHÁP LÝ:</strong>
+                    Nghiêm cấm tuyệt đối việc giao xe mô tô, xe gắn máy cho con em điều khiển khi chưa đủ tuổi hoặc chưa có Giấy phép lái xe. Cha mẹ có thể bị truy cứu trách nhiệm liên đới nếu xảy ra tai nạn nghiêm trọng.
+                </div>
+                <ul class="corner-list">
+                    <li>Quản lý chặt chẽ giờ giấc và các mối quan hệ bạn bè của con.</li>
+                    <li>Lắng nghe, thấu hiểu tâm tư của con thay vì áp đặt, la mắng nặng lời.</li>
+                    <li>Không bao che, không xin xỏ khi con em vi phạm pháp luật.</li>
+                    <li>Chủ động phối hợp với nhà trường và Cảnh sát khu vực để giáo dục con.</li>
+                </ul>
+            </article>
+
+            <!-- GÓC HỌC SINH -->
+            <article class="corner-card success-border">
+                <h3 class="corner-title green-text">
+                    <i class="fa-solid fa-user-graduate"></i> Góc Học sinh
+                </h3>
+                <div class="warning-box" style="background: rgba(46, 125, 70, 0.05); border-color: var(--success-color);">
+                    <strong>LỜI NHẮC CẢNH TỈNH:</strong>
+                    Một phút nông nổi, bốc đầu xe hay tụ tập đi đánh nhau để thể hiện bản thân có thể phải đánh đổi bằng cả tương lai học tập, tù tội, hoặc thậm chí là sinh mạng.
+                </div>
+                <ul class="corner-list">
+                    <li>Nói "KHÔNG" trước các lời lôi kéo, rủ rê đi giải quyết mâu thuẫn.</li>
+                    <li>Ứng xử văn minh trên không gian mạng, không dùng bạo lực giải quyết mâu thuẫn ảo.</li>
+                    <li>Chấp hành nghiêm chỉnh Luật giao thông đường bộ để bảo vệ tính mạng mình.</li>
+                    <li>Khi bị đe dọa hoặc lôi kéo, cần báo ngay cho bố mẹ, thầy cô hoặc Công an.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- VIDEO PRESENTATION -->
+        <section class="video-section">
+            <h3>Video Tuyên Truyền</h3>
+            <p>Thông điệp cảnh báo từ Công an phường Phú Thọ</p>
+            
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <!-- Kiểm tra file videotuyentruyen-fix1.mp4 cục bộ, nếu không có hiển thị màn hình fallback -->
+                    <video id="promoVideo" controls poster="hero-banner.png">
+                        <source src="videotuyentruyen-fix1.mp4" type="video/mp4">
+                        <!-- Trình phát video fallback -->
+                    </video>
+                    <div class="phone-screen-fallback" id="videoFallback" style="display: none;">
+                        <i class="fa-solid fa-video-slash"></i>
+                        <span>File videotuyentruyen-fix1.mp4 cục bộ hiện chưa được tải lên thư mục dự án</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="max-width: 320px; margin: 0 auto;">
+                <a href="https://www.facebook.com/share/r/1LVxsUafox/" target="_blank" rel="noopener noreferrer" class="btn fb-btn">
+                    <i class="fa-brands fa-facebook" style="margin-right: 8px; font-size: 1.1rem;"></i> Xem clip gốc trên Facebook
+                </a>
+            </div>
+        </section>
+
+        <!-- COMMITMENT FORM -->
+        <section id="cam-ket" class="commitment-box">
+            <div class="section-header">
+                <h2 class="section-title">Ký cam kết trực tuyến</h2>
+                <p class="section-subtitle">Chung tay xây dựng môi trường an toàn, văn minh</p>
+            </div>
+
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="switchTab('parent')">Dành cho Phụ huynh</button>
+                <button class="tab-btn" onclick="switchTab('student')">Dành cho Học sinh</button>
+            </div>
+
+            <!-- Form Phụ huynh -->
+            <form id="formParent" class="tab-content active" onsubmit="handleFormSubmit(event, 'parent')">
+                <div class="form-group">
+                    <label for="pName">Họ và tên phụ huynh</label>
+                    <input type="text" id="pName" class="form-control" placeholder="Nhập họ và tên phụ huynh" required>
+                </div>
+                <div class="form-group">
+                    <label for="pAddress">Khu dân cư (Tổ dân phố)</label>
+                    <input type="text" id="pAddress" class="form-control" placeholder="Ví dụ: Tổ 5, phường Phú Thọ" required>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        Tôi cam kết KHÔNG giao xe mô tô, xe máy cho con khi chưa đủ điều kiện.
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        Tôi cam kết theo sát quản lý, giáo dục con em chấp hành nghiêm chỉnh pháp luật.
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-submit">Gửi cam kết</button>
+            </form>
+
+            <!-- Form Học sinh -->
+            <form id="formStudent" class="tab-content" onsubmit="handleFormSubmit(event, 'student')">
+                <div class="form-group">
+                    <label for="sName">Họ và tên học sinh / thanh niên</label>
+                    <input type="text" id="sName" class="form-control" placeholder="Nhập họ và tên học sinh" required>
+                </div>
+                <div class="form-group">
+                    <label for="sClass">Lớp / Trường (hoặc Nơi làm việc)</label>
+                    <input type="text" id="sClass" class="form-control" placeholder="Ví dụ: Lớp 10A1, THPT Phú Thọ" required>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        Em cam kết chấp hành nghiêm Luật giao thông đường bộ, không phóng nhanh vượt ẩu.
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        Em cam kết không tụ tập gây rối, không tham gia giải quyết mâu thuẫn bằng bạo lực.
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        Em cam kết ứng xử văn minh trên mạng xã hội, không chia sẻ clip bạo lực.
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-submit" style="background: var(--success-color);">Gửi cam kết</button>
+            </form>
+        </section>
+
+        <!-- FAQ QUESTIONS -->
+        <section style="margin-bottom: 40px;">
+            <div class="section-header">
+                <h2 class="section-title">Giải đáp thắc mắc</h2>
+                <p class="section-subtitle">Các câu hỏi thường gặp về pháp luật cho thanh thiếu niên</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <h4>Hỏi: Học sinh trung học 15 tuổi có được đi xe máy điện 50cc không?</h4>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            Theo quy định của Luật Giao thông đường bộ, chỉ người từ đủ 16 tuổi trở lên mới được phép điều khiển xe gắn máy có dung tích xi-lanh dưới 50cm3 hoặc xe máy điện. Do đó, học sinh 15 tuổi chưa đủ điều kiện để tự điều khiển các loại phương tiện này.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <h4>Hỏi: Nhìn thấy bạn bè hẹn nhau mang dao tự chế đi đánh nhau, tôi cần làm gì?</h4>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            Bạn tuyệt đối không được tham gia, không đi theo để xem hay cổ vũ. Hãy bảo đảm an toàn cho bản thân trước tiên, sau đó bí mật thông báo ngay cho thầy cô giáo, bố mẹ hoặc gọi trực tiếp cho Công an phường Phú Thọ qua số hotline 0210.628.8588 để cơ quan chức năng kịp thời ngăn chặn, không để xảy ra hậu quả đáng tiếc.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-header">
+                        <h4>Hỏi: Quay clip một vụ lạng lách hoặc đánh nhau rồi đăng lên mạng có phạm luật?</h4>
+                        <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-content-inner">
+                            Có thể vi phạm. Hành vi cung cấp, chia sẻ thông tin kích động bạo lực, cổ súy các hành vi vi phạm pháp luật trên không gian mạng sẽ bị xử phạt hành chính từ 5.000.000đ đến 10.000.000đ theo Nghị định 15/2020/NĐ-CP và buộc gỡ bỏ thông tin. Nếu gây hậu quả nghiêm trọng về an ninh trật tự, người đăng tải có thể bị xử lý hình sự.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT INFO -->
+        <section class="contact-box">
+            <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+            <h3>Liên hệ Công an phường</h3>
+            <p>Nếu bạn cần tư vấn pháp luật hoặc phát hiện các dấu hiệu vi phạm an ninh trật tự, hãy gọi ngay cho trực ban Công an phường Phú Thọ.</p>
+            <a href="tel:02106288588" class="btn btn-call">
+                <i class="fa-solid fa-phone" style="margin-right: 8px;"></i> Gọi 0210.628.8588
+            </a>
+        </section>
+
+    </main>
+
+    <!-- SUCCESS MODAL POPUP -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+            <div class="modal-icon"><i class="fa-solid fa-check"></i></div>
+            <h3 id="modalTitle">Gửi cam kết thành công!</h3>
+            <p id="modalMsg">Cảm ơn bạn đã tham gia ký cam kết trực tuyến, chung tay cùng Công an phường Phú Thọ giữ gìn bình yên cho tuổi trẻ và khu dân cư.</p>
+            <button class="btn btn-close" onclick="closeModal()">Đóng lại</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Bản quyền thuộc về Công an phường Phú Thọ, tỉnh Phú Thọ</p>
+        <p style="margin-top: 4px; opacity: 0.7;">Thiết kế tuyên truyền phục vụ Hội thi báo cáo viên giỏi năm 2026</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Check if video file exists, otherwise show fallback
+        document.addEventListener("DOMContentLoaded", function() {
+            const video = document.getElementById("promoVideo");
+            const fallback = document.getElementById("videoFallback");
+
+            video.addEventListener("error", function() {
+                video.style.display = "none";
+                fallback.style.display = "flex";
+            });
+
+            // Double check by fetching src header
+            fetch(video.querySelector("source").src, { method: 'HEAD' })
+                .then(response => {
+                    if (!response.ok) {
+                        video.style.display = "none";
+                        fallback.style.display = "flex";
+                    }
+                })
+                .catch(() => {
+                    video.style.display = "none";
+                    fallback.style.display = "flex";
+                });
+        });
+
+        // Accordion functionality for Rules
+        const accHeaders = document.querySelectorAll(".accordion-header");
+        accHeaders.forEach(header => {
+            header.addEventListener("click", function() {
+                const item = this.parentElement;
+                const content = this.nextElementSibling;
+                const isActive = item.classList.contains("active");
+                
+                // Close all other accordions
+                document.querySelectorAll(".accordion-item").forEach(el => {
+                    el.classList.remove("active");
+                    el.querySelector(".accordion-content").style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    item.classList.add("active");
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Accordion functionality for FAQ
+        const faqHeaders = document.querySelectorAll(".faq-header");
+        faqHeaders.forEach(header => {
+            header.addEventListener("click", function() {
+                const item = this.parentElement;
+                const content = this.nextElementSibling;
+                const isActive = item.classList.contains("active");
+
+                document.querySelectorAll(".faq-item").forEach(el => {
+                    el.classList.remove("active");
+                    el.querySelector(".faq-content").style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    item.classList.add("active");
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Tab Switching for Commitment Form
+        function switchTab(tabType) {
+            // Remove active class from buttons & contents
+            document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+            document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
+
+            // Add active to targeted
+            if (tabType === 'parent') {
+                document.querySelector(".tab-btn:nth-child(1)").classList.add("active");
+                document.getElementById("formParent").classList.add("active");
+            } else {
+                document.querySelector(".tab-btn:nth-child(2)").classList.add("active");
+                document.getElementById("formStudent").classList.add("active");
+            }
+        }
+
+        // Form Submit handler
+        function handleFormSubmit(event, formType) {
+            event.preventDefault();
+            
+            const modal = document.getElementById("successModal");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalMsg = document.getElementById("modalMsg");
+
+            if (formType === 'parent') {
+                const name = document.getElementById("pName").value;
+                modalTitle.textContent = "Gửi cam kết thành công!";
+                modalMsg.innerHTML = `Cảm ơn phụ huynh <strong>${name}</strong> đã đồng hành cùng Công an phường Phú Thọ. Cam kết của bạn đã được ghi nhận trực tuyến hệ thống an ninh cơ sở.`;
+            } else {
+                const name = document.getElementById("sName").value;
+                modalTitle.textContent = "Đăng ký cam kết thành công!";
+                modalMsg.innerHTML = `Cảm ơn em <strong>${name}</strong> đã thể hiện tinh thần trách nhiệm. Hãy luôn giữ vững cam kết để xây dựng tương lai tươi sáng!`;
+            }
+
+            modal.classList.add("active");
+        }
+
+        function closeModal() {
+            document.getElementById("successModal").classList.remove("active");
+            // Reset forms
+            document.getElementById("formParent").reset();
+            document.getElementById("formStudent").reset();
+        }
+    </script>
+</body>
+</html>
