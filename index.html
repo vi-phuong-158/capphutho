@@ -1562,6 +1562,25 @@
             justify-content: space-between;
         }
 
+        .chat-mode-switch { display: flex; gap: 6px; padding: 10px 12px 0; background: white; border-bottom: 1px solid #eee; }
+        .chat-mode-tab { flex: 1; border: 1px solid #ce1908; border-radius: 16px; padding: 7px 10px; background: white; color: #ce1908; cursor: pointer; font-weight: 700; }
+        .chat-mode-tab[aria-selected="true"] { background: #ce1908; color: white; }
+        .chat-mode-panel { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+        .chat-mode-panel[hidden] { display: none; }
+        .chat-embed-shell { padding: 12px; background: #f9f9f9; }
+        .chat-embed-frame { width: 100%; height: 100%; border: 0; border-radius: 10px; background: white; }
+        .chat-embed-loading, .chat-embed-error { padding: 12px; text-align: center; color: #555; }
+        .chat-embed-error { color: #a50f00; }
+        .chat-embed-actions { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+
+        @media (max-width: 480px) {
+            .chat-window { width: calc(100vw - 24px); right: 12px; bottom: 76px; height: min(520px, calc(100vh - 96px)); max-height: calc(100vh - 96px); }
+            .chat-embed-shell { overflow: hidden; }
+            @supports (height: 100dvh) {
+                .chat-window { height: min(520px, calc(100dvh - 96px)); max-height: calc(100dvh - 96px); }
+            }
+        }
+
         .chat-info {
             display: flex;
             align-items: center;
@@ -1997,7 +2016,7 @@
     <!-- CHATBOT LAUNCHER WIDGET -->
     <div class="chat-widget">
         <div class="chat-label" data-i18n="chat.label">Trợ lý ảo 24/7</div>
-        <button class="chat-launcher" onclick="toggleChat()" aria-label="Mở hộp thoại chat" data-i18n-aria-label="chat.openAria">
+        <button class="chat-launcher" id="chatLauncher" onclick="toggleChat()" aria-controls="chatWindow" aria-expanded="false" aria-label="Mở hộp thoại chat" data-i18n-aria-label="chat.openAria">
             <img src="Icon.png" alt="Chatbot Icon">
         </button>
     </div>
@@ -2012,13 +2031,18 @@
                 <div>
                     <span style="font-weight: 700; font-size: 1.05rem;" data-i18n="chat.title">Trợ lý Ảo Công an Phường</span>
                     <div style="font-size: 0.75rem; opacity: 0.9;">
-                        <span class="status-dot"></span> <span data-i18n="chat.status">Luôn sẵn sàng hỗ trợ</span>
+                        <span class="status-dot"></span> <span id="chatStatusText" data-i18n="chat.status">Luôn sẵn sàng hỗ trợ</span>
                     </div>
                 </div>
             </div>
             <button class="close-chat" onclick="toggleChat()" aria-label="Đóng hộp thoại chat" data-i18n-aria-label="chat.closeAria">&times;</button>
         </div>
 
+        <div class="chat-mode-switch" id="chatModeSwitch" role="tablist">
+            <button class="chat-mode-tab" id="chatModeAiBtn" role="tab" tabindex="0" aria-selected="true" aria-controls="chatEmbedShell" data-i18n="chat.modeAi">AI assistant</button>
+            <button class="chat-mode-tab" id="chatModeFaqBtn" role="tab" tabindex="-1" aria-selected="false" aria-controls="chatFaqShell" data-i18n="chat.modeFaq">FAQ</button>
+        </div>
+        <div id="chatFaqShell" class="chat-mode-panel" role="tabpanel" aria-labelledby="chatModeFaqBtn" hidden>
         <div class="chat-body" id="chatBody">
             <!-- Tin nhắn chào mừng -->
             <div class="message bot-message" data-i18n-html="chat.welcome">
@@ -2039,6 +2063,19 @@
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
         </div>
+        </div>
+
+        <div id="chatEmbedShell" class="chat-mode-panel chat-embed-shell" role="tabpanel" aria-labelledby="chatModeAiBtn" hidden>
+            <div id="chatEmbedLoading" class="chat-embed-loading" role="status" data-i18n="chat.aiLoading">Loading AI assistant...</div>
+            <iframe id="bandocaptChatFrame" class="chat-embed-frame" title="Phu Tho Ward Police AI assistant" data-src="https://bandocapt.vercel.app/chat-embed.html?client=capphutho" referrerpolicy="strict-origin-when-cross-origin" allow="clipboard-write" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" hidden></iframe>
+            <div id="chatEmbedError" class="chat-embed-error" role="alert" hidden>
+                <span id="chatEmbedErrorText" data-i18n="chat.aiError">Unable to connect to the AI assistant.</span>
+                <div class="chat-embed-actions">
+                    <button type="button" id="chatEmbedRetry" data-i18n="chat.aiRetry">Try again</button>
+                    <button type="button" id="chatEmbedUseFaq" data-i18n="chat.useFaq">Use FAQ</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Import Chatbot Logic (SEQUENTIAL LOADING for Local File Support) -->
@@ -2050,6 +2087,16 @@
     <script src="js/utils/search_engine.js"></script>
     <!-- 3. Load Main Logic -->
     <script src="js/chatbot.js"></script>
+    <script>
+        window.CAPP_CHAT_CONFIG = Object.freeze({
+            mode: 'ai-embed',
+            embedUrl: 'https://bandocapt.vercel.app/chat-embed.html?client=capphutho',
+            allowedOrigin: 'https://bandocapt.vercel.app',
+            loadTimeoutMs: 15000,
+            fallbackMode: 'faq'
+        });
+    </script>
+    <script src="js/chatbot-embed-client.js"></script>
 
 </body>
 
