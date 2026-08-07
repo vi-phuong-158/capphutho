@@ -16,7 +16,8 @@ window.MAIN_CATEGORIES = [
     { id: 'xuat_nhap_canh', icon: 'fa-solid fa-plane-departure', text: 'Xuất nhập cảnh', keywords: ['ho chieu', 'visa', 'nguoi nuoc ngoai', 'tam tru', 'apec'] },
     { id: 'vu_khi', icon: 'fa-solid fa-person-military-rifle', text: 'Vũ khí & CCHT', keywords: ['vu khi', 'dao', 'kiem', 'phao', 'cong cu ho tro', 'khai bao'] },
     { id: 'kinh_doanh', icon: 'fa-solid fa-shop', text: 'Ngành nghề KD', keywords: ['an ninh trat tu', 'nha nghi', 'gas', 'pccc', 'giay phep'] },
-    { id: 'khieu_nai', icon: 'fa-solid fa-file-pen', text: 'Khiếu nại & Tố cáo', keywords: ['khieu nai', 'to cao', 'don thu', 'cong an xa'] }
+    { id: 'khieu_nai', icon: 'fa-solid fa-file-pen', text: 'Khiếu nại & Tố cáo', keywords: ['khieu nai', 'to cao', 'don thu', 'cong an xa'] },
+    { id: 'cap_tinh', icon: 'fa-solid fa-building-columns', text: 'Thủ tục Công an tỉnh', url: 'modules/thu-tuc-cap-tinh.html', keywords: ['ho chieu', 'passport', 'mat ho chieu', 'gplx', 'giay phep lai xe', 'bang lai', 'doi bang lai', 'mat bang lai', 'ly lich tu phap', 'phieu ly lich tu phap', 'visa', 'thi thuc', 'the tam tru', 'gia han tam tru', 'giay antt', 'giay phep an ninh trat tu', 'dang ky xe cap tinh', 'phong csgt', 'cap tinh'] }
 ];
 
 // 2. Chi tiết câu hỏi và trả lời
@@ -496,6 +497,48 @@ window.FAQ_DATA = {
             text: "Hồ sơ tố cáo cần gì?",
             answer: "Đơn tố cáo + Tài liệu chứng cứ chứng minh.",
             keywords: ["ho so", "giay to"]
+        }
+    ],
+    'cap_tinh': [
+        {
+            text: "Thủ tục cấp hộ chiếu phổ thông lần đầu làm ở đâu?",
+            answer: "Thủ tục <b>Cấp hộ chiếu phổ thông ở trong nước</b> được thực hiện tại Phòng Quản lý xuất nhập cảnh - Công an cấp tỉnh. Bạn có thể nộp hồ sơ trực tuyến toàn trình trên Cổng Dịch vụ công Bộ Công an.",
+            keywords: ["ho chieu", "lam ho chieu", "o dau", "cap tinh", "passport"]
+        },
+        {
+            text: "Hộ chiếu bị mất, hỏng, hết hạn thì làm thủ tục gì?",
+            answer: "Bạn vẫn thực hiện thủ tục <b>Cấp hộ chiếu phổ thông ở trong nước</b> tại Công an cấp tỉnh, ghi rõ lý do cấp lại (do mất, hỏng, hoặc hết hạn) trong tờ khai.",
+            keywords: ["mat ho chieu", "hong ho chieu", "het han", "cap lai"]
+        },
+        {
+            text: "Thủ tục cấp giấy phép lái xe do cơ quan nào thực hiện?",
+            answer: "Thủ tục <b>Cấp giấy phép lái xe</b> (và các thủ tục liên quan như cấp lại, cấp đổi) do Phòng Cảnh sát giao thông - Công an cấp tỉnh thực hiện.",
+            keywords: ["gplx", "giay phep lai xe", "bang lai", "cap doi"]
+        },
+        {
+            text: "Mất giấy phép lái xe hoặc quá hạn sử dụng phải làm sao?",
+            answer: "Bạn cần thực hiện thủ tục sát hạch hoặc cấp lại tại Phòng CSGT cấp tỉnh. Hãy kiểm tra thủ tục chính xác trên Cổng DVC Bộ Công an hoặc hỏi Chatbot để biết hồ sơ chi tiết.",
+            keywords: ["mat gplx", "mat bang lai", "qua han"]
+        },
+        {
+            text: "Xin cấp Phiếu lý lịch tư pháp ở đâu?",
+            answer: "Bạn thực hiện thủ tục <b>Cấp Phiếu lý lịch tư pháp cho công dân Việt Nam, người nước ngoài đang cư trú tại Việt Nam</b> tại Phòng Cảnh sát quản lý hành chính về trật tự xã hội - Công an cấp tỉnh.",
+            keywords: ["ly lich tu phap", "phieu lltp", "cap tinh"]
+        },
+        {
+            text: "Người nước ngoài muốn gia hạn tạm trú thì làm ở đâu?",
+            answer: "Thủ tục gia hạn tạm trú, cấp thị thực, cấp thẻ tạm trú cho người nước ngoài thuộc thẩm quyền của Phòng Quản lý xuất nhập cảnh - Công an cấp tỉnh.",
+            keywords: ["nguoi nuoc ngoai", "gia han tam tru", "thi thuc", "visa"]
+        },
+        {
+            text: "Giấy chứng nhận đủ điều kiện về ANTT làm ở xã hay tỉnh?",
+            answer: "Tùy thuộc vào quy mô và loại hình kinh doanh (VD: Khách sạn lớn, dịch vụ bảo vệ do cấp tỉnh/huyện quản lý; nhà nghỉ nhỏ, cơ sở gas do cấp xã quản lý). Hãy tham khảo chi tiết tại danh mục ANTT.",
+            keywords: ["antt", "giay phep antt", "kinh doanh", "xa hay tinh"]
+        },
+        {
+            text: "Đăng ký xe làm ở xã hay Phòng CSGT?",
+            answer: "Phòng CSGT cấp tỉnh thường cấp đăng ký xe ô tô cho tổ chức, cơ quan. Đăng ký xe mô tô, xe gắn máy cá nhân thường được phân cấp về Công an xã/huyện. Vui lòng xem hướng dẫn chi tiết từng loại xe.",
+            keywords: ["dang ky xe", "bien so xe", "phong csgt", "cong an xa"]
         }
     ]
 };

@@ -15,7 +15,8 @@
         { id: 'xuat_nhap_canh', icon: 'fa-solid fa-plane-departure', text: 'Immigration', keywords: ['passport', 'visa', 'foreigner', 'temporary stay', 'apec'] },
         { id: 'vu_khi', icon: 'fa-solid fa-person-military-rifle', text: 'Weapons & support tools', keywords: ['weapon', 'fireworks', 'support tools', 'declaration', 'handover'] },
         { id: 'kinh_doanh', icon: 'fa-solid fa-shop', text: 'Conditional businesses', keywords: ['security order', 'lodging', 'gas', 'fire safety', 'permit'] },
-        { id: 'khieu_nai', icon: 'fa-solid fa-file-pen', text: 'Complaints & denunciations', keywords: ['complaint', 'denunciation', 'petition', 'feedback'] }
+        { id: 'khieu_nai', icon: 'fa-solid fa-file-pen', text: 'Complaints & denunciations', keywords: ['complaint', 'denunciation', 'petition', 'feedback'] },
+        { id: 'cap_tinh', icon: 'fa-solid fa-building-columns', text: 'Provincial procedures', url: 'modules/thu-tuc-cap-tinh.html', keywords: ['passport', 'driver license', 'criminal record', 'visa', 'security', 'vehicle registration'] }
     ];
 
     const faqDataEn = {
@@ -126,6 +127,48 @@
                 answer: 'Yes. Submitting complaints and denunciations is free of charge.',
                 keywords: ['fee', 'complaint', 'denunciation']
             }
+        ],
+        cap_tinh: [
+            {
+                text: 'Where to apply for a new passport?',
+                answer: 'You can apply for a new passport at the Immigration Department of the Provincial Police. You can also apply online via the Public Service Portal.',
+                keywords: ['passport', 'apply', 'where']
+            },
+            {
+                text: 'What to do if passport is lost, damaged or expired?',
+                answer: 'You can apply for a re-issuance at the Immigration Department of the Provincial Police, stating the reason clearly.',
+                keywords: ['lost passport', 'damaged', 'expired']
+            },
+            {
+                text: 'Which agency issues driver\'s licenses?',
+                answer: 'The Traffic Police Department of the Provincial Police handles driver\'s license issuance, renewal, and replacement.',
+                keywords: ['driver license', 'agency', 'issue']
+            },
+            {
+                text: 'What to do if driver\'s license is lost or expired?',
+                answer: 'You must apply for re-issuance or retake the driving test at the Provincial Traffic Police Department depending on how long it has been expired.',
+                keywords: ['lost license', 'expired license']
+            },
+            {
+                text: 'Where to get a criminal record certificate?',
+                answer: 'Apply for a Criminal Record Certificate for Vietnamese citizens and foreigners residing in Vietnam at the Provincial Police Department.',
+                keywords: ['criminal record', 'certificate', 'where']
+            },
+            {
+                text: 'Where can foreigners extend their temporary residence?',
+                answer: 'Procedures for visa and temporary residence extension are handled by the Immigration Department of the Provincial Police.',
+                keywords: ['foreigner', 'extend residence', 'visa']
+            },
+            {
+                text: 'Is the security and order certificate issued at the commune or provincial level?',
+                answer: 'It depends on the business scale. Large hotels/security services are provincial/district level; small lodging/gas shops are commune level.',
+                keywords: ['security certificate', 'commune', 'provincial']
+            },
+            {
+                text: 'Is vehicle registration done at the commune or Traffic Police Department?',
+                answer: 'Cars/organization vehicles are usually done at the Provincial Traffic Police. Personal motorbikes are often done at the commune/district police.',
+                keywords: ['vehicle registration', 'commune', 'traffic police']
+            }
         ]
     };
 
@@ -138,7 +181,8 @@
         { id: 'xuat_nhap_canh', icon: 'fa-solid fa-plane-departure', text: '出入境', keywords: ['护照', '签证', '外国人', '临时住宿'] },
         { id: 'vu_khi', icon: 'fa-solid fa-person-military-rifle', text: '武器与工具', keywords: ['武器', '烟花', '工具', '申报', '上交'] },
         { id: 'kinh_doanh', icon: 'fa-solid fa-shop', text: '特种行业', keywords: ['治安', '住宿', '燃气', '消防', '许可'] },
-        { id: 'khieu_nai', icon: 'fa-solid fa-file-pen', text: '投诉与举报', keywords: ['投诉', '举报', '申请', '反映'] }
+        { id: 'khieu_nai', icon: 'fa-solid fa-file-pen', text: '投诉与举报', keywords: ['投诉', '举报', '申请', '反映'] },
+        { id: 'cap_tinh', icon: 'fa-solid fa-building-columns', text: '省级行政手续', url: 'modules/thu-tuc-cap-tinh.html', keywords: ['护照', '驾驶证', '无犯罪记录', '签证', '治安', '车辆登记'] }
     ];
 
     const faqDataZh = {
@@ -248,6 +292,48 @@
                 text: '投诉和举报是否收费？',
                 answer: '不收费。提交投诉和举报完全免费。',
                 keywords: ['费用', '投诉', '举报']
+            }
+        ],
+        cap_tinh: [
+            {
+                text: '在哪里申请新护照？',
+                answer: '您可以在省级公安机关出入境管理处申请新护照，也可以通过公共服务门户网站在线申请。',
+                keywords: ['护照', '申请', '哪里']
+            },
+            {
+                text: '护照丢失、损坏或过期怎么办？',
+                answer: '您可以在省级公安机关出入境管理处申请重新签发，并说明原因。',
+                keywords: ['护照丢失', '损坏', '过期']
+            },
+            {
+                text: '哪个机构颁发驾驶证？',
+                answer: '省级公安交警部门负责驾驶证的签发、更新和补发。',
+                keywords: ['驾驶证', '机构', '颁发']
+            },
+            {
+                text: '驾驶证丢失或过期怎么办？',
+                answer: '您必须在省级交警部门申请补发或重新参加驾驶考试（取决于过期时间）。',
+                keywords: ['驾驶证丢失', '过期']
+            },
+            {
+                text: '在哪里办理无犯罪记录证明？',
+                answer: '越南公民和在越居住的外国人在省级公安机关办理无犯罪记录证明。',
+                keywords: ['无犯罪记录', '证明', '哪里']
+            },
+            {
+                text: '外国人可以在哪里延长暂住期？',
+                answer: '签证和暂住延期手续由省级公安机关出入境管理处办理。',
+                keywords: ['外国人', '延长暂住', '签证']
+            },
+            {
+                text: '治安条件证明是在乡级还是省级办理？',
+                answer: '取决于企业规模。大型酒店/保安服务为省/县级；小型住宿/燃气店为乡级。',
+                keywords: ['治安证明', '乡级', '省级']
+            },
+            {
+                text: '车辆登记是在乡级还是交警部门办理？',
+                answer: '汽车/机构车辆通常在省级交警部门办理。个人摩托车通常在乡/县公安局办理。',
+                keywords: ['车辆登记', '乡级', '交警']
             }
         ]
     };

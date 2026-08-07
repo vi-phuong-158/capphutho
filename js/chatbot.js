@@ -287,7 +287,12 @@ class ChatbotController {
                 btn.onclick = () => {
                     this.elements.globalDropdown.classList.remove('active');
                     this.elements.globalInput.value = ''; // Xóa chữ
-                    this.openChatAndSelectCategory(res.original);
+                    
+                    if (res.original.url) {
+                        window.location.href = res.original.url;
+                    } else {
+                        this.openChatAndSelectCategory(res.original);
+                    }
                 };
             } else {
                 icon.className = 'fas fa-file-contract';
