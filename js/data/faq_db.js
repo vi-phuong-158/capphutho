@@ -522,7 +522,7 @@ window.FAQ_DATA = {
         },
         {
             text: "Xin cấp Phiếu lý lịch tư pháp ở đâu?",
-            answer: "Bạn thực hiện thủ tục <b>Cấp Phiếu lý lịch tư pháp cho công dân Việt Nam, người nước ngoài đang cư trú tại Việt Nam</b> tại Phòng Cảnh sát quản lý hành chính về trật tự xã hội - Công an cấp tỉnh.",
+            answer: "Bạn thực hiện thủ tục <b>Cấp Phiếu lý lịch tư pháp cho công dân Việt Nam, người nước ngoài đang cư trú tại Việt Nam</b> tại Phòng Hồ sơ nghiệp vụ - Công an tỉnh Phú Thọ.",
             keywords: ["ly lich tu phap", "phieu lltp", "cap tinh"]
         },
         {
@@ -531,14 +531,14 @@ window.FAQ_DATA = {
             keywords: ["nguoi nuoc ngoai", "gia han tam tru", "thi thuc", "visa"]
         },
         {
-            text: "Giấy chứng nhận đủ điều kiện về ANTT làm ở xã hay tỉnh?",
-            answer: "Tùy thuộc vào quy mô và loại hình kinh doanh (VD: Khách sạn lớn, dịch vụ bảo vệ do cấp tỉnh/huyện quản lý; nhà nghỉ nhỏ, cơ sở gas do cấp xã quản lý). Hãy tham khảo chi tiết tại danh mục ANTT.",
+            text: "Giấy chứng nhận đủ điều kiện về ANTT làm ở cơ quan nào?",
+            answer: "Tùy thuộc vào loại hình cơ sở kinh doanh mà thẩm quyền giải quyết thuộc về Cục Cảnh sát QLHC về TTXH, Công an cấp tỉnh, hoặc Công an cấp xã. Hãy tra cứu danh mục TTHC hoặc hỏi Chatbot để biết thẩm quyền cụ thể đối với cơ sở của bạn.",
             keywords: ["antt", "giay phep antt", "kinh doanh", "xa hay tinh"]
         },
         {
-            text: "Đăng ký xe làm ở xã hay Phòng CSGT?",
-            answer: "Phòng CSGT cấp tỉnh thường cấp đăng ký xe ô tô cho tổ chức, cơ quan. Đăng ký xe mô tô, xe gắn máy cá nhân thường được phân cấp về Công an xã/huyện. Vui lòng xem hướng dẫn chi tiết từng loại xe.",
-            keywords: ["dang ky xe", "bien so xe", "phong csgt", "cong an xa"]
+            text: "Phòng CSGT cấp tỉnh giải quyết thủ tục đăng ký xe nào?",
+            answer: "Các thủ tục như Đăng ký, cấp biển số xe lần đầu, Sang tên, di chuyển xe, hay Đổi, cấp lại chứng nhận đăng ký xe thuộc thẩm quyền giải quyết của Công an cấp tỉnh. Chi tiết từng trường hợp có quy định riêng trên Cổng DVC Bộ Công an.",
+            keywords: ["dang ky xe", "bien so xe", "phong csgt", "cong an tinh"]
         }
     ]
 };

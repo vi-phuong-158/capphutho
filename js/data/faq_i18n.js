@@ -160,14 +160,14 @@
                 keywords: ['foreigner', 'extend residence', 'visa']
             },
             {
-                text: 'Is the security and order certificate issued at the commune or provincial level?',
-                answer: 'It depends on the business scale. Large hotels/security services are provincial/district level; small lodging/gas shops are commune level.',
-                keywords: ['security certificate', 'commune', 'provincial']
+                text: 'Which agency issues the security and order certificate?',
+                answer: 'It depends on the business type. The Police Department for Administrative Management of Social Order (Ministry level), Provincial Police, or Commune Police may handle it. Please check the procedure list for your specific business.',
+                keywords: ['security certificate', 'agency', 'where']
             },
             {
-                text: 'Is vehicle registration done at the commune or Traffic Police Department?',
-                answer: 'Cars/organization vehicles are usually done at the Provincial Traffic Police. Personal motorbikes are often done at the commune/district police.',
-                keywords: ['vehicle registration', 'commune', 'traffic police']
+                text: 'Which vehicle registration procedures are handled by the Provincial Traffic Police?',
+                answer: 'Procedures such as first-time registration, ownership transfer, or license plate renewal are handled by the Provincial Police. Each case has specific regulations on the Public Service Portal.',
+                keywords: ['vehicle registration', 'traffic police', 'provincial']
             }
         ]
     };
@@ -326,14 +326,14 @@
                 keywords: ['外国人', '延长暂住', '签证']
             },
             {
-                text: '治安条件证明是在乡级还是省级办理？',
-                answer: '取决于企业规模。大型酒店/保安服务为省/县级；小型住宿/燃气店为乡级。',
-                keywords: ['治安证明', '乡级', '省级']
+                text: '哪个机构办理治安条件证明？',
+                answer: '取决于业务类型。公安部治安行政管理部门、省级公安或乡级公安均有不同权限。请查询具体业务的手续清单。',
+                keywords: ['治安证明', '机构', '办理']
             },
             {
-                text: '车辆登记是在乡级还是交警部门办理？',
-                answer: '汽车/机构车辆通常在省级交警部门办理。个人摩托车通常在乡/县公安局办理。',
-                keywords: ['车辆登记', '乡级', '交警']
+                text: '省级交警部门处理哪些车辆登记手续？',
+                answer: '首次登记、车辆过户、换发车牌等手续由省级公安处理。每种情况在公共服务门户网站上都有具体规定。',
+                keywords: ['车辆登记', '交警', '省级']
             }
         ]
     };
