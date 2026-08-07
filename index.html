@@ -2108,6 +2108,49 @@
         });
     </script>
     <script src="js/chatbot-embed-client.js"></script>
+    <script>
+        // Mở chat tự động khi được điều hướng với ?openChat=1 (ví dụ từ CTA của module cấp tỉnh).
+        // Ưu tiên AI mode nếu embed khả dụng; fallback FAQ nếu không. Fail-safe, không vòng lặp vô hạn.
+        (function () {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                if (params.get('openChat') !== '1') return;
+
+                function cleanupUrl() {
+                    if (!(window.history && typeof window.history.replaceState === 'function')) return;
+                    params.delete('openChat');
+                    var qs = params.toString();
+                    window.history.replaceState({}, document.title,
+                        window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+                }
+
+                function openChat(attempt) {
+                    var win = document.getElementById('chatWindow');
+                    var client = window.CapphuthoChatEmbedClient;
+                    var embedEnabled = !!(client && typeof client.getState === 'function' && client.getState().enabled);
+
+                    // Nếu cấu hình embed tồn tại nhưng client chưa khởi tạo xong, chờ tối đa ~2s rồi fallback FAQ.
+                    if (typeof window.toggleChat !== 'function' || (!embedEnabled && window.CAPP_CHAT_CONFIG && attempt < 20)) {
+                        if (attempt < 20) { window.setTimeout(function () { openChat(attempt + 1); }, 100); return; }
+                    }
+
+                    if (win && typeof window.toggleChat === 'function' && win.style.display !== 'flex') {
+                        window.toggleChat(); // FAQ mode mở window; nếu embed bật, toggleChat đã tự chuyển AI.
+                    }
+                    if (embedEnabled && typeof client.activateAiMode === 'function') {
+                        client.activateAiMode(); // Ưu tiên AI mode.
+                    }
+                    cleanupUrl(); // Tránh refresh lại tự mở chat.
+                }
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function () { openChat(0); });
+                } else {
+                    openChat(0);
+                }
+            } catch (e) { /* fail-safe: không bao giờ làm hỏng trang chủ */ }
+        })();
+    </script>
 
 </body>
 

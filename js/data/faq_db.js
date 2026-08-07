@@ -512,12 +512,12 @@ window.FAQ_DATA = {
         },
         {
             text: "Thủ tục cấp giấy phép lái xe do cơ quan nào thực hiện?",
-            answer: "Thủ tục <b>Cấp giấy phép lái xe</b> (và các thủ tục liên quan như cấp lại, cấp đổi) do Phòng Cảnh sát giao thông - Công an cấp tỉnh thực hiện.",
+            answer: "Thủ tục <b>Cấp, đổi, cấp lại giấy phép lái xe</b> do lực lượng Cảnh sát giao thông thực hiện theo phân cấp: hồ sơ được tiếp nhận theo phân cấp (trực tuyến, bưu chính hoặc Công an cấp xã), việc tổ chức sát hạch do Phòng Cảnh sát giao thông thực hiện. GPLX được cấp theo kết quả và thẩm quyền quy định tại thủ tục hiện hành.",
             keywords: ["gplx", "giay phep lai xe", "bang lai", "cap doi"]
         },
         {
             text: "Mất giấy phép lái xe hoặc quá hạn sử dụng phải làm sao?",
-            answer: "Bạn cần thực hiện thủ tục sát hạch hoặc cấp lại tại Phòng CSGT cấp tỉnh. Hãy kiểm tra thủ tục chính xác trên Cổng DVC Bộ Công an hoặc hỏi Chatbot để biết hồ sơ chi tiết.",
+            answer: "<b>Mất GPLX còn hạn:</b> làm thủ tục cấp lại, thông thường không phải sát hạch.<br><b>GPLX quá hạn:</b> việc có phải sát hạch lại hay không phụ thuộc thời gian đã quá hạn. Theo Thông tư 108/2026/TT-BCA (hiệu lực 01/7/2026): quá hạn dưới 30 ngày được cấp lại không phải sát hạch; quá hạn từ đủ 30 ngày đến dưới 01 năm phải sát hạch lại lý thuyết; quá hạn từ đủ 01 năm trở lên phải sát hạch lại đầy đủ.<br>Vui lòng kiểm tra trường hợp cụ thể trên Cổng DVC Bộ Công an hoặc hỏi Trợ lý AI trước khi nộp hồ sơ.",
             keywords: ["mat gplx", "mat bang lai", "qua han"]
         },
         {
@@ -537,7 +537,7 @@ window.FAQ_DATA = {
         },
         {
             text: "Phòng CSGT cấp tỉnh giải quyết thủ tục đăng ký xe nào?",
-            answer: "Các thủ tục như Đăng ký, cấp biển số xe lần đầu, Sang tên, di chuyển xe, hay Đổi, cấp lại chứng nhận đăng ký xe thuộc thẩm quyền giải quyết của Công an cấp tỉnh. Chi tiết từng trường hợp có quy định riêng trên Cổng DVC Bộ Công an.",
+            answer: "Các thủ tục đăng ký xe (cấp lần đầu, sang tên/di chuyển, đổi, cấp lại chứng nhận đăng ký, biển số) được phân cấp thực hiện giữa cấp tỉnh và cấp xã tùy trường hợp. Cổng DVC Bộ Công an công bố các phiên bản thủ tục riêng theo cấp thực hiện; người dân cần chọn đúng TTHC ghi \"thực hiện tại cấp tỉnh\" phù hợp với trường hợp của mình.",
             keywords: ["dang ky xe", "bien so xe", "phong csgt", "cong an tinh"]
         }
     ]

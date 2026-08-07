@@ -141,12 +141,12 @@
             },
             {
                 text: 'Which agency issues driver\'s licenses?',
-                answer: 'The Traffic Police Department of the Provincial Police handles driver\'s license issuance, renewal, and replacement.',
+                answer: 'Driver\'s license issuance, renewal and replacement are handled by the Traffic Police forces under their assigned levels: dossiers are received through the appropriate channel (online, post, or commune-level police) and the driving test is organized by the Traffic Police Division. The license is issued based on the test result and the competence set out in the current procedure.',
                 keywords: ['driver license', 'agency', 'issue']
             },
             {
                 text: 'What to do if driver\'s license is lost or expired?',
-                answer: 'You must apply for re-issuance or retake the driving test at the Provincial Traffic Police Department depending on how long it has been expired.',
+                answer: '<b>Lost but still valid:</b> apply for re-issuance; usually no driving test is required.<br><b>Expired:</b> whether a re-test is required depends on how long it has been expired. Under Circular 108/2026/TT-BCA (effective 01/7/2026): expired under 30 days is re-issued without a test; from 30 days to under 1 year requires re-taking the theory test; from 1 year or more requires the full test again. Please check your specific case on the Ministry of Public Security portal before applying.',
                 keywords: ['lost license', 'expired license']
             },
             {
@@ -166,7 +166,7 @@
             },
             {
                 text: 'Which vehicle registration procedures are handled by the Provincial Traffic Police?',
-                answer: 'Procedures such as first-time registration, ownership transfer, or license plate renewal are handled by the Provincial Police. Each case has specific regulations on the Public Service Portal.',
+                answer: 'Vehicle registration procedures (first-time registration, ownership transfer/relocation, renewal or re-issuance of the registration certificate and plate) are assigned between provincial and commune levels depending on the case. The Ministry of Public Security portal publishes separate procedure versions by implementing level; please select the one marked "handled at provincial level" that fits your case.',
                 keywords: ['vehicle registration', 'traffic police', 'provincial']
             }
         ]
@@ -307,12 +307,12 @@
             },
             {
                 text: '哪个机构颁发驾驶证？',
-                answer: '省级公安交警部门负责驾驶证的签发、更新和补发。',
+                answer: '驾驶证的签发、换发和补发由交警力量按分级负责：材料按分级受理（在线、邮政或乡级公安），驾驶考试由交警支队/大队组织。驾驶证根据考试结果和现行手续规定的权限签发。',
                 keywords: ['驾驶证', '机构', '颁发']
             },
             {
                 text: '驾驶证丢失或过期怎么办？',
-                answer: '您必须在省级交警部门申请补发或重新参加驾驶考试（取决于过期时间）。',
+                answer: '<b>丢失但仍在有效期：</b>申请补发，通常无需重新考试。<br><b>已过期：</b>是否需要重新考试取决于过期时长。根据第108/2026/TT-BCA号通知（2026年7月1日生效）：过期不满30天可补发且无需考试；满30天至不满1年需重考理论；满1年及以上需重考全部内容。申请前请在公安部门户核对具体情况。',
                 keywords: ['驾驶证丢失', '过期']
             },
             {
@@ -332,7 +332,7 @@
             },
             {
                 text: '省级交警部门处理哪些车辆登记手续？',
-                answer: '首次登记、车辆过户、换发车牌等手续由省级公安处理。每种情况在公共服务门户网站上都有具体规定。',
+                answer: '车辆登记手续（首次登记、过户/转移、换发或补发登记证和号牌）按具体情况在省级与乡级之间分级办理。公安部门户按办理层级发布不同版本的手续；请选择标注"在省级办理"且符合您情况的手续。',
                 keywords: ['车辆登记', '交警', '省级']
             }
         ]
