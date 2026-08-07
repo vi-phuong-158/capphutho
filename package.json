@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:chat-embed": "node --test tests/chatbot-embed-client.test.js"
+    "test:chat-embed": "node --test tests/chatbot-embed-client.test.js",
+    "test:provincial": "node --test tests/provincial-procedures.test.js"
   },
   "repository": {
     "type": "git",
