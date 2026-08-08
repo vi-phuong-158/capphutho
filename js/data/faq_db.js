@@ -16,7 +16,8 @@ window.MAIN_CATEGORIES = [
     { id: 'xuat_nhap_canh', icon: 'fa-solid fa-plane-departure', text: 'Xuất nhập cảnh', keywords: ['ho chieu', 'visa', 'nguoi nuoc ngoai', 'tam tru', 'apec'] },
     { id: 'vu_khi', icon: 'fa-solid fa-person-military-rifle', text: 'Vũ khí & CCHT', keywords: ['vu khi', 'dao', 'kiem', 'phao', 'cong cu ho tro', 'khai bao'] },
     { id: 'kinh_doanh', icon: 'fa-solid fa-shop', text: 'Ngành nghề KD', keywords: ['an ninh trat tu', 'nha nghi', 'gas', 'pccc', 'giay phep'] },
-    { id: 'khieu_nai', icon: 'fa-solid fa-file-pen', text: 'Khiếu nại & Tố cáo', keywords: ['khieu nai', 'to cao', 'don thu', 'cong an xa'] }
+    { id: 'khieu_nai', icon: 'fa-solid fa-file-pen', text: 'Khiếu nại & Tố cáo', keywords: ['khieu nai', 'to cao', 'don thu', 'cong an xa'] },
+    { id: 'cap_tinh', icon: 'fa-solid fa-building-columns', text: 'Thủ tục Công an tỉnh', url: 'modules/thu-tuc-cap-tinh.html', keywords: ['ho chieu', 'passport', 'mat ho chieu', 'gplx', 'giay phep lai xe', 'bang lai', 'doi bang lai', 'mat bang lai', 'ly lich tu phap', 'phieu ly lich tu phap', 'visa', 'thi thuc', 'the tam tru', 'gia han tam tru', 'giay antt', 'giay phep an ninh trat tu', 'dang ky xe cap tinh', 'phong csgt', 'cap tinh'] }
 ];
 
 // 2. Chi tiết câu hỏi và trả lời
@@ -496,6 +497,48 @@ window.FAQ_DATA = {
             text: "Hồ sơ tố cáo cần gì?",
             answer: "Đơn tố cáo + Tài liệu chứng cứ chứng minh.",
             keywords: ["ho so", "giay to"]
+        }
+    ],
+    'cap_tinh': [
+        {
+            text: "Thủ tục cấp hộ chiếu phổ thông lần đầu làm ở đâu?",
+            answer: "Thủ tục <b>Cấp hộ chiếu phổ thông ở trong nước</b> được thực hiện tại Phòng Quản lý xuất nhập cảnh - Công an cấp tỉnh. Bạn có thể nộp hồ sơ trực tuyến toàn trình trên Cổng Dịch vụ công Bộ Công an.",
+            keywords: ["ho chieu", "lam ho chieu", "o dau", "cap tinh", "passport"]
+        },
+        {
+            text: "Hộ chiếu bị mất, hỏng, hết hạn thì làm thủ tục gì?",
+            answer: "Bạn vẫn thực hiện thủ tục <b>Cấp hộ chiếu phổ thông ở trong nước</b> tại Công an cấp tỉnh, ghi rõ lý do cấp lại (do mất, hỏng, hoặc hết hạn) trong tờ khai.",
+            keywords: ["mat ho chieu", "hong ho chieu", "het han", "cap lai"]
+        },
+        {
+            text: "Thủ tục cấp giấy phép lái xe do cơ quan nào thực hiện?",
+            answer: "Thủ tục <b>Cấp, đổi, cấp lại giấy phép lái xe</b> do lực lượng Cảnh sát giao thông thực hiện theo phân cấp: hồ sơ được tiếp nhận theo phân cấp (trực tuyến, bưu chính hoặc Công an cấp xã), việc tổ chức sát hạch do Phòng Cảnh sát giao thông thực hiện. GPLX được cấp theo kết quả và thẩm quyền quy định tại thủ tục hiện hành.",
+            keywords: ["gplx", "giay phep lai xe", "bang lai", "cap doi"]
+        },
+        {
+            text: "Mất giấy phép lái xe hoặc quá hạn sử dụng phải làm sao?",
+            answer: "<b>Mất GPLX còn hạn:</b> làm thủ tục cấp lại, thông thường không phải sát hạch.<br><b>GPLX quá hạn:</b> việc có phải sát hạch lại hay không phụ thuộc thời gian đã quá hạn. Theo Thông tư 108/2026/TT-BCA (hiệu lực 01/7/2026): quá hạn dưới 30 ngày được cấp lại không phải sát hạch; quá hạn từ đủ 30 ngày đến dưới 01 năm phải sát hạch lại lý thuyết; quá hạn từ đủ 01 năm trở lên phải sát hạch lại đầy đủ.<br>Vui lòng kiểm tra trường hợp cụ thể trên Cổng DVC Bộ Công an hoặc hỏi Trợ lý AI trước khi nộp hồ sơ.",
+            keywords: ["mat gplx", "mat bang lai", "qua han"]
+        },
+        {
+            text: "Xin cấp Phiếu lý lịch tư pháp ở đâu?",
+            answer: "Bạn thực hiện thủ tục <b>Cấp Phiếu lý lịch tư pháp cho công dân Việt Nam, người nước ngoài đang cư trú tại Việt Nam</b> tại Phòng Hồ sơ nghiệp vụ - Công an tỉnh Phú Thọ.",
+            keywords: ["ly lich tu phap", "phieu lltp", "cap tinh"]
+        },
+        {
+            text: "Người nước ngoài muốn gia hạn tạm trú thì làm ở đâu?",
+            answer: "Thủ tục gia hạn tạm trú, cấp thị thực, cấp thẻ tạm trú cho người nước ngoài thuộc thẩm quyền của Phòng Quản lý xuất nhập cảnh - Công an cấp tỉnh.",
+            keywords: ["nguoi nuoc ngoai", "gia han tam tru", "thi thuc", "visa"]
+        },
+        {
+            text: "Giấy chứng nhận đủ điều kiện về ANTT làm ở cơ quan nào?",
+            answer: "Tùy thuộc vào loại hình cơ sở kinh doanh mà thẩm quyền giải quyết thuộc về Cục Cảnh sát QLHC về TTXH, Công an cấp tỉnh, hoặc Công an cấp xã. Hãy tra cứu danh mục TTHC hoặc hỏi Chatbot để biết thẩm quyền cụ thể đối với cơ sở của bạn.",
+            keywords: ["antt", "giay phep antt", "kinh doanh", "xa hay tinh"]
+        },
+        {
+            text: "Phòng CSGT cấp tỉnh giải quyết thủ tục đăng ký xe nào?",
+            answer: "Các thủ tục đăng ký xe (cấp lần đầu, sang tên/di chuyển, đổi, cấp lại chứng nhận đăng ký, biển số) được phân cấp thực hiện giữa cấp tỉnh và cấp xã tùy trường hợp. Cổng DVC Bộ Công an công bố các phiên bản thủ tục riêng theo cấp thực hiện; người dân cần chọn đúng TTHC ghi \"thực hiện tại cấp tỉnh\" phù hợp với trường hợp của mình.",
+            keywords: ["dang ky xe", "bien so xe", "phong csgt", "cong an tinh"]
         }
     ]
 };
