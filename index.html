@@ -1812,14 +1812,30 @@
         <!-- SEARCH -->
         <div class="search-container" id="globalSearchContainer">
             <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
-            <input type="text" class="search-input" id="globalSearchInput" aria-label="Tìm kiếm thủ tục hành chính"
-                data-i18n-aria-label="search.aria" maxlength="100" placeholder="Bạn cần tìm thủ tục gì? (Ví dụ: Định danh, Hộ khẩu...)"
+            <input type="text" class="search-input" id="globalSearchInput" aria-label="Tìm kiếm thủ tục hành chính, địa bàn và Cảnh sát khu vực"
+                data-i18n-aria-label="search.aria" maxlength="100" placeholder="Tìm thủ tục, địa bàn hoặc Cảnh sát khu vực (Ví dụ: Tân Lập, Định danh...)"
                 data-i18n-placeholder="search.placeholder">
 
             <!-- Bảng kết quả thả xuống -->
             <div class="search-results-dropdown" id="globalSearchResults">
                 <!-- Dropdown items will be injected here by JS -->
             </div>
+        </div>
+
+        <!-- CTA TRA CỨU CẢNH SÁT KHU VỰC -->
+        <div class="cskv-cta-container" style="margin-bottom: 24px;">
+            <a href="modules/cskv.html" class="card cskv-card" style="background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%); border: 2px solid var(--accent);">
+                <div class="card-icon-wrapper" style="background: rgba(255, 215, 0, 0.2);">
+                    <i class="fa-solid fa-user-shield card-icon" style="color: var(--accent);"></i>
+                </div>
+                <div style="flex: 1;">
+                    <h3 class="card-title" data-i18n="card.cskv.title">Tra cứu Cảnh sát khu vực</h3>
+                    <p class="card-desc" data-i18n="card.cskv.desc">Tìm cán bộ phụ trách theo TDP, khu dân cư hoặc tên cán bộ</p>
+                </div>
+                <div style="font-size: 1.1rem; color: var(--accent); margin-left: 12px;">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
         </div>
 
         <!-- GRID CONTENT -->
@@ -2094,8 +2110,10 @@
     <!-- 1. Load Data -->
     <script src="js/data/faq_db.js"></script>
     <script src="js/data/faq_i18n.js"></script>
+    <script src="js/data/cskv_data.js"></script>
     <!-- 2. Load Utils -->
     <script src="js/utils/search_engine.js"></script>
+    <script src="js/utils/cskv_search_engine.js"></script>
     <!-- 3. Load Main Logic -->
     <script src="js/chatbot.js"></script>
     <script>

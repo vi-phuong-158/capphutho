@@ -1,0 +1,455 @@
+/* ===== CSKV LOOKUP STYLES ===== */
+/* Phong cách Cổng thông tin số Công an phường Phú Thọ */
+
+:root {
+    --cskv-red: #C41E3A;
+    --cskv-red-dark: #8B0000;
+    --cskv-red-light: #FFF0F2;
+    --cskv-yellow: #FFD700;
+    --cskv-yellow-dark: #D97706;
+    --cskv-gray-bg: #F9FAFB;
+    --cskv-border: rgba(196, 30, 58, 0.12);
+}
+
+/* Header General Contact Box */
+.cskv-general-box {
+    background: linear-gradient(135deg, var(--cskv-red) 0%, var(--cskv-red-dark) 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(196, 30, 58, 0.2);
+    border: 2px solid var(--cskv-yellow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media (min-width: 640px) {
+    .cskv-general-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.cskv-general-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.cskv-general-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--cskv-yellow);
+    flex-shrink: 0;
+}
+
+.cskv-general-tag {
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.25);
+    color: var(--cskv-yellow);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cskv-general-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.cskv-general-title {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cskv-general-phone {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--cskv-yellow);
+    margin-top: 4px;
+    display: block;
+}
+
+.cskv-call-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--cskv-yellow);
+    color: #1F2937;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    min-height: 44px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+}
+
+.cskv-call-btn:hover {
+    background: white;
+    color: var(--cskv-red-dark);
+    transform: translateY(-2px);
+}
+
+.cskv-call-btn:active {
+    transform: scale(0.98);
+}
+
+/* Search Box */
+.cskv-search-box {
+    background: white;
+    border-radius: 14px;
+    padding: 6px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid rgba(196, 30, 58, 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    margin-bottom: 16px;
+}
+
+.cskv-search-box:focus-within {
+    border-color: var(--cskv-red);
+    box-shadow: 0 4px 16px rgba(196, 30, 58, 0.15);
+}
+
+.cskv-search-box i {
+    color: var(--cskv-red);
+    font-size: 1.1rem;
+}
+
+.cskv-search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 0.98rem;
+    font-family: inherit;
+    color: #1F2937;
+    background: transparent;
+}
+
+/* Quick Filter Chips */
+.cskv-chips-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #6B7280;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.cskv-chips-scroll {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.cskv-chip {
+    background: white;
+    border: 1px solid rgba(196, 30, 58, 0.2);
+    color: #374151;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.cskv-chip:hover,
+.cskv-chip.active {
+    background: var(--cskv-red);
+    color: white;
+    border-color: var(--cskv-red);
+}
+
+/* Grid of Cards */
+.cskv-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .cskv-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Card Component */
+.cskv-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--cskv-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 18px;
+    transition: all 0.3s ease;
+    scroll-margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cskv-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--cskv-red);
+}
+
+.cskv-card-highlight {
+    animation: highlightPulse 2s cubic-bezier(0.25, 1, 0.5, 1);
+    border-color: var(--cskv-red) !important;
+    box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.3) !important;
+}
+
+@keyframes highlightPulse {
+    0% {
+        background-color: #FFF0F2;
+        transform: scale(1.02);
+    }
+    100% {
+        background-color: white;
+        transform: scale(1);
+    }
+}
+
+.cskv-card-header {
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+}
+
+.cskv-card-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--cskv-red-dark);
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cskv-card-title i {
+    color: var(--cskv-red);
+}
+
+.cskv-card-areas {
+    font-size: 0.85rem;
+    color: #4B5563;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.cskv-area-badge {
+    background: #F3F4F6;
+    color: #1F2937;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    border: 1px solid #E5E7EB;
+}
+
+/* Officer section inside card */
+.cskv-officers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cskv-officer-item {
+    background: #F9FAFB;
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.cskv-officer-name {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cskv-officer-name i {
+    color: var(--cskv-red);
+    font-size: 0.85rem;
+}
+
+.cskv-phone-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.cskv-phone-text {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--cskv-red-dark);
+    letter-spacing: 0.3px;
+}
+
+.cskv-phone-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cskv-btn-call-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--cskv-red);
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.cskv-btn-call-sm:hover {
+    background: var(--cskv-red-dark);
+}
+
+.cskv-btn-copy-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #E5E7EB;
+    color: #374151;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.cskv-btn-copy-sm:hover {
+    background: #D1D5DB;
+    color: #111827;
+}
+
+/* Duty Box at Bottom */
+.cskv-duty-box {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    border: 2px dashed rgba(196, 30, 58, 0.3);
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    margin-top: 20px;
+}
+
+.cskv-duty-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--cskv-red-dark);
+    margin-bottom: 6px;
+}
+
+.cskv-duty-desc {
+    font-size: 0.88rem;
+    color: #4B5563;
+    margin-bottom: 14px;
+}
+
+.cskv-duty-phone-link {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--cskv-red);
+    display: block;
+    margin-bottom: 12px;
+    text-decoration: none;
+}
+
+/* Toast Notification */
+.cskv-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #1F2937;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cskv-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.cskv-toast i {
+    color: #10B981;
+}
+
+/* Elder mode rules */
+html.elder-mode .cskv-general-name {
+    font-size: 1.3rem !important;
+}
+html.elder-mode .cskv-card-title {
+    font-size: 1.3rem !important;
+}
+html.elder-mode .cskv-phone-text {
+    font-size: 1.2rem !important;
+}
