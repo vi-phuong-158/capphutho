@@ -5,23 +5,46 @@ const path = require('node:path');
 
 // Helper to evaluate production files into global context (matching existing test pattern)
 function loadGlobalProductionContext() {
-    const context = {
-        window: {}
+    const mockElement = {
+        appendChild: () => {},
+        insertBefore: () => {},
+        classList: { add: () => {}, remove: () => {} },
+        setAttribute: () => {},
+        addEventListener: () => {},
+        style: {},
+        dataset: {}
     };
+
+    const context = {
+        window: {
+            document: {
+                getElementById: () => mockElement,
+                querySelector: () => mockElement,
+                querySelectorAll: () => [],
+                createElement: () => ({ ...mockElement }),
+                addEventListener: () => {}
+            }
+        }
+    };
+    context.window.window = context.window;
 
     const cskvDataCode = fs.readFileSync(path.join(__dirname, '../js/data/cskv_data.js'), 'utf8');
     const cskvSearchCode = fs.readFileSync(path.join(__dirname, '../js/utils/cskv_search_engine.js'), 'utf8');
     const faqDbCode = fs.readFileSync(path.join(__dirname, '../js/data/faq_db.js'), 'utf8');
     const faqSearchCode = fs.readFileSync(path.join(__dirname, '../js/utils/search_engine.js'), 'utf8');
+    const chatbotCode = fs.readFileSync(path.join(__dirname, '../js/chatbot.js'), 'utf8');
+    const cskvControllerCode = fs.readFileSync(path.join(__dirname, '../js/cskv.js'), 'utf8');
 
     // Run code in context
-    const fn = new Function('window', `
+    const fn = new Function('window', 'document', `
         ${cskvDataCode}
         ${cskvSearchCode}
         ${faqDbCode}
         ${faqSearchCode}
+        ${chatbotCode}
+        ${cskvControllerCode}
     `);
-    fn(context.window);
+    fn(context.window, context.window.document);
 
     return context.window;
 }
@@ -57,6 +80,7 @@ test('TEST 2 — General contact: Điêu Thị Phương Hồng', () => {
     assert.ok(gc, 'General contact must be defined');
     assert.equal(gc.name, 'Điêu Thị Phương Hồng');
     assert.equal(gc.phone, '0948562868');
+    assert.equal(win.formatCskvPhone(gc.phone), '0948.562.868');
 });
 
 test('TEST 3 — Duty phone: 02106268588', () => {
@@ -64,6 +88,7 @@ test('TEST 3 — Duty phone: 02106268588', () => {
     const dutyPhone = win.CSKV_DATA.dutyPhone;
 
     assert.equal(dutyPhone, '02106268588');
+    assert.equal(win.formatCskvPhone(dutyPhone), '0210.626.8588');
 });
 
 test('TEST 4 — Critical phone regression: Nguyễn Xuân Hòa phone numbers', () => {
@@ -216,7 +241,7 @@ test('TEST 15 — Shared officer: Trương Tuấn Anh in Long Xuyên & An Ninh',
     assert.deepEqual(idsByPhone, ['an-ninh', 'long-xuyen']);
 });
 
-test('TEST 16 — Overlapping search & ranking: "An Ninh"', () => {
+test('TEST 16 — Overlapping search & ranking: Direct call to ChatbotController.prototype.mergeGlobalResults', () => {
     const win = loadGlobalProductionContext();
     const faqEngine = new win.FaqSearchEngine();
     const cskvEngine = new win.CskvSearchEngine();
@@ -227,14 +252,15 @@ test('TEST 16 — Overlapping search & ranking: "An Ninh"', () => {
 
     assert.ok(cskvResults.length > 0, 'CSKV should find TDP An Ninh');
     assert.equal(cskvResults[0].id, 'an-ninh');
-    assert.ok(cskvResults[0].score >= 80, 'TDP An Ninh match should have high score');
 
-    // Simulate merge algorithm from ChatbotController
-    const strongCskv = cskvResults.filter(r => r.score >= 80);
-    const partialCskv = cskvResults.filter(r => r.score < 80);
-    const merged = [...strongCskv, ...faqResults, ...partialCskv];
+    // Call production mergeGlobalResults method directly!
+    const mockContext = {
+        cskvSearchEngine: cskvEngine,
+        searchEngine: faqEngine
+    };
+    const merged = win.ChatbotController.prototype.mergeGlobalResults.call(mockContext, faqResults, cskvResults);
 
-    assert.equal(merged[0].type, 'cskv', 'CSKV TDP An Ninh must rank above FAQ items for query "An Ninh"');
+    assert.equal(merged[0].type, 'cskv', 'Production mergeGlobalResults MUST place CSKV TDP An Ninh above FAQ items for query "An Ninh"');
 });
 
 test('TEST 17 — Formatted phone search: "0932.277.626"', () => {
@@ -248,4 +274,53 @@ test('TEST 17 — Formatted phone search: "0932.277.626"', () => {
     assert.ok(resRaw.length > 0);
     assert.equal(resFormatted[0].id, 'xuan-van');
     assert.equal(resRaw[0].id, 'xuan-van');
+});
+
+test('TEST 18 — Chip click after search restores hidden cards', () => {
+    const win = loadGlobalProductionContext();
+
+    // Mock minimal DOM elements for CskvPageController test
+    const cardsMap = new Map();
+    const createMockCard = (id) => {
+        const card = { dataset: { id }, style: { display: 'block' }, id: `cskv-card-${id}`, scrollIntoView: () => {}, classList: { add: () => {}, remove: () => {} } };
+        cardsMap.set(id, card);
+        return card;
+    };
+
+    const tdpIds = ['hung-vuong', 'long-xuyen', 'phu-liem', 'an-ninh', 'thong-nhat', 'xuan-thanh', 'xuan-van', 'ngoc-lau', 'long-an'];
+    tdpIds.forEach(id => createMockCard(id));
+
+    const mockChipsContainer = {
+        querySelectorAll: () => [
+            { dataset: { id: 'long-an' }, classList: { add: () => {}, remove: () => {} } }
+        ]
+    };
+    const mockGridContainer = {
+        querySelectorAll: () => Array.from(cardsMap.values())
+    };
+    const mockSearchInput = { value: 'Tân Lập' };
+
+    const controllerContext = {
+        engine: new win.CskvSearchEngine(),
+        elements: {
+            searchInput: mockSearchInput,
+            chipsContainer: mockChipsContainer,
+            gridContainer: mockGridContainer
+        },
+        activeChipId: null,
+        highlightCard: () => {}
+    };
+
+    // 1. User searches "Tân Lập" -> only hung-vuong is visible
+    win.CskvPageController.prototype.handleSearch.call(controllerContext, 'Tân Lập');
+    assert.equal(cardsMap.get('hung-vuong').style.display, 'block');
+    assert.equal(cardsMap.get('long-an').style.display, 'none');
+
+    // 2. User clicks chip "Long Ân" -> ALL cards must be restored to display: 'block', search input cleared!
+    const mockChipEl = { dataset: { id: 'long-an' }, classList: { add: () => {}, remove: () => {} } };
+    win.CskvPageController.prototype.handleChipClick.call(controllerContext, 'long-an', mockChipEl);
+
+    assert.equal(mockSearchInput.value, '', 'Search input must be cleared when chip clicked');
+    assert.equal(cardsMap.get('long-an').style.display, 'block', 'Long Ân card MUST be restored to display: block');
+    assert.equal(cardsMap.get('hung-vuong').style.display, 'block', 'Hùng Vương card MUST be restored to display: block');
 });

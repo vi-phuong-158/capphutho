@@ -7,7 +7,7 @@
 // import { MAIN_CATEGORIES, FAQ_DATA } from './data/faq_db.js'; // REMOVED
 // import { FaqSearchEngine } from './utils/search_engine.js';   // REMOVED
 
-class ChatbotController {
+window.ChatbotController = class ChatbotController {
     constructor() {
         // Element Refs
         this.elements = {

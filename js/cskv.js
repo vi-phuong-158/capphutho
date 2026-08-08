@@ -4,7 +4,7 @@
  * Quản lý giao diện và tương tác cho trang modules/cskv.html
  */
 
-class CskvPageController {
+window.CskvPageController = class CskvPageController {
     constructor() {
         this.engine = new window.CskvSearchEngine();
         this.data = window.CSKV_DATA;
@@ -35,6 +35,7 @@ class CskvPageController {
     renderGeneralContact() {
         if (!this.elements.generalBox || !this.data.generalContact) return;
         const gc = this.data.generalContact;
+        const formatFn = window.formatCskvPhone || (p => p);
 
         this.elements.generalBox.innerHTML = '';
         const infoWrap = document.createElement('div');
@@ -60,7 +61,7 @@ class CskvPageController {
 
         const phoneEl = document.createElement('span');
         phoneEl.className = 'cskv-general-phone';
-        phoneEl.textContent = gc.formattedPhone;
+        phoneEl.textContent = formatFn(gc.phone);
 
         textGroup.appendChild(tag);
         textGroup.appendChild(nameEl);
@@ -84,7 +85,8 @@ class CskvPageController {
     renderDutyContact() {
         if (!this.elements.dutyBox) return;
         const dutyPhone = this.data.dutyPhone;
-        const formattedDutyPhone = this.data.formattedDutyPhone || '0210.626.8588';
+        const formatFn = window.formatCskvPhone || (p => p);
+        const formattedDutyPhone = formatFn(dutyPhone);
 
         this.elements.dutyBox.innerHTML = '';
 
@@ -140,6 +142,7 @@ class CskvPageController {
         this.elements.gridContainer.innerHTML = '';
 
         const fragment = document.createDocumentFragment();
+        const formatFn = window.formatCskvPhone || (p => p);
 
         this.data.neighborhoods.forEach(nh => {
             const card = document.createElement('div');
@@ -187,8 +190,8 @@ class CskvPageController {
                 offName.innerHTML = `<i class="fa-solid fa-user-shield"></i> ${this.escapeHtml(off.name)}`;
                 offItem.appendChild(offName);
 
-                off.phones.forEach((phone, pIdx) => {
-                    const formattedPhone = off.formattedPhones[pIdx] || phone;
+                off.phones.forEach((phone) => {
+                    const formattedPhone = formatFn(phone);
 
                     const phoneRow = document.createElement('div');
                     phoneRow.className = 'cskv-phone-row';
@@ -244,13 +247,16 @@ class CskvPageController {
 
     handleChipClick(id, chipEl) {
         const allChips = this.elements.chipsContainer.querySelectorAll('.cskv-chip');
+        const cards = this.elements.gridContainer.querySelectorAll('.cskv-card');
+
+        // Restore visibility of ALL cards first
+        cards.forEach(c => (c.style.display = 'block'));
+        this.elements.searchInput.value = '';
 
         if (this.activeChipId === id) {
             // Uncheck filter
             this.activeChipId = null;
             allChips.forEach(c => c.classList.remove('active'));
-            this.elements.searchInput.value = '';
-            this.handleSearch('');
         } else {
             this.activeChipId = id;
             allChips.forEach(c => c.classList.remove('active'));
@@ -258,7 +264,9 @@ class CskvPageController {
 
             const targetCard = document.getElementById(`cskv-card-${id}`);
             if (targetCard) {
-                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (typeof targetCard.scrollIntoView === 'function') {
+                    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
                 this.highlightCard(targetCard);
             }
         }
@@ -266,6 +274,13 @@ class CskvPageController {
 
     handleSearch(query) {
         const cards = this.elements.gridContainer.querySelectorAll('.cskv-card');
+        const allChips = this.elements.chipsContainer ? this.elements.chipsContainer.querySelectorAll('.cskv-chip') : [];
+
+        // Clear chip active state when user types in search input
+        if (query && query.trim() !== '') {
+            this.activeChipId = null;
+            allChips.forEach(c => c.classList.remove('active'));
+        }
 
         if (!query || query.trim() === '') {
             cards.forEach(c => (c.style.display = 'block'));

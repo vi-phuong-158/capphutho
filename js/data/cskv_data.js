@@ -3,18 +3,30 @@
  * Công an phường Phú Thọ
  */
 
+window.formatCskvPhone = function (phone) {
+    if (!phone) return '';
+    const digits = phone.toString().replace(/\D/g, '');
+    if (digits.length === 10) {
+        // Ví dụ: 0986248246 -> 0986.248.246
+        return digits.replace(/(\d{4})(\d{3})(\d{3})/, '$1.$2.$3');
+    }
+    if (digits.length === 11) {
+        // Ví dụ: 02106268588 -> 0210.626.8588
+        return digits.replace(/(\d{4})(\d{3})(\d{4})/, '$1.$2.$3');
+    }
+    return phone;
+};
+
 window.CSKV_DATA = Object.freeze({
     generalContact: {
         name: "Điêu Thị Phương Hồng",
         displayTitleName: "Đồng chí Điêu Thị Phương Hồng",
         title: "Phó Trưởng Công an phường",
         phone: "0948562868",
-        formattedPhone: "0948.562.868",
         note: "Phụ trách chung - Liên hệ công việc chung"
     },
 
     dutyPhone: "02106268588",
-    formattedDutyPhone: "0210.626.8588",
 
     neighborhoods: [
         {
@@ -31,8 +43,7 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Nguyễn Minh Đức",
-                    phones: ["0986248246"],
-                    formattedPhones: ["0986.248.246"]
+                    phones: ["0986248246"]
                 }
             ]
         },
@@ -50,13 +61,11 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Trương Tuấn Anh",
-                    phones: ["0984529894"],
-                    formattedPhones: ["0984.529.894"]
+                    phones: ["0984529894"]
                 },
                 {
                     name: "Hoàng Kim Thành",
-                    phones: ["0916668618"],
-                    formattedPhones: ["0916.668.618"]
+                    phones: ["0916668618"]
                 }
             ]
         },
@@ -73,8 +82,7 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Đỗ Thị Mỹ Hạnh",
-                    phones: ["0378621268"],
-                    formattedPhones: ["0378.621.268"]
+                    phones: ["0378621268"]
                 }
             ]
         },
@@ -92,8 +100,7 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Trương Tuấn Anh",
-                    phones: ["0984529894"],
-                    formattedPhones: ["0984.529.894"]
+                    phones: ["0984529894"]
                 }
             ]
         },
@@ -110,8 +117,7 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Lê Văn Nam",
-                    phones: ["0904929386"],
-                    formattedPhones: ["0904.929.386"]
+                    phones: ["0904929386"]
                 }
             ]
         },
@@ -129,8 +135,7 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Nguyễn Xuân Hưng",
-                    phones: ["0987769694"],
-                    formattedPhones: ["0987.769.694"]
+                    phones: ["0987769694"]
                 }
             ]
         },
@@ -155,8 +160,7 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Nguyễn Xuân Hòa",
-                    phones: ["0974234795", "0932277626"],
-                    formattedPhones: ["0974.234.795", "0932.277.626"]
+                    phones: ["0974234795", "0932277626"]
                 }
             ]
         },
@@ -178,8 +182,7 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Trần Mạnh Toàn",
-                    phones: ["0986898345"],
-                    formattedPhones: ["0986.898.345"]
+                    phones: ["0986898345"]
                 }
             ]
         },
@@ -204,13 +207,11 @@ window.CSKV_DATA = Object.freeze({
             officers: [
                 {
                     name: "Bùi Ngọc Sơn",
-                    phones: ["0965295345"],
-                    formattedPhones: ["0965.295.345"]
+                    phones: ["0965295345"]
                 },
                 {
                     name: "Phạm Văn Sơn",
-                    phones: ["0985424768"],
-                    formattedPhones: ["0985.424.768"]
+                    phones: ["0985424768"]
                 }
             ]
         }
