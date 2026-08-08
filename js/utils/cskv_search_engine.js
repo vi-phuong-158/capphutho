@@ -47,14 +47,11 @@ window.CskvSearchEngine = class CskvSearchEngine {
             const officersNormalized = nh.officers.map(off => {
                 const normalizedOffName = this.normalize(off.name);
                 const phonesDigits = off.phones.map(p => this.normalizePhone(p));
-                const formatFn = window.formatCskvPhone || (p => p);
-                const formattedPhonesNormalized = off.phones.map(p => this.normalize(formatFn(p)));
                 return {
                     name: off.name,
                     phones: off.phones,
                     normalizedName: normalizedOffName,
-                    phonesDigits: phonesDigits,
-                    formattedPhonesNormalized: formattedPhonesNormalized
+                    phonesDigits: phonesDigits
                 };
             });
 
