@@ -32,7 +32,7 @@ Các thay đổi kèm theo:
 | Nhóm | Tên TTHC / Nội dung | Mã TTHC | Cấp | Cơ quan | Nguồn | Ngày kiểm chứng |
 | ---- | ------------------- | ------- | --- | ------- | ----- | --------------- |
 | Hộ chiếu | Cấp hộ chiếu phổ thông ở trong nước | ma-thu-tuc=29497 (deep-link DVC) | Tỉnh | Phòng QLXNC - CA cấp tỉnh | dichvucong.bocongan.gov.vn | 2026-08-07 |
-| GPLX | Sát hạch, cấp/đổi/cấp lại GPLX (quy định mới) | 61616 / 3.000347 | Theo phân cấp CSGT | Cục CSGT (cơ quan thực hiện DVC); Phòng CSGT tổ chức sát hạch; tiếp nhận theo phân cấp | Thông tư 108/2026/TT-BCA; csgt.bocongan.gov.vn; congan.cantho.gov.vn; congan.angiang.gov.vn | 2026-08-07 |
+| GPLX | Sát hạch, cấp/đổi/cấp lại GPLX (quy định mới) | 61616 / 3.000346 | Theo phân cấp CSGT | Cục CSGT (cơ quan thực hiện DVC); Phòng CSGT tổ chức sát hạch; tiếp nhận theo phân cấp | Thông tư 108/2026/TT-BCA; csgt.bocongan.gov.vn; congan.phutho.gov.vn; congan.cantho.gov.vn; congan.angiang.gov.vn | 2026-08-07 |
 | LLTP | Cấp Phiếu LLTP cho công dân VN, người nước ngoài cư trú tại VN | ma-thu-tuc=61555 (DVC) / 3.000333 | Tỉnh | Phòng Hồ sơ nghiệp vụ - Công an tỉnh Phú Thọ | dichvucong.bocongan.gov.vn | 2026-08-07 |
 | Người nước ngoài | Thị thực, thẻ tạm trú, gia hạn tạm trú | — | Tỉnh | Phòng QLXNC - CA cấp tỉnh | dichvucong.bocongan.gov.vn | 2026-08-07 |
 | ANTT | Giấy chứng nhận đủ điều kiện về ANTT | — | Cục / Tỉnh / Xã (theo loại hình) | Cục CSQLHC về TTXH / CA tỉnh / CA xã | dichvucong.bocongan.gov.vn | 2026-08-07 |
@@ -44,6 +44,8 @@ Các thay đổi kèm theo:
 - Quá hạn **từ đủ 01 năm trở lên**: sát hạch lại **đầy đủ** (lý thuyết + thực hành).
 
 **Ghi chú cơ quan GPLX:** "Cơ quan thực hiện" của thủ tục DVC là Cục CSGT; **Phòng CSGT** tổ chức sát hạch; hồ sơ được tiếp nhận theo phân cấp (trực tuyến / bưu chính / Công an cấp xã). Do đó UI không khẳng định "Phòng CSGT cấp tỉnh thực hiện toàn bộ thủ tục".
+
+**⚠️ Chênh lệch nguồn GPLX (không được "sửa ngược"):** Tại thời điểm kiểm chứng, trang thủ tục `61616` trên Cổng DVC Bộ Công an vẫn còn hiển thị một số căn cứ theo **Thông tư 12/2025/TT-BCA**, trong khi Công an tỉnh Phú Thọ (congan.phutho.gov.vn, công bố 04/7/2026) đã áp dụng **Thông tư 108/2026/TT-BCA** thay thế, hiệu lực từ 01/7/2026. PR cố ý dùng nguồn Phú Thọ mới hơn cho các mốc "quá hạn". **Không cập nhật lùi về Thông tư 12/2025** khi thấy Cổng DVC còn dữ liệu cũ; chỉ đổi khi có văn bản mới hơn 108/2026/TT-BCA.
 
 ---
 
@@ -84,7 +86,11 @@ node --test tests/provincial-procedures.test.js
 - `tests/chatbot-embed-client.test.js`: regression cho chatbot embed adapter (chạy qua `npm run test:chat-embed`).
 - `tests/provincial-procedures.test.js`: đọc **file production thật** (`index.html`, `modules/thu-tuc-cap-tinh.html`, `faq_db.js`, `faq_i18n.js`, `search_engine.js`) — kiểm tra card trang chủ, 6 nhóm module, external links (HTTPS + `target=_blank` + `rel=noopener noreferrer`), search production data, i18n `cap_tinh` (vi/en/zh-CN) + key `card.provincial.*`, và CTA regression (module KHÔNG load `chatbot-embed-client.js`, KHÔNG còn `DVC_AI_Chat`, dùng `openChat=1`).
 
-Kết quả số pass/fail được ghi trong báo cáo cuối và mô tả PR (không dùng `npm test` placeholder làm cổng nghiệm thu).
+Kết quả thực tế (node --test, không dùng `npm test` placeholder làm cổng nghiệm thu):
+
+- `test:chat-embed`: **8/8 pass, 0 fail**
+- `provincial-procedures` (A–F): **8/8 pass, 0 fail**
+- `tests/verify_security.py`: không chạy được do thiếu module `playwright`; xác minh tĩnh `maxlength` global=100 / chat=200 (đúng, không thay đổi).
 
 Manual QA: xem mục Known limitations và báo cáo cuối.
 
