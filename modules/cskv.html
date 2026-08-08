@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Tra cứu Cảnh sát khu vực phụ trách địa bàn Công an phường Phú Thọ">
+    <title>Tra Cứu Cảnh Sát Khu Vực | CA Phường Phú Thọ</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/dvc-style.css">
+    <link rel="stylesheet" href="../styles/cskv.css">
+</head>
+
+<body class="dvc-page">
+
+    <!-- Header -->
+    <div class="dvc-header">
+        <a href="../index.html" class="back-btn" aria-label="Quay lại trang chủ"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="header-title">CẢNH SÁT KHU VỰC</div>
+        <i class="fa-solid fa-user-shield"></i>
+    </div>
+
+    <div class="dvc-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <i class="fa-solid fa-house"></i> <a href="../index.html">Trang chủ</a> / Tra cứu cảnh sát khu vực
+        </div>
+
+        <!-- Khối Phụ Trách Chung -->
+        <div class="cskv-general-box" id="cskvGeneralBox">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Thanh Tìm Kiếm Chính -->
+        <div class="cskv-search-box">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="text" class="cskv-search-input" id="cskvSearchInput"
+                placeholder="Nhập TDP, khu dân cư hoặc tên cán bộ..."
+                aria-label="Nhập Tổ dân phố, khu dân cư hoặc tên cán bộ cảnh sát khu vực"
+                maxlength="100">
+        </div>
+
+        <!-- Quick Filter Chips -->
+        <div class="cskv-chips-label">Danh sách Tổ dân phố (Click để chọn nhanh)</div>
+        <div class="cskv-chips-scroll" id="cskvChipsContainer">
+            <!-- Chips rendered by JS -->
+        </div>
+
+        <!-- Result Cards Grid -->
+        <div class="cskv-grid" id="cskvGridContainer">
+            <!-- 9 TDP Cards rendered by JS -->
+        </div>
+
+        <!-- Khối Trực Ban -->
+        <div class="cskv-duty-box" id="cskvDutyBox">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="cskv-toast" id="cskvToast" role="status">
+        <i class="fa-solid fa-circle-check"></i> Đã sao chép số điện thoại
+    </div>
+
+    <!-- Scripts (P1-3 LOAD ORDER) -->
+    <script src="../js/data/cskv_data.js"></script>
+    <script src="../js/utils/cskv_search_engine.js"></script>
+    <script src="../js/cskv.js"></script>
+</body>
+
+</html>

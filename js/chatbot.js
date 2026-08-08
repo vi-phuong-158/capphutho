@@ -25,6 +25,7 @@ class ChatbotController {
 
         // Use Global Search Engine
         this.searchEngine = new window.FaqSearchEngine();
+        this.cskvSearchEngine = window.CskvSearchEngine ? new window.CskvSearchEngine() : null;
         this.setupEventListeners();
         this.renderMainMenu(); // Init sẵn menu
     }
@@ -243,8 +244,22 @@ class ChatbotController {
             return;
         }
 
-        const results = this.searchEngine.search(query);
-        this.renderGlobalSearchResults(results, query);
+        if (!this.cskvSearchEngine && window.CskvSearchEngine) {
+            this.cskvSearchEngine = new window.CskvSearchEngine();
+        }
+
+        const faqResults = this.searchEngine ? this.searchEngine.search(query) : [];
+        const cskvResults = this.cskvSearchEngine ? this.cskvSearchEngine.search(query) : [];
+
+        const mergedResults = this.mergeGlobalResults(faqResults, cskvResults);
+        this.renderGlobalSearchResults(mergedResults, query);
+    }
+
+    mergeGlobalResults(faqResults, cskvResults) {
+        const strongCskv = cskvResults.filter(r => r.score >= 80);
+        const partialCskv = cskvResults.filter(r => r.score < 80);
+        const merged = [...strongCskv, ...faqResults, ...partialCskv];
+        return merged.slice(0, 5);
     }
     
     renderGlobalSearchResults(results, query) {
@@ -279,7 +294,32 @@ class ChatbotController {
             const subtitle = document.createElement('div');
             subtitle.className = 'search-result-subtitle';
 
-            if (res.type === 'category') {
+            if (res.type === 'cskv') {
+                icon.className = 'fa-solid fa-user-shield';
+                const officerNames = res.officers.map(o => o.name).join(', ');
+
+                if (res.matchReason === 'exact_officer_name' || res.matchReason === 'partial_officer_name' || res.matchReason === 'phone_match') {
+                    title.textContent = res.matchedOfficer || officerNames;
+                    subtitle.textContent = `${res.fullName} · ${res.areas.join(', ')}`;
+                } else if (res.matchReason === 'exact_area' || res.matchReason === 'partial_area') {
+                    const normQ = this.cskvSearchEngine ? this.cskvSearchEngine.normalize(query) : query.toLowerCase();
+                    const matchedArea = res.areas.find(a => {
+                        const normA = this.cskvSearchEngine ? this.cskvSearchEngine.normalize(a) : a.toLowerCase();
+                        return normA.includes(normQ) || normQ.includes(normA);
+                    }) || res.areas[0];
+                    title.textContent = `Cảnh sát khu vực ${matchedArea}`;
+                    subtitle.textContent = `${officerNames} · ${res.fullName}`;
+                } else {
+                    title.textContent = `Cảnh sát khu vực ${res.fullName}`;
+                    subtitle.textContent = `${officerNames}`;
+                }
+
+                btn.onclick = () => {
+                    this.elements.globalDropdown.classList.remove('active');
+                    this.elements.globalInput.value = '';
+                    window.location.href = res.url;
+                };
+            } else if (res.type === 'category') {
                 icon.className = res.original.icon;
                 title.textContent = res.text;
                 subtitle.textContent = this.t('search.categorySubtitle');
