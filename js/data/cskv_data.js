@@ -166,12 +166,12 @@ window.CSKV_DATA = Object.freeze({
         },
         {
             id: "ngoc-lau",
-            name: "Ngọc Lậu",
-            fullName: "TDP Ngọc Lậu",
+            name: "Ngọc Lâu",
+            fullName: "TDP Ngọc Lâu",
             areas: ["Khu 4", "Khu 5"],
             aliases: [
-                "TDP Ngọc Lậu",
-                "Ngọc Lậu",
+                "TDP Ngọc Lâu",
+                "Ngọc Lâu",
                 "Khu 4",
                 "Khu 5",
                 "4",

@@ -65,7 +65,7 @@ test('TEST 1 — Dataset integrity: Exactly 9 TDPs', () => {
         'Thống Nhất',
         'Xuân Thành',
         'Xuân Vân',
-        'Ngọc Lậu',
+        'Ngọc Lâu',
         'Long Ân'
     ];
 
