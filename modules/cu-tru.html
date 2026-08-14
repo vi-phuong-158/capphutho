@@ -49,6 +49,26 @@
             </div>
         </div>
 
+        <section class="vneid-promo" aria-labelledby="vneid-promo-title">
+            <div class="vneid-promo-icon" aria-hidden="true"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <div class="vneid-promo-content">
+                <div class="vneid-promo-heading">
+                    <h2 id="vneid-promo-title">Tiện ích VNeID</h2>
+                    <span class="badge badge-new">Mới 2026</span>
+                </div>
+                <p>Đánh giá sự hài lòng về chất lượng phục vụ của cơ quan Công an qua VNeID.</p>
+            </div>
+            <div class="vneid-promo-actions">
+                <a href="vneid-danh-gia-cchc.html" class="btn btn-outline">
+                    <i class="fa-solid fa-book-open" aria-hidden="true"></i> Xem hướng dẫn
+                </a>
+                <button type="button" class="btn btn-primary" data-vneid-launch>
+                    <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Mở / Cài đặt VNeID
+                </button>
+            </div>
+            <p class="vneid-launch-status" data-vneid-launch-status role="status" aria-live="polite"></p>
+        </section>
+
         <!-- THỦ TỤC 1: NHẬP KHẨU -->
         <div class="proc-card active">
             <div class="proc-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleCard(this)" onkeydown="handleCardKeydown(event, this)">
@@ -191,6 +211,7 @@
         </div>
     </div>
 
+    <script src="../js/vneid-app-launch.js"></script>
     <script>
         function toggleCard(header) {
             const card = header.parentElement;

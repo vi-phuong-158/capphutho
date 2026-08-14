@@ -319,6 +319,16 @@ window.ChatbotController = class ChatbotController {
                     this.elements.globalInput.value = '';
                     window.location.href = res.url;
                 };
+            } else if (res.type === 'link') {
+                icon.className = res.original.icon || 'fa-solid fa-link';
+                title.textContent = res.text;
+                subtitle.textContent = res.description;
+
+                btn.onclick = () => {
+                    this.elements.globalDropdown.classList.remove('active');
+                    this.elements.globalInput.value = '';
+                    window.location.href = res.original.url;
+                };
             } else if (res.type === 'category') {
                 icon.className = res.original.icon;
                 title.textContent = res.text;

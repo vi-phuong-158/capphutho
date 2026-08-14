@@ -24,6 +24,7 @@ window.FaqSearchEngine = class FaqSearchEngine {
         // Access Global Variable directly
         const categories = window.MAIN_CATEGORIES || [];
         const faqData = window.FAQ_DATA || {};
+        const searchLinks = window.SEARCH_LINKS || [];
 
         // Index Categories
         categories.forEach(cat => {
@@ -35,6 +36,18 @@ window.FaqSearchEngine = class FaqSearchEngine {
                 keywords: this.normalize(cat.keywords.join(' ')),
                 normalizedText: this.normalize(cat.text),
                 original: cat
+            });
+        });
+
+        // Index standalone pages without turning them into a homepage/chatbot root category.
+        searchLinks.forEach(link => {
+            this.index.push({
+                type: 'link',
+                text: link.text,
+                description: link.description,
+                keywords: this.normalize(link.keywords.join(' ')),
+                normalizedText: this.normalize(link.text),
+                original: link
             });
         });
 

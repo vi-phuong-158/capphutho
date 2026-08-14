@@ -20,6 +20,17 @@ window.MAIN_CATEGORIES = [
     { id: 'cap_tinh', icon: 'fa-solid fa-building-columns', text: 'Thủ tục Công an tỉnh', url: 'modules/thu-tuc-cap-tinh.html', keywords: ['ho chieu', 'passport', 'mat ho chieu', 'gplx', 'giay phep lai xe', 'bang lai', 'doi bang lai', 'mat bang lai', 'ly lich tu phap', 'phieu ly lich tu phap', 'visa', 'thi thuc', 'the tam tru', 'gia han tam tru', 'giay antt', 'giay phep an ninh trat tu', 'dang ky xe cap tinh', 'phong csgt', 'cap tinh'] }
 ];
 
+// Search-only links: these are intentionally not homepage cards or chatbot root categories.
+window.SEARCH_LINKS = [
+    {
+        text: 'Đánh giá sự hài lòng qua VNeID',
+        description: 'Hướng dẫn đánh giá chất lượng phục vụ khi giải quyết thủ tục hành chính trong CAND',
+        url: 'modules/vneid-danh-gia-cchc.html',
+        icon: 'fa-solid fa-mobile-screen-button',
+        keywords: ['vneid', 'đánh giá', 'đánh giá hài lòng', 'hài lòng', 'cchc', 'cải cách hành chính', 'đánh giá công an', 'đánh giá thủ tục', 'g01']
+    }
+];
+
 // 2. Chi tiết câu hỏi và trả lời
 // Export to Global Scope
 window.FAQ_DATA = {

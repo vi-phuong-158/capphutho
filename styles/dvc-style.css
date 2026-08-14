@@ -366,3 +366,184 @@ body.dvc-page {
         margin: 6px 0 0 42px;
     }
 }
+
+/* ===== VNeID CCHC GUIDE ===== */
+.vneid-promo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    margin: 0 0 20px;
+    padding: 16px;
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFFFFF 58%);
+    border: 1px solid #FCD34D;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(146, 64, 14, 0.08);
+}
+
+.vneid-promo-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #FDE68A;
+    color: #92400E;
+    font-size: 1.1rem;
+}
+
+.vneid-promo-heading {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.vneid-promo h2 {
+    margin: 0;
+    color: var(--dvc-red);
+    font-size: 1rem;
+}
+
+.vneid-promo .badge {
+    margin: 0;
+}
+
+.vneid-promo .btn {
+    min-height: 44px;
+}
+
+.vneid-promo p {
+    margin: 4px 0 0;
+    color: var(--text-main);
+    font-size: 0.88rem;
+}
+
+.vneid-promo-actions {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+button.btn {
+    font-family: inherit;
+}
+
+.vneid-launch-status {
+    grid-column: 1 / -1;
+    min-height: 1.25em;
+    margin: 0 !important;
+    color: var(--text-light) !important;
+    font-size: 0.8rem !important;
+}
+
+.guide-hero {
+    margin-bottom: 16px;
+    padding: 20px 16px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--dvc-red) 0%, #991B1B 100%);
+    color: white;
+    box-shadow: 0 4px 10px rgba(185, 28, 28, 0.2);
+}
+
+.guide-eyebrow {
+    margin: 0 0 6px;
+    color: #FDE68A;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.guide-hero h1 {
+    margin: 0;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    line-height: 1.25;
+}
+
+.guide-hero p {
+    margin: 10px 0 0;
+    font-size: 0.93rem;
+}
+
+.guide-cta {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 16px;
+    border: 1px solid white;
+    background: white;
+    color: var(--dvc-red);
+}
+
+.guide-cta:hover {
+    background: #FFF7ED;
+}
+
+.guide-section-title {
+    margin: 24px 0 12px;
+    color: var(--dvc-red);
+    font-size: 1.15rem;
+}
+
+.guide-code {
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 6px;
+    padding: 7px 9px;
+    overflow-wrap: anywhere;
+    border-radius: 4px;
+    background: #F3F4F6;
+    color: #111827;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.8rem;
+}
+
+.guide-step-card {
+    padding: 14px;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    background: white;
+}
+
+.guide-step-card p {
+    margin: 5px 0 0;
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+.guide-step-card strong {
+    color: #111827;
+}
+
+.guide-step-card .guide-code {
+    font-size: 0.75rem;
+}
+
+.guide-source-note {
+    margin: 18px 0 0;
+    color: var(--text-light);
+    font-size: 0.78rem;
+}
+
+.btn:focus-visible,
+.back-btn:focus-visible,
+.breadcrumb a:focus-visible {
+    outline: 3px solid #1D4ED8;
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .vneid-promo-actions {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
